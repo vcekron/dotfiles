@@ -1,0 +1,12 @@
+[Unit]
+Description=Battery-check timer
+Wants=default.target
+After=default.target
+
+[Timer]
+OnActiveSec=1min
+OnUnitActiveSec=5min
+Unit=battery.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery-check
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c '~/dotfiles/battery.sh'

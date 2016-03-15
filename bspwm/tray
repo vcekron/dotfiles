@@ -1,0 +1,49 @@
+#! /bin/zsh
+
+while true;
+do
+	PS=$(ps -cax)
+	
+	TELEGRAM_RUN=$(echo $PS | grep Telegram)
+	if [[ $TELEGRAM_RUN ]]
+	then
+		TELEGRAM_MES=$(xdotool search --class "Telegram" getwindowname | awk '{print $2}' | sed 's/^.\(.*\).$/\1/')
+	fi
+	if [[ $TELEGRAM_MES ]]
+	then
+		TELEGRAM="%{A2:pkill Telegram:}\uf1d8%{A} $TELEGRAM_MES  "
+		TELEGRAM_MES=""
+	elif [[ $TELEGRAM_RUN && !$TELEGRAM_MES ]]
+	then
+		TELEGRAM="%{A2:pkill Telegram:}\uf1d8%{A}  "
+	else
+		TELEGRAM=""
+	fi
+
+	DROPBOX_RUN=$(echo $PS | grep dropbox)
+	if [[ $DROPBOX_RUN ]]
+	then
+		DROPBOX_STATE=$(dropbox-cli status | sed 's/Up to date/1/')
+	fi
+	if [[ $DROPBOX_STATE == 1 ]]
+	then
+		DROPBOX="\uf16b  "
+	elif [[ $DROPBOX_RUN && $DROPBOX_STATE != 1 ]]
+	then
+		DROPBOX="\uf16b !  "
+	else
+		DROPBOX=""
+	fi
+
+	REDSHIFT_RUN=$(echo $PS | grep redshift)
+	if [[ $REDSHIFT_RUN ]]
+	then
+		REDSHIFT="%{A:pkill redshift:}\uf0eb%{A}  "
+	else
+		REDSHIFT="%{A:nohup redshift &:}%{F#FF707880}\uf0eb%{A}%{F-}  "
+	fi
+	
+	echo "R$TELEGRAM$DROPBOX$REDSHIFT"
+
+	sleep 1
+done > "$PANEL_FIFO" &
