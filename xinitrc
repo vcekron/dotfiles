@@ -57,7 +57,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 setxkbmap -option ctrl:nocaps &
 numlockx &
 dropbox &
-#pgrep -x compton > /dev/null || compton --respect-prop-shadow -bc -t -8 -l -9 -r 6 -o 0.7 &
-#redshift & 
-#perl ~/.xswipe/xSwipe.pl &
 exec bspwm
