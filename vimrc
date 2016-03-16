@@ -30,7 +30,8 @@ augroup END
 Plug 'Valloric/YouCompleteMe', { 'on': [] }
 command! YCM call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
 
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'on': [] }
+command! Vimtex call plug#load('vimtex')
 
 call plug#end()
 
