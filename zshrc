@@ -58,7 +58,7 @@ alias sx="sudo chmod +x"
 alias ls="ls -X --color=auto"
 alias ll="ls -lhX --color=auto"
 alias e="vim"
-alias se="sudo vim"
+alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
 
@@ -75,7 +75,7 @@ ne ()
 
 nse ()
 {
-		(urxvt -e sudo vim "$@" &) 
+		(urxvt -e sudoedit "$@" &) 
 }
 
 new ()
