@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="gtkrc-2.0 makepkg.conf vimrc zlogin zprofile zshrc Xresources xinitrc xswipe"    # list of files/folders to symlink in homedir
+files="gtkrc-2.0 makepkg.conf vimrc zlogin zprofile zshrc Xresources xinitrc"    # list of files/folders to symlink in homedir
 conf_files="bspwm sxhkd vlc compton.conf redshift.conf"
 
 ##########
@@ -37,6 +37,11 @@ for file in $conf_files; do
     echo "Creating symlink to $file in ~/.config directory."
     ln -s $dir/$file ~/.config/
 done
+
+echo "Moving any existing dotfiles from ~ to $olddir"
+mv ~/.xswipe/eventKey.cfg ~/dotfiles_old/
+echo "Creating symlink to eventKey.cfg in ~/.xswipe directory."
+ln -s $dir/eventKey.cfg ~/.xswipe/
 
 echo "Moving any existing dotfiles from ~/.vim to $olddir"
 mv ~/.vim/colors ~/dotfiles_old/

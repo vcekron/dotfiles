@@ -42,6 +42,9 @@ set shiftwidth=4
 set title
 "set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
 
+"Don't select line numbers with mouse
+set mouse=a
+
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 

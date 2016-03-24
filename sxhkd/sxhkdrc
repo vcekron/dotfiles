@@ -7,8 +7,8 @@ super + Return
 	urxvt
 
 # program launcher
-super + r
-	dmenu_run -nb '#1D1F21' -nf '#C5C8C6' -sb '#C5C6C8' -sf '#1D1F21' -fn 'Liberation Sans:style=bold:size=9' -p Run: -h 18 -x 81 -w 960 -i -q
+super + space 
+	dmenu_run -nb '#1D1F21' -nf '#C5C8C6' -sb '#C5C6C8' -sf '#1D1F21' -fn 'Liberation Sans:style=bold:size=9' -p Run: -h 18 -x 81 -w 942 -i -q
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -37,6 +37,14 @@ super + y
 # swap the current node and the biggest node
 super + g
 	bspc node -s biggest
+
+# rotate balance equalize
+super + {_,shift,ctrl + } r 
+	bspc node @/ {-R 90,-B,-E}
+
+# Transplant node to west-most position
+super + n
+	bspc node -n @/
 
 #
 # state/flags
