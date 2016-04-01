@@ -20,15 +20,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 " Unmanaged plugin (manually installed and updated)
 "Plug '~/my-prototype-plugin'
 
-Plug 'SirVer/ultisnips', { 'on': [] } | Plug 'honza/vim-snippets', { 'on': [] }
-
-augroup load_us_ycm
-autocmd InsertEnter * call plug#load('ultisnips', 'vim-snippets')
-                     \| autocmd! load_us_ycm 
-augroup END
-
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
-command! YCM call plug#load('YouCompleteMe') | call youcompleteme#Enable() | YcmCompleter
+Plug 'SirVer/ultisnips', { 'on': [] } | Plug 'honza/vim-snippets', { 'on': [] } | Plug 'Valloric/YouCompleteMe', { 'on': [] }
+command! YCM call plug#load('ultisnips', 'vim-snippets', 'YouCompleteMe') | call youcompleteme#Enable() "| YcmCompleter
 
 Plug 'lervag/vimtex', { 'on': [] }
 command! Vimtex call plug#load('vimtex')
@@ -54,6 +47,7 @@ if has('gui_running')
 	set guifont-=DejaVu_Sans_Mono:h12:cANSI
 endif
 
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 "let g:ycm_global_ycm_extra_conf = '/path/to/the/file'
 
 "Recommendations from Vim tutorial
