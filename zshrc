@@ -62,6 +62,8 @@ alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
 
+alias school="cd ~/Dropbox/School/KAU/"
+
 mkcd () 
 { 
 	mkdir -p "$1";
