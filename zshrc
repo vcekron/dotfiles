@@ -70,17 +70,22 @@ mkcd ()
 
 ne ()
 {
-		(urxvt -e vim "$@" &) 
+	(urxvt -e vim "$@" &) 
 } 
 
 nse ()
 {
-		(urxvt -e sudoedit "$@" &) 
+	(urxvt -e sudoedit "$@" &) 
+}
+
+nt ()
+{
+	(urxvt -cd "`pwd`" &)
 }
 
 new ()
 {
-		(urxvt -e "$@" &)
+	(urxvt -e "$@" &)
 }
 
 # create a zkbd compatible hash;
