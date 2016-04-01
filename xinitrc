@@ -56,6 +56,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 setxkbmap -option ctrl:nocaps &
 numlockx &
-dropbox &
+redshift &
+perl ~/.xswipe/xSwipe.pl &
 sxhkd &
 exec bspwm

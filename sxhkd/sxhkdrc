@@ -20,7 +20,7 @@ super + Escape
 
 # quit bspwm normally
 super + alt + Escape
-	bspc quit && pkill panel && pkill compton && pkill redshift && pkill perl
+	bspc quit && pkill panel && pkill compton
 
 # close and kill
 super + {_,shift + }q
