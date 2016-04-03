@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + r 
-	dmenu_run -nb '#1D1F21' -nf '#C5C8C6' -sb '#C5C6C8' -sf '#1D1F21' -fn 'Liberation Sans:style=bold:size=9' -p Run: -h 18 -x 81 -w 942 -i -q
+	dmenu_run -nb '#1D1F21' -nf '#C5C8C6' -sb '#C5C6C8' -sf '#1D1F21' -fn 'Liberation Sans:style=bold:size=9' -p Run: -h 18 -x 81 -w 965 -i -q
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -163,10 +163,6 @@ super + BackSpace
 	|| xdotool search --classname scratchpad windowmap \
 	|| urxvt -name scratchpad -g 122x17-255-0 &
 	
-ctrl + alt + k
-	/home/danikron/dotfiles/kbswitch.sh; \
- 	/home/danikron/.config/bspwm/kbstat.sh
-
 ctrl + alt + l
 	i3lock -n -u -c "#000000" -i '/home/danikron/.i3lock/arch_shred.png'
 

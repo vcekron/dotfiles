@@ -11,10 +11,6 @@ while read -r line ; do
 			# clock output
 			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
 			;;
-		K*)
-			# keyboard layout output
-			keyboard="%{T3}${line#?}%{T-}$PADDING"
-			;;
 		B*)
 			# battery status
 			battery="%{T3}${line#?}%{T-}$PADDING"
@@ -101,5 +97,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{Sf}%{l}${wm}%{c}${title}%{r}${tray}${volume}${battery}${keyboard}${sys}"
+	printf "%s\n" "%{Sf}%{l}${wm}%{c}${title}%{r}${tray}${volume}${battery}${sys}"
 done
