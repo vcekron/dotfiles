@@ -9,7 +9,7 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 files="gtkrc-2.0 makepkg.conf vimrc zlogin zprofile zshrc Xresources xinitrc"    # list of files/folders to symlink in homedir
-conf_files="bspwm sxhkd vlc compton.conf redshift.conf"
+conf_files="bspwm sxhkd compton.conf redshift.conf"
 
 ##########
 
@@ -47,6 +47,11 @@ echo "Moving any existing dotfiles from ~/.vim to $olddir"
 mv ~/.vim/colors ~/dotfiles_old/
 echo "Creating symlink to colors in ~/.vim directory."
 ln -s $dir/colors ~/.vim/
+
+echo "Moving any existing vlcrc from ~/.config/vlc to $olddir"
+mv ~/.config/vlc/vlcrc ~/dotfiles_old/
+echo "Creating symlink to vlcrc in ~/.config/vlc directory."
+ln -s $dir/vlcrc ~/.config/vlc/
 
 <<install
 install_zsh () {
