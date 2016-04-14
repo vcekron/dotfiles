@@ -38,11 +38,6 @@ for file in $conf_files; do
     ln -s $dir/$file ~/.config/
 done
 
-echo "Moving any existing dotfiles from ~ to $olddir"
-mv ~/.xswipe/eventKey.cfg ~/dotfiles_old/
-echo "Creating symlink to eventKey.cfg in ~/.xswipe directory."
-ln -s $dir/eventKey.cfg ~/.xswipe/
-
 echo "Moving any existing dotfiles from ~/.vim to $olddir"
 mv ~/.vim/colors ~/dotfiles_old/
 echo "Creating symlink to colors in ~/.vim directory."
