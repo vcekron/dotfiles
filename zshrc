@@ -62,6 +62,7 @@ alias e="vim"
 alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
+alias rm="noglob rm"
 
 alias school="cd ~/Dropbox/School/KAU/"
 
