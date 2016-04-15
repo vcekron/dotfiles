@@ -49,7 +49,8 @@ export EDITOR=vim
 #Aliases
 #alias please='sudo $(fc -nl -1)'
 alias -g L="|less -FX"
-alias syu="sudo aura -Syu && sudo aura -Aua"
+#alias syu="sudo aura -Syu && sudo aura -Aua"
+alias syu="pacaur -Syu"
 alias rbgit="~/dotfiles/rbgit.sh"
 alias rdpkg="pacman -Qtd"
 alias clnpkg="~/dotfiles/clnpkg.sh"
