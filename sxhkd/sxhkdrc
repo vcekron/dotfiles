@@ -169,6 +169,10 @@ ctrl + alt + l
 super + e
 	urxvt -e ranger
 
+XF86Sleep	
+	systemctl suspend; \
+	i3lock -n -u -c "#000000" -i '/home/danikron/.i3lock/arch_shred.png'
+
 XF86AudioMute
 	pulseaudio-ctl mute
 
