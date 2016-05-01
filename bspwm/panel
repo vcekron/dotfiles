@@ -18,7 +18,7 @@ clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 source ~/.config/bspwm/volume
 source ~/.config/bspwm/battery
 source ~/.config/bspwm/tray
-source ~/.config/bspwm/kbstat.sh
+source ~/.config/bspwm/updates
 
 source ~/.config/bspwm/panel_colors
 
