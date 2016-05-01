@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + r 
-	dmenu_run -nb '#1D1F21' -nf '#C5C8C6' -sb '#C5C6C8' -sf '#1D1F21' -fn 'Liberation Sans:style=bold:size=9' -p Run: -h 18 -x 81 -w 965 -i -q
+    rofi -show run -bw 0 -font "Liberation Sans Bold 9" -color-window "#1D1F21" "1D1F21" -color-normal "#1D1F21","#C5C6C8","#1D1F21","#C5C6C8","#1D1F21"
 
 # make sxhkd reload its configuration files:
 super + Escape
