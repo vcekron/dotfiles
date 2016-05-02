@@ -4,7 +4,7 @@ while true;
 do
 	PS=$(ps -cax)
 	
-	TELEGRAM_RUN=$(echo $PS | grep Telegram)
+	TELEGRAM_RUN=$(echo $PS | grep telegram)
 	if [[ $TELEGRAM_RUN ]]
 	then
 		TELEGRAM_MES=$(xdotool search --class "Telegram" getwindowname | awk '{print $2}' | sed 's/^.\(.*\).$/\1/')
