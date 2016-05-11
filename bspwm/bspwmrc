@@ -34,6 +34,7 @@ bspc rule -a Spotify desktop='^7'
 bspc rule -a telegram-desktop border=off state=floating locked=on desktop='^8'
 #bspc rule -a sun-awt-X11-XFramePeer state=floating
 bspc rule -a Zathura state=tiled
+bspc rule -a MPlayer state=floating
 
 ~/.config/bspwm/panel | sh &
 
