@@ -46,12 +46,10 @@ setopt completealiases
 #This sets default editor to nano
 export EDITOR=vim
 
-#Aliases
-#alias please='sudo $(fc -nl -1)'
+#Aliases 
 alias -g L="|less -FX"
 #alias syu="sudo aura -Syu && sudo aura -Aua"
-alias syu="pacaur -Syu && echo "U" > $PANEL_FIFO"
-alias rbgit="~/dotfiles/rbgit.sh"
+alias syu="pacaur -Syu && echo "U" > $PANEL_FIFO" 
 alias rdpkg="pacman -Qtd"
 alias clnpkg="~/dotfiles/clnpkg.sh"
 alias x="chmod +x"
