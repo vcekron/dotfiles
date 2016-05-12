@@ -44,7 +44,7 @@ export NO_AT_BRIDGE=1
 setopt completealiases
 
 #This sets default editor to nano
-export EDITOR=vim
+export EDITOR=nvim
 
 #Aliases 
 alias -g L="|less -FX"
@@ -56,7 +56,7 @@ alias x="chmod +x"
 alias sx="sudo chmod +x"
 alias ls="ls -X --color=auto"
 alias ll="ls -lhX --color=auto"
-alias e="vim"
+alias e="nvim"
 alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
