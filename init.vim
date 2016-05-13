@@ -37,7 +37,7 @@ let g:airline_theme = 'hybrid'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_symbols.maxlinenr = '' "'☰'
+let g:airline_symbols.maxlinenr = '☰'
 
 set number
 set tabstop=4
