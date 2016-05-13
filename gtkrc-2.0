@@ -19,7 +19,7 @@
 #class "*Pager*"                    style "pager"
 
 gtk-theme-name = "Numix-Frost-Light"
-gtk-font-name = "Liberation Sans 8"
+gtk-font-name = "Liberation Sans 9"
 gtk-icon-theme-name = "Faenza"
 gtk-cursor-theme-name = "oxy-obsidian"
 gtk-cursor-theme-size = 16
