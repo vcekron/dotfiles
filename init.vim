@@ -34,10 +34,6 @@ command! Deo call deoplete#enable()
 
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid' 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.maxlinenr = '☰'
 
 set number
 set tabstop=4
