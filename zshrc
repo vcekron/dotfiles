@@ -14,9 +14,9 @@ compinit
 
 #This sets the dynamic window title
 case $TERM in
-    xterm*|*rxvt*)
-        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-        ;;
+	xterm*|*rxvt*)
+	precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+	;;
 esac
 
 #This enables the use of colors
@@ -46,10 +46,10 @@ setopt completealiases
 #This sets default editor to nano
 export EDITOR=nvim
 
-#Aliases 
+#Aliases
 alias -g L="|less -FX"
 #alias syu="sudo aura -Syu && sudo aura -Aua"
-alias syu="pacaur -Syu && echo "U" > $PANEL_FIFO" 
+alias syu="pacaur -Syu && echo "U" > $PANEL_FIFO"
 alias rdpkg="pacman -Qtd"
 alias clnpkg="~/dotfiles/clnpkg.sh"
 alias x="chmod +x"
@@ -64,20 +64,20 @@ alias rm="noglob rm"
 
 alias school="cd ~/Dropbox/School/KAU/"
 
-mkcd () 
-{ 
+mkcd ()
+{
 	mkdir -p "$1";
 	cd "$1"
 }
 
 ne ()
 {
-	(urxvt -e vim "$@" &) 
-} 
+	(urxvt -e vim "$@" &)
+}
 
 nse ()
 {
-	(urxvt -e sudoedit "$@" &) 
+	(urxvt -e sudoedit "$@" &)
 }
 
 nt ()

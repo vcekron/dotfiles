@@ -25,9 +25,19 @@ endfunction
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 call plug#end()
 
 command! Deo call deoplete#enable()
+
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'hybrid' 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.maxlinenr = '' "'☰'
 
 set number
 set tabstop=4

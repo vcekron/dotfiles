@@ -100,10 +100,11 @@
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-  URxvt*font:                           xft:Liberation Mono:pixelsize=12
-  URxvt*boldFont:                       xft:Liberation Mono:bold:pixelsize=12
-  URxvt*italicFont:                     xft:Liberation Mono:italic:pixelsize=12
-  URxvt*boldItalicFont:                 xft:Liberation Mono:bold:italic:pixelsize=12
+  URxvt*font:                           xft:Literation Mono Powerline:pixelsize=12, \
+                                        xft:DejaVu Sans:pixelsize=12
+  URxvt*boldFont:                       xft:Literation Mono Powerline:bold:pixelsize=12
+  URxvt*italicFont:                     xft:Literation Mono Powerline:italic:pixelsize=12
+  URxvt*boldItalicFont:                 xft:Literation Mono Powerline:bold:italic:pixelsize=12
 ! URxvt*intensityStyles:                boolean
 ! URxvt*inputMethod:                    name
 ! URxvt*preeditType:                    style
