@@ -39,8 +39,7 @@ set number
 set tabstop=4
 set shiftwidth=4
 
-set title
-"set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+set title 
 
 "Don't select line numbers with mouse
 set mouse=a
@@ -59,5 +58,4 @@ inoremap jk <ESC>
 let mapleader = "\<Space>"
 filetype plugin indent on
 syntax on
-set encoding=utf-8
-
+set encoding=utf-8 
