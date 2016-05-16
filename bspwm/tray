@@ -7,7 +7,7 @@ do
 	TELEGRAM_RUN=$(echo $PS | grep telegram)
 	if [[ $TELEGRAM_RUN ]]
 	then
-		TELEGRAM_MES=$(xdotool search --class "Telegram" getwindowname | awk '{print $2}' | sed 's/^.\(.*\).$/\1/')
+		TELEGRAM_MES=$(xdotool search --class "telegram-desktop" getwindowname | awk '{print $2}' | sed 's/^.\(.*\).$/\1/')
 	fi
 	if [[ $TELEGRAM_MES ]]
 	then
