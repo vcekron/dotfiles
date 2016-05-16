@@ -1,5 +1,9 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
+browser {
+  background-color: #000 !important;
+}
+
 /*#TabsToolbar {
   background-color: #F8F8F8 !important;
   margin-bottom: -1 !important;
