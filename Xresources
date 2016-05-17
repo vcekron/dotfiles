@@ -99,9 +99,9 @@
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
-! URxvt*iconFile:                       file 
+! URxvt*iconFile:                       file
   URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=12, \
-  										xft:DejaVu Sans:pixelsize=12 
+  										xft:DejaVu Sans:pixelsize=12
   URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=12, \
 										xft:DejaVu Sans:bold:pixelsize=12
   URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:pixelsize=12, \
