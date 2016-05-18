@@ -38,15 +38,11 @@ for file in $conf_files; do
     ln -s $dir/$file ~/.config/
 done
 
-echo "Moving any existing dotfiles from ~/.vim to $olddir"
-mv ~/.vim/colors ~/dotfiles_old/
-echo "Creating symlink to colors in ~/.vim directory."
-ln -s $dir/colors ~/.vim/
-
-echo "Moving any existing vlcrc from ~/.config/vlc to $olddir"
-mv ~/.config/vlc/vlcrc ~/dotfiles_old/
-echo "Creating symlink to vlcrc in ~/.config/vlc directory."
-ln -s $dir/vlcrc ~/.config/vlc/
+echo "Moving any existing dotfiles from ~/.config/nvim to $olddir"
+mv ~/.nvim/colors ~/dotfiles_old/
+echo "Creating symlink to init.vim and colors in ~/.config/nvim directory."
+ln -s $dir/colors ~/.nvim/
+ln -s $dir/init.vim ~/.nvim/
 
 <<install
 install_zsh () {
