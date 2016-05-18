@@ -24,7 +24,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 function! DoRemote(arg)
-  UpdateRemotePlugins
+	UpdateRemotePlugins
 endfunction
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -69,10 +69,4 @@ function! NumberToggle()
 	endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-
-if has('gui_running')
-	set guioptions-=T	"no toolbar
-	set guioptions-=m	"no menu bar
-	set guifont-=DejaVu_Sans_Mono:h12:cANSI
-endif
+nnoremap <C-n> :call NumberToggle()<cr> 
