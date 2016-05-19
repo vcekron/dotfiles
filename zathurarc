@@ -1,2 +1,3 @@
 set recolor-lightcolor "#1D1F21"
 set highlight-color "#707880" 
+set highlight-active-color "#000000"
