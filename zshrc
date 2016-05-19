@@ -1,16 +1,16 @@
-# Lines configured by zsh-newuser-install
+#Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+#End of lines configured by zsh-newuser-install
+#The following lines were added by compinstall
 zstyle :compinstall filename '/home/danikron/.zshrc'
 
 autoload -U compinit
 compinit
-# End of lines added by compinstall
+#End of lines added by compinstall
 
 #This sets the dynamic window title
 case $TERM in
@@ -18,6 +18,9 @@ case $TERM in
 	precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 	;;
 esac
+
+#This prevents SIGSTOP at Ctrl-S
+stty -ixon
 
 #This enables the use of colors
 #autoload -U colors && colors
@@ -90,8 +93,8 @@ new ()
 	(urxvt -e "$@" &)
 }
 
-# create a zkbd compatible hash;
-# to add other keys to this hash, see: man 5 terminfo
+#create a zkbd compatible hash;
+#to add other keys to this hash, see: man 5 terminfo
 typeset -A key
 
 key[Home]=${terminfo[khome]}
@@ -105,7 +108,7 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-# setup key accordingly
+#setup key accordingly
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Insert]}"   ]]  && bindkey  "${key[Insert]}"   overwrite-mode
