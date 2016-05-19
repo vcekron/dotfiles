@@ -39,10 +39,11 @@ for file in $conf_files; do
 done
 
 echo "Moving any existing dotfiles from ~/.config/nvim to $olddir"
-mv ~/.nvim/colors ~/dotfiles_old/
+mv ~/.config/nvim/colors ~/dotfiles_old/
+mv ~/.config/nvim/init.vim ~/dotfiles_old/
 echo "Creating symlink to init.vim and colors in ~/.config/nvim directory."
-ln -s $dir/colors ~/.nvim/
-ln -s $dir/init.vim ~/.nvim/
+ln -s $dir/colors ~/.config/nvim/
+ln -s $dir/init.vim ~/.config/nvim/
 
 <<install
 install_zsh () {
