@@ -28,6 +28,7 @@ function! DoRemote(arg)
 endfunction
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'lervag/vimtex'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -55,7 +56,6 @@ set mouse=a
 filetype plugin indent on
 syntax on
 inoremap jk <ESC>
-let mapleader = "\<Space>"
 " Map j/k to move by visual lines when not using count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
