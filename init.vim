@@ -35,8 +35,6 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
-command! Deo call deoplete#enable()
-
 if !exists('g:deoplete#omni_patterns')
 	let g:deoplete#omni_patterns = {}
 endif
@@ -95,3 +93,9 @@ imap <c-s> <Esc><c-s>
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
+
+" Toggle spellcheck
+nmap <silent> <leader>s :set spell!<CR>
+
+" Toggle autocomplete
+nmap <silent> <leader>d :call deoplete#enable()<CR>
