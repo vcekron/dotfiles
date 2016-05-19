@@ -13,6 +13,7 @@ Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/wellle/targets.vim.git'
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-fugitive'
 
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
