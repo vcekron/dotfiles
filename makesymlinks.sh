@@ -45,6 +45,11 @@ echo "Creating symlink to init.vim and colors in ~/.config/nvim directory."
 ln -s $dir/colors ~/.config/nvim/
 ln -s $dir/init.vim ~/.config/nvim/
 
+echo "Moving any existing dotfiles from ~/.config/zathura to $olddir"
+mv ~/.config/zathura/zathurarc ~/dotfiles_old/
+echo "Creating symlink to zathurarc in ~/.config/zathura directory."
+ln -s $dir/zathurarc ~/.config/zathura/
+
 <<install
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
