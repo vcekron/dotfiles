@@ -37,6 +37,21 @@ call plug#end()
 
 command! Deo call deoplete#enable()
 
+if !exists('g:deoplete#omni_patterns')
+	let g:deoplete#omni_patterns = {}
+endif
+let g:deoplete#omni_patterns.tex =
+	\ '\v\\%('
+	\ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
+	\ . '|hyperref\s*\[[^]]*'
+	\ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|%(include%(only)?|input)\s*\{[^}]*'
+	\ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
+	\ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
+	\ . ')\m'
+
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 
@@ -70,4 +85,4 @@ function! NumberToggle()
 	endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr> 
+nnoremap <C-n> :call NumberToggle()<cr>
