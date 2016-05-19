@@ -56,6 +56,9 @@ let g:airline_theme = 'hybrid'
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
+let g:tex_flavor = "latex"
+let g:vimtex_view_method = 'zathura'
+
 set encoding=utf-8
 set number
 set relativenumber
