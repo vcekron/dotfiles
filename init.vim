@@ -45,6 +45,7 @@ colorscheme hybrid
 set encoding=utf-8
 set number
 set relativenumber
+set backspace=
 set tabstop=4
 set shiftwidth=4
 set title
