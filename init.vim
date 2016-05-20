@@ -103,3 +103,8 @@ nmap <silent> <leader>s :set spell!<CR>
 
 " Toggle autocomplete
 nmap <silent> <leader>d :call deoplete#enable()<CR>
+
+" Hide highlights
+nmap <c-h> :noh<CR>
+vmap <c-h> <Esc><c-h>
+imap <c-h> <c-o><c-h>
