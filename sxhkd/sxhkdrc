@@ -138,7 +138,7 @@ super + BackSpace
 	|| urxvt -name scratchpad -g 122x17-255-0 &
 
 super + shift + Return
-	~/newterm.sh
+	~/dotfiles/newterm.sh
 
 ctrl + alt + l
 	i3lock -n -u -c "#000000" -i '/home/danikron/.i3lock/arch_shred.png'
