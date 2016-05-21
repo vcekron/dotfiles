@@ -83,11 +83,6 @@ nse ()
 	(urxvt -e sudoedit "$@" &)
 }
 
-nt ()
-{
-	(urxvt -cd "`pwd`" &)
-}
-
 new ()
 {
 	(urxvt -e "$@" &)
