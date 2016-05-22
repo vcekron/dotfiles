@@ -7,7 +7,7 @@ super + Return
 	urxvt
 
 # program launcher
-super + r 
+super + r
     rofi -show run -bw 0 -font "Liberation Sans Bold 9" -color-window "#1D1F21" -color-normal "#1D1F21","#C5C6C8","#1D1F21","#C5C6C8","#1D1F21" -hide-scrollbar -separator-style none -lines 8
 
 # make sxhkd reload its configuration files:
@@ -141,14 +141,14 @@ super + shift + Return
 	~/dotfiles/newterm.sh
 
 ctrl + alt + l
-	i3lock -n -u -c "#000000" -i '/home/danikron/.i3lock/arch_shred.png'
+	i3lock -n -u -c "#000000" -i ~/.i3lock/arch_shred.png
 
 super + e
 	urxvt -e ranger
 
-XF86Sleep	
+XF86Sleep
 	systemctl suspend; \
-	i3lock -n -u -c "#000000" -i '/home/danikron/.i3lock/arch_shred.png'
+	i3lock -n -u -c "#000000" -i ~/.i3lock/arch_shred.png
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
@@ -158,7 +158,7 @@ XF86AudioRaiseVolume
 
 XF86AudioLowerVolume
 	sh -c "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -2%"
-	
+
 XF86AudioPlay
 	cmus-remote -u; \
 	playerctl play-pause
@@ -166,7 +166,7 @@ XF86AudioPlay
 XF86AudioStop
 	cmus-remote -s; \
 	playerctl stop
-	
+
 XF86AudioNext
 	cmus-remote -n; \
 	playerctl next
