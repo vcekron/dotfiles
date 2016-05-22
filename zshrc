@@ -5,12 +5,62 @@ SAVEHIST=1000
 unsetopt beep
 bindkey -e
 #End of lines configured by zsh-newuser-install
+
 #The following lines were added by compinstall
-zstyle :compinstall filename '/home/danikron/.zshrc'
+zstyle :compinstall filename ~/.zshrc
 
 autoload -U compinit
 compinit
 #End of lines added by compinstall
+
+#This alters the appearance of autocompletion
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+#This sets the option to ignore duplicate history lines
+setopt HIST_IGNORE_DUPS
+
+#Persistant rehash for auto-completion
+setopt nohashdirs
+setopt nohashcmds
+
+# This sets the case insensitivity
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+
+#This disables autocomplete of unavailable commands
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+#This shows a list of completion options
+zstyle ':completion:*' menu select
+
+#This selects the prompt style and sets an exit status indicator
+#autoload -U promptinit
+#promptinit
+#prompt redhat
+if [ $SSH_CONNECTION ]; then SSH="%n@%m "; else SSH=""; fi
+PROMPT=%1(j.[%j].)'['$SSH%~']'%(!.#.$)' '
+RPROMPT=%(?..(%?%))
+
+#This enables the help command
+autoload -U run-help
+autoload run-help-git
+autoload run-help-svn
+autoload run-help-svk
+unalias run-help &>/dev/null
+alias help=run-help
+
+# Finally, make sure the terminal is in application mode, when zle is
+# active. Only then are the values from $terminfo valid.
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+    function zle-line-init () {
+        printf '%s' "${terminfo[smkx]}"
+    }
+    function zle-line-finish () {
+        printf '%s' "${terminfo[rmkx]}"
+    }
+    zle -N zle-line-init
+    zle -N zle-line-finish
+fi
 
 #This sets the dynamic window title
 case $TERM in
