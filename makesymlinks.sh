@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="gtkrc-2.0 makepkg.conf vimrc zlogin zprofile zshrc Xresources xinitrc"    # list of files/folders to symlink in homedir
+files="gtkrc-2.0 makepkg.conf zlogin zprofile zshrc Xresources xinitrc"    # list of files/folders to symlink in homedir
 conf_files="bspwm sxhkd compton.conf redshift.conf"
 
 ##########
@@ -35,6 +35,7 @@ for file in $conf_files; do
     echo "Moving any existing dotfiles from ~ to $olddir"
     mv ~/.config/$file ~/dotfiles_old/
     echo "Creating symlink to $file in ~/.config directory."
+	mkdir -p ~/.config
     ln -s $dir/$file ~/.config/
 done
 
@@ -42,12 +43,14 @@ echo "Moving any existing dotfiles from ~/.config/nvim to $olddir"
 mv ~/.config/nvim/colors ~/dotfiles_old/
 mv ~/.config/nvim/init.vim ~/dotfiles_old/
 echo "Creating symlink to init.vim and colors in ~/.config/nvim directory."
+mkdir -p ~/.config/nvim
 ln -s $dir/colors ~/.config/nvim/
 ln -s $dir/init.vim ~/.config/nvim/
 
 echo "Moving any existing dotfiles from ~/.config/zathura to $olddir"
 mv ~/.config/zathura/zathurarc ~/dotfiles_old/
 echo "Creating symlink to zathurarc in ~/.config/zathura directory."
+mkdir -p ~/.config/zathura
 ln -s $dir/zathurarc ~/.config/zathura/
 
 <<install
