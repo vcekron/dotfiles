@@ -3,6 +3,7 @@
 xsetroot -cursor_name left_ptr &
 feh --bg-fill ~/wallpaper.jpg &
 pgrep -x compton > /dev/null || compton --respect-prop-shadow -bc -t -8 -l -9 -r 6 -o 0.7 &
+unclutter --timeout 1 &
 dropbox &
 
 bspc config border_width       1
