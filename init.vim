@@ -87,8 +87,6 @@ function! NumberToggle()
 	endif
 endfunc
 
-nnoremap <C-n> :call NumberToggle()<cr>
-
 " Save on Ctrl-S and update on F2
 nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
@@ -97,6 +95,9 @@ imap <c-s> <Esc><c-s>
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
+
+" Toggle absolute line numbers
+nmap <silent> <leader>n :call NumberToggle()<CR>
 
 " Toggle spellcheck
 nmap <silent> <leader>s :set spell!<CR>
