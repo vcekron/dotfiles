@@ -63,6 +63,7 @@ let g:vimtex_view_method = 'zathura'
 set encoding=utf-8
 set number
 set relativenumber
+set showcmd
 set backspace=
 set tabstop=4
 set shiftwidth=4
