@@ -110,3 +110,6 @@ nmap <silent> <leader>d :call deoplete#enable()<CR>
 nmap <c-h> :noh<CR>
 vmap <c-h> <Esc><c-h>
 imap <c-h> <c-o><c-h>
+
+" Tweak behaviour of return in autocomplete menu
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
