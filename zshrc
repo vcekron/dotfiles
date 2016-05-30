@@ -101,8 +101,6 @@ export EDITOR=nvim
 
 #Aliases
 alias -g L="|less -FX"
-#alias syu="sudo aura -Syu && sudo aura -Aua"
-alias syu="pacaur -Syu && echo "U" > $PANEL_FIFO"
 alias rdpkg="pacman -Qtd"
 alias clnpkg="~/dotfiles/clnpkg.sh"
 alias x="chmod +x"
@@ -116,6 +114,12 @@ alias ..2="cd ../.."
 alias rm="noglob rm"
 
 alias school="cd ~/Dropbox/School/KAU/"
+
+syu ()
+{
+	pacaur -Syu "$@"
+	echo "U" > $PANEL_FIFO
+}
 
 mkcd ()
 {
