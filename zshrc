@@ -96,7 +96,7 @@ export NO_AT_BRIDGE=1
 #This sets autocomplete for aliases
 setopt completealiases
 
-#This sets default editor to nano
+#This sets default editor to nvim
 export EDITOR=nvim
 
 #Aliases
