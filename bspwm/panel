@@ -18,7 +18,12 @@ clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 source ~/.config/bspwm/volume
 source ~/.config/bspwm/battery
 source ~/.config/bspwm/tray
-source ~/.config/bspwm/updates
+
+while true;
+do
+	~/.config/bspwm/updates
+	sleep 1h
+done > "$PANEL_FIFO" &
 
 source ~/.config/bspwm/panel_colors
 
