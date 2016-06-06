@@ -129,7 +129,7 @@ mkcd ()
 
 ne ()
 {
-	(urxvt -e vim "$@" &)
+	(urxvt -e nvim "$@" &)
 }
 
 nse ()
