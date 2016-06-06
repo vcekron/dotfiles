@@ -25,30 +25,35 @@ echo "done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $files
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+    echo "Moving any existing dotfiles from ~ to $olddir."
+    mv ~/.$file ~/$olddir
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
 
 for file in $conf_files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.config/$file ~/dotfiles_old/
+    echo "Moving any existing dotfiles from ~ to $olddir."
+    mv ~/.config/$file ~/$olddir
     echo "Creating symlink to $file in ~/.config directory."
 	mkdir -p ~/.config
     ln -s $dir/$file ~/.config/
 done
 
-echo "Moving any existing dotfiles from ~/.config/nvim to $olddir"
-mv ~/.config/nvim/colors ~/dotfiles_old/
-mv ~/.config/nvim/init.vim ~/dotfiles_old/
+echo "Moving existing settings.ini from ~/.config/gtk-3.0 to $olddir."
+mv ~/.config/gtk-3.0/settings.ini ~/$olddir
+echo "Creating symlink to settings.ini in ~/.config/gtk-3.0 directory."
+ln -s $dir/settings.ini ~/.config/gtk-3.0/
+
+echo "Moving any existing dotfiles from ~/.config/nvim to $olddir."
+mv ~/.config/nvim/colors ~/$olddir/
+mv ~/.config/nvim/init.vim ~/$olddir
 echo "Creating symlink to init.vim and colors in ~/.config/nvim directory."
 mkdir -p ~/.config/nvim
 ln -s $dir/colors ~/.config/nvim/
 ln -s $dir/init.vim ~/.config/nvim/
 
-echo "Moving any existing dotfiles from ~/.config/zathura to $olddir"
-mv ~/.config/zathura/zathurarc ~/dotfiles_old/
+echo "Moving any existing dotfiles from ~/.config/zathura to $olddir."
+mv ~/.config/zathura/zathurarc ~/$olddir
 echo "Creating symlink to zathurarc in ~/.config/zathura directory."
 mkdir -p ~/.config/zathura
 ln -s $dir/zathurarc ~/.config/zathura/
