@@ -107,7 +107,7 @@ alias x="chmod +x"
 alias sx="sudo chmod +x"
 alias ls="ls -X --color=auto"
 alias ll="ls -lh --color=auto"
-alias e="nvim"
+alias e="$EDITOR"
 alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
@@ -129,7 +129,7 @@ mkcd ()
 
 ne ()
 {
-	(urxvt -e nvim "$@" &)
+	(urxvt -e $EDITOR "$@" &)
 }
 
 nse ()
