@@ -161,3 +161,14 @@
   margin-top: 5px !important;
   margin-bottom: 5px !important;
 }*/
+
+
+tooltip {
+
+   -moz-appearance: none !important;
+
+   background-color: rgb(55,59,65) !important; 
+
+   color: white !important; ;
+
+}
