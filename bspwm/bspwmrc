@@ -31,7 +31,7 @@ bspc rule -a Firefox desktop 1
 #bspc rule -a vivaldi-preview desktop 1
 bspc rule -a Vlc state=floating
 bspc rule -a Speedcrunch state=floating
-bspc rule -a Spotify desktop='^7'
+bspc rule -a Spotify desktop='east:^2'
 bspc rule -a telegram-desktop border=off state=floating locked=on desktop='east:^6'
 #bspc rule -a sun-awt-X11-XFramePeer state=floating
 bspc rule -a Zathura state=tiled
