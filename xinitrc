@@ -54,8 +54,11 @@ export SSH_AUTH_SOCK
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+eval $(dircolors -b .dir_colors) &
+xset s off -dpms &
 setxkbmap -option ctrl:nocaps &
 numlockx &
+udiskie &
 redshift &
 sxhkd &
 exec bspwm

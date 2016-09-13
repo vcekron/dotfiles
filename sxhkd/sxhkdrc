@@ -56,10 +56,10 @@ super + ctrl + {x,y,z}
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,south,north,east}.local
 
 super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+	bspc node -{f,s} {west,south,north,east}.local
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
@@ -85,10 +85,10 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} 'focused:^{1-9,10}'
 
 super + {_,shift + }{F1,F2,F3,F4}
-	bspc {desktop -f,node -d} '^{7,8,9,10}'
+	bspc {desktop -f,node -d} 'focused:^{7,8,9,10}'
 
 #
 # preselect
@@ -135,10 +135,13 @@ super + alt + shift + {Left,Down,Up,Right}
 super + BackSpace
 	xdotool search --onlyvisible --classname scratchpad windowunmap \
 	|| xdotool search --classname scratchpad windowmap \
-	|| urxvt -name scratchpad -g 122x17+256-0 &
+	|| urxvt -name scratchpad -g 180x26+650-0 &
 
 super + shift + Return
 	~/dotfiles/newterm.sh
+
+super + {_,shift} + s
+	{bspc monitor -f next,bspc node -m next;bspc monitor -f next}
 
 ctrl + alt + l
 	i3lock -n -u -c "#000000" -i ~/.i3lock/arch_shred.png
@@ -160,19 +163,15 @@ XF86AudioLowerVolume
 	sh -c "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -2%"
 
 XF86AudioPlay
-	cmus-remote -u; \
 	playerctl play-pause
 
 XF86AudioStop
-	cmus-remote -s; \
 	playerctl stop
 
 XF86AudioNext
-	cmus-remote -n; \
 	playerctl next
 
 XF86AudioPrev
-	cmus-remote -r; \
 	playerctl previous
 
 XF86MonBrightnessUp

@@ -41,6 +41,7 @@ done
 
 echo "Moving existing settings.ini from ~/.config/gtk-3.0 to $olddir."
 mv ~/.config/gtk-3.0/settings.ini ~/$olddir
+mkdir -p ~/.config/gtk-3.0
 echo "Creating symlink to settings.ini in ~/.config/gtk-3.0 directory."
 ln -s $dir/settings.ini ~/.config/gtk-3.0/
 
