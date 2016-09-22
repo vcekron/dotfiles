@@ -144,14 +144,14 @@ super + {_,shift} + s
 	{bspc monitor -f next,bspc node -m next;bspc monitor -f next}
 
 ctrl + alt + l
-	i3lock -n -u -c "#000000" -i ~/.i3lock/arch_shred.png
+	i3lock -e -n -c '#000000' -l '#ffffff' --24
 
 super + e
 	urxvt -e ranger
 
 XF86Sleep
 	systemctl suspend; \
-	i3lock -n -u -c "#000000" -i ~/.i3lock/arch_shred.png
+	i3lock -e -n -c '#000000' -l '#ffffff'
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
