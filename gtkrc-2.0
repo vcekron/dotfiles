@@ -18,7 +18,7 @@
 #widget_class "*Pager*"             style "pager"
 #class "*Pager*"                    style "pager"
 
-gtk-theme-name = "Numix-Frost-Light"
+gtk-theme-name = "Numix-ArchBlue"
 gtk-font-name = "Liberation Sans 9"
 gtk-icon-theme-name = "Faenza"
 gtk-cursor-theme-name = "oxy-obsidian"
