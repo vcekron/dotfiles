@@ -6,6 +6,9 @@
 super + Return
 	urxvt
 
+super + KP_Enter
+	urxvt
+
 # program launcher
 super + r
     rofi -show run -bw 0 -font "Liberation Sans Bold 9" -color-window "#1D1F21" -color-normal "#1D1F21","#C5C6C8","#1D1F21","#C5C6C8","#1D1F21" -hide-scrollbar -separator-style none -lines 8
@@ -138,6 +141,9 @@ super + BackSpace
 	|| urxvt -name scratchpad -g 180x26+650-0 &
 
 super + shift + Return
+	~/dotfiles/newterm.sh
+
+super + shift + KP_Enter
 	~/dotfiles/newterm.sh
 
 super + {_,shift} + s
