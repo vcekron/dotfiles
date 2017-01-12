@@ -21,7 +21,7 @@
 gtk-theme-name = "Numix-ArchBlue"
 gtk-font-name = "Liberation Sans 9"
 gtk-icon-theme-name = "Faenza"
-gtk-cursor-theme-name = "oxy-obsidian"
+gtk-cursor-theme-name = "oxy-grey"
 gtk-cursor-theme-size = 16
 gtk-button-images = 0
 
