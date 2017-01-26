@@ -30,7 +30,6 @@ bspc monitor east -d 1 2 3 4 5 6
 bspc rule -a URxvt:scratchpad border=off sticky=on state=floating locked=on
 bspc rule -a Firefox desktop 1
 #bspc rule -a vivaldi-preview desktop 1
-bspc rule -a Vlc state=floating
 bspc rule -a Speedcrunch state=floating
 bspc rule -a Spotify desktop='east:^2'
 bspc rule -a TelegramDesktop border=off state=pseudo_tiled locked=on desktop='east:^6'
@@ -38,6 +37,7 @@ bspc rule -a TelegramDesktop border=off state=pseudo_tiled locked=on desktop='ea
 bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=floating
 bspc rule -a Skype state=floating
+bspc rule -a SVPManager state=pseudo_tiled desktop='primary:^6'
 
 ~/.config/bspwm/panel | sh &
 
