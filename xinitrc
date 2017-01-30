@@ -56,6 +56,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export QT_QPA_PLATFORMTHEME='gtk2'
 
+#xrandr --output HDMI-A-0 --set audio off &
+
 eval $(dircolors -b .dir_colors) &
 xset s off -dpms &
 setxkbmap -option ctrl:nocaps &
