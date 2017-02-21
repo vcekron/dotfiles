@@ -12,7 +12,7 @@ mkfifo "$PANEL_FIFO"
 
 bspc config -m primary top_padding $(( $PANEL_HEIGHT + 2 ))
 bspc subscribe report | sed -u 's/HDMI-0/Primary/; s/DVI-0/East/' > "$PANEL_FIFO" &
-xtitle -sf 'T%s' -t 110 > "$PANEL_FIFO" &
+xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 
 source ~/.config/bspwm/volume
