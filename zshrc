@@ -117,7 +117,7 @@ alias school="cd ~/Dropbox/School/KAU/"
 
 syu ()
 {
-	pacaur -Syu "$@"
+	pacaur -Syu "$@" --silent
 	(~/.config/bspwm/updates > "$PANEL_FIFO" &)
 }
 
