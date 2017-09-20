@@ -1,0 +1,2 @@
+#!/usr/bin/sh
+urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &

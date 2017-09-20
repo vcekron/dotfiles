@@ -58,7 +58,7 @@ export QT_QPA_PLATFORMTHEME='gtk2'
 
 #xrandr --output HDMI-A-0 --set audio off &
 
-eval $(dircolors -b .dir_colors) &
+eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
 setxkbmap -option ctrl:nocaps &
 numlockx &

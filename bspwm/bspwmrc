@@ -27,7 +27,7 @@ bspc config presel_feedback_color '#A54242'
 bspc monitor primary -d 1 2 3 4 5 6
 bspc monitor east -d 1 2 3 4 5 6
 
-bspc rule -a URxvt:scratchpad border=off sticky=on state=floating locked=on
+bspc rule -a URxvt:scratchpad border=off sticky=on state=floating locked=on hidden=on
 bspc rule -a Firefox desktop 1
 #bspc rule -a vivaldi-preview desktop 1
 bspc rule -a SpeedCrunch state=floating
@@ -40,4 +40,4 @@ bspc rule -a Skype state=floating
 bspc rule -a SVPManager state=pseudo_tiled desktop='primary:^6'
 
 ~/.config/bspwm/panel | sh &
-
+~/dotfiles/scratchpad &

@@ -136,9 +136,9 @@ super + alt + shift + {Left,Down,Up,Right}
 
 # personal hotkeys
 super + BackSpace
-	xdotool search --onlyvisible --classname scratchpad windowunmap \
-	|| xdotool search --classname scratchpad windowmap \
-	|| urxvt -name scratchpad -g 180x26+650-0 &
+	id=$(cat /tmp/scratchid);\
+	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;\
+	bspc node $id --flag hidden;bspc node -f $id
 
 super + shift + Return
 	~/dotfiles/newterm.sh
@@ -150,14 +150,14 @@ super + {_,shift} + s
 	{bspc monitor -f next,bspc node -m next;bspc monitor -f next}
 
 ctrl + alt + l
-	i3lock -e -n -c '#000000' -l '#ffffff' --24
+	i3lock-fancy -gf Liberation-Sans
 
 super + e
 	urxvt -e ranger
 
 XF86Sleep
 	systemctl suspend; \
-	i3lock -e -n -c '#000000' -l '#ffffff'
+	i3lock-fancy -gf Liberation-Sans
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle; \
