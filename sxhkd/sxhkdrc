@@ -137,7 +137,6 @@ super + alt + shift + {Left,Down,Up,Right}
 # personal hotkeys
 super + BackSpace
 	id=$(cat /tmp/scratchid);\
-	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;\
 	bspc node $id --flag hidden;bspc node -f $id
 
 super + shift + Return
@@ -147,7 +146,9 @@ super + shift + KP_Enter
 	~/dotfiles/newterm.sh
 
 super + {_,shift} + s
-	{bspc monitor -f next,bspc node -m next;bspc monitor -f next}
+	{bspc monitor -f next,bspc node -m next};\
+	id=$(cat /tmp/scratchid);\
+	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on
 
 ctrl + alt + l
 	i3lock-fancy -gf Liberation-Sans
