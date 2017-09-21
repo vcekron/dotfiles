@@ -148,7 +148,7 @@ super + shift + KP_Enter
 super + {_,shift} + s
 	{bspc monitor -f next,bspc node -m next};\
 	id=$(cat /tmp/scratchid);\
-	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on
+	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;bspc node -f $id
 
 ctrl + alt + l
 	i3lock-fancy -gf Liberation-Sans
