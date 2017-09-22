@@ -145,7 +145,7 @@ super + shift + Return
 super + shift + KP_Enter
 	~/dotfiles/newterm.sh
 
-super + {_,shift} + s
+super + {_,shift + }s
 	{bspc monitor -f next,bspc node -m next};\
 	id=$(cat /tmp/scratchid);\
 	bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;bspc node -f $id
