@@ -1,2 +1,9 @@
 #!/usr/bin/sh
+old=$(xdo id -n "scratchpad")
+if [[ $old ]]
+then
+	bspc node $old --flag locked=off
+	xdo close $old
+	rm /tmp/scratchid
+fi
 urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &

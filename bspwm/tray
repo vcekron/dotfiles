@@ -11,11 +11,11 @@ do
 	fi
 	if [[ $TELEGRAM_MES ]]
 	then
-		TELEGRAM="%{A2:pkill telegram:}\uf1d8%{A} $TELEGRAM_MES  "
+		TELEGRAM="\uf1d8 $TELEGRAM_MES  "
 		TELEGRAM_MES=""
 	elif [[ $TELEGRAM_RUN && !$TELEGRAM_MES ]]
 	then
-		TELEGRAM="%{A2:pkill telegram:}\uf1d8%{A}  "
+		TELEGRAM="\uf1d8  "
 	else
 		TELEGRAM=""
 	fi
@@ -38,9 +38,9 @@ do
 	REDSHIFT_RUN=$(echo $PS | grep redshift)
 	if [[ $REDSHIFT_RUN ]]
 	then
-		REDSHIFT="%{A:pkill redshift:}\uf0eb%{A}  "
+		REDSHIFT="\uf0eb  "
 	else
-		REDSHIFT="%{A:nohup redshift &:}%{F#FF707880}\uf0eb%{A}%{F-}  "
+		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
 	fi
 	
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT"
