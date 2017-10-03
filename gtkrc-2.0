@@ -18,10 +18,10 @@
 #widget_class "*Pager*"             style "pager"
 #class "*Pager*"                    style "pager"
 
-gtk-theme-name = "Numix-Frost-Light"
+gtk-theme-name = "oomox-Tomorrow-Night"
 gtk-font-name = "Liberation Sans 9"
 gtk-icon-theme-name = "Faenza"
-gtk-cursor-theme-name = "oxy-obsidian"
+gtk-cursor-theme-name = "oxy-grey"
 gtk-cursor-theme-size = 16
 gtk-button-images = 0
 

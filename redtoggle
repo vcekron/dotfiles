@@ -1,0 +1,8 @@
+#! /bin/zsh
+run=$(ps -cax | grep redshift)
+if [[ $run ]]
+then
+	pkill redshift
+else
+	nohup redshift &
+fi

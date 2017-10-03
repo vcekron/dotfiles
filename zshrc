@@ -102,7 +102,6 @@ export EDITOR=nvim
 #Aliases
 alias -g L="|less -FX"
 alias rdpkg="pacman -Qtd"
-alias clnpkg="~/dotfiles/clnpkg.sh"
 alias x="chmod +x"
 alias sx="sudo chmod +x"
 alias ls="ls -X --color=auto"
@@ -117,7 +116,7 @@ alias school="cd ~/Dropbox/School/KAU/"
 
 syu ()
 {
-	pacaur -Syu "$@"
+	pacaur -Syu "$@" --silent
 	(~/.config/bspwm/updates > "$PANEL_FIFO" &)
 }
 
@@ -140,6 +139,12 @@ nse ()
 new ()
 {
 	(urxvt -e "$@" &)
+}
+
+clpkg ()
+{
+	echo "Clearing unaffiliated packages..."
+	sudo pacman -Rns $(pacman -Qtdq)
 }
 
 #create a zkbd compatible hash;
