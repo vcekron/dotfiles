@@ -6,4 +6,11 @@ then
 	xdo close $old
 	rm /tmp/scratchid
 fi
-urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &
+res=$(xrandr | grep primary | cut -d " " -f 4)
+if [[ $res == '2560x1440+0+0' ]]
+then
+	urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &
+elif [[ $res == '1366x768+0+0' ]]
+then
+	urxvt -name scratchpad -g 122x17+256-0 -e ~/dotfiles/scratchid &
+fi

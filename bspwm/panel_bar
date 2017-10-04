@@ -101,7 +101,7 @@ while read -r line ; do
 	then
 		printf "%s\n" "%{Sf}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}${space}%{S+}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}${space}"
 	else
-		printf "%s\n" "%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}${space}"
+		printf "%s\n" "%{l}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}"
 	fi
 
 done
