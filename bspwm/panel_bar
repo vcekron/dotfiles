@@ -14,7 +14,7 @@ while read -r line ; do
 			;;
 		V*)
 			# pulse volume
-			volume="%{T3}${line#?}%{T-}$PADDING"
+			volume="${line#?}$PADDING"
 			;;
 		R*)
 			# tray
