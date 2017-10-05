@@ -88,7 +88,10 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {1-9,0}
-	bspc desktop -f 'focused:^{1-9,10}'
+	id=$(cat /tmp/scratchid);\
+	focused=$(bspc query -N -n);\
+	bspc desktop -f 'focused:^{1-9,10}';\
+	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + shift + {1-9,0}
 	bspc node -d 'focused:^{1-9,10}';\
