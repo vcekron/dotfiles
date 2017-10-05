@@ -1,5 +1,10 @@
 PANEL_FIFO=/tmp/panel-fifo
-PANEL_HEIGHT=20
+if [[ $(hostname) == 'amunet' ]]
+then 
+	PANEL_HEIGHT=20
+else
+	PANEL_HEIGHT=18
+fi
 PANEL_WM_NAME=bspwm_panel
 PANEL_FONT="Liberation Sans:style=bold:size=9"
 ICON_FONT="FontAwesome:size=11"
