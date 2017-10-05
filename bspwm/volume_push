@@ -4,15 +4,15 @@ volume -d 'pulse' -f '%s %i' | read -r line
 	echo $line | { read mute vol }
 	if [[ $mute == "off" ]]
 	then
-		echo "V\uf026 Muted" > "$PANEL_FIFO"
+		echo "V\uf3b9" > "$PANEL_FIFO"
 	elif [[ $vol -ge 50 ]]
 	then
-		echo "V\uf028 $vol%" > "$PANEL_FIFO"
+		echo "V\uf3ba $vol%" > "$PANEL_FIFO"
 	elif [[ $vol -lt 50 && $vol -gt 0 ]]
 	then
-		echo "V\uf027 $vol%" > "$PANEL_FIFO"
+		echo "V\uf3b7 $vol%" > "$PANEL_FIFO"
 	elif [[ $vol -eq 0 ]]
 	then
-		echo "V\uf026 $vol%" > "$PANEL_FIFO"
+		echo "V\uf3b8 $vol%" > "$PANEL_FIFO"
 	fi
 
