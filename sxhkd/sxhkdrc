@@ -23,6 +23,7 @@ super + Escape
 
 # quit bspwm normally
 super + alt + Escape
+	pkill panel;\
 	bspc quit
 
 # close and kill
