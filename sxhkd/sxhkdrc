@@ -195,11 +195,11 @@ XF86AudioMute
 	~/.config/bspwm/volume_push
 
 XF86AudioRaiseVolume
-	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +2%"; \
+	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +2%"; \
 	~/.config/bspwm/volume_push
 
 XF86AudioLowerVolume
-	sh -c "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 -2%"; \
+	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl -- set-sink-volume @DEFAULT_SINK@ -2%"; \
 	~/.config/bspwm/volume_push
 
 XF86AudioPlay
