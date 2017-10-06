@@ -1,7 +1,7 @@
 #! /bin/sh
 
 xsetroot -cursor_name left_ptr &
-pgrep -x compton > /dev/null || compton --respect-prop-shadow -c -t -8 -l -9 -r 6 -o 0.7 &
+pgrep -x compton > /dev/null || compton -t -8 -l -9 -r 6 -o 0.7 &
 unclutter --timeout 1 &
 dropbox &
 
@@ -30,18 +30,18 @@ then
 	bspc monitor east -d 1 2 3 4 5 6
 	feh --bg-fill ~/wallpaper1.jpg --bg-fill ~/wallpaper2.jpg &
 
-	bspc rule -a TelegramDesktop border=off state=pseudo_tiled locked=on desktop='east:^6'
+	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='east:^6'
 	bspc rule -a SVPManager state=pseudo_tiled desktop='primary:^6'
 	bspc rule -a Spotify desktop='east:^2'
 else
 	bspc monitor primary -d 1 2 3 4 5 6 7 8
 	feh --bg-fill ~/wallpaper.jpg &
 
-	bspc rule -a TelegramDesktop border=off state=pseudo_tiled locked=on desktop='^8'
+	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='^8'
 	bspc rule -a Spotify desktop='^2'
 fi
 
-bspc rule -a URxvt:scratchpad border=off sticky=on state=floating locked=on hidden=on
+bspc rule -a URxvt:scratchpad sticky=on state=floating locked=on hidden=on
 bspc rule -a SpeedCrunch state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=floating
