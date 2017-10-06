@@ -15,7 +15,7 @@ then
 	TOP_GAP=6
 	bspc subscribe report | sed -u 's/HDMI-A-0/Primary/; s/DVI-D-0/East/' > "$PANEL_FIFO" &
 else
-	TOP_GAP=0
+	TOP_GAP=2
 	bspc subscribe report > "$PANEL_FIFO" &
 fi
 
