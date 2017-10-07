@@ -42,8 +42,16 @@ do
 	else
 		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
 	fi
+
+	VPN_UP=$(ip link | grep tun0)
+	if [[ $VPN_UP ]]
+	then
+		VPN="\uf023  "
+	else
+		VPN="\uf13e  "
+	fi
 	
-	echo "R$TELEGRAM$DROPBOX$REDSHIFT"
+	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN"
 
 	sleep 1
 done > "$PANEL_FIFO" &
