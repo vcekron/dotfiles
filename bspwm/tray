@@ -48,7 +48,7 @@ do
 	then
 		VPN="\uf023  "
 	else
-		VPN="\uf13e  "
+		VPN="\uf09c  "
 	fi
 	
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN"
