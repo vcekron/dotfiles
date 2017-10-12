@@ -44,5 +44,5 @@ bspc rule -a SpeedCrunch state=floating
 bspc rule -a Zathura state=tiled
 bspc rule -a mpv state=floating
 
-~/.config/bspwm/panel | sh &
+pgrep -x panel || ~/.config/bspwm/panel &
 ~/dotfiles/scratchpad &
