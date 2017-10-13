@@ -72,8 +72,7 @@ do
 		VPN="\uf09c  "
 	fi
 
-	NET_UP=$(echo $IP | grep $INTERFACE)
-
+	NET_UP=$(echo $IP | grep $INTERFACE) 
 	if [[ $NET_UP ]]
 	then
 		NET="%{T3}$NSYM%{T-}  "
