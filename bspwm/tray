@@ -5,7 +5,7 @@
 if [[ $(hostname) == 'hathor' ]]
 then
 	INTERFACE=wlo1
-	NSYM="\uf25c"
+	NSYM="\uf1eb"
 else
 	INTERFACE=enp4s0
 	NSYM="\uf341"
@@ -75,9 +75,9 @@ do
 	NET_UP=$(echo $IP | grep $INTERFACE)
 	if [[ $NET_UP ]]
 	then
-		NET="%{T3}$NSYM%{T-}  "
+		NET="$NSYM  "
 	else
-		NET="%{T3}%{F#FF707880}$NSYM%{F-}%{T-}  "
+		NET="%{F#FF707880}$NSYM%{F-}  "
 	fi
 
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
