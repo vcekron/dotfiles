@@ -20,7 +20,7 @@ do
 	TELEGRAM_RUN=$(echo $PS | grep telegram)
 	if [[ $TELEGRAM_RUN ]]
 	then
-		TELEGRAM_MES=$(xdotool search --class "TelegramDesktop" getwindowname | awk '{print $2}' | sed 's/^.\(.*\).$/\1/')
+		TELEGRAM_MES=$(xdotool search --class "TelegramDesktop" getwindowname | tr -dc '0-9')
 	fi
 	if [[ $TELEGRAM_MES ]]
 	then
@@ -38,12 +38,12 @@ do
 	DROPBOX_RUN=$(echo $PS | grep dropbox)
 	if [[ $DROPBOX_RUN ]]
 	then
-		DROPBOX_STATE=$(dropbox-cli status | sed 's/Up to date/1/')
+		DROPBOX_STATE=$(dropbox-cli status)
 	fi
-	if [[ $DROPBOX_STATE == 1 ]]
+	if [[ $DROPBOX_STATE == "Up to date" ]]
 	then
 		DROPBOX="\uf16b  "
-	elif [[ $DROPBOX_RUN && $DROPBOX_STATE != 1 ]]
+	elif [[ $DROPBOX_RUN && $DROPBOX_STATE != "Up to date" ]]
 	then
 		DROPBOX="\uf16b !  "
 	else
