@@ -113,3 +113,6 @@ imap <c-h> <c-o><c-h>
 
 " Tweak behaviour of return in autocomplete menu
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
