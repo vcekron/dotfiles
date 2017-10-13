@@ -68,6 +68,7 @@ set backspace=
 set tabstop=4
 set shiftwidth=4
 set title
+set ignorecase
 " Don't select line numbers with mouse
 set mouse=a
 " Recommendations from Vim tutorial
