@@ -1,9 +1,22 @@
 #! /bin/zsh
 
+#Set machine-specific network variables
+
+if [[ $(hostname) == 'hathor' ]]
+then
+	INTERFACE=wlo1
+	NSYM="\uf25c"
+else
+	INTERFACE=enp4s0
+	NSYM="\uf341"
+fi
+
 while true;
 do
 	PS=$(ps -cax)
 	
+	#Telegram state
+
 	TELEGRAM_RUN=$(echo $PS | grep telegram)
 	if [[ $TELEGRAM_RUN ]]
 	then
@@ -20,6 +33,8 @@ do
 		TELEGRAM=""
 	fi
 
+	#Dropbox state
+
 	DROPBOX_RUN=$(echo $PS | grep dropbox)
 	if [[ $DROPBOX_RUN ]]
 	then
@@ -35,6 +50,8 @@ do
 		DROPBOX=""
 	fi
 
+	#Redshift state
+
 	REDSHIFT_RUN=$(echo $PS | grep redshift)
 	if [[ $REDSHIFT_RUN ]]
 	then
@@ -43,15 +60,28 @@ do
 		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
 	fi
 
-	VPN_UP=$(ip link | grep tun0)
+	#Network and VPN states
+
+	IP=$(ip r)
+
+	VPN_UP=$(echo $IP | grep tun0)
 	if [[ $VPN_UP ]]
 	then
 		VPN="\uf023  "
 	else
 		VPN="\uf09c  "
 	fi
+
+	NET_UP=$(echo $IP | grep $INTERFACE)
+
+	if [[ $NET_UP ]]
+	then
+		NET="%{T3}$NSYM%{T-}  "
+	else
+		NET="%{T3}%{F#FF707880}$NSYM%{F-}%{T-}  "
+	fi
 	
-	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN"
+	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
 
 	sleep 1
 done > "$PANEL_FIFO" &
