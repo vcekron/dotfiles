@@ -1,7 +1,6 @@
 #! /bin/zsh
 
-volume -d 'pulse' -f '%s %i' | read -r line
-	echo $line | { read mute vol }
+volume -d 'pulse' -f '%s %i' | read -r mute vol
 	if [[ $mute == "off" ]]
 	then
 		echo "V\uf3b9" > "$PANEL_FIFO"
