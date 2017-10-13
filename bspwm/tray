@@ -7,7 +7,7 @@ then
 	INTERFACE=wlo1
 	NSYM="\uf1eb"
 else
-	INTERFACE=enp4s0
+	INTERFACE=enp3s0
 	NSYM="\uf341"
 fi
 
