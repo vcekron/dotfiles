@@ -14,7 +14,7 @@ fi
 while true;
 do
 	PS=$(ps -cax)
-	
+
 	#Telegram state
 
 	TELEGRAM_RUN=$(echo $PS | grep telegram)
@@ -72,14 +72,14 @@ do
 		VPN="\uf09c  "
 	fi
 
-	NET_UP=$(echo $IP | grep $INTERFACE) 
+	NET_UP=$(echo $IP | grep $INTERFACE)
 	if [[ $NET_UP ]]
 	then
 		NET="%{T3}$NSYM%{T-}  "
 	else
 		NET="%{T3}%{F#FF707880}$NSYM%{F-}%{T-}  "
 	fi
-	
+
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
 
 	sleep 1
