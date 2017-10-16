@@ -21,6 +21,7 @@ bspc config presel_feedback_color '#A54242'
 #bspc config active_border_color '#C5C8C6'
 
 bspc monitor primary -d 1 2 3 4 5 6
+bspc monitor primary -n Primary
 
 if [[ $(xrandr | grep primary | cut -d "x" -f 2 | cut -d "+" -f 1) -ge 1080 ]]
 then
@@ -32,6 +33,7 @@ fi
 if [[ $(bspc query -M | wc -l) == 2 ]]
 then
 	bspc monitor east -d 1 2 3 4 5 6
+	bspc monitor east -n East
 	feh --bg-fill ~/wallpaper1.jpg --bg-fill ~/wallpaper2.jpg &
 	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='east:^6'
 	bspc rule -a Spotify desktop='east:^2'

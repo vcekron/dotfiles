@@ -10,13 +10,13 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 [ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
 mkfifo "$PANEL_FIFO"
 
-if [[ $(hostname) == 'amunet' ]]
+bspc subscribe report > "$PANEL_FIFO" &
+
+if [[ $(xrandr | grep primary | cut -d "x" -f 2 | cut -d "+" -f 1) -ge 1080 ]]
 then
 	TOP_GAP=6
-	bspc subscribe report | sed -u 's/HDMI-A-0/Primary/; s/DVI-D-0/East/' > "$PANEL_FIFO" &
 else
 	TOP_GAP=4
-	bspc subscribe report > "$PANEL_FIFO" &
 fi
 
 bspc config top_padding $(( $PANEL_HEIGHT + $TOP_GAP ))
