@@ -2,14 +2,18 @@
 
 #Set machine-specific network variables
 
-if [[ $(hostname) == 'hathor' ]]
-then
-	INTERFACE=wlo1
-	NSYM="\uf1eb"
-else
-	INTERFACE=enp3s0
-	NSYM="\uf341"
-fi
+NIFS=($(ls /sys/class/net | grep '^e\|^w'))
+
+for NIF in $NIFS
+do
+	if [[ ${NIF:0:1} == "e" ]]
+	then
+		eval "$NIF"_ICON="uf341"
+	elif [[ ${NIF:0:1} == "w" ]]
+	then
+		eval "$NIF"_ICON="uf1eb"
+	fi
+done
 
 while true;
 do
@@ -72,13 +76,20 @@ do
 		VPN="\uf09c  "
 	fi
 
-	NET_UP=$(echo $IP | grep $INTERFACE)
-	if [[ $NET_UP ]]
-	then
-		NET="$NSYM  "
-	else
-		NET="%{F#FF707880}$NSYM%{F-}  "
-	fi
+	NET=""
+
+	for NIF in $NIFS
+	do 
+		NET_UP=$(echo $IP | grep $NIF)
+
+		if [[ $NET_UP ]]
+		then
+			NET+="\\${(P)$(echo "$NIF"_ICON)}  "
+		else
+			NET+="%{F#FF707880}\\${(P)$(echo "$NIF"_ICON)}%{F-}  "
+		fi
+
+	done
 
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
 
