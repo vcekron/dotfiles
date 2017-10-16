@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-#Set machine-specific network variables
+#Set network variables
 
 NIFS=($(ls -r /sys/class/net | grep '^e\|^w'))
 
@@ -64,7 +64,7 @@ do
 		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
 	fi
 
-	#Network and VPN states
+	#VPN state
 
 	IP=$(ip r)
 
@@ -76,19 +76,19 @@ do
 		VPN="\uf09c  "
 	fi
 
+	#Network interface state(s)
+
 	NET=""
 
 	for NIF in $NIFS
 	do 
-		NET_UP=$(echo $IP | grep $NIF)
-
+		NET_UP=$(echo $IP | grep $NIF) 
 		if [[ $NET_UP ]]
 		then
 			NET+="\\${(P)$(echo "$NIF"_ICON)}  "
 		else
 			NET+="%{F#FF707880}\\${(P)$(echo "$NIF"_ICON)}%{F-}  "
-		fi
-
+		fi 
 	done
 
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
