@@ -1,0 +1,28 @@
+#! /bin/zsh
+
+echo "--Vivaldi-hooks patcher--\nLocating Vivaldi installation directory..."
+
+vpath=$(dirname $(find /opt -name "vivaldi-bin"))
+vrespath=$(dirname $(find $vpath -name "browser.html"))
+if [[ -z $vpath || ! -d $vpath ]]
+then
+	echo "Vivaldi install not found."
+elif [[ $(cat $vrespath/browser.html | grep jdhooks.js) ]]
+then
+	echo "browser.html already patched."
+else 
+	echo "Patching browser.html..."
+	linenr=$(cat $vrespath/browser.html | grep -n "src=\"bundle.js\"" | tr -dc '0-9')
+	sed "$linenr i\	<script src=\"jdhooks.js\"></script>" $vrespath/browser.html > ./browser_patched.html
+
+	if [[ $(ls $vrespath | grep browser.html.bak) ]]
+	then
+		echo "Removing old browser.html backup..."
+		sudo rm $vrespath/browser.html.bak
+	fi
+
+	sudo mv $vrespath/browser.html $vrespath/browser.html.bak
+	sudo mv ./browser_patched.html $vrespath/browser.html
+	echo "Patching complete."
+fi
+
