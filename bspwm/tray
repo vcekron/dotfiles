@@ -2,7 +2,7 @@
 
 #Set machine-specific network variables
 
-NIFS=($(ls /sys/class/net | grep '^e\|^w'))
+NIFS=($(ls -r /sys/class/net | grep '^e\|^w'))
 
 for NIF in $NIFS
 do
