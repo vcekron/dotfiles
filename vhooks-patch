@@ -4,6 +4,7 @@ echo "--Vivaldi-hooks patcher--\nLocating Vivaldi installation directory..."
 
 vpath=$(dirname $(find /opt -name "vivaldi-bin"))
 vrespath=$(dirname $(find $vpath -name "browser.html"))
+
 if [[ -z $vpath || ! -d $vpath ]]
 then
 	echo "Vivaldi install not found."
@@ -12,7 +13,7 @@ then
 	echo "browser.html already patched."
 else 
 	echo "Patching browser.html..."
-	linenr=$(cat $vrespath/browser.html | grep -n "src=\"bundle.js\"" | tr -dc '0-9')
+	linenr=$(cat $vrespath/browser.html | grep -n "src=\"bundle.js\"" | cut -f1 -d:)
 	sed "$linenr i\	<script src=\"jdhooks.js\"></script>" $vrespath/browser.html > ./browser_patched.html
 
 	if [[ $(ls $vrespath | grep browser.html.bak) ]]
