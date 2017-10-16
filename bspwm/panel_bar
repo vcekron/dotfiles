@@ -98,7 +98,7 @@ while read -r line ; do
 			done
 			;;
 	esac
-	if [[ $(hostname) == 'amunet' ]]
+	if [[ $num_mon == 2 ]]
 	then
 		printf "%s\n" "%{Sf}%{l}${lspace}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${lspace}%{S+}%{l}${lspace}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${lspace}"
 	else

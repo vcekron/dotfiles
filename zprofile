@@ -1,5 +1,5 @@
 PANEL_FIFO=/tmp/panel-fifo
-if [[ $(hostname) == 'amunet' ]]
+if [[ $(xrandr | grep primary | cut -d "x" -f 2 | cut -d "+" -f 1) -ge 1080 ]]
 then 
 	PANEL_HEIGHT=20
 else
