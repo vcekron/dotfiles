@@ -20,7 +20,7 @@
 
 gtk-theme-name = "oomox-Tomorrow-Night"
 gtk-font-name = "Liberation Sans 9"
-gtk-icon-theme-name = "Faenza"
+gtk-icon-theme-name = "Archdroid-BlueGrey"
 gtk-cursor-theme-name = "oxy-grey"
 gtk-cursor-theme-size = 16
 gtk-button-images = 0
