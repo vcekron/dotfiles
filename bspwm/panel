@@ -11,15 +11,7 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 bspc subscribe report > "$PANEL_FIFO" &
-
-if [[ $(xrandr | grep primary | cut -d "x" -f 2 | cut -d "+" -f 1) -ge 1080 ]]
-then
-	TOP_GAP=6
-else
-	TOP_GAP=4
-fi
-
-bspc config top_padding $(( $PANEL_HEIGHT + $TOP_GAP ))
+bspc config top_padding $(( $PANEL_HEIGHT + $PANEL_TOP_GAP ))
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 
@@ -34,7 +26,7 @@ done > "$PANEL_FIFO" &
 
 source ~/.config/bspwm/panel_colors
 
-~/.config/bspwm/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT++$TOP_GAP -f "$PANEL_FONT" -f "$ICON_FONT" -f "$ICON_FONT2" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &> /dev/null
+~/.config/bspwm/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT++$PANEL_TOP_GAP -f "$PANEL_FONT" -f "$ICON_FONT" -f "$ICON_FONT2" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &> /dev/null
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"

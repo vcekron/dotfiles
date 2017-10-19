@@ -4,8 +4,7 @@ source ~/.config/bspwm/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 PADDING="  "
-sspace="%{B$COLOR_SPACE}%{O4}%{B-}"
-lspace="%{B$COLOR_SPACE}%{O6}%{B-}"
+space="%{B$COLOR_SPACE}%{O6}%{B-}"
 
 while read -r line ; do
 	case $line in
@@ -100,9 +99,9 @@ while read -r line ; do
 	esac
 	if [[ $num_mon == 2 ]]
 	then
-		printf "%s\n" "%{Sf}%{l}${lspace}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${lspace}%{S+}%{l}${lspace}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${lspace}"
+		printf "%s\n" "%{Sf}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${space}%{S+}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${space}"
 	else
-		printf "%s\n" "%{l}${sspace}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}${sspace}"
+		printf "%s\n" "%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${battery}${sys}${space}"
 	fi
 
 done

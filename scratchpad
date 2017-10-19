@@ -10,7 +10,7 @@ res=$(xrandr | grep primary | cut -d " " -f 4)
 if [[ $res == '2560x1440+0+0' ]]
 then
 	urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &
-elif [[ $res == '1366x768+0+0' ]]
+elif [[ $res == '1920x1080+0+0' ]]
 then
-	urxvt -name scratchpad -g 122x17+256-0 -e ~/dotfiles/scratchid &
+	urxvt -name scratchpad -g 180x26+326-0 -e ~/dotfiles/scratchid &
 fi
