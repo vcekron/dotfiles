@@ -59,6 +59,12 @@ echo "Creating symlink to zathurarc in ~/.config/zathura directory."
 mkdir -p ~/.config/zathura
 ln -s $dir/zathurarc ~/.config/zathura/
 
+echo "Moving any existing dotfiles from ~/.config/mpv to $olddir."
+mv ~/.config/mpv/mpv.conf ~/$olddir
+echo "Creating symlink to zathurarc in ~/.config/mpv directory."
+mkdir -p ~/.config/mpv
+ln -s $dir/mpv.conf ~/.config/mpv/
+
 <<install
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
