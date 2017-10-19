@@ -111,8 +111,6 @@ alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
 alias rm="noglob rm"
-alias mv="amv -g"
-alias cp="acp -g"
 
 alias school="cd ~/Dropbox/School/KAU/"
 alias thesis="cd ~/Dropbox/School/KAU/FYGC10/latex/"
