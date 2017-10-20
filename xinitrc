@@ -25,6 +25,8 @@ if [ -f "$userresources" ]; then
 
 fi
 
+setxkbmap -option ctrl:nocaps &
+
 if [ -f "$usermodmap" ]; then
 
     xmodmap "$usermodmap"
@@ -60,7 +62,6 @@ export QT_QPA_PLATFORMTHEME='gtk2'
 
 eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
-setxkbmap -option ctrl:nocaps &
 numlockx &
 udiskie &
 redshift &
