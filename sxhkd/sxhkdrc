@@ -220,3 +220,9 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
 	light -U 10
+
+XF86KbdBrightnessUp
+	asus-kbd-backlight up
+
+XF86KbdBrightnessDown
+	asus-kbd-backlight down
