@@ -57,6 +57,7 @@ export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export QT_QPA_PLATFORMTHEME='gtk2'
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 #xrandr --output HDMI-A-0 --set audio off &
 
