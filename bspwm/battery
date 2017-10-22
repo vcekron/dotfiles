@@ -1,0 +1,28 @@
+#! /bin/zsh
+battery -s | while read -r line ; do
+	echo $line | { read char batt }
+	if [[ $char == "Charging" ]]
+	then
+		echo "B\uf1e6 $batt%"
+	elif [[ $batt=100 && $(acpi | grep "zero rate") ]]
+	then
+		echo "B%{F#FFB5BD68}\uf240%{F-}"
+	elif [[ $char = "Discharging" && $batt -ge 76 || $char == "Full" ]]
+	then
+		echo "B\uf240"
+	elif [[ $char = "Discharging" && $batt -ge 51 ]]
+	then
+		echo "B\uf241"
+	elif [[ $char = "Discharging" && $batt -ge 26 ]]
+	then
+		echo "B\uf242"
+	elif [[ $char = "Discharging" && $batt -ge 11 ]]
+	then
+		echo "B\uf243"
+	elif [[ $char = "Discharging" && $batt -le 10 ]]
+	then
+		echo "B%{F#FFA54242}\uf244%{F-}"
+	else
+		echo "B%{F#FFA54242}\uf071%{F-}"
+	fi
+done > "$PANEL_FIFO" &

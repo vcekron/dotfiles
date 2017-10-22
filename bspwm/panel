@@ -18,6 +18,11 @@ clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 source ~/.config/bspwm/volume
 source ~/.config/bspwm/tray
 
+if [[ $(battery) ]] &> /dev/null
+then 
+	source ~/.config/bspwm/battery
+fi
+
 while true;
 do
 	~/.config/bspwm/updates
