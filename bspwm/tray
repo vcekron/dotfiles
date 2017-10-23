@@ -28,11 +28,11 @@ do
 	fi
 	if [[ $TELEGRAM_MES ]]
 	then
-		TELEGRAM="\uf2c6 $TELEGRAM_MES  "
+		TELEGRAM="\uf1d8 $TELEGRAM_MES  "
 		TELEGRAM_MES=""
 	elif [[ $TELEGRAM_RUN && !$TELEGRAM_MES ]]
 	then
-		TELEGRAM="\uf2c6  "
+		TELEGRAM="\uf1d8  "
 	else
 		TELEGRAM=""
 	fi
