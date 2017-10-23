@@ -1,0 +1,13 @@
+#! /bin/zsh
+if [ -f /tmp/battwarn ]
+then
+	pkill $(cat /tmp/battwarn)
+fi
+if [[ $(battery | grep Discharging | awk '$2<11') ]]
+then
+	$$ > /tmp/battwarn
+fi
+while [[ $(battery | grep Discharging | awk '$2<11') ]] ; do
+	zenity --warning --text "Plug in charger."
+	sleep 300
+done

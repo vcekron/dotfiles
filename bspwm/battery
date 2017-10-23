@@ -19,7 +19,11 @@ battery -s | while read -r line ; do
 	elif [[ $batt -ge 11 ]]
 	then
 		level="\uf243"
-	elif [[ $batt -le 10 ]]
+	elif [[ $batt -le 10  && ! -f /tmp/battwarn ]]
+	then
+		~/dotfiles/battwarn &
+		level="%{F#FFA54242}\uf244%{F-}"
+	elif [[ $batt -le 10 && -f /tmp/battwarn ]]
 	then
 		level="%{F#FFA54242}\uf244%{F-}"
 	else
