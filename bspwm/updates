@@ -6,7 +6,7 @@ AUR_U=$(cower -u --threads=5 | wc -l)
 
 if [[ $UPDATES > 0 ]]
 then
-	echo "U\uf06a $UPDATES  "
+	echo "U\uf0aa $UPDATES  "
 else
 	echo "U"
 fi

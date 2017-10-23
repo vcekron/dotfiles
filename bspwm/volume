@@ -3,15 +3,15 @@
 volume -d 'pulse' -si 4 -f '%s %i' | while read -r mute vol ; do
 	if [[ $mute == "off" ]]
 	then
-		echo "V\uf3b9"
+		echo "V\uf026%{T4}\uf00d%{T-}"
 	elif [[ $vol -ge 50 ]]
 	then
-		echo "V\uf3ba $vol%"
+		echo "V\uf028 $vol%"
 	elif [[ $vol -lt 50 && $vol -gt 0 ]]
 	then
-		echo "V\uf3b7 $vol%"
+		echo "V\uf027 $vol%"
 	elif [[ $vol -eq 0 ]]
 	then
-		echo "V\uf3b8 $vol%"
+		echo "V\uf026 $vol%"
 	fi
 done > "$PANEL_FIFO" &

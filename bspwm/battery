@@ -1,28 +1,29 @@
 #! /bin/zsh
 battery -s | while read -r line ; do
 	echo $line | { read char batt }
-	if [[ $char == "Charging" ]]
+	if [[ $char == "Charging" || $batt=100 && $(acpi | grep "zero rate") ]]
 	then
-		echo "B\uf1e6 $batt%"
-	elif [[ $batt=100 && $(acpi | grep "zero rate") ]]
-	then
-		echo "B%{F#FFB5BD68}\uf240%{F-}"
-	elif [[ $char = "Discharging" && $batt -ge 76 || $char == "Full" ]]
-	then
-		echo "B\uf240"
-	elif [[ $char = "Discharging" && $batt -ge 51 ]]
-	then
-		echo "B\uf241"
-	elif [[ $char = "Discharging" && $batt -ge 26 ]]
-	then
-		echo "B\uf242"
-	elif [[ $char = "Discharging" && $batt -ge 11 ]]
-	then
-		echo "B\uf243"
-	elif [[ $char = "Discharging" && $batt -le 10 ]]
-	then
-		echo "B%{F#FFA54242}\uf244%{F-}"
+		plug="%{T3}\uf1e6 %{T-}"
 	else
-		echo "B%{F#FFA54242}\uf071%{F-}"
+		unset plug
 	fi
+	if [[ $batt -ge 76 ]]
+	then
+		level="\uf240"
+	elif [[ $batt -ge 51 ]]
+	then
+		level="\uf241"
+	elif [[ $batt -ge 26 ]]
+	then
+		level="\uf242"
+	elif [[ $batt -ge 11 ]]
+	then
+		level="\uf243"
+	elif [[ $batt -le 10 ]]
+	then
+		level="%{F#FFA54242}\uf244%{F-}"
+	else
+		level="%{F#FFA54242}\uf071%{F-}"
+	fi
+	echo "B$plug$level"
 done > "$PANEL_FIFO" &
