@@ -2,6 +2,7 @@
 if [ -f /tmp/battwarn ]
 then
 	pkill $(cat /tmp/battwarn)
+	rm /tmp/battwarn
 fi
 if [[ $(battery | grep Discharging | awk '$2<11') ]]
 then

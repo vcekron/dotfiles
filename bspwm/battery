@@ -3,9 +3,9 @@ battery -s | while read -r line ; do
 	echo $line | { read char batt }
 	if [[ $char == "Charging" || $batt=100 && $(acpi | grep "zero rate") ]]
 	then
-		plug="%{T3}\uf1e6 %{T-}"
+		bolt="%{T3} \uf0e7%{T-}"
 	else
-		unset plug
+		unset bolt
 	fi
 	if [[ $batt -ge 76 ]]
 	then
@@ -29,5 +29,5 @@ battery -s | while read -r line ; do
 	else
 		level="%{F#FFA54242}\uf071%{F-}"
 	fi
-	echo "B$plug$level"
+	echo "B$level$bolt"
 done > "$PANEL_FIFO" &
