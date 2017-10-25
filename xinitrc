@@ -54,8 +54,8 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre 
-export _JAVA_OPTIONS='-Dsun.java2d.opengl=true'
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 export QT_QPA_PLATFORMTHEME='gtk2'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
