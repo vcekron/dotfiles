@@ -12,3 +12,4 @@ while [[ $(battery | grep Discharging | awk '$2<11') ]] ; do
 	zenity --warning --text "Plug in charger."
 	sleep 300
 done
+rm /tmp/battwarn
