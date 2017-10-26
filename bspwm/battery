@@ -7,16 +7,16 @@ battery -s | while read -r line ; do
 	else
 		unset bolt
 	fi
-	if [[ $batt -ge 86 ]]
+	if [[ $batt -ge 81 ]]
 	then
 		level="\uf240"
-	elif [[ $batt -ge 66 ]]
+	elif [[ $batt -ge 61 ]]
 	then
 		level="\uf241"
-	elif [[ $batt -ge 46 ]]
+	elif [[ $batt -ge 41 ]]
 	then
 		level="\uf242"
-	elif [[ $batt -ge 26 ]]
+	elif [[ $batt -ge 21 ]]
 	then
 		level="\uf243"
 	elif [[ $batt -ge 11 ]]
