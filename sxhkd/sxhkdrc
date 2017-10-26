@@ -184,6 +184,12 @@ ctrl + shift + l
 ctrl + alt + r
 	~/dotfiles/redtoggle
 
+ctrl + alt + p
+	playerctl play-pause
+
+ctrl + alt + {_,shift +}n
+	playerctl {next,previous}
+
 super + e
 	urxvt -e ranger
 
