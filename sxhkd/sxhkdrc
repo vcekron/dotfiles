@@ -178,7 +178,7 @@ super + {_,shift + ,mode_switch + }d
 super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
-ctrl + shift + l
+ctrl + alt + l
 	i3lock-fancy -gf Liberation-Sans -t '' -- scrot -z
 
 ctrl + alt + r
