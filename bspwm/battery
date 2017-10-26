@@ -7,18 +7,21 @@ battery -s | while read -r line ; do
 	else
 		unset bolt
 	fi
-	if [[ $batt -ge 76 ]]
+	if [[ $batt -ge 86 ]]
 	then
 		level="\uf240"
-	elif [[ $batt -ge 51 ]]
+	elif [[ $batt -ge 66 ]]
 	then
 		level="\uf241"
-	elif [[ $batt -ge 26 ]]
+	elif [[ $batt -ge 46 ]]
 	then
 		level="\uf242"
-	elif [[ $batt -ge 11 ]]
+	elif [[ $batt -ge 26 ]]
 	then
 		level="\uf243"
+	elif [[ $batt -ge 11 ]]
+	then
+		level="\uf244"
 	elif [[ $batt -le 10  && ! -f /tmp/battwarn ]]
 	then
 		~/dotfiles/battwarn &
