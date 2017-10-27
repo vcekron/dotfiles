@@ -123,7 +123,7 @@
 ! URxvt*override-redirect:              boolean
 ! URxvt*hold:                           boolean
 ! URxvt*externalBorder:                 number
-! URxvt*internalBorder:                 number
+  URxvt*internalBorder:                 6
 ! URxvt*borderLess:                     boolean
 ! URxvt*lineSpace:                      number
 ! URxvt*letterSpace:                    number
