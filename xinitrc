@@ -53,7 +53,7 @@ fi
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre 
+export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
