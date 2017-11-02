@@ -16,7 +16,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-fugitive'
 
 " Group dependencies, vim-snippets depends on ultisnips
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Plugin options
 " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
@@ -28,6 +28,8 @@ function! DoRemote(arg)
 	UpdateRemotePlugins
 endfunction
 
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'lervag/vimtex'
 
@@ -112,8 +114,13 @@ nmap <c-h> :noh<CR>
 vmap <c-h> <Esc><c-h>
 imap <c-h> <c-o><c-h>
 
-" Tweak behaviour of return in autocomplete menu
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Use TAB for deoplete navigation
+inoremap <expr><tab> pumvisible() ? "\<down>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<up>" : "\<S-tab>"
+" Hide popup menu with ESC
+inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+" Expand snippet and close popup menu with Enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
