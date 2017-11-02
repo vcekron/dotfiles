@@ -13,6 +13,9 @@ autoload -U compinit
 compinit
 #End of lines added by compinstall
 
+#This allows setting menuselect hotkeys
+zmodload zsh/complist
+
 #This alters the appearance of autocompletion
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
@@ -174,5 +177,7 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"    forward-char
 [[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"   history-beginning-search-backward
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" history-beginning-search-forward
+
+bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
