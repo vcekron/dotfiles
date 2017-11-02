@@ -25,8 +25,6 @@ if [ -f "$userresources" ]; then
 
 fi
 
-setxkbmap -option ctrl:nocaps &
-
 if [ -f "$usermodmap" ]; then
 
     xmodmap "$usermodmap"

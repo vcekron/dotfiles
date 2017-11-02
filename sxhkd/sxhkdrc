@@ -22,7 +22,7 @@ super + Escape
 #
 
 # quit bspwm normally
-super + mod5 + Escape
+super + mod3 + Escape
 	pkill panel;\
 	bspc quit
 
@@ -134,17 +134,17 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + mod5 + {h,j,k,l}
+super + mod3 + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-super + mod5 + {Left,Down,Up,Right}
+super + mod3 + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + mod5 + shift + {h,j,k,l}
+super + mod3 + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-super + mod5 + shift + {Left,Down,Up,Right}
+super + mod3 + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # personal hotkeys
@@ -165,7 +165,7 @@ super + {_,shift + }s
 	if [[ $id ]];then bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
-super + {_,shift + ,mod5 + }d
+super + {_,shift + ,mod3 + }d
 	id=$(cat /tmp/scratchid);\
 	read -r dir1 dir2 <<<$(echo {next.local prev.local,prev.local next.local,next:focused next:focused});\
 	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
@@ -178,16 +178,16 @@ super + {_,shift + ,mod5 + }d
 super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
-ctrl + mod5 + l
+ctrl + mod3 + l
 	i3lock-fancy -gf Liberation-Sans -t '' -- scrot -z
 
-ctrl + mod5 + r
+ctrl + mod3 + r
 	~/dotfiles/redtoggle
 
-ctrl + mod5 + p
+ctrl + mod3 + p
 	playerctl play-pause
 
-ctrl + mod5 + {_,shift +}n
+ctrl + mod3 + {_,shift +}n
 	playerctl {next,previous}
 
 super + e
