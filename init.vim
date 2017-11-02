@@ -1,3 +1,7 @@
+" Set leader keys
+let mapleader="'"
+let maplocalleader="'"
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/vim-easy-align'
@@ -76,6 +80,13 @@ set mouse=a
 " Recommendations from Vim tutorial
 filetype plugin indent on
 syntax on
+
+" Map homerow keys to resemble US layout
+noremap ö ;
+noremap Ö :
+noremap ä '
+noremap Ä "
+" Map jk to exit insert mode
 inoremap jk <ESC>
 " Map j/k to move by visual lines when not using count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -101,13 +112,13 @@ vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
 
 " Toggle absolute line numbers
-nmap <silent> <leader>n :call NumberToggle()<CR>
+nmap <silent> <Leader>n :call NumberToggle()<CR>
 
 " Toggle spellcheck
-nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <Leader>s :set spell!<CR>
 
 " Toggle autocomplete
-nmap <silent> <leader>d :call deoplete#enable()<CR>
+nmap <silent> <Leader>d :call deoplete#enable()<CR>
 
 " Hide highlights
 nmap <c-h> :noh<CR>
