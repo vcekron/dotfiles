@@ -129,8 +129,8 @@ imap <c-h> <c-o><c-h>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Use TAB for deoplete navigation
-inoremap <expr><tab> pumvisible() ? "\<down>" : "\<tab>"
-inoremap <expr><S-tab> pumvisible() ? "\<up>" : "\<S-tab>"
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 " Hide popup menu with ESC
 inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 " Expand snippet and close popup menu with Enter
