@@ -132,7 +132,7 @@
 ! URxvt*backspacekey:                   string
 ! URxvt*deletekey:                      string
 ! URxvt*print-pipe:                     string
-! URxvt*modifier:                       modifier
+  URxvt*modifier:                       mod5
 ! URxvt*cutchars:                       string
 ! URxvt*answerbackString:               string
 ! URxvt*secondaryScreen:                boolean
