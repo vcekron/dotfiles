@@ -103,9 +103,9 @@ while read -r line ; do
 	esac
 	if [[ $num_mon == 2 ]]
 	then
-		printf "%s\n" "%{Sf}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${space}%{S+}%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${volume}${sys}${space}"
+		printf "%s\n" "%{Sf}%{l}${space}${wm}%{c}${title}%{r}${update}${tray}${volume}${sys}${space}%{S+}%{l}${space}${wm}%{c}${title}%{r}${update}${tray}${volume}${sys}${space}"
 	else
-		printf "%s\n" "%{l}${space}${wm}%{c}${title}%{r}${tray}${update}${battery}${volume}${sys}${space}"
+		printf "%s\n" "%{l}${space}${wm}%{c}${title}%{r}${update}${tray}${battery}${volume}${sys}${space}"
 	fi
 
 done
