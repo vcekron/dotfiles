@@ -9,7 +9,7 @@ then
 	$$ > /tmp/battwarn
 fi
 while [[ $(battery | grep Discharging | awk '$2<11') ]] ; do
-	zenity --warning --text "Plug in charger."
+	zenity --warning --text "<big>Battery charge is low.\nPlease plug in charger.</big>" --title "Low battery warning" --width=150
 	sleep 300
 done
 rm /tmp/battwarn
