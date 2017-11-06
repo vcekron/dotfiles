@@ -120,6 +120,9 @@ nmap <silent> <Leader>s :set spell!<CR>
 " Toggle autocomplete
 nmap <silent> <Leader>d :call deoplete#enable()<CR>
 
+" Toggle nerdtree
+nmap <silent> <Leader>e :NERDTreeToggle<CR>
+
 " Hide highlights
 nmap <c-h> :noh<CR>
 vmap <c-h> <Esc><c-h>
