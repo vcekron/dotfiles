@@ -4,7 +4,17 @@ let maplocalleader="'"
 
 call plug#begin('~/.config/nvim/plugged')
 
+function! DoRemote(arg)
+	UpdateRemotePlugins
+endfunction
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'lervag/vimtex'
 
 " On-demand loading
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -19,26 +29,12 @@ Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-fugitive'
 
-" Plugin options
-" Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
-function! DoRemote(arg)
-	UpdateRemotePlugins
-endfunction
-
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'lervag/vimtex'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
+" Plugin settings 
 if !exists('g:deoplete#omni_patterns')
 	let g:deoplete#omni_patterns = {}
 endif
@@ -57,14 +53,16 @@ let g:deoplete#omni_patterns.tex =
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
-
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
 
 let NERDTreeMinimalUI=1
 
+" Theme settings
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+
+" Misc settings
 set encoding=utf-8
 set number
 set relativenumber
@@ -80,6 +78,8 @@ set mouse=a
 filetype plugin indent on
 syntax on
 
+" General mappings
+
 " Map homerow keys to resemble US layout
 noremap ö ;
 noremap Ö :
@@ -92,44 +92,33 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " Map operation on entire buffer
 onoremap af :<C-u>normal! ggVG<CR>
-
+" Toggle absolute line numbers
 function! NumberToggle()
 	if(&relativenumber == 1)
 		set relativenumber&
 	else
 		set relativenumber
 	endif
-endfunc
-
+endfunc 
+nmap <silent> <Leader>n :call NumberToggle()<CR> 
 " Save on Ctrl-S and update on F2
 nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s>
-
+imap <c-s> <Esc><c-s> 
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
-imap <F2> <c-o><F2>
-
-" Toggle absolute line numbers
-nmap <silent> <Leader>n :call NumberToggle()<CR>
-
+imap <F2> <c-o><F2> 
+" Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
 
+" Plugin mappings
+
 " Toggle autocomplete
-nmap <silent> <Leader>d :call deoplete#enable()<CR>
-
+nmap <silent> <Leader>d :call deoplete#enable()<CR> 
 " Toggle nerdtree
-nmap <silent> <Leader>e :NERDTreeToggle<CR>
-
-" Hide highlights
-nmap <c-h> :noh<CR>
-vmap <c-h> <Esc><c-h>
-imap <c-h> <c-o><c-h>
-
-" Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
+nmap <silent> <Leader>e :NERDTreeToggle<CR> 
 " Use TAB for deoplete navigation
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
