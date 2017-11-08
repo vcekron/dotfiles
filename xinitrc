@@ -60,7 +60,6 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 #xrandr --output HDMI-A-0 --set audio off &
 
-stty -ixon 
 eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
 numlockx &
