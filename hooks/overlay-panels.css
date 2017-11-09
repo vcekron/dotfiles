@@ -1,0 +1,16 @@
+#main .inner {
+	position: relative;
+}
+#panels-container {
+	position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    background-color: var(--colorBg);
+}
+#panels-container.right {
+	right: 0;
+}
+
+/* floaty find in page */
+.find-in-page + .devtools-container .webpage { top: 0px !important }

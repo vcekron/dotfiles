@@ -7,14 +7,46 @@ vrespath=$(dirname $(find $vpath -name "browser.html"))
 
 if [[ -z $vpath || ! -d $vpath ]]
 then
-	echo "Vivaldi install not found."
-elif [[ $(cat $vrespath/browser.html | grep jdhooks.js) ]]
+	echo "Vivaldi install not found.\nPatching failed."
+elif [[ ! -d ./hooks ]]
 then
-	echo "browser.html already patched."
-else 
-	echo "Patching browser.html..."
-	linenr=$(cat $vrespath/browser.html | grep -n "src=\"bundle.js\"" | cut -f1 -d:)
-	sed "$linenr i\	<script src=\"jdhooks.js\"></script>" $vrespath/browser.html > ./browser_patched.html
+	echo "hooks directory not found in patcher path.\nPatching failed."
+elif [[ ! $(ls ./hooks | grep ".*\.css$") ]]
+then
+	echo "No hooks found.\nPatching failed."
+else
+
+	if [[ $(ls $vrespath | grep hooks.css) ]]
+	then
+		echo "Removing old hooks.css..."
+		sudo rm $vrespath/hooks.css
+	fi
+
+	if [[ -d $vrespath/hooks ]]
+	then
+		echo "Removing old hooks folder..."
+		sudo rm -r $vrespath/hooks
+	fi
+
+	echo "Inserting hooks folder..."
+	sudo cp -a ./hooks $vrespath
+	echo "Creating hooks.css..."
+	vhooks=($(ls $vrespath/hooks | grep ".*\.css$"))
+
+	for hook in $vhooks; do
+		echo "@import \"hooks/$hook\";" >> ./hooks_new.css
+	done
+
+	echo "Inserting hooks.css.."
+	sudo mv ./hooks_new.css $vrespath/hooks.css
+
+	if [[ $(cat $vrespath/browser.html | grep hooks.css) ]]
+	then
+		echo "browser.html already patched."
+	else
+		echo "Patching browser.html..."
+		sed '/common.css/a\ \ \ \ <link rel="stylesheet" href="hooks.css" />' $vrespath/browser.html > ./browser_patched.html
+	fi
 
 	if [[ $(ls $vrespath | grep browser.html.bak) ]]
 	then
@@ -22,8 +54,10 @@ else
 		sudo rm $vrespath/browser.html.bak
 	fi
 
+	echo "Creating browser.html backup..."
 	sudo mv $vrespath/browser.html $vrespath/browser.html.bak
+	echo "Inserting patched browser.html..."
 	sudo mv ./browser_patched.html $vrespath/browser.html
-	echo "Patching complete."
-fi
 
+	echo "Done."
+fi
