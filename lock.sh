@@ -6,6 +6,7 @@ i3lock \
 	--line-uses-inside \
 	--keyhlcolor=8c9440ff \
 	--bshlcolor=a54242ff \
+	--separatorcolor=c5c8c6ff \
 	--insidevercolor=1d1f21bb \
 	--ringvercolor=b264bbff \
 	--insidewrongcolor=a54242ff \
