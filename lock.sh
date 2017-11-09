@@ -15,8 +15,11 @@ i3lock \
 	--datecolor=c5c8c6ff \
 	--textcolor=c5c8c6ff \
 	--timestr="%H:%M" \
-	--timesize=34 \
+	--timefont="Liberation Sans" \
+	--timesize=36 \
 	--datestr="%A, %d %b" \
+	--datefont="Liberation Sans" \
+	--datesize=16 \
 	--ring-width=2 \
 	--blur 5 \
 	--clock \
