@@ -16,5 +16,4 @@ then
 	urxvt -cd $dir
 else
 	urxvt
-fi
-
+fi 
