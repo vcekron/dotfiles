@@ -191,7 +191,7 @@ ctrl + mod3 + {_,shift +}n
 	playerctl {next,previous}
 
 super + e
-	urxvt -e $SHELL -c "source ~/.zshrc;ranger"
+	urxvt -e $SHELL -c "stty -ixon;ranger"
 
 XF86Sleep
 	systemctl suspend; \
