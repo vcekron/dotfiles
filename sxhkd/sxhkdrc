@@ -179,7 +179,7 @@ super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
 ctrl + mod3 + l
-	i3lock-fancy -gf Liberation-Sans -t '' -- scrot -z
+	~/dotfiles/lock.sh
 
 ctrl + mod3 + r
 	~/dotfiles/redtoggle
@@ -195,7 +195,7 @@ super + e
 
 XF86Sleep
 	systemctl suspend; \
-	i3lock-fancy -gf Liberation-Sans -t '' -- scrot -z
+	~/dotfiles/lock.sh
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle; \
