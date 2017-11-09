@@ -4,7 +4,7 @@ i3lock \
 	--insidecolor=1d1f21ff \
 	--ringcolor=c5c8c6ff \
 	--line-uses-inside \
-	--keyhlcolor=1d1f21ff \
+	--keyhlcolor=8c9440ff \
 	--bshlcolor=a54242ff \
 	--separatorcolor=c5c8c6ff \
 	--insidevercolor=1d1f21ff \
