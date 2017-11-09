@@ -34,7 +34,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 call plug#end()
 
-" Plugin settings 
+" Plugin settings
 if !exists('g:deoplete#omni_patterns')
 	let g:deoplete#omni_patterns = {}
 endif
@@ -99,26 +99,30 @@ function! NumberToggle()
 	else
 		set relativenumber
 	endif
-endfunc 
-nmap <silent> <Leader>n :call NumberToggle()<CR> 
+endfunc
+nmap <silent> <Leader>n :call NumberToggle()<CR>
 " Save on Ctrl-S and update on F2
 nmap <c-s> :w<CR>
 vmap <c-s> <Esc><c-s>gv
-imap <c-s> <Esc><c-s> 
+imap <c-s> <Esc><c-s>
 nmap <F2> :update<CR>
 vmap <F2> <Esc><F2>gv
-imap <F2> <c-o><F2> 
+imap <F2> <c-o><F2>
 " Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR> 
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" Hide highlights
+nmap <c-h> :noh<CR>
+vmap <c-h> <Esc><c-h>
+imap <c-h> <c-o><c-h>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
 
 " Plugin mappings
 
 " Toggle autocomplete
-nmap <silent> <Leader>d :call deoplete#enable()<CR> 
+nmap <silent> <Leader>d :call deoplete#enable()<CR>
 " Toggle nerdtree
-nmap <silent> <Leader>e :NERDTreeToggle<CR> 
+nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Use TAB for deoplete navigation
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
