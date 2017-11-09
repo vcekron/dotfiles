@@ -7,10 +7,10 @@ i3lock \
 	--keyhlcolor=8c9440ff \
 	--bshlcolor=a54242ff \
 	--separatorcolor=c5c8c6ff \
-	--insidevercolor=1d1f21bb \
+	--insidevercolor=1d1f21ff \
 	--ringvercolor=b264bbff \
 	--insidewrongcolor=a54242ff \
-	--ringwrongcolor=cc6666ff \
+	--ringwrongcolor=a54242ff \
 	--timecolor=c5c8c6ff \
 	--datecolor=c5c8c6ff \
 	--textcolor=c5c8c6ff \
