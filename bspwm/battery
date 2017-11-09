@@ -1,12 +1,15 @@
 #! /bin/zsh
+#
 battery -s | while read -r line ; do
 	echo $line | { read char batt }
+
 	if [[ $char == "Charging" || $batt=100 && $(acpi | grep "zero rate") ]]
 	then
 		bolt="%{T3} \uf0e7%{T-}"
 	else
 		unset bolt
 	fi
+
 	if [[ $batt -ge 81 ]]
 	then
 		level="\uf240"
@@ -32,5 +35,6 @@ battery -s | while read -r line ; do
 	else
 		level="%{F#FFA54242}\uf071%{F-}"
 	fi
+
 	echo "B$level$bolt"
 done > "$PANEL_FIFO" &

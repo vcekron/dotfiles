@@ -1,12 +1,16 @@
 #!/usr/bin/sh
+
 old=$(xdo id -n "scratchpad")
+
 if [[ $old ]]
 then
 	bspc node $old --flag locked=off
 	xdo close $old
 	rm /tmp/scratchid
 fi
+
 res=$(xrandr | grep primary | cut -d " " -f 4)
+
 if [[ $res == '2560x1440+0+0' ]]
 then
 	urxvt -name scratchpad -g 180x26+650-0 -e ~/dotfiles/scratchid &

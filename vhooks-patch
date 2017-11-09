@@ -1,20 +1,8 @@
 #! /bin/zsh
 
-echo "--Vivaldi-hooks patcher--\nLocating Vivaldi installation directory..."
-
-vpath=$(dirname $(find /opt -name "vivaldi-bin"))
-vrespath=$(dirname $(find $vpath -name "browser.html"))
-
-if [[ -z $vpath || ! -d $vpath ]]
-then
-	echo "Vivaldi install not found.\nPatching failed."
-elif [[ ! -d ./hooks ]]
-then
-	echo "hooks directory not found in patcher path.\nPatching failed."
-elif [[ ! $(ls ./hooks | grep ".*\.css$") ]]
-then
-	echo "No hooks found.\nPatching failed."
-else
+patch() {
+	echo "--Patching $1--"
+	vrespath=$(dirname $(find $1 -name "browser.html"))
 
 	if [[ $(ls $vrespath | grep hooks.css) ]]
 	then
@@ -46,18 +34,40 @@ else
 	else
 		echo "Patching browser.html..."
 		sed '/common.css/a\ \ \ \ <link rel="stylesheet" href="hooks.css" />' $vrespath/browser.html > ./browser_patched.html
-	fi
 
-	if [[ $(ls $vrespath | grep browser.html.bak) ]]
-	then
-		echo "Removing old browser.html backup..."
-		sudo rm $vrespath/browser.html.bak
-	fi
+		if [[ $(ls $vrespath | grep browser.html.bak) ]]
+		then
+			echo "Removing old browser.html backup..."
+			sudo rm $vrespath/browser.html.bak
+		fi
 
-	echo "Creating browser.html backup..."
-	sudo mv $vrespath/browser.html $vrespath/browser.html.bak
-	echo "Inserting patched browser.html..."
-	sudo mv ./browser_patched.html $vrespath/browser.html
+		echo "Creating browser.html backup..."
+		sudo mv $vrespath/browser.html $vrespath/browser.html.bak
+		echo "Inserting patched browser.html..."
+		sudo mv ./browser_patched.html $vrespath/browser.html
+	fi
 
 	echo "Done."
+}
+
+echo "--Vivaldi-hooks patcher--\nLocating Vivaldi installation directory..."
+
+vpaths=($(dirname $(find /opt -name "vivaldi-bin")))
+
+if [[ -z $vpaths[1] || ! -d $vpaths[1] || ! $(find $vpaths[1] -name browser.html) ]]
+then
+	echo "Vivaldi install not found.\nPatching failed."
+elif [[ ! -d ./hooks ]]
+then
+	echo "hooks directory not found in patcher path.\nPatching failed."
+elif [[ ! $(ls ./hooks | grep ".*\.css$") ]]
+then
+	echo "No hooks found.\nPatching failed."
+else
+
+	for vpath in $vpaths
+	do
+		patch $vpath
+	done
+
 fi
