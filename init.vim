@@ -79,6 +79,9 @@ let g:vimtex_view_method = 'zathura'
 if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 3
 endif
+if !exists('g:undotree_HelpLine')
+    let g:undotree_HelpLine = 0
+endif
 
 " Theme settings
 let g:hybrid_use_Xresources = 1
