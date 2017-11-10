@@ -52,6 +52,7 @@ let g:deoplete#omni_patterns.tex =
 
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
+let g:airline#extensions#tabline#enabled = 1
 
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
@@ -125,6 +126,12 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Erase all folds with Ctrl-Space
 nnoremap <C-Space> zE
+" Tab navigation
+nnoremap <C-S-t> :tabnew<CR>
+nnoremap <C-S-h> :tabprevious<CR>
+nnoremap <C-S-l> :tabnext<CR>
+nnoremap <silent> <C-S-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <C-S-k> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " Plugin mappings
 
