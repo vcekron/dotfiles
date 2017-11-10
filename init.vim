@@ -118,6 +118,13 @@ vmap <c-h> <Esc><c-h>
 imap <c-h> <c-o><c-h>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
+" Create indent folds then return to manual fold method
+nmap <silent> <localleader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manual<CR>
+" Toggle folds with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+" Erase all folds with Ctrl-Space
+nnoremap <C-Space> zE
 
 " Plugin mappings
 
