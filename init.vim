@@ -70,6 +70,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Close nvim if only nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" vimtex settings
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
 
