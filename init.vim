@@ -28,6 +28,7 @@ Plug 'https://github.com/wellle/targets.vim.git'
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/mbbill/undotree'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -74,6 +75,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:tex_flavor = "latex"
 let g:vimtex_view_method = 'zathura'
 
+" undotree settings
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 3
+endif
+
 " Theme settings
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
@@ -95,6 +101,11 @@ set mouse=a
 " Recommendations from Vim tutorial
 filetype plugin indent on
 syntax on
+" Persistent undo
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
 
 " General mappings
 
@@ -103,6 +114,9 @@ noremap ö ;
 noremap Ö :
 noremap ä '
 noremap Ä "
+" Map B/E to beginning/end of line
+nnoremap B ^
+nnoremap E $
 " Map jk to exit insert mode
 inoremap jk <ESC>
 " Map j/k to move by visual lines when not using count
@@ -143,6 +157,8 @@ nnoremap <C-Space> zE
 nnoremap <C-S-t> :enew<CR>
 nnoremap <C-S-h> :bprevious<CR>
 nnoremap <C-S-l> :bnext<CR>
+" highlight last inserted text
+nnoremap gV `[v`]
 
 " Plugin mappings
 
@@ -150,6 +166,8 @@ nnoremap <C-S-l> :bnext<CR>
 nmap <silent> <Leader>d :call deoplete#enable()<CR>
 " Toggle nerdtree
 nmap <silent> <Leader>e :NERDTreeToggle<CR>
+" Toggle undotree
+nmap <silent> <Leader>u :UndotreeToggle<CR>
 " Use TAB for deoplete navigation
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
