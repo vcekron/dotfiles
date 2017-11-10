@@ -15,9 +15,9 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'lervag/vimtex'
+Plug 'scrooloose/nerdtree'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using git URL
@@ -50,14 +50,28 @@ let g:deoplete#omni_patterns.tex =
 	\ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
 	\ . ')\m'
 
+" airline settings
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 
-let g:tex_flavor = "latex"
-let g:vimtex_view_method = 'zathura'
+" nerdtree settings
 
 let NERDTreeMinimalUI=1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+" Open nerdtree if nvim launched without argument
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open nerdtree if nvim launched with directory as argument
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
+" Close nvim if only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let g:tex_flavor = "latex"
+let g:vimtex_view_method = 'zathura'
 
 " Theme settings
 let g:hybrid_use_Xresources = 1
@@ -114,9 +128,7 @@ imap <F2> <c-o><F2>
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Hide highlights
-nmap <c-h> :noh<CR>
-vmap <c-h> <Esc><c-h>
-imap <c-h> <c-o><c-h>
+nmap <silent> <localleader>h :noh<CR>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
 " Create indent folds then return to manual fold method
@@ -126,12 +138,10 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Erase all folds with Ctrl-Space
 nnoremap <C-Space> zE
-" Tab navigation
-nnoremap <C-S-t> :tabnew<CR>
-nnoremap <C-S-h> :tabprevious<CR>
-nnoremap <C-S-l> :tabnext<CR>
-nnoremap <silent> <C-S-j> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <C-S-k> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+" Buffer navigation
+nnoremap <C-S-t> :enew<CR>
+nnoremap <C-S-h> :bprevious<CR>
+nnoremap <C-S-l> :bnext<CR>
 
 " Plugin mappings
 
