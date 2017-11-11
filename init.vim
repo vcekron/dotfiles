@@ -103,10 +103,10 @@ set title
 set ignorecase smartcase
 set cursorline
 set lazyredraw
-" Show indents and linebreaks
+" Show indents and wraps
 set list
 set showbreak=↪\
-set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 " Don't select line numbers with mouse
 set mouse=a
 " Recommendations from Vim tutorial
@@ -160,7 +160,7 @@ imap <F2> <c-o><F2>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Hide highlights
 nmap <silent> <localleader>h :noh<CR>
-" Toggle visible indents and linebreaks
+" Toggle visible indents and wraps
 nmap <silent> <Leader>vi :set list!<CR>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
