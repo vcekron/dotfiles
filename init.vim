@@ -83,6 +83,9 @@ if !exists('g:undotree_HelpLine')
     let g:undotree_HelpLine = 0
 endif
 
+" deoplete settings
+let g:deoplete#enable_at_startup = 1
+
 " Theme settings
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
@@ -93,12 +96,17 @@ set number
 set relativenumber
 set showcmd
 set backspace=
+set nojoinspaces
 set tabstop=4
 set shiftwidth=4
 set title
-set ignorecase
+set ignorecase smartcase
 set cursorline
 set lazyredraw
+" Show indents and linebreaks
+set list
+set showbreak=↪\
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 " Don't select line numbers with mouse
 set mouse=a
 " Recommendations from Vim tutorial
@@ -120,6 +128,11 @@ noremap Ä "
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
+" Movement in insert mode
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>a
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
 " Map jk to exit insert mode
 inoremap jk <ESC>
 " Map j/k to move by visual lines when not using count
@@ -147,6 +160,8 @@ imap <F2> <c-o><F2>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Hide highlights
 nmap <silent> <localleader>h :noh<CR>
+" Toggle visible indents and linebreaks
+nmap <silent> <Leader>vi :set list!<CR>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
 " Create indent folds then return to manual fold method
@@ -160,7 +175,7 @@ nnoremap <C-Space> zE
 nnoremap <C-S-t> :enew<CR>
 nnoremap <C-S-h> :bprevious<CR>
 nnoremap <C-S-l> :bnext<CR>
-" highlight last inserted text
+" Highlight last inserted text
 nnoremap gV `[v`]
 
 " Plugin mappings
