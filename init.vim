@@ -77,10 +77,10 @@ let g:vimtex_view_method = 'zathura'
 
 " undotree settings
 if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 3
+	let g:undotree_WindowLayout = 3
 endif
 if !exists('g:undotree_HelpLine')
-    let g:undotree_HelpLine = 0
+	let g:undotree_HelpLine = 0
 endif
 
 " deoplete settings
@@ -114,8 +114,8 @@ filetype plugin indent on
 syntax on
 " Persistent undo
 if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
+	set undodir=~/.undodir/
+	set undofile
 endif
 
 " General mappings
