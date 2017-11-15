@@ -172,9 +172,11 @@ vnoremap <Space> zf
 " Erase all folds with Ctrl-Space
 nnoremap <C-Space> zE
 " Buffer navigation
-nnoremap <C-S-t> :enew<CR>
-nnoremap <C-S-h> :bprevious<CR>
-nnoremap <C-S-l> :bnext<CR>
+nnoremap <silent> <localleader>bt :enew<CR>
+nnoremap <silent> <localleader>bh :bprevious<CR>
+nnoremap <silent> <localleader>bl :bnext<CR>
+nnoremap <silent> <localleader>bd :bdelete<CR>
+nnoremap <silent> <localleader>bu :edit #<CR>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
