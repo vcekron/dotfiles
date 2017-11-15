@@ -159,24 +159,24 @@ imap <F2> <c-o><F2>
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Hide highlights
-nmap <silent> <localleader>h :noh<CR>
+nmap <silent> <Leader>h :noh<CR>
 " Toggle visible indents and wraps
 nmap <silent> <Leader>vi :set list!<CR>
 " Toggle spellcheck
 nmap <silent> <Leader>s :set spell!<CR>
 " Create indent folds then return to manual fold method
-nmap <silent> <localleader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manual<CR>
+nmap <silent> <Leader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manual<CR>
 " Toggle folds with space
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Erase all folds with Ctrl-Space
 nnoremap <C-Space> zE
 " Buffer navigation
-nnoremap <silent> <localleader>bt :enew<CR>
-nnoremap <silent> <localleader>bh :bprevious<CR>
-nnoremap <silent> <localleader>bl :bnext<CR>
-nnoremap <silent> <localleader>bd :bdelete<CR>
-nnoremap <silent> <localleader>bu :edit #<CR>
+nnoremap <Leader>bt :enew<CR>:e 
+nnoremap <silent> <Leader>bh :bprevious<CR>
+nnoremap <silent> <Leader>bl :bnext<CR>
+nnoremap <silent> <Leader>bd :bdelete<CR>
+nnoremap <silent> <Leader>bu :edit #<CR>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
