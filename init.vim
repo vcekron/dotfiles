@@ -172,7 +172,8 @@ vnoremap <Space> zf
 " Erase all folds with Ctrl-Space
 nnoremap <C-Space> zE
 " Buffer navigation
-nnoremap <Leader>bt :enew<CR>:e 
+nnoremap <Leader>bt :e 
+nnoremap <silent> <Leader>bo :enew<CR>
 nnoremap <silent> <Leader>bh :bprevious<CR>
 nnoremap <silent> <Leader>bl :bnext<CR>
 nnoremap <silent> <Leader>bd :bdelete<CR>
