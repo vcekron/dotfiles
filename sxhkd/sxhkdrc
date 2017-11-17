@@ -11,7 +11,7 @@ super + KP_Enter
 
 # program launcher
 super + r
-    rofi -show run -bw 1 -font "Source Sans Pro Semi-Bold 11" -color-window "#1D1F21,#C5C8C6" -color-normal "#1D1F21,#C5C8C6,#1D1F21,#C5C8C6,#1D1F21" -hide-scrollbar -separator-style none -width 40 -lines 7 -padding 4
+    rofi -show run -bw 1 -font "Source Sans Pro Semibold 11" -color-window "#1D1F21,#C5C8C6" -color-normal "#1D1F21,#C5C8C6,#1D1F21,#C5C8C6,#1D1F21" -hide-scrollbar -separator-style none -width 40 -lines 7 -padding 4
 
 # make sxhkd reload its configuration files:
 super + Escape
