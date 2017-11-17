@@ -147,8 +147,13 @@ new ()
 
 clpkg ()
 {
-	echo "Clearing unaffiliated packages..."
-	sudo pacman -Rns $(pacman -Qtdq)
+	if [[ $(pacman -Qtd) ]]
+	then
+		echo "Clearing unaffiliated packages..."
+		sudo pacman -Rns $(pacman -Qtdq)
+	else
+		echo "No unaffiliated packages found."
+	fi
 }
 
 #create a zkbd compatible hash;
