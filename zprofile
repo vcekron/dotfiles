@@ -1,5 +1,5 @@
 PANEL_FIFO=/tmp/panel-fifo
-PANEL_HEIGHT=20
+PANEL_HEIGHT=22
 PANEL_TOP_GAP=6
 PANEL_WM_NAME=bspwm_panel
 PANEL_FONT="Source Sans Pro Semibold:size=10"

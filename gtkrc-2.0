@@ -19,7 +19,7 @@
 #class "*Pager*"                    style "pager"
 
 gtk-theme-name = "oomox-Tomorrow-Night"
-gtk-font-name = "Source Sans Pro 10"
+gtk-font-name = "Source Sans Pro Light 10"
 gtk-icon-theme-name = "Archdroid-Grey"
 gtk-cursor-theme-name = "oxy-grey"
 gtk-cursor-theme-size = 16

@@ -15,10 +15,10 @@ i3lock \
 	--datecolor=c5c8c6ff \
 	--textcolor=c5c8c6ff \
 	--timestr="%H:%M" \
-	--timefont="Source Sans Pro Semibold" \
+	--timefont="Source Sans Pro" \
 	--timesize=38 \
 	--datestr="%A %d %b" \
-	--datefont="Source Sans Pro Semibold" \
+	--datefont="Source Sans Pro" \
 	--datesize=16 \
 	--veriftext="" \
 	--ring-width=2 \
