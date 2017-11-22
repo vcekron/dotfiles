@@ -113,7 +113,7 @@ alias e="$EDITOR"
 alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
-alias rm="noglob rm"
+alias rm="noglob timeout 10 rm -iv --one-file-system"
 
 alias school="cd ~/Dropbox/School/KAU/"
 alias thesis="cd ~/Dropbox/School/KAU/FYGC10/latex/"
