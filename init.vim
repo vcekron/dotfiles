@@ -137,7 +137,7 @@ inoremap <M-l> <C-o>a
 inoremap <M-j> <C-o>j
 inoremap <M-k> <C-o>k
 " Map meta-q to exit insert mode
-inoremap <M-q> <ESC>
+inoremap <M-i> <ESC>
 " Map j/k to move by visual lines when not using count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
