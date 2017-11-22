@@ -17,6 +17,9 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 
+" Completion libraries
+Plug 'zchee/deoplete-jedi'
+
 " On-demand loading
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
@@ -42,12 +45,17 @@ let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 
-" deoplete vimtex integration
+" deoplete settings
+"
 let g:deoplete#enable_at_startup = 1
+" deoplete vimtex integration
 if !exists('g:deoplete#omni#input_patterns')
 	let g:deoplete#omni#input_patterns = {}
 endif
 let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+" deoplete-jedi settings
+"autocmd CompleteDone * pclose!
+autocmd FileType python setlocal completeopt-=preview
 
 " neosnippet settings
 let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
