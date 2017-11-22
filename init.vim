@@ -121,6 +121,9 @@ if has("persistent_undo")
 	set undofile
 endif
 
+" User alias
+command Fw w !sudo tee %
+
 " General mappings
 
 " Map homerow keys to resemble US layout
