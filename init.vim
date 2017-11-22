@@ -11,9 +11,9 @@ endfunction
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 
@@ -36,25 +36,22 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
 
 " Plugin settings
-if !exists('g:deoplete#omni_patterns')
-	let g:deoplete#omni_patterns = {}
-endif
-let g:deoplete#omni_patterns.tex =
-	\ '\v\\%('
-	\ . '\a*cite\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|\a*ref%(\s*\{[^}]*|range\s*\{[^,}]*%(}\{)?)'
-	\ . '|hyperref\s*\[[^]]*'
-	\ . '|includegraphics\*?%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|%(include%(only)?|input)\s*\{[^}]*'
-	\ . '|\a*(gls|Gls|GLS)(pl)?\a*%(\s*\[[^]]*\]){0,2}\s*\{[^}]*'
-	\ . '|includepdf%(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ . '|includestandalone%(\s*\[[^]]*\])?\s*\{[^}]*'
-	\ . ')\m'
 
 " airline settings
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
+
+" deoplete vimtex integration
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+	let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+
+" neosnippet settings
+let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+let g:neosnippet#enable_completed_snippet=1
 
 " nerdtree settings
 
@@ -83,9 +80,6 @@ endif
 if !exists('g:undotree_HelpLine')
 	let g:undotree_HelpLine = 0
 endif
-
-" deoplete settings
-let g:deoplete#enable_at_startup = 1
 
 " Theme settings
 let g:hybrid_use_Xresources = 1
@@ -185,15 +179,20 @@ nnoremap gV `[v`]
 " Plugin mappings
 
 " Toggle autocomplete
-nmap <silent> <Leader>d :call deoplete#enable()<CR>
+nmap <silent> <Leader>d :call deoplete#toggle()<CR>
 " Toggle nerdtree
 nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Toggle undotree
 nmap <silent> <Leader>u :UndotreeToggle<CR>
-" Use TAB for deoplete navigation
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
+" Use TAB for deoplete navigation and neosnippet expansion
+imap <expr><TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ neosnippet#expandable_or_jumpable() ?
+	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 " Hide popup menu with ESC
 inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-" Expand snippet and close popup menu with Enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Expand snippet or insert suggestion (arrow navigation)
+imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
