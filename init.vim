@@ -140,7 +140,7 @@ inoremap <M-l> <C-o>a
 inoremap <M-j> <C-o>j
 inoremap <M-k> <C-o>k
 " Map meta-q to exit insert mode
-inoremap <M-i> <ESC>
+inoremap <M-n> <ESC>
 " Map j/k to move by visual lines when not using count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -204,9 +204,9 @@ imap <expr><TAB>
 	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 " Expand snippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 " Hide popup menu with ESC
 inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 " Expand snippet or insert suggestion (arrow navigation)
