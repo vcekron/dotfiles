@@ -1,0 +1,11 @@
+keycode 20 = minus underscore minus underscore backslash questiondown backslash
+keycode 21 = plus dead_acute plus dead_acute dead_grave notsign dead_grave
+keycode 61 = slash question slash question
+
+clear mod1
+clear mod3
+remove Lock = Caps_Lock
+keysym Caps_Lock = Alt_L
+keysym Alt_L = Hyper_R
+add mod1 = Alt_L
+add mod3 = Hyper_R
