@@ -130,10 +130,10 @@ command Fw w !sudo tee %
 " General mappings
 
 " Map homerow keys to resemble US layout
-noremap ö [
-noremap Ö {
-noremap ä ]
-noremap Ä }
+"noremap ö [
+"noremap Ö {
+"noremap ä ]
+"noremap Ä }
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
