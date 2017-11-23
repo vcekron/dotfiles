@@ -33,6 +33,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-fugitive' 
 Plug 'townk/vim-autoclose'
 Plug 'https://github.com/mbbill/undotree'
+Plug 'https://github.com/kopischke/vim-stay'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -89,6 +90,9 @@ endif
 if !exists('g:undotree_HelpLine')
 	let g:undotree_HelpLine = 0
 endif
+
+" vim-stay settings
+set viewoptions=cursor,folds,slash,unix
 
 " Theme settings
 let g:hybrid_use_Xresources = 1
