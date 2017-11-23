@@ -12,7 +12,7 @@ then
 fi
 
 while [[ $(battery | grep Discharging | awk '$2<11') ]] ; do
-	zenity --warning --text "<span font_weight='semibold'>Battery charge is low.\nPlease plug in charger.</span>" --title "Low battery warning" --width=150
+	zenity --warning --text "<span font_weight='regular'>Battery charge is low.\nPlease plug in charger.</span>" --title "Low battery warning" --width=150
 	sleep 300
 done
 
