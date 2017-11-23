@@ -30,7 +30,8 @@ Plug 'https://github.com/tomtom/tcomment_vim.git'
 Plug 'https://github.com/wellle/targets.vim.git'
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-fugitive' 
+Plug 'townk/vim-autoclose'
 Plug 'https://github.com/mbbill/undotree'
 
 " Plugin outside ~/.vim/plugged with post-update hook
