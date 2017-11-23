@@ -18,7 +18,7 @@ Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 
 " Completion libraries
-Plug 'zchee/deoplete-jedi'
+"Plug 'zchee/deoplete-jedi'
 
 " On-demand loading
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
