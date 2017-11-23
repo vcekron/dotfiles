@@ -8,32 +8,30 @@ function! DoRemote(arg)
 	UpdateRemotePlugins
 endfunction
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-github-dashboard'
+Plug 'kopischke/vim-stay'
+Plug 'lervag/vimtex'
+Plug 'mbbill/undotree'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'lervag/vimtex'
-Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
+Plug 'townk/vim-autoclose'
+Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'wellle/targets.vim'
 
 " Completion libraries
 "Plug 'zchee/deoplete-jedi'
 
 " On-demand loading
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using git URL
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-Plug 'https://github.com/vim-scripts/ReplaceWithRegister.git'
-Plug 'https://github.com/tomtom/tcomment_vim.git'
-Plug 'https://github.com/wellle/targets.vim.git'
-Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/tpope/vim-fugitive' 
-Plug 'townk/vim-autoclose'
-Plug 'https://github.com/mbbill/undotree'
-Plug 'https://github.com/kopischke/vim-stay'
 
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
