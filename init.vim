@@ -134,6 +134,8 @@ noremap Ä "
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
+onoremap B ^
+onoremap E $
 " Movement in insert mode
 inoremap <M-h> <C-o>h
 inoremap <M-l> <C-o>a
@@ -172,11 +174,11 @@ nmap <silent> <Leader>vi :set list!<CR>
 nmap <silent> <Leader>s :set spell!<CR>
 " Create indent folds then return to manual fold method
 nmap <silent> <Leader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manual<CR>
+" Erase all folds
+nmap <silent> <Leader>F zE
 " Toggle folds with space
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
-" Erase all folds with Ctrl-Space
-nnoremap <C-Space> zE
 " Buffer navigation
 nnoremap <Leader>bt :e 
 nnoremap <silent> <Leader>bo :enew<CR>
@@ -207,7 +209,7 @@ inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-" Hide popup menu with ESC
-inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-" Expand snippet or insert suggestion (arrow navigation)
+" Expand snippet or insert suggestion
 imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
+" Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
+inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
