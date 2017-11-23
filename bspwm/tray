@@ -71,9 +71,9 @@ do
 	VPN_UP=$(echo $IP | grep tun0)
 	if [[ $VPN_UP ]]
 	then
-		VPN="\uf023  "
+		VPN="\uf132  "
 	else
-		VPN="\uf09c  "
+		VPN="%{F#FF707880}\uf132%{F-}  "
 	fi
 
 	#Network interface state(s)
