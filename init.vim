@@ -135,7 +135,7 @@ noremap Ö {
 noremap ä ]
 noremap Ä }
 noremap å \
-noremap Å |
+noremap Å <Nop>
 noremap - /
 noremap _ ?
 noremap ? -
