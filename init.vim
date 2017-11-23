@@ -14,12 +14,12 @@ Plug 'kopischke/vim-stay'
 Plug 'lervag/vimtex'
 Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tcomment_vim'
-Plug 'townk/vim-autoclose'
 Plug 'tpope/vim-fugitive' 
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -216,3 +216,4 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
 " Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
 inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
+
