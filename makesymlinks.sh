@@ -8,7 +8,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="gtkrc-2.0 makepkg.conf zlogin zprofile zshrc Xresources xinitrc"    # list of files/folders to symlink in homedir
+files="gtkrc-2.0 makepkg.conf zlogin zprofile zshrc Xresources xinitrc Xmodmap"    # list of files/folders to symlink in homedir
 conf_files="bspwm sxhkd compton.conf redshift.conf"
 
 ##########
