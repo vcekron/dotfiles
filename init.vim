@@ -134,9 +134,6 @@ noremap ö [
 noremap Ö {
 noremap ä ]
 noremap Ä }
-noremap - /
-noremap _ ?
-noremap ? -
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
