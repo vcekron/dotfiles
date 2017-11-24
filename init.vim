@@ -1,6 +1,6 @@
 " Set leader keys
-let mapleader=","
-let maplocalleader=","
+"let mapleader=","
+"let maplocalleader=","
 
 call plug#begin('~/.config/nvim/plugged')
 
