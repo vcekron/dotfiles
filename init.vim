@@ -44,6 +44,7 @@ call plug#end()
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
 " deoplete settings
 "
