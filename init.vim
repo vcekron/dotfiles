@@ -208,12 +208,12 @@ imap <expr><TAB>
 	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
+" Expand snippet or insert suggestion with Enter
+imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+	\ pumvisible() ? "\<C-y>" : "\<CR>"
 " Expand snippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-" Expand snippet or insert suggestion
-imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
 " Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
-inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
-
+inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : "" 
