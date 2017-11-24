@@ -187,8 +187,8 @@ nnoremap <Leader>bo :e
 nnoremap <silent> <Leader>bt :enew<CR>
 nnoremap <silent> <Leader>bh :bprevious<CR>
 nnoremap <silent> <Leader>bl :bnext<CR>
-nnoremap <silent> <Leader>bx :bdelete<CR>
-nnoremap <silent> <Leader>bX :edit #<CR>
+nnoremap <silent> <Leader>bd :bdelete<CR>
+nnoremap <silent> <Leader>bu :edit #<CR>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
