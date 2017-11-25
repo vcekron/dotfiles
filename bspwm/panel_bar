@@ -31,7 +31,12 @@ while read -r line ; do
 			;;
 		T*)
 			# xtitle output
-			title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+			if [[ ${line#?} ]]
+			then
+				title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
+			else
+				title=""
+			fi
 			;;
 		W*)
 			# bspwm's state
@@ -106,7 +111,7 @@ while read -r line ; do
 	then
 		printf "%s\n" "%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{-o}%{-u}%{c}${title}%{r}${update}${tray}${volume}%{+u}%{+o}${sys}%{-o}%{-u}${border}${space}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{-o}%{-u}%{c}${title}%{r}${update}${tray}${volume}%{+u}%{+o}${sys}%{-o}%{-u}${border}${space}"
 	else
-		printf "%s\n" "%{l}${space}${border}%{+u}%{+o}${wm}%{-o}%{-u}%{c}${title}%{r}${update}${tray}${battery}${volume}%{+u}%{+o}${sys}%{-o}%{-u}${border}${space}"
+		printf "%s\n" "%{l}${space}${border}%{+u}%{+o}${wm}%{c}${title}%{r}${update}${tray}${battery}${volume}${sys}%{-o}%{-u}${border}${space}"
 	fi
 
 done
