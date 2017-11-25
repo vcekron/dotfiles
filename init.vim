@@ -170,6 +170,8 @@ vmap <F2> <Esc><F2>gv
 imap <F2> <c-o><F2>
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" List registers
+nnoremap <silent> <Leader>" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " Hide highlights
 nmap <silent> <Leader>h :noh<CR>
 " Toggle visible indents and wraps
