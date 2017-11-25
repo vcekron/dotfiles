@@ -20,7 +20,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -59,8 +59,8 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 autocmd FileType python setlocal completeopt-=preview
 
 " neosnippet settings
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-let g:neosnippet#enable_completed_snippet=1
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+let g:neosnippet#enable_completed_snippet = 1
 
 " nerdtree settings
 
@@ -142,7 +142,7 @@ onoremap B ^
 onoremap E $
 " Movement in insert mode
 inoremap <M-h> <C-o>h
-inoremap <M-l> <C-o>a
+inoremap <M-l> <C-o>l
 inoremap <M-j> <C-o>j
 inoremap <M-k> <C-o>k
 " Map meta-q to exit insert mode
@@ -188,8 +188,8 @@ vnoremap <Space> zf
 " Buffer navigation
 nnoremap <M-o> :e 
 nnoremap <M-t> :enew<CR>
-nnoremap <M-S-TAB> :bprevious<CR>
-nnoremap <M-TAB> :bnext<CR>
+nnoremap <M-S-tab> :bprevious<CR>
+nnoremap <M-tab> :bnext<CR>
 nnoremap <M-d> :bdelete<CR>
 nnoremap <M-u> :edit #<CR>
 " Highlight last inserted text
@@ -203,20 +203,23 @@ nmap <silent> <Leader>d :call deoplete#toggle()<CR>
 nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Toggle undotree
 nmap <silent> <Leader>u :UndotreeToggle<CR>
-" Use TAB for deoplete navigation and neosnippet expansion
-imap <expr><TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ neosnippet#expandable_or_jumpable() ?
-	\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-	smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-	\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" Navigate completion menu with tab/s-tab
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
 inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
-" Expand snippet or insert suggestion with Enter
-imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-	\ pumvisible() ? "\<C-y>" : "\<CR>"
 " Expand snippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 " Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
 inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : "" 
+" Expand snippet or insert suggestion with Enter
+function ExpandSnippet()
+	if getline(".")[col(".")-1] == ")" || getline(".")[col(".")-1] == "]" || getline(".")[col(".")-1] == "}"
+		return "\<C-y>\<C-o>a\<C-k>"
+	else
+		return "\<CR>"
+	endif
+endfunc
+
+imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+			\ pumvisible() ? ExpandSnippet() : "\<CR>"
