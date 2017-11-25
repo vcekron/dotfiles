@@ -217,9 +217,13 @@ function CheckForSnippet()
 	if getline(".")[col(".")-1] == ")" || getline(".")[col(".")-1] == "]" || getline(".")[col(".")-1] == "}"
 		return "\<C-y>\<C-o>a\<C-k>"
 	else
-		return "\<CR>"
+		return "\<C-y>\<CR>"
 	endif
 endfunc
 
 imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
 			\ pumvisible() ? CheckForSnippet() : "\<CR>"
+
+" Disable menu navigation with arrow keys
+inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
+inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
