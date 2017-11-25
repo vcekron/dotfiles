@@ -186,12 +186,12 @@ nmap <silent> <Leader>F zE
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Buffer navigation
-nnoremap <Leader>bo :e 
-nnoremap <silent> <Leader>bt :enew<CR>
-nnoremap <silent> <Leader>bh :bprevious<CR>
-nnoremap <silent> <Leader>bl :bnext<CR>
-nnoremap <silent> <Leader>bd :bdelete<CR>
-nnoremap <silent> <Leader>bu :edit #<CR>
+nnoremap <M-o> :e 
+nnoremap <M-t> :enew<CR>
+nnoremap <M-S-TAB> :bprevious<CR>
+nnoremap <M-TAB> :bnext<CR>
+nnoremap <M-d> :bdelete<CR>
+nnoremap <M-u> :edit #<CR>
 " Highlight last inserted text
 nnoremap gV `[v`]
 
