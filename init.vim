@@ -213,7 +213,7 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 " Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
 inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : "" 
 " Expand snippet or insert suggestion with Enter
-function ExpandSnippet()
+function CheckForSnippet()
 	if getline(".")[col(".")-1] == ")" || getline(".")[col(".")-1] == "]" || getline(".")[col(".")-1] == "}"
 		return "\<C-y>\<C-o>a\<C-k>"
 	else
@@ -222,4 +222,4 @@ function ExpandSnippet()
 endfunc
 
 imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-			\ pumvisible() ? ExpandSnippet() : "\<CR>"
+			\ pumvisible() ? CheckForSnippet() : "\<CR>"
