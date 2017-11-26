@@ -31,12 +31,7 @@ while read -r line ; do
 			;;
 		T*)
 			# xtitle output
-			if [[ ${line#?} ]]
-			then
-				title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
-			else
-				title=""
-			fi
+			title="%{F$COLOR_TITLE_FG}%{B$COLOR_TITLE_BG} ${line#?} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
