@@ -172,6 +172,10 @@ imap <F2> <c-o><F2>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " List registers
 nnoremap <silent> <Leader>" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+" + and 0 register mappings
+nnoremap <silent> <Leader>y "+y
+nnoremap <silent> <Leader>p "+p
+nnoremap <silent> <Leader>P "0p
 " Hide highlights
 nmap <silent> <Leader>h :noh<CR>
 " Toggle visible indents and wraps
