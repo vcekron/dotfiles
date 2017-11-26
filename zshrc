@@ -97,7 +97,7 @@ setopt correct
 export NO_AT_BRIDGE=1
 
 #This sets autocomplete for aliases
-setopt completealiases
+setopt no_complete_aliases
 
 #This sets default editor to nvim
 export EDITOR=nvim
@@ -114,7 +114,8 @@ alias se="sudoedit"
 alias ..="cd .."
 alias ..2="cd ../.."
 alias rm="noglob timeout 10 rm -iv --one-file-system"
-alias cpr="rsync -a --stats --progress"
+alias rcp="rsync -a --stats --progress"
+alias sshcp='rsync -avHPe "ssh -p39931"'
 
 alias school="cd ~/Dropbox/School/KAU/"
 alias thesis="cd ~/Dropbox/School/KAU/FYGC10/latex/"
