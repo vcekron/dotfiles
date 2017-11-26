@@ -115,7 +115,7 @@ alias ..="cd .."
 alias ..2="cd ../.."
 alias rm="noglob timeout 10 rm -iv --one-file-system"
 alias rcp="rsync -a --stats --progress"
-alias sshcp='rsync -avHPe "ssh -p39931"'
+alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
 
 alias school="cd ~/Dropbox/School/KAU/"
 alias thesis="cd ~/Dropbox/School/KAU/FYGC10/latex/"

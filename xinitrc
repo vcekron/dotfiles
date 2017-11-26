@@ -58,6 +58,8 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 export QT_QPA_PLATFORMTHEME='gtk2'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
+export SSH_PORT=$(cat ~/.ssh_port)
+
 #xrandr --output HDMI-A-0 --set audio off &
 
 eval $(dircolors -b ~/.dir_colors)
