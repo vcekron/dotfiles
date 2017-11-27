@@ -53,17 +53,23 @@ mkdir -p ~/.config/nvim
 ln -s $dir/colors ~/.config/nvim/
 ln -s $dir/init.vim ~/.config/nvim/
 
-echo "Moving any existing dotfiles from ~/.config/zathura to $olddir."
+echo "Moving any existing zathurarc from ~/.config/zathura to $olddir."
 mv ~/.config/zathura/zathurarc ~/$olddir
 echo "Creating symlink to zathurarc in ~/.config/zathura directory."
 mkdir -p ~/.config/zathura
 ln -s $dir/zathurarc ~/.config/zathura/
 
-echo "Moving any existing dotfiles from ~/.config/mpv to $olddir."
+echo "Moving any existing mpv.conf from ~/.config/mpv to $olddir."
 mv ~/.config/mpv/mpv.conf ~/$olddir
-echo "Creating symlink to zathurarc in ~/.config/mpv directory."
+echo "Creating symlink to mpv.conf in ~/.config/mpv directory."
 mkdir -p ~/.config/mpv
 ln -s $dir/mpv.conf ~/.config/mpv/
+
+echo "Moving any existing rc.conf from ~/.config/ranger to $olddir."
+mv ~/.config/ranger/rc.conf ~/$olddir
+echo "Creating symlink to rc.conf in ~/.config/ranger directory."
+mkdir -p ~/.config/ranger
+ln -s $dir/rc.conf ~/.config/ranger/
 
 <<install
 install_zsh () {
