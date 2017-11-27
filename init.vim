@@ -241,19 +241,21 @@ inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-" Cancel suggestion or snippet insertion and close popup menu with Ctrl-Space
-inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : "" 
-" Expand snippet or insert suggestion with Enter
+" Jump snippet with Enter
+imap <expr> <CR> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<CR>"
+" Cancel suggestion or snippet insertion and close popup menu with M-Space
+inoremap <expr><M-Space> pumvisible() ? "\<C-e>" : ""
+" Expand snippet or insert suggestion with C-Space
 function CheckForSnippet()
 	if getline(".")[col(".")-1] == ")" || getline(".")[col(".")-1] == "]" || getline(".")[col(".")-1] == "}"
 		return "\<C-y>\<C-o>a\<C-k>"
 	else
-		return "\<C-y>\<CR>"
+		return "\<C-y>"
 	endif
 endfunc
 
-imap <expr><CR> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-			\ pumvisible() ? CheckForSnippet() : "\<CR>"
+imap <expr> <C-Space> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+			\ pumvisible() ? CheckForSnippet() : ""
 
 " Disable menu navigation with arrow keys
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
