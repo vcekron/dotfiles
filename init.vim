@@ -12,9 +12,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'kopischke/vim-stay'
 Plug 'lervag/vimtex'
+Plug 'luochen1990/rainbow'
 Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
@@ -41,7 +41,7 @@ call plug#end()
 " Plugin settings
 
 " airline settings
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 let g:airline_theme = 'hybrid'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
@@ -64,18 +64,43 @@ let g:neosnippet#enable_completed_snippet = 1
 
 " nerdtree settings
 
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
 " Open nerdtree if nvim launched without argument
-autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open nerdtree if nvim launched with directory as argument
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | wincmd p | endif
 " Close nvim if only nerdtree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Rainbow parenthesis settings
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\	'ctermfgs': ['white', 'red', 'yellow', 'lightyellow', 'green', 'blue', 'magenta'],
+	\	'operators': '',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\	'separately': {
+	\		'*': {},
+	\		'tex': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+	\		},
+	\		'lisp': {
+	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+	\		},
+	\		'vim': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+	\		},
+	\		'html': {
+	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+	\		},
+	\		'css': 0,
+	\	}
+	\}
 
 " vimtex settings
 let g:tex_flavor = "latex"
@@ -175,7 +200,9 @@ nnoremap <silent> <Leader>" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<
 " + and 0 register mappings
 nnoremap <silent> <Leader>y "+y
 nnoremap <silent> <Leader>p "+p
-nnoremap <silent> <Leader>P "0p
+nnoremap <silent> <Leader>P "+P
+nnoremap <silent> <Leader>0 "0p
+nnoremap <silent> <Leader>= "0P
 " Hide highlights
 nmap <silent> <Leader>h :noh<CR>
 " Toggle visible indents and wraps
