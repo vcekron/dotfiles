@@ -159,6 +159,15 @@ clpkg ()
 	fi
 }
 
+#Prevent nested ranger instances
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
 #create a zkbd compatible hash;
 #to add other keys to this hash, see: man 5 terminfo
 typeset -A key
