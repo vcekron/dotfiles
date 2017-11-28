@@ -81,7 +81,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:rainbow_active = 1
 let g:rainbow_conf = {
 	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
-	\	'ctermfgs': ['white', 'red', 'yellow', 'lightyellow', 'green', 'blue', 'magenta'],
+	\	'ctermfgs': ['red', 'yellow', 'lightyellow', 'green', 'blue', 'magenta'],
 	\	'operators': '',
 	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
 	\	'separately': {
