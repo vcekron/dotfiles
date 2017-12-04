@@ -17,7 +17,6 @@ Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'Shougo/neopairs.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tcomment_vim'
