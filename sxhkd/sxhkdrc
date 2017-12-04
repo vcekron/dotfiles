@@ -235,3 +235,6 @@ XF86KbdBrightnessUp
 
 XF86KbdBrightnessDown
 	asus-kbd-backlight down
+
+XF86Calculator
+	speedcrunch
