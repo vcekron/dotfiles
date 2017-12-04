@@ -7,13 +7,7 @@ add mod1 = Alt_L
 add mod3 = Hyper_R
 
 keycode  21 = minus underscore minus underscore backslash bar backslash bar
-keycode  34 = bracketleft braceleft bracketleft braceleft aring Aring aring Aring
-keycode  35 = bracketright braceright asciitilde asciicircum asciitilde asciicircum
-keycode  47 = semicolon colon semicolon colon odiaeresis Odiaeresis odiaeresis Odiaeresis
-keycode  48 = apostrophe quotedbl apostrophe quotedbl adiaeresis Adiaeresis adiaeresis Adiaeresis
+keycode  35 = backslash asciicircum backslash asciicircum asciitilde diaeresis asciitilde diaeresis
 keycode  49 = grave acute grave acute section paragraph section paragraph
-keycode  51 = backslash asterisk backslash asterisk diaeresis diaeresis diaeresis diaeresis
-keycode  59 = comma less comma less semicolon semicolon semicolon semicolon
-keycode  60 = period greater period greater colon colon colon colon
 keycode  61 = slash question slash question minus underscore minus underscore
 keycode  94 = less greater less greater Multi_key Multi_key Multi_key Multi_key
