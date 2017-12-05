@@ -10,4 +10,4 @@ keycode  21 = minus underscore minus underscore backslash bar backslash bar
 keycode  35 = backslash asciicircum backslash asciicircum asciitilde diaeresis asciitilde diaeresis
 keycode  49 = grave acute grave acute section paragraph section paragraph
 keycode  61 = slash question slash question minus underscore minus underscore
-keycode  94 = less greater less greater Multi_key Multi_key Multi_key Multi_key
+keycode  94 = less greater less greater bar Multi_key bar Multi_key
