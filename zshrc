@@ -115,6 +115,8 @@ alias ..="cd .."
 alias ..2="cd ../.."
 alias rm="noglob timeout 10 rm -iv --one-file-system"
 alias srm="noglob timeout 10 sudo rm -iv --one-file-system"
+alias -g cp="cp -iv"
+alias -g mv="mv -iv"
 alias rcp="rsync -a --stats --progress"
 alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
 
