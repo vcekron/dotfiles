@@ -123,6 +123,10 @@ alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
 alias school="cd ~/Dropbox/School/KAU/"
 alias thesis="cd ~/Dropbox/School/KAU/FYGC10/latex/"
 
+alias gs="git status -sb"
+alias ga="git add"
+alias gc="git commit -m"
+
 syu ()
 {
 	pacaur -Syu "$@" --silent
@@ -161,6 +165,27 @@ clpkg ()
 	fi
 }
 
+function extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1     ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1      ;;
+            *.rar)       unrar x $1      ;;
+            *.gz)        gunzip $1       ;;
+            *.tar)       tar xvf $1      ;;
+            *.tbz2)      tar xvjf $1     ;;
+            *.tgz)       tar xvzf $1     ;;
+            *.zip)       unzip $1        ;;
+            *.Z)         uncompress $1   ;;
+            *.7z)        7z x $1         ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
 #Prevent nested ranger instances
 ranger() {
     if [ -z "$RANGER_LEVEL" ]; then
@@ -169,6 +194,9 @@ ranger() {
         exit
     fi
 }
+
+#Online services
+cheatsheet() { curl cheat.sh/$1; }
 
 #create a zkbd compatible hash;
 #to add other keys to this hash, see: man 5 terminfo

@@ -67,5 +67,6 @@ xset s off -dpms &
 numlockx &
 udiskie &
 redshift &
+urxvtd -q -f -o &
 sxhkd &
 exec bspwm

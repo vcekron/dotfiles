@@ -137,6 +137,11 @@ set title
 set ignorecase smartcase
 set cursorline
 set lazyredraw
+set linebreak
+set hidden
+set wildmenu
+set wildmode=list:longest,full
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.jpeg,*.png,*.xpm,*.gif
 " Show indents and wraps
 set list
 set showbreak=↪\
