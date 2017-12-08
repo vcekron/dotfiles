@@ -206,6 +206,7 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <silent> <Leader>" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " + and 0 register mappings
 nnoremap <silent> <Leader>y "+y
+vnoremap <silent> <Leader>y "+y
 nnoremap <silent> <Leader>p "+p
 nnoremap <silent> <Leader>P "+P
 nnoremap <silent> <Leader>0 "0p
