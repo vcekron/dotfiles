@@ -4,7 +4,7 @@ PANEL_TOP_GAP=6
 PANEL_LINE_WIDTH=3
 PANEL_WM_NAME=bspwm_panel
 PANEL_FONT="Source Sans Pro Semibold:size=10"
-ICON_FONT="FontAwesome:size=12"
-ICON_FONT2="FontAwesome:size=10"
-ICON_FONT3="FontAwesome:size=8"
+ICON_FONT="Font Awesome 5 Free Solid:size=10"
+ICON_FONT2="Font Awesome 5 Brands:size=10"
+ICON_FONT3="Font Awesome 5 Free Solid:size=6"
 export PANEL_FIFO PANEL_HEIGHT PANEL_TOP_GAP PANEL_LINE_WIDTH PANEL_WM_NAME PANEL_FONT ICON_FONT ICON_FONT2 ICON_FONT3
