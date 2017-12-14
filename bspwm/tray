@@ -73,7 +73,7 @@ do
 	then
 		VPN="\uf023  "
 	else
-		VPN="\uf3c1  "
+		VPN="\uf09c  "
 	fi
 
 	#Network interface state(s)
