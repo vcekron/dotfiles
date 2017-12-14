@@ -5,7 +5,7 @@ battery -s | while read -r line ; do
 
 	if [[ $char == "Charging" || $batt=100 && $(acpi | grep "zero rate") ]]
 	then
-		bolt="%{T4} \uf0e7%{T-}"
+		bolt="%{T3} \uf0e7%{T-}"
 	else
 		unset bolt
 	fi

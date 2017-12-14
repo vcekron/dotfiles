@@ -4,7 +4,7 @@ volume -d 'pulse' -f '%s %i' | read -r mute vol
 
 	if [[ $mute == "off" ]]
 	then
-		echo "V\uf026%{T5}\uf00d%{T-}" > "$PANEL_FIFO"
+		echo "V\uf026%{T4}\uf00d%{T-}" > "$PANEL_FIFO"
 	elif [[ $vol -ge 50 ]]
 	then
 		echo "V\uf028 $vol%" > "$PANEL_FIFO"
