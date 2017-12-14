@@ -28,11 +28,11 @@ do
 	fi
 	if [[ $TELEGRAM_MES ]]
 	then
-		TELEGRAM="\uf1d8 $TELEGRAM_MES  "
+		TELEGRAM="%{T3}\uf1d8%{T-} $TELEGRAM_MES  "
 		TELEGRAM_MES=""
 	elif [[ $TELEGRAM_RUN && !$TELEGRAM_MES ]]
 	then
-		TELEGRAM="\uf1d8  "
+		TELEGRAM="%{T3}\uf1d8%{T-}  "
 	else
 		TELEGRAM=""
 	fi
@@ -71,9 +71,9 @@ do
 	VPN_UP=$(echo $IP | grep tun0)
 	if [[ $VPN_UP ]]
 	then
-		VPN="\uf023  "
+		VPN="%{T3}\uf023%{T-}  "
 	else
-		VPN="\uf3c1  "
+		VPN="%{T3}\uf3c1%{T-}  "
 	fi
 
 	#Network interface state(s)
