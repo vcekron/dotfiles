@@ -165,7 +165,7 @@ super + {_,shift + }s
 	if [[ $id ]];then bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
-super + alt + s
+super + mod3 + s
 	bspc node last.active -m focused
 
 super + {_,shift + ,mod3 + }d
