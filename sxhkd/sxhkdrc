@@ -95,8 +95,7 @@ super + {1-9,0}
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + shift + {1-9,0}
-	bspc node -d 'focused:^{1-9,10}';\
-	bspc desktop -f last
+	bspc node --flag hidden=on --to-desktop 'focused:^{1-9,10}' --flag hidden=off
 
 super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
 	bspc desktop -a 'next:^{1-9,10}'
