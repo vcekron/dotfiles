@@ -100,10 +100,8 @@ super + shift + {1-9,0}
 super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
 	bspc desktop -a 'next:^{1-9,10}'
 
-super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
-	bspc node -d 'next:^{1-9,10}';\
-	bspc desktop -f last;\
-	bspc desktop -a next:^$(bspc query -D next:focused -d last.local --names)
+super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10} 
+	bspc node --flag hidden=on --to-desktop 'next:^{1-9,10}' --flag hidden=off
 
 #
 # preselect
