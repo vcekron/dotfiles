@@ -104,7 +104,6 @@ export EDITOR=nvim
 
 #Aliases
 alias -g L="|less -FX"
-alias rdpkg="pacman -Qtd"
 alias x="chmod +x"
 alias sx="sudo chmod +x"
 alias ls="ls -X --color=auto"
