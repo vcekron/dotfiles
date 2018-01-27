@@ -87,21 +87,12 @@ super + {o,i}
 	bspc node {older,newer} -f; \
 	bspc wm -h on
 
-# focus or send to the given desktop
-super + {1-9,0}
-	id=$(cat /tmp/scratchid);\
-	focused=$(bspc query -N -n);\
-	bspc desktop -f 'focused:^{1-9,10}';\
-	if [[ $focused == $id ]];then bspc node -f $id;fi
+# focus or send to the given desktop 
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} 'focused:^{1-9,10}'
 
-super + shift + {1-9,0}
-	bspc node --flag hidden=on --to-desktop 'focused:^{1-9,10}' --flag hidden=off
-
-super + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
-	bspc desktop -a 'next:^{1-9,10}'
-
-super + shift + {F1,F2,F3,F4,F5,F6,F7,F8,F9,F10} 
-	bspc node --flag hidden=on --to-desktop 'next:^{1-9,10}' --flag hidden=off
+super + {_,shift + }{F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
+	bspc {desktop -a,node -d} 'next:^{1-9,10}'
 
 #
 # preselect
@@ -159,7 +150,7 @@ super + {_,shift + }s
 	id=$(cat /tmp/scratchid);\
 	focused=$(bspc query -N -n);\
 	{bspc monitor -f next,bspc node -m next};\
-	if [[ $id ]];then bspc node $id --flag sticky=off;bspc node $id -m focused;bspc node $id --flag sticky=on;fi;\
+	if [[ $id ]];then bspc node $id --flag sticky=off -m focused --flag sticky=on;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + mod3 + s
