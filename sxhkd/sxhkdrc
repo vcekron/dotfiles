@@ -149,7 +149,7 @@ super + shift + KP_Enter
 super + {_,shift + }s
 	id=$(cat /tmp/scratchid);\
 	focused=$(bspc query -N -n);\
-	{bspc monitor -f next,bspc node -m next};\
+	{bspc monitor -f next,bspc node -m next --follow};\
 	if [[ $id ]];then bspc node $id --flag sticky=off -m focused --flag sticky=on;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
