@@ -13,14 +13,14 @@ i3lock \
 	--ringwrongcolor=a54242ff \
 	--timecolor=c5c8c6ff \
 	--datecolor=c5c8c6ff \
-	--textcolor=c5c8c6ff \
 	--timestr="%H:%M" \
-	--timefont="Source Sans Pro" \
+	--time-font="Source Sans Pro" \
 	--timesize=38 \
 	--datestr="%A %d %b" \
-	--datefont="Source Sans Pro" \
+	--date-font="Source Sans Pro" \
 	--datesize=16 \
 	--veriftext="" \
+	--wrong-font="Source Sans Pro" \
 	--ring-width=2 \
 	--blur 5 \
 	--clock \
