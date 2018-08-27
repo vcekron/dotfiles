@@ -15,6 +15,8 @@ do
 	fi
 done
 
+POLL_DELAY=0
+
 while true;
 do
 	PS=$(ps -cax)
@@ -68,10 +70,18 @@ do
 
 	IP=$(ip r)
 
-	VPN_UP=$(echo $IP | grep tun0)
-	if [[ $VPN_UP ]]
+	VPN_UP=$(echo $IP | grep azirevpn)
+	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
+	then
+		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check)
+		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
+	fi
+	if [[ $VPN_UP && $VPN_CONNECTED ]]
 	then
 		VPN="\uf023  "
+	elif [[ $VPN_UP && !$VPN_CONNECTED ]]
+	then
+		VPN="%{F#FFCC6666}\uf023  "
 	else
 		VPN="\uf09c  "
 	fi
