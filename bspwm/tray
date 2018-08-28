@@ -73,7 +73,7 @@ do
 	VPN_UP=$(echo $IP | grep azirevpn)
 	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
 	then
-		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check)
+		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check | grep '"connected": true')
 		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
 	fi
 	if [[ $VPN_UP && $VPN_CONNECTED ]]
