@@ -31,13 +31,15 @@ then
 	bspc monitor east -d 1 2 3 4 5 6
 	bspc monitor east -n East
 	feh --bg-fill ~/wallpaper1.jpg --bg-fill ~/wallpaper2.jpg &
-	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='east:^6'
 	bspc rule -a Spotify desktop='east:^2'
+	bspc rule -a qBittorrent desktop='east:^5'
+	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='east:^6'
 else
 	bspc monitor primary -a 7 8
 	feh --bg-fill ~/wallpaper.jpg &
-	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='^8'
 	bspc rule -a Spotify desktop='^2'
+	bspc rule -a qBittorrent desktop='^7'
+	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='^8'
 fi
 
 bspc rule -a URxvt:scratchpad sticky=on state=floating locked=on hidden=on
