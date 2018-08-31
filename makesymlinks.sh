@@ -71,6 +71,9 @@ echo "Creating symlink to rc.conf in ~/.config/ranger directory."
 mkdir -p ~/.config/ranger
 ln -s $dir/rc.conf ~/.config/ranger/
 
+echo "Creating symlink to startup script."
+ln -s $dir/startup /usr/local/bin/
+
 <<install
 install_zsh () {
 # Test to see if zshell is installed.  If it is:

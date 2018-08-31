@@ -1,0 +1,7 @@
+#! /bin/sh
+
+telegram-desktop &
+SVPManager &
+LD_PRELOAD=/usr/lib/spotifywm.so /usr/share/spotify/spotify &
+qbittorrent &
+vivaldi-stable &
