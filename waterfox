@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/sh
 
 bspc rule -a Waterfox -o desktop='primary:^1'
 bspc rule -a Waterfox -o desktop='east:^1'
