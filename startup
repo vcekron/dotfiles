@@ -2,6 +2,6 @@
 
 telegram-desktop &
 SVPManager &
-LD_PRELOAD=/usr/lib/spotifywm.so /usr/share/spotify/spotify &
+spotify &
 qbittorrent &
 waterfox &
