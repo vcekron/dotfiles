@@ -1,0 +1,109 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+/*Set loading background*/
+browser {
+	background-color: #1D1F21;
+}
+
+/*Set main UI colors*/
+#nav-bar-customization-target, #main-area, #PanelUI-menu-button, #nav-bar-customization-target, #tabbrowser-tabs, #toolbar-menubar, #menubar-items, #main-menubar, findbar, .findbar-closebutton.close-icon {
+	background-color: #282A2E !important;
+	color: #FFFFFF;
+}
+
+/*Set editor button-text color*/
+.devtools-toolbarbutton {
+	color: #FFFFFF;
+}
+
+/*Set tab-panel color and urlbar background-color*/
+#TabsToolbar .tabbrowser-tabs, #urlbar, #_5df6e133-f35d-4c62-885a-56387df22f6b_-browser-action {
+	background-color: #1D1F21 !important;
+}
+
+/*Set unselected tab properties*/
+#TabsToolbar .tabbrowser-tab {
+	-moz-border-top-colors: none !important;
+	-moz-border-left-colors: none !important;
+	-moz-border-right-colors: none !important;
+	-moz-border-bottom-colors: none !important;
+	color: #C5C8C6 !important;
+	background: #1D1F21;
+	background-clip: padding-box !important;
+	transition: none !important;
+}
+
+/*Set unselected tab mouseover properties*/
+#TabsToolbar .tabbrowser-tab:hover {
+	color: #C5C8C6 !important;
+	background: #282A2E !important;
+}
+/*Set selected tab properties*/
+#TabsToolbar .tabbrowser-tab[selected] {
+	color: #FFFFFF !important;
+	background: #373B41 !important;
+}
+
+/*Hide new tab and close tab buttons*/
+.tabs-newtab-button, .tab-close-button.close-icon {
+	display: none;
+}
+
+/*Set footer colors for main menu, downloads menu, and bookmarks menu that pick up wrong colors from gtk theme*/
+#downloadsFooterButtons, #PanelUI-customize, #PanelUI-help, #PanelUI-quit, #PanelUI-fxa-container {
+	background-color: #282A2E;
+}
+
+.search-panel-header.search-panel-current-input, .search-panel-one-offs {
+	background-color: #282A2E !important;
+}
+
+/*Set unselected url text color in search suggestions*/
+.ac-url-text, .ac-separator-text, .ac-action-text {
+	color: #5F819D;
+}
+
+/*Set selected url text color in search suggestions*/
+.ac-url-text[selected], .ac-separator-text[selected], .ac-action-text[selected] {
+	color: #FFFFFF;
+}
+
+/*Apply color transform matrix to menu dropdown icons in bookmarks menu to turn them white*/
+.menu-iconic.bookmark-item.subviewbutton .menu-right, #PanelUI-contents .toolbarbutton-icon, #TabsToolbar .toolbarbutton-icon {
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'>\
+	<feColorMatrix in='SourceGraphic' type='matrix' values=\
+	'255.0 255.0 255.0 255.0 255.0 \
+	255.0 255.0 255.0 255.0 255.0 \
+	255.0 255.0 255.0 255.0 255.0 \
+	0.0 0.0 0.0 1.0 0.0'/></filter></svg>#invert") !important;
+}
+
+/*Disable weird border left of the hamburger menu that makes the separator look even weirder*/
+#PanelUI-button {
+	border: none !important;
+}
+
+/*Disble tab moving animation*/
+.tabbrowser-tab {
+	transform: initial !important;
+}
+
+/*Disable findbar slide-in animation*/
+findbar {
+	transition: none !important;
+}
+
+/*Hide top sidebar elements*/
+#sidebar-header {
+	display: none;
+}
+
+/*Hide search in sidebar*/
+#sidebar-search-container {
+	display: none;
+}
+
+/*Sets label font size*/
+.toolbarbutton-text {
+	font-size: 13px;
+}
