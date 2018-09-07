@@ -103,6 +103,11 @@ findbar {
 	display: none;
 }
 
+#sidebar-splitter {
+  border: none !important;
+  width: 1px !important;
+}
+
 /*Sets label font size*/
 .toolbarbutton-text {
 	font-size: 13px;
