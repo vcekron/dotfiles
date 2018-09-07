@@ -103,9 +103,16 @@ findbar {
 	display: none;
 }
 
+/*Hide sidebar splitter*/
 #sidebar-splitter {
-  border: none !important;
-  width: 1px !important;
+	border: none !important;
+	width: 1px !important;
+	background-color: #1D1F21 !important;
+}
+
+/*Hide sidebar border*/
+#bookmarks-view treechildren {
+	outline: 1px solid #1D1F21 !important;
 }
 
 /*Sets label font size*/
