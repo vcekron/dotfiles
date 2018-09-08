@@ -1,3 +1,13 @@
+#Start ssh-agent and keychain
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
+
+eval $(keychain --eval --quiet --noask --nogui id_rsa id_rsa_2)
+
 #Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
