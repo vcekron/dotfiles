@@ -57,6 +57,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 export SSH_PORT=$(cat ~/.ssh_port)
 
+eval $(keychain --eval --quiet --noask --nogui --confhost)
 eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
 numlockx &
