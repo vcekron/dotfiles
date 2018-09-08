@@ -48,7 +48,7 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+eval "$(ssh-agent -s)"
 export SSH_AUTH_SOCK
 
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
