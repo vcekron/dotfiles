@@ -48,8 +48,12 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-eval "$(ssh-agent -s)"
-export SSH_AUTH_SOCK
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi
 
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export _JAVA_AWT_WM_NONREPARENTING=1
