@@ -23,18 +23,18 @@ bspc config presel_feedback_color			'#A54242'
 #bspc config active_border_color			'#C5C8C6'
 
 bspc monitor primary -n Primary
-bspc monitor primary -d 1 2 3 4 5 6
+bspc monitor Primary -d 1 2 3 4 5 6
 
 if [[ $(bspc query -M | wc -l) == 2 ]]
 then
 	bspc monitor east -n East
-	bspc monitor east -d 1 2 3 4 5 6
+	bspc monitor East -d 1 2 3 4 5 6
 	feh --bg-fill ~/wallpaper1.jpg --bg-fill ~/wallpaper2.jpg &
 	bspc rule -a Spotify desktop='East:^2'
 	bspc rule -a qBittorrent desktop='East:^5'
 	bspc rule -a TelegramDesktop state=pseudo_tiled locked=on desktop='East:^6'
 else
-	bspc monitor primary -a 7 8
+	bspc monitor Primary -a 7 8
 	feh --bg-fill ~/wallpaper.jpg &
 	bspc rule -a Spotify desktop='^2'
 	bspc rule -a SVPManager state=pseudo_tiled desktop='^6'
