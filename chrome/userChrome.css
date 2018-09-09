@@ -1,3 +1,8 @@
+::-moz-selection {
+color: #FFFFFF !important;  /*Colour of text*/
+background: #584181 !important;  /*Highlighting colour*/
+}
+
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
 /*Set loading background*/
@@ -6,8 +11,8 @@ browser {
 }
 
 /*Set main UI colors*/
-#nav-bar-customization-target, #main-area, #PanelUI-menu-button, #nav-bar-customization-target, #tabbrowser-tabs, #toolbar-menubar, #menubar-items, #main-menubar, findbar, .findbar-closebutton.close-icon {
-	background-color: #282A2E !important;
+#nav-bar-customization-target, #main-area, #nav-bar-customization-target, #tabbrowser-tabs, #toolbar-menubar, #menubar-items, #main-menubar, findbar, .findbar-closebutton.close-icon {
+	background-color: #584181 !important;
 	color: #FFFFFF;
 }
 
@@ -16,9 +21,20 @@ browser {
 	color: #FFFFFF;
 }
 
-/*Set tab-panel color and urlbar background-color*/
-#TabsToolbar .tabbrowser-tabs, #urlbar, #_5df6e133-f35d-4c62-885a-56387df22f6b_-browser-action {
+/*Set tab-panel color*/
+#TabsToolbar .tabbrowser-tabs {
 	background-color: #1D1F21 !important;
+}
+
+#PanelUI-menu-button {
+	background: #1D1F21 !important;
+	border: none !important;
+	outline: 2px solid #1D1F21;
+}
+
+#TabsToolbar toolbarbutton {
+	background: #1D1F21 !important;
+	border: none !important;
 }
 
 /*Set unselected tab properties*/
@@ -38,10 +54,31 @@ browser {
 	color: #C5C8C6 !important;
 	background: #282A2E !important;
 }
+
+#PanelUI-menu-button:hover, #TabsToolbar toolbarbutton:hover {
+	background: #282A2E !important;
+	outline:2px solid #282A2E !important;
+}
+
+#PanelUI-menu-button:hover .toolbarbutton-badge-stack {
+	background: #282A2E !important;
+	border-color: #282A2E !important;
+}
+
 /*Set selected tab properties*/
 #TabsToolbar .tabbrowser-tab[selected] {
 	color: #FFFFFF !important;
-	background: #373B41 !important;
+	background: #584181 !important;
+}
+
+#PanelUI-menu-button[open], #TabsToolbar toolbarbutton:active {
+	background: #584181 !important;
+	outline: 2px solid #584181 !important;
+}
+
+#PanelUI-menu-button[open] .toolbarbutton-badge-stack {
+	background: #584181 !important;
+	border-color: #584181 !important;
 }
 
 /*Hide new tab and close tab buttons*/
@@ -69,7 +106,23 @@ browser {
 }
 
 /*Apply color transform matrix to menu dropdown icons in bookmarks menu to turn them white*/
-.menu-iconic.bookmark-item.subviewbutton .menu-right, #PanelUI-contents .toolbarbutton-icon, #TabsToolbar .toolbarbutton-icon {
+.menu-iconic.bookmark-item.subviewbutton .menu-right,
+#TabsToolbar .toolbarbutton-icon,
+#cut-button .toolbarbutton-icon,
+#copy-button .toolbarbutton-icon,
+#paste-button .toolbarbutton-icon,
+#zoom-out-button .toolbarbutton-icon,
+#zoom-in-button .toolbarbutton-icon,
+#new-window-button .toolbarbutton-icon,
+#privatebrowsing-button .toolbarbutton-icon,
+#open-file-button .toolbarbutton-icon,
+#panic-button .toolbarbutton-icon,
+#save-page-button .toolbarbutton-icon,
+#history-panelmenu .toolbarbutton-icon,
+#preferences-button .toolbarbutton-icon,
+#add-ons-button .toolbarbutton-icon,
+#sync-button .toolbarbutton-icon
+{
 	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'>\
 	<feColorMatrix in='SourceGraphic' type='matrix' values=\
 	'255.0 255.0 255.0 255.0 255.0 \
@@ -112,10 +165,48 @@ findbar {
 
 /*Hide sidebar border*/
 #bookmarks-view treechildren {
+	color: #C5C8C6;
 	outline: 1px solid #1D1F21 !important;
+}
+
+/*Highlight row on hover in bookmarks sidebar*/
+#bookmarks-view treechildren::-moz-tree-row(hover) {
+	background-color: #282A2E;
 }
 
 /*Sets label font size*/
 .toolbarbutton-text {
 	font-size: 13px;
+}
+
+#nav-bar {
+	height: 32px;
+}
+
+/*
+ * Move the hamburger menu to the top left, before the first tab
+ *
+ * Contributor(s): Alex Vallat
+ */
+
+#PanelUI-button {
+  -moz-box-ordinal-group: 0;
+  border-left: none !important;
+  position: absolute;
+}
+
+#PanelUI-button {
+  margin-top: -30px !important;
+  margin-left: -5px !important;
+}
+
+#TabsToolbar {
+  /* Ensure the padding is always present even when maximized */
+  padding-inline-start: 31px !important;
+}
+
+#TabsToolbar .tabbrowser-tabs {
+	z-index: 2 !important;
+	border-left: 1px inset #C5C8C6 !important;
+	border-right: 1px outset #C5C8C6 !important;
 }
