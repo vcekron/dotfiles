@@ -32,8 +32,7 @@ browser {
 }
 
 /*Set menu-button properties*/
-#PanelUI-menu-button {
-	background: #584181;
+#PanelUI-button {
 	border: none !important;
 	display: none !important;
 }
