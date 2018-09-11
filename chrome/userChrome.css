@@ -11,8 +11,13 @@ browser {
 }
 
 /*Set main UI colors*/
-#nav-bar-customization-target, #main-area, #nav-bar-customization-target, #tabbrowser-tabs, #toolbar-menubar, #menubar-items, #main-menubar, findbar, .findbar-closebutton.close-icon {
-	background-color: #584181 !important;
+#nav-bar-customization-target, #main-area, #nav-bar-customization-target, #tabbrowser-tabs, findbar, .findbar-closebutton.close-icon {
+	background: #584181 !important;
+	color: #FFFFFF;
+}
+
+#toolbar-menubar {
+	background: #282A2E;
 	color: #FFFFFF;
 }
 
@@ -23,18 +28,25 @@ browser {
 
 /*Set tab-panel color*/
 #TabsToolbar .tabbrowser-tabs {
-	background-color: #1D1F21 !important;
-}
-
-#PanelUI-menu-button {
 	background: #1D1F21 !important;
-	border: none !important;
-	outline: 2px solid #1D1F21;
 }
 
+/*Set menu-button properties*/
+#PanelUI-menu-button {
+	background: #584181;
+	border: none !important;
+	display: none !important;
+}
+
+/*Set properties for extension-buttons in tabs toolbar*/
 #TabsToolbar toolbarbutton {
 	background: #1D1F21 !important;
 	border: none !important;
+}
+
+#TabsToolbar toolbarbutton:active {
+	background: #1D1F21 !important;
+	outline: 2px solid #1D1F21 !important;
 }
 
 /*Set unselected tab properties*/
@@ -50,35 +62,15 @@ browser {
 }
 
 /*Set unselected tab mouseover properties*/
-#TabsToolbar .tabbrowser-tab:hover {
+#TabsToolbar .tabbrowser-tab:hover, #TabsToolbar toolbarbutton:hover {
 	color: #C5C8C6 !important;
 	background: #282A2E !important;
-}
-
-#PanelUI-menu-button:hover, #TabsToolbar toolbarbutton:hover {
-	background: #282A2E !important;
-	outline:2px solid #282A2E !important;
-}
-
-#PanelUI-menu-button:hover .toolbarbutton-badge-stack {
-	background: #282A2E !important;
-	border-color: #282A2E !important;
 }
 
 /*Set selected tab properties*/
 #TabsToolbar .tabbrowser-tab[selected] {
 	color: #FFFFFF !important;
 	background: #584181 !important;
-}
-
-#PanelUI-menu-button[open], #TabsToolbar toolbarbutton:active {
-	background: #584181 !important;
-	outline: 2px solid #584181 !important;
-}
-
-#PanelUI-menu-button[open] .toolbarbutton-badge-stack {
-	background: #584181 !important;
-	border-color: #584181 !important;
 }
 
 /*Hide new tab and close tab buttons*/
@@ -88,11 +80,11 @@ browser {
 
 /*Set footer colors for main menu, downloads menu, and bookmarks menu that pick up wrong colors from gtk theme*/
 #downloadsFooterButtons, #PanelUI-customize, #PanelUI-help, #PanelUI-quit, #PanelUI-fxa-container {
-	background-color: #282A2E;
+	background: #282A2E;
 }
 
 .search-panel-header.search-panel-current-input, .search-panel-one-offs {
-	background-color: #282A2E !important;
+	background: #282A2E !important;
 }
 
 /*Set unselected url text color in search suggestions*/
@@ -131,11 +123,6 @@ browser {
 	0.0 0.0 0.0 1.0 0.0'/></filter></svg>#invert") !important;
 }
 
-/*Disable weird border left of the hamburger menu that makes the separator look even weirder*/
-#PanelUI-button {
-	border: none !important;
-}
-
 /*Disble tab moving animation*/
 .tabbrowser-tab {
 	transform: initial !important;
@@ -160,7 +147,7 @@ findbar {
 #sidebar-splitter {
 	border: none !important;
 	width: 1px !important;
-	background-color: #1D1F21 !important;
+	background: #1D1F21 !important;
 }
 
 /*Hide sidebar border*/
@@ -171,7 +158,7 @@ findbar {
 
 /*Highlight row on hover in bookmarks sidebar*/
 #bookmarks-view treechildren::-moz-tree-row(hover) {
-	background-color: #282A2E;
+	background: #282A2E;
 }
 
 /*Sets label font size*/
@@ -179,34 +166,7 @@ findbar {
 	font-size: 13px;
 }
 
+/*Set navigation bar properties*/
 #nav-bar {
 	height: 32px;
-}
-
-/*
- * Move the hamburger menu to the top left, before the first tab
- *
- * Contributor(s): Alex Vallat
- */
-
-#PanelUI-button {
-  -moz-box-ordinal-group: 0;
-  border-left: none !important;
-  position: absolute;
-}
-
-#PanelUI-button {
-  margin-top: -30px !important;
-  margin-left: -5px !important;
-}
-
-#TabsToolbar {
-  /* Ensure the padding is always present even when maximized */
-  padding-inline-start: 31px !important;
-}
-
-#TabsToolbar .tabbrowser-tabs {
-	z-index: 2 !important;
-	border-left: 1px inset #C5C8C6 !important;
-	border-right: 1px outset #C5C8C6 !important;
 }
