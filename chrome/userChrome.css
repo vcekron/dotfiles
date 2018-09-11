@@ -7,13 +7,22 @@ background: #584181 !important;  /*Highlighting colour*/
 
 /*Set loading background*/
 browser {
-	background-color: #1D1F21;
+	background: #1D1F21;
 }
 
 /*Set main UI colors*/
-#nav-bar-customization-target, #main-area, #nav-bar-customization-target, #tabbrowser-tabs, findbar, .findbar-closebutton.close-icon {
+#nav-bar-customization-target, #main-area, #tabbrowser-tabs, findbar, .findbar-closebutton.close-icon {
 	background: #584181 !important;
 	color: #FFFFFF;
+}
+
+#nav-bar-customization-target {
+	outline: 1px solid #584181 !important;
+}
+
+#urlbar {
+	background: #1D1F21 !important;
+	border: none !important;
 }
 
 #toolbar-menubar {
@@ -167,5 +176,5 @@ findbar {
 
 /*Set navigation bar properties*/
 #nav-bar {
-	height: 32px;
+	height: 30px;
 }
