@@ -1,3 +1,4 @@
+/*Set selection color*/
 ::-moz-selection {
 color: #FFFFFF !important;  /*Colour of text*/
 background: #584181 !important;  /*Highlighting colour*/
@@ -10,10 +11,19 @@ browser {
 	background: #1D1F21;
 }
 
-/*Set main UI colors*/
+/*--Set main UI properties--*/
+
+#nav-bar {
+	height: 30px;
+}
+
 #nav-bar-customization-target, #main-area, #tabbrowser-tabs, findbar, .findbar-closebutton.close-icon {
 	background: #584181 !important;
 	color: #FFFFFF;
+}
+
+#TabsToolbar .tabbrowser-tabs {
+	background: #1D1F21 !important;
 }
 
 #nav-bar-customization-target {
@@ -30,14 +40,23 @@ browser {
 	color: #FFFFFF;
 }
 
+.toolbarbutton-text {
+	font-size: 13px;
+}
+
+/*Set unselected url text color in search suggestions*/
+.ac-url-text, .ac-separator-text, .ac-action-text {
+	color: #5F819D;
+}
+
+/*Hide new tab and close tab buttons*/
+.tabs-newtab-button, .tab-close-button.close-icon {
+	display: none;
+}
+
 /*Set editor button-text color*/
 .devtools-toolbarbutton {
 	color: #FFFFFF;
-}
-
-/*Set tab-panel color*/
-#TabsToolbar .tabbrowser-tabs {
-	background: #1D1F21 !important;
 }
 
 /*Set menu-button properties*/
@@ -81,11 +100,6 @@ browser {
 	background: #584181 !important;
 }
 
-/*Hide new tab and close tab buttons*/
-.tabs-newtab-button, .tab-close-button.close-icon {
-	display: none;
-}
-
 /*Set footer colors for main menu, downloads menu, and bookmarks menu that pick up wrong colors from gtk theme*/
 #downloadsFooterButtons, #PanelUI-customize, #PanelUI-help, #PanelUI-quit, #PanelUI-fxa-container {
 	background: #282A2E;
@@ -93,11 +107,6 @@ browser {
 
 .search-panel-header.search-panel-current-input, .search-panel-one-offs {
 	background: #282A2E !important;
-}
-
-/*Set unselected url text color in search suggestions*/
-.ac-url-text, .ac-separator-text, .ac-action-text {
-	color: #5F819D;
 }
 
 /*Set selected url text color in search suggestions*/
@@ -167,14 +176,4 @@ findbar {
 /*Highlight row on hover in bookmarks sidebar*/
 #bookmarks-view treechildren::-moz-tree-row(hover) {
 	background: #282A2E;
-}
-
-/*Sets label font size*/
-.toolbarbutton-text {
-	font-size: 13px;
-}
-
-/*Set navigation bar properties*/
-#nav-bar {
-	height: 30px;
 }
