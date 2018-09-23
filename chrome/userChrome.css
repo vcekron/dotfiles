@@ -177,3 +177,18 @@ findbar {
 #bookmarks-view treechildren::-moz-tree-row(hover) {
 	background: #282A2E;
 }
+
+:-moz-any(#back-button, #forward-button) > .toolbarbutton-icon {
+  border-color: #282A2E !important;
+  background: #282A2E !important;
+}
+
+#forward-button:not([disabled]):hover .toolbarbutton-icon, #back-button:not([disabled]):hover .toolbarbutton-icon {
+	border-color: #1D1F21 !important;
+	background: #1D1F21 !important; 
+}
+
+#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-progress-outer {
+	fill: #282A2E !important;
+}
