@@ -10,12 +10,12 @@ do
 
 	##Telegram state
 
-	TELEGRAM_PID=$(echo $PS | grep telegram-desk | cut -d " " -f3)
+	TELEGRAM_PID=$(echo $PS | grep telegram-desk | awk '{ print $1 }')
 
 	if [[ $TELEGRAM_PID && !$TELEGRAM_WID ]]
 	then
 		eval "WIDS=($(xdotool search --pid ${TELEGRAM_PID}))"
-		TELEGRAM_WID=$(for WID in ${WIDS}; do; xwininfo -id $WID | grep '"Telegram' | cut -d " " -f4; done)
+		TELEGRAM_WID=$(for WID in ${WIDS}; do; xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }'; done)
 	elif [[ !$TELEGRAM_PID && $TELEGRAM_WID ]]
 	then
 		TELEGRAM_WID=""
