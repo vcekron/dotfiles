@@ -26,7 +26,7 @@ do
 		TELEGRAM_MES=$(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')
 	fi
 
-	if [[ $TELEGRAM_MES ]]
+	if [[ $TELEGRAM_WID && $TELEGRAM_MES ]]
 	then
 		TELEGRAM="%{T3}\uf1d8%{T-} $TELEGRAM_MES  "
 		TELEGRAM_MES=""
