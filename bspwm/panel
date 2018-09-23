@@ -15,7 +15,6 @@ bspc config top_padding $(( $PANEL_HEIGHT + $PANEL_TOP_GAP ))
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 
-source ~/.config/bspwm/volume
 source ~/.config/bspwm/tray
 
 if [[ $(battery) ]] &> /dev/null

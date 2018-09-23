@@ -1,6 +1,7 @@
 #! /bin/zsh
 
-volume -d 'pulse' -si 4 -f '%s %i' | while read -r mute vol ; do
+volume -d 'pulse' -f '%s %i' | read -r mute vol
+
 	if [[ $mute == "off" ]]
 	then
 		echo "V\uf026%{T4}\uf00d%{T-}"
@@ -13,5 +14,4 @@ volume -d 'pulse' -si 4 -f '%s %i' | while read -r mute vol ; do
 	elif [[ $vol -eq 0 ]]
 	then
 		echo "V\uf026 $vol%"
-	fi
-done > "$PANEL_FIFO" &
+	fi 

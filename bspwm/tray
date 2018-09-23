@@ -101,7 +101,12 @@ do
 		fi
 	done
 
+	#Pulseaudio volume
+	
+	VOLUME=$(~/.config/bspwm/volume_poll)
+
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
+	echo "$VOLUME"
 
 	sleep 1
 done > "$PANEL_FIFO" &
