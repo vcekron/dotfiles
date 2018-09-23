@@ -1,20 +1,5 @@
 #! /bin/zsh
 
-#Set network variables
-
-NIFS=($(ls -r /sys/class/net | grep '^e\|^w'))
-
-for NIF in $NIFS
-do
-	if [[ ${NIF:0:1} == "e" ]]
-	then
-		eval "$NIF"_ICON="uf0e8"
-	elif [[ ${NIF:0:1} == "w" ]]
-	then
-		eval "$NIF"_ICON="uf1eb"
-	fi
-done
-
 POLL_DELAY=0
 
 while true;
@@ -88,6 +73,23 @@ do
 
 	#Network interface state(s)
 
+	##Set network variables
+
+	NIFS=$(ls -r /sys/class/net | grep '^e\|^w')
+
+	for NIF in $NIFS
+	do
+		if [[ ${NIF:0:1} == "e" ]]
+		then
+			eval "$NIF"_ICON="uf0e8"
+		elif [[ ${NIF:0:1} == "w" ]]
+		then
+			eval "$NIF"_ICON="uf1eb"
+		fi
+	done
+
+	##Print interface network state(s)
+
 	NET=""
 
 	for NIF in $NIFS
@@ -102,7 +104,7 @@ do
 	done
 
 	#Pulseaudio volume
-	
+
 	VOLUME=$(~/.config/bspwm/volume_poll)
 
 	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"

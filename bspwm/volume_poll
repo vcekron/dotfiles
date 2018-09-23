@@ -14,4 +14,4 @@ volume -d 'pulse' -f '%s %i' | read -r mute vol
 	elif [[ $vol -eq 0 ]]
 	then
 		echo "V\uf026 $vol%"
-	fi 
+	fi
