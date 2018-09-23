@@ -4,27 +4,43 @@ POLL_DELAY=0
 
 while true;
 do
+	#Process states
+
 	PS=$(ps -cax)
 
-	#Telegram state
+	##Telegram state
 
-	TELEGRAM_RUN=$(echo $PS | grep telegram)
-	if [[ $TELEGRAM_RUN ]]
+	TELEGRAM_PID=$(echo $PS | grep telegram-desk | cut -d " " -f3)
+
+	if [[ $TELEGRAM_PID && !$TELEGRAM_WID ]]
 	then
-		TELEGRAM_MES=$(xdotool search --class "TelegramDesktop" getwindowname | tr -dc '0-9')
+		eval "WIDS=($(xdotool search --pid ${TELEGRAM_PID}))"
+		TELEGRAM_WID=$(for WID in ${WIDS}; do; xwininfo -id $WID | grep '"Telegram' | cut -d " " -f4; done)
+	elif [[ !$TELEGRAM_PID && $TELEGRAM_WID ]]
+	then
+		TELEGRAM_WID=""
 	fi
+
+	if [[ $TELEGRAM_WID ]]
+	then
+		TELEGRAM_MES=$(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')
+	fi
+
 	if [[ $TELEGRAM_MES ]]
 	then
 		TELEGRAM="%{T3}\uf1d8%{T-} $TELEGRAM_MES  "
 		TELEGRAM_MES=""
-	elif [[ $TELEGRAM_RUN && !$TELEGRAM_MES ]]
+	elif [[ $TELEGRAM_WID && !$TELEGRAM_MES ]]
 	then
 		TELEGRAM="%{T3}\uf1d8%{T-}  "
+	elif [[ $TELEGRAM_PID ]]
+	then
+		TELEGRAM="%{T3}%{F#FFCC6666}\uf1d8%{T-}%{F-}%{T-}  "
 	else
 		TELEGRAM=""
 	fi
 
-	#Dropbox state
+	##Dropbox state
 
 	DROPBOX_RUN=$(echo $PS | grep dropbox)
 	if [[ $DROPBOX_RUN ]]
@@ -41,7 +57,7 @@ do
 		DROPBOX=""
 	fi
 
-	#Redshift state
+	##Redshift state
 
 	REDSHIFT_RUN=$(echo $PS | grep redshift)
 	if [[ $REDSHIFT_RUN ]]
@@ -49,26 +65,6 @@ do
 		REDSHIFT="\uf0eb  "
 	else
 		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
-	fi
-
-	#VPN state
-
-	IP=$(ip r)
-
-	VPN_UP=$(echo $IP | grep azirevpn)
-	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
-	then
-		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check | grep '"connected": true')
-		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
-	fi
-	if [[ $VPN_UP && $VPN_CONNECTED ]]
-	then
-		VPN="\uf023  "
-	elif [[ $VPN_UP && !$VPN_CONNECTED ]]
-	then
-		VPN="%{F#FFCC6666}\uf023  "
-	else
-		VPN="\uf09c  "
 	fi
 
 	#Network interface state(s)
@@ -88,7 +84,9 @@ do
 		fi
 	done
 
-	##Print interface network state(s)
+	IP=$(ip r)
+
+	##Print network interface state(s)
 
 	NET=""
 
@@ -102,6 +100,24 @@ do
 			NET+="%{F#FF707880}\\${(P)$(echo "$NIF"_ICON)}%{F-}  "
 		fi
 	done
+
+	##VPN state
+
+	VPN_UP=$(echo $IP | grep azirevpn)
+	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
+	then
+		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check | grep '"connected": true')
+		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
+	fi
+	if [[ $VPN_UP && $VPN_CONNECTED ]]
+	then
+		VPN="\uf023  "
+	elif [[ $VPN_UP && !$VPN_CONNECTED ]]
+	then
+		VPN="%{F#FFCC6666}\uf023%{F-}  "
+	else
+		VPN="\uf09c  "
+	fi
 
 	#Pulseaudio volume
 
