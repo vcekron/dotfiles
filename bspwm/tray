@@ -16,26 +16,14 @@ do
 	then
 		eval "WIDS=($(xdotool search --pid ${TELEGRAM_PID}))"
 		TELEGRAM_WID=$(for WID in ${WIDS}; do; xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }'; done)
-	elif [[ !$TELEGRAM_PID && $TELEGRAM_WID ]]
+	elif [[ !$TELEGRAM_PID ]]
 	then
 		TELEGRAM_WID=""
 	fi
 
 	if [[ $TELEGRAM_WID ]]
 	then
-		TELEGRAM_MES=$(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')
-	fi
-
-	if [[ $TELEGRAM_WID && $TELEGRAM_MES ]]
-	then
-		TELEGRAM="%{T3}\uf1d8%{T-} $TELEGRAM_MES  "
-		TELEGRAM_MES=""
-	elif [[ $TELEGRAM_WID && !$TELEGRAM_MES ]]
-	then
-		TELEGRAM="%{T3}\uf1d8%{T-}  "
-	elif [[ $TELEGRAM_PID ]]
-	then
-		TELEGRAM="%{T3}%{F#FFCC6666}\uf1d8%{T-}%{F-}%{T-}  "
+		TELEGRAM="%{T3}\uf1d8%{T-} $(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')  "
 	else
 		TELEGRAM=""
 	fi
@@ -43,14 +31,16 @@ do
 	##Dropbox state
 
 	DROPBOX_RUN=$(echo $PS | grep dropbox)
+
 	if [[ $DROPBOX_RUN ]]
 	then
 		DROPBOX_STATE=$(dropbox-cli status)
 	fi
+
 	if [[ $DROPBOX_STATE == "Up to date" ]]
 	then
 		DROPBOX="\uf16b  "
-	elif [[ $DROPBOX_RUN && $DROPBOX_STATE != "Up to date" ]]
+	elif [[ $DROPBOX_RUN ]]
 	then
 		DROPBOX="\uf16b !  "
 	else
@@ -60,6 +50,7 @@ do
 	##Redshift state
 
 	REDSHIFT_RUN=$(echo $PS | grep redshift)
+
 	if [[ $REDSHIFT_RUN ]]
 	then
 		REDSHIFT="\uf0eb  "
@@ -104,15 +95,17 @@ do
 	##VPN state
 
 	VPN_UP=$(echo $IP | grep azirevpn)
+
 	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
 	then
 		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '"connected": true')
 		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
 	fi
+
 	if [[ $VPN_UP && $VPN_CONNECTED ]]
 	then
 		VPN="\uf023  "
-	elif [[ $VPN_UP && !$VPN_CONNECTED ]]
+	elif [[ $VPN_UP ]]
 	then
 		VPN="%{F#FFCC6666}\uf023%{F-}  "
 	else
