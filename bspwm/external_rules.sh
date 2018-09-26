@@ -6,7 +6,7 @@ instance=$3
 
 #Debug
 #title=$(xtitle "$wid")
-#echo "$wid $class $instance $title" > /tmp/bspc-extenral-rules
+#echo "$wid $class $instance $title" > /tmp/bspc-external-rules
 
 #Telegram
 
