@@ -24,7 +24,6 @@ fi
 
 while true ; do
 	~/.config/bspwm/updates > "$PANEL_FIFO" &
-	echo "ran"
 	sleep 1h
 done &
 
