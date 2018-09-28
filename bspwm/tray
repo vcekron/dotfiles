@@ -76,7 +76,7 @@ while true ; do
 	NET=""
 
 	for NIF in $NIFS ; do
-		NET_UP=$(echo $IP | grep $NIF)
+		NET_UP=$(echo "$IP" | grep $NIF)
 
 		if [[ $NET_UP ]] ; then
 			NET+=$(eval echo "'\'\$${NIF}_ICON")
@@ -90,7 +90,7 @@ while true ; do
 
 	##VPN state
 
-	VPN_UP=$(echo $IP | grep azirevpn)
+	VPN_UP=$(echo "$IP" | grep azirevpn)
 
 	if [[ $VPN_UP && $POLL_DELAY == 0 ]] ; then
 		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '"connected": true')
