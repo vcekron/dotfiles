@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/sh
 
 if xdo id -a "$PANEL_WM_NAME" > /dev/null ; then
 	printf "%s\n" "The panel is already running." >&2
@@ -17,9 +17,8 @@ bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
 source ~/.config/bspwm/tray
 
-if [[ $(battery) ]] &> /dev/null
-then
-	source ~/.config/bspwm/battery
+if [[ $(battery) ]] &> /dev/null ; then
+	~/.config/bspwm/battery &
 fi
 
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
@@ -29,8 +28,7 @@ clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
-while true;
-do
+while true ; do
 	~/.config/bspwm/updates
 	sleep 1h
 done > "$PANEL_FIFO" &

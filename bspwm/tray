@@ -1,28 +1,24 @@
-#! /bin/zsh
+#! /bin/sh
 
 POLL_DELAY=0
 
-while true;
-do
+while true ; do
 	#Process states
 
 	PS=$(ps -cax)
 
 	##Telegram state
 
-	TELEGRAM_PID=$(echo $PS | grep telegram-desk | awk '{ print $1 }')
+	TELEGRAM_PID=$(echo "$PS" | grep telegram-desk | awk '{ print $1 }')
 
-	if [[ $TELEGRAM_PID && !$TELEGRAM_WID ]]
-	then
-		eval "WIDS=($(xdotool search --pid ${TELEGRAM_PID}))"
-		TELEGRAM_WID=$(for WID in ${WIDS}; do; xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }'; done)
-	elif [[ !$TELEGRAM_PID ]]
-	then
+	if [[ $TELEGRAM_PID && !$TELEGRAM_WID ]] ; then
+		WIDS=$(xdotool search --pid ${TELEGRAM_PID})
+		TELEGRAM_WID=$(for WID in $WIDS ; do xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }' ; done)
+	elif [[ !$TELEGRAM_PID ]] ; then
 		TELEGRAM_WID=""
 	fi
 
-	if [[ $TELEGRAM_WID ]]
-	then
+	if [[ $TELEGRAM_WID ]] ; then
 		TELEGRAM="%{T3}\uf1d8%{T-} $(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')  "
 	else
 		TELEGRAM=""
@@ -32,16 +28,13 @@ do
 
 	DROPBOX_RUN=$(echo $PS | grep dropbox)
 
-	if [[ $DROPBOX_RUN ]]
-	then
+	if [[ $DROPBOX_RUN ]] ; then
 		DROPBOX_STATE=$(dropbox-cli status)
 	fi
 
-	if [[ $DROPBOX_STATE == "Up to date" ]]
-	then
+	if [[ $DROPBOX_STATE == "Up to date" ]] ; then
 		DROPBOX="\uf16b  "
-	elif [[ $DROPBOX_RUN ]]
-	then
+	elif [[ $DROPBOX_RUN ]] ; then
 		DROPBOX="\uf16b !  "
 	else
 		DROPBOX=""
@@ -51,8 +44,7 @@ do
 
 	REDSHIFT_RUN=$(echo $PS | grep redshift)
 
-	if [[ $REDSHIFT_RUN ]]
-	then
+	if [[ $REDSHIFT_RUN ]] ; then
 		REDSHIFT="\uf0eb  "
 	else
 		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
@@ -64,15 +56,17 @@ do
 
 	NIFS=$(ls -r /sys/class/net | grep '^e\|^w')
 
-	for NIF in $NIFS
-	do
-		if [[ ${NIF:0:1} == "e" ]]
-		then
-			eval "$NIF"_ICON="uf0e8"
-		elif [[ ${NIF:0:1} == "w" ]]
-		then
-			eval "$NIF"_ICON="uf1eb"
-		fi
+	for NIF in $NIFS ; do
+
+		case ${NIF:0:1} in
+			"e")
+				eval ${NIF}_ICON="uf0e8"
+				;;
+			"w")
+				eval ${NIF}_ICON="uf1eb"
+				;;
+		esac
+
 	done
 
 	IP=$(ip r)
@@ -81,32 +75,31 @@ do
 
 	NET=""
 
-	for NIF in $NIFS
-	do
+	for NIF in $NIFS ; do
 		NET_UP=$(echo $IP | grep $NIF)
-		if [[ $NET_UP ]]
-		then
-			NET+="\\${(P)$(echo "$NIF"_ICON)}  "
+
+		if [[ $NET_UP ]] ; then
+			NET+=$(eval echo "'\'\$${NIF}_ICON")
+			NET+="  "
 		else
-			NET+="%{F#FF707880}\\${(P)$(echo "$NIF"_ICON)}%{F-}  "
+			NET+=$(eval echo "%{F#FF707880}'\'\$${NIF}_ICON%{F-}")
+			NET+="  "
 		fi
+
 	done
 
 	##VPN state
 
 	VPN_UP=$(echo $IP | grep azirevpn)
 
-	if [[ $VPN_UP && $POLL_DELAY == 0 ]]
-	then
+	if [[ $VPN_UP && $POLL_DELAY == 0 ]] ; then
 		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '"connected": true')
 		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
 	fi
 
-	if [[ $VPN_UP && $VPN_CONNECTED ]]
-	then
+	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
 		VPN="\uf023  "
-	elif [[ $VPN_UP ]]
-	then
+	elif [[ $VPN_UP ]] ; then
 		VPN="%{F#FFCC6666}\uf023%{F-}  "
 	else
 		VPN="\uf09c  "
@@ -116,8 +109,8 @@ do
 
 	VOLUME=$(~/.config/bspwm/volume_poll)
 
-	echo "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
-	echo "$VOLUME"
+	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
+	echo -e "$VOLUME"
 
 	sleep 1
 done > "$PANEL_FIFO" &
