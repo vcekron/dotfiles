@@ -88,28 +88,28 @@ while true ; do
 
 	done
 
-	##VPN state
+	##Wireguard state
 
-	VPN_UP=$(echo "$IP" | grep azirevpn)
+	WG_UP=$(echo "$IP" | grep azirevpn)
 
-	if [[ $VPN_UP && $POLL_DELAY == 0 ]] ; then
-		VPN_CONNECTED=$(curl https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '"connected": true')
+	if [[ $WG_UP && $POLL_DELAY == 0 ]] ; then
+		WG_CONNECTED=$(curl https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '"connected": true')
 		POLL_DELAY=$(((POLL_DELAY + 1) % 10))
 	fi
 
-	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
-		VPN="\uf023  "
-	elif [[ $VPN_UP ]] ; then
-		VPN="%{F#FFCC6666}\uf023%{F-}  "
+	if [[ $WG_UP && $WG_CONNECTED ]] ; then
+		WG="\uf023  "
+	elif [[ $WG_UP ]] ; then
+		WG="%{F#FFCC6666}\uf023%{F-}  "
 	else
-		VPN="\uf09c  "
+		WG="\uf09c  "
 	fi
 
 	#Pulseaudio volume
 
 	VOLUME=$(~/.config/bspwm/volume_poll)
 
-	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
+	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$WG$NET"
 	echo -e "$VOLUME"
 
 	sleep 1
