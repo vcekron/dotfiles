@@ -15,22 +15,23 @@ source ~/.config/bspwm/panel_colors
 
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
-source ~/.config/bspwm/tray
+source ~/.config/bspwm/tray 
+clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 
 if [[ $(battery) ]] &> /dev/null ; then
 	~/.config/bspwm/battery > "$PANEL_FIFO" &
 fi
 
-clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
+while true ; do
+	~/.config/bspwm/updates > "$PANEL_FIFO" &
+	echo "ran"
+	sleep 1h
+done &
 
 ~/.config/bspwm/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT++$PANEL_TOP_GAP -o 0 -f "$PANEL_FONT" -o 0 -f "$ICON_FONT" -o -2 -f "$ICON_FONT2" -o -3 -f "$ICON_FONT3" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -U "$COLOR_DEFAULT_BG" -u "$PANEL_LINE_WIDTH" | sh &> /dev/null
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
 
-while true ; do
-	~/.config/bspwm/updates
-	sleep 1h
-done > "$PANEL_FIFO" &
 
 wait
