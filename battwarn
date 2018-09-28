@@ -1,5 +1,5 @@
 #! /bin/zsh
-#
+
 if [ -f /tmp/battwarn ]
 then
 	pkill $(cat /tmp/battwarn)
