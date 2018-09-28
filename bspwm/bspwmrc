@@ -41,6 +41,7 @@ if [[ $(bspc query -M | wc -l) == 2 ]] ; then
 else
 	bspc monitor Primary -a 7 8
 	feh --bg-fill ~/wallpaper.jpg &
+	bspc rule -a Waterfox desktop='^1'
 	bspc rule -a Spotify desktop='^2'
 	bspc rule -a SVPManager state=pseudo_tiled desktop='^6'
 	bspc rule -a qBittorrent desktop='^7'
