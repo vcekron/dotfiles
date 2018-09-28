@@ -2,8 +2,7 @@
 
 run=$(ps -cax | grep redshift)
 
-if [[ $run ]]
-then
+if [[ $run ]] ; then
 	pkill redshift
 else
 	nohup redshift >/dev/null 2>&1 &
