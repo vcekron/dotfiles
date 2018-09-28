@@ -1,6 +1,6 @@
 #! /bin/sh
 
-POLL_DELAY=0
+POLL_DELAY=9
 
 while true ; do
 	#Process states
