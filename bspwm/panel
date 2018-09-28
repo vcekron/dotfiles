@@ -23,7 +23,7 @@ if [[ $(battery) ]] &> /dev/null ; then
 fi
 
 while true ; do
-	~/.config/bspwm/updates > "$PANEL_FIFO" &
+	~/.config/bspwm/updates 2> /dev/null > "$PANEL_FIFO" &
 	sleep 1h
 done &
 
