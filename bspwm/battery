@@ -1,32 +1,41 @@
 #! /bin/zsh
 
-battery -s | while read -r line ; do
-	echo $line | { read char batt }
+battery -s | while read -r CHAR BATT ; do
 
-	if [[ $char == "Charging" || $batt=100 && $(acpi | grep "zero rate") ]] ; then
-		bolt="%{T3} \uf0e7%{T-}"
-	else
-		unset bolt
-	fi
+case $BATT in
+	[8-9]?|100)
+		LEVEL="\uf240"
+		;;
+	[6-7]?)
+		LEVEL="\uf241"
+		;;
+	[4-5]?)
+		LEVEL="\uf242"
+		;;
+	[2-3]?)
+		LEVEL="\uf243"
+		;;
+	1?)
+		LEVEL="\uf244"
+		;;
+	[0-9])
+		LEVEL="%{F#FFA54242}\uf244%{F-}"
+		;;
+	*)
+		LEVEL="%{F#FFA54242}\uf071%{F-}"
+		;;
+esac
 
-	if [[ $batt -ge 81 ]] ; then
-		level="\uf240"
-	elif [[ $batt -ge 61 ]] ; then
-		level="\uf241"
-	elif [[ $batt -ge 41 ]] ; then
-		level="\uf242"
-	elif [[ $batt -ge 21 ]] ; then
-		level="\uf243"
-	elif [[ $batt -ge 11 ]] ; then
-		level="\uf244"
-	elif [[ $batt -le 10  && ! -f /tmp/battwarn ]] ; then
-		~/dotfiles/battwarn &
-		level="%{F#FFA54242}\uf244%{F-}"
-	elif [[ $batt -le 10 && -f /tmp/battwarn ]] ; then
-		level="%{F#FFA54242}\uf244%{F-}"
-	else
-		level="%{F#FFA54242}\uf071%{F-}"
-	fi
+if [[ $CHAR == "Charging" || $BATT=100 && $(acpi | grep "zero rate") ]] ; then
+	BOLT="%{T3} \uf0e7%{T-}"
+else
+	unset BOLT
+fi
 
-	echo -e "B$level$bolt"
-done > "$PANEL_FIFO" &
+echo "B$LEVEL$BOLT"
+
+if [[ $BATT -le 9  && ! -f /tmp/BATTwarn ]] ; then
+	~/dotfiles/BATTwarn &
+fi
+
+done

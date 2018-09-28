@@ -18,7 +18,7 @@ xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
 source ~/.config/bspwm/tray
 
 if [[ $(battery) ]] &> /dev/null ; then
-	~/.config/bspwm/battery &
+	~/.config/bspwm/battery > "$PANEL_FIFO" &
 fi
 
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
