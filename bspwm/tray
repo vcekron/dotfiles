@@ -3,7 +3,7 @@
 #VPN variables
 VPN_IF=azirevpn
 VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --connect-timeout 5 | grep '\"connected\": true'"
-POLL_DELAY=9
+POLL_DELAY=0
 
 while true ; do
 	#Process states
@@ -24,7 +24,7 @@ while true ; do
 	if [[ $TELEGRAM_WID ]] ; then
 		TELEGRAM="%{T3}\uf1d8%{T-} $(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')  "
 	else
-		TELEGRAM=""
+		unset TELEGRAM
 	fi
 
 	##Dropbox state
@@ -40,7 +40,7 @@ while true ; do
 	elif [[ $DROPBOX_RUN ]] ; then
 		DROPBOX="\uf16b !  "
 	else
-		DROPBOX=""
+		unset DROPBOX
 	fi
 
 	##Redshift state
@@ -55,7 +55,7 @@ while true ; do
 
 	#Network interface state(s)
 
-	##Set network variables
+	##Set network icon variable(s)
 
 	NIFS=$(ls -r /sys/class/net | grep '^e\|^w')
 
@@ -72,11 +72,10 @@ while true ; do
 
 	done
 
-	IP=$(ip r)
-
 	##Print network interface state(s)
 
-	NET=""
+	unset NET
+	IP=$(ip r)
 
 	for NIF in $NIFS ; do
 		NET_UP=$(echo "$IP" | grep $NIF)
@@ -95,7 +94,7 @@ while true ; do
 
 	VPN_UP=$(echo "$IP" | grep ${VPN_IF})
 
-	if [[ $VPN_UP && $POLL_DELAY == 0 ]] ; then
+	if [[ $VPN_UP && $POLL_DELAY == 1 ]] ; then
 		VPN_CONNECTED=$(eval ${VPN_CHECK})
 	fi
 
