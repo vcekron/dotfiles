@@ -1,17 +1,15 @@
 #! /bin/zsh
 
-if [ -f /tmp/battwarn ]
-then
+if [ -f /tmp/battwarn ] ; then
 	pkill $(cat /tmp/battwarn)
 	rm /tmp/battwarn
 fi
 
-if [[ $(battery | grep Discharging | awk '$2<11') ]]
-then
+if [[ $(battery | grep "Discharging" | awk '$2<11') ]] ; then
 	$$ > /tmp/battwarn
 fi
 
-while [[ $(battery | grep Discharging | awk '$2<11') ]] ; do
+while [[ $(battery | grep "Discharging" | awk '$2<11') ]] ; do
 	zenity --warning --text "<span font_weight='regular'>Battery charge is low.\nPlease plug in charger.</span>" --title "Low battery warning" --width=150
 	sleep 300
 done
