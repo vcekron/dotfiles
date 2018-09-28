@@ -18,7 +18,7 @@ while true ; do
 		WIDS=$(xdotool search --pid ${TELEGRAM_PID})
 		TELEGRAM_WID=$(for WID in $WIDS ; do xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }' ; done)
 	elif [[ !$TELEGRAM_PID ]] ; then
-		TELEGRAM_WID=""
+		unset TELEGRAM_WID
 	fi
 
 	if [[ $TELEGRAM_WID ]] ; then
