@@ -26,7 +26,7 @@ while true ; do
 
 	##Dropbox state
 
-	DROPBOX_RUN=$(echo $PS | grep dropbox)
+	DROPBOX_RUN=$(echo "$PS" | grep dropbox)
 
 	if [[ $DROPBOX_RUN ]] ; then
 		DROPBOX_STATE=$(dropbox-cli status)
@@ -42,7 +42,7 @@ while true ; do
 
 	##Redshift state
 
-	REDSHIFT_RUN=$(echo $PS | grep redshift)
+	REDSHIFT_RUN=$(echo "$PS" | grep redshift)
 
 	if [[ $REDSHIFT_RUN ]] ; then
 		REDSHIFT="\uf0eb  "
