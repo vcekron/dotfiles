@@ -3,7 +3,7 @@
 #VPN variables
 VPN_IF=azirevpn
 VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --max-time 2 | grep '\"connected\": true'"
-POLL_INTERVAL=2
+POLL_INTERVAL=15
 POLL_DELAY=0
 
 while true ; do
