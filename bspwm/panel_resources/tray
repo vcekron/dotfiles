@@ -23,7 +23,7 @@ while true ; do
 	fi
 
 	if [[ $TELEGRAM_WID ]] ; then
-		TELEGRAM="%{T3}\uf1d8%{T-} $(xprop -id $TELEGRAM_WID WM_NAME | tr -dc '0-9')  "
+		TELEGRAM="%{T3}\uf1d8%{T-} $(xtitle $TELEGRAM_WID | tr -dc '0-9')  "
 	else
 		unset TELEGRAM
 	fi
