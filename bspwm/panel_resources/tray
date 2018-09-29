@@ -2,8 +2,8 @@
 
 #VPN variables
 VPN_IF=azirevpn
-VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --max-time 10 | grep '\"connected\": true'"
-POLL_DELAY=1
+VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --max-time 2 | grep '\"connected\": true'"
+POLL_DELAY=0
 
 while true ; do
 	#Process states
@@ -94,18 +94,19 @@ while true ; do
 
 	VPN_UP=$(echo "$IP" | grep ${VPN_IF})
 
-	if [[ $VPN_UP && $POLL_DELAY == 1 ]] ; then
+	if [[ $VPN_UP ]] && [[ !$VPN_CONNECTED || $POLL_DELAY == 0 ]] ; then
 		VPN_CONNECTED=$(eval ${VPN_CHECK})
 	fi
 
-	POLL_DELAY=$(((POLL_DELAY + 1) % 10))
-
 	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
 		VPN="\uf023  "
+		POLL_DELAY=$(((POLL_DELAY + 1) % 30))
 	elif [[ $VPN_UP ]] ; then
 		VPN="%{F#FFCC6666}\uf023%{F-}  "
+		unset VPN_CONNECTED
 	else
 		VPN="\uf09c  "
+		unset VPN_CONNECTED
 	fi
 
 	#Pulseaudio volume
