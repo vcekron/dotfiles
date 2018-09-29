@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source ~/.config/bspwm/panel_colors
+source ~/.config/bspwm/panel_resources/colors
 
 num_mon=$(bspc query -M | wc -l)
 PADDING="  "

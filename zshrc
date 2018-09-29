@@ -129,7 +129,7 @@ alias gc="git commit -m"
 syu ()
 {
 	pacaur -Syu "$@" --silent
-	(~/.config/bspwm/updates > "$PANEL_FIFO" &)
+	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
 }
 
 mkcd ()

@@ -110,7 +110,7 @@ while true ; do
 
 	#Pulseaudio volume
 
-	VOLUME=$(~/.config/bspwm/volume_poll)
+	VOLUME=$(~/.config/bspwm/panel_resources/volume)
 
 	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
 	echo -e "$VOLUME"

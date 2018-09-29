@@ -190,15 +190,15 @@ XF86Sleep
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle; \
-	~/.config/bspwm/volume_poll > "$PANEL_FIFO"
+	~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
 XF86AudioRaiseVolume
 	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +2%"; \
-	~/.config/bspwm/volume_poll > "$PANEL_FIFO"
+	~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
 XF86AudioLowerVolume
 	sh -c "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ -2%"; \
-	~/.config/bspwm/volume_poll > "$PANEL_FIFO"
+	~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
 XF86AudioPlay
 	playerctl play-pause

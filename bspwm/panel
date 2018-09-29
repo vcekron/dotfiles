@@ -11,23 +11,23 @@ trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
 mkfifo "$PANEL_FIFO"
 
 bspc config top_padding $(( $PANEL_HEIGHT + $PANEL_TOP_GAP ))
-source ~/.config/bspwm/panel_colors
+source ~/.config/bspwm/panel_resources/colors
 
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
-source ~/.config/bspwm/tray
+source ~/.config/bspwm/panel_resources/tray
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 
 if [[ $(battery) ]] &> /dev/null ; then
-	~/.config/bspwm/battery > "$PANEL_FIFO" &
+	~/.config/bspwm/panel_resources/battery > "$PANEL_FIFO" &
 fi
 
 while true ; do
-	~/.config/bspwm/updates 2> /dev/null > "$PANEL_FIFO"
+	~/.config/bspwm/panel_resources/updates 2> /dev/null > "$PANEL_FIFO"
 	sleep 1h
 done &
 
-~/.config/bspwm/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT++$PANEL_TOP_GAP -o 0 -f "$PANEL_FONT" -o 0 -f "$ICON_FONT" -o -2 -f "$ICON_FONT2" -o -3 -f "$ICON_FONT3" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -U "$COLOR_DEFAULT_BG" -u "$PANEL_LINE_WIDTH" | sh &> /dev/null
+~/.config/bspwm/panel_resources/bar < "$PANEL_FIFO" | lemonbar -a 32 -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT++$PANEL_TOP_GAP -o 0 -f "$PANEL_FONT" -o 0 -f "$ICON_FONT" -o -2 -f "$ICON_FONT2" -o -3 -f "$ICON_FONT3" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" -U "$COLOR_DEFAULT_BG" -u "$PANEL_LINE_WIDTH" | sh &> /dev/null
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
