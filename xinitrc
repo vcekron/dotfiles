@@ -60,9 +60,12 @@ export SSH_PORT=$(cat ~/.ssh_port)
 eval $(keychain --eval --quiet --noask --nogui --confhost)
 eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
+xsetroot -cursor_name left_ptr &
 numlockx &
 udiskie &
 redshift &
+dropbox &
 urxvtd -q -f -o &
-sxhkd &
+unclutter --timeout 1 &
+pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
 exec bspwm

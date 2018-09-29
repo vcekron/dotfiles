@@ -1,10 +1,6 @@
 #! /bin/sh
 
-#Early startup
-xsetroot -cursor_name left_ptr &
-pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
-unclutter --timeout 1 &
-dropbox &
+sxhkd &
 
 #Basic config
 bspc config border_width					1
@@ -54,6 +50,6 @@ bspc rule -a SVPManager state=pseudo_tiled desktop='Primary:^6'
 bspc rule -a URxvt:scratchpad sticky=on state=floating locked=on hidden=on
 bspc rule -a Zathura state=tiled
 
-#Late startup
+#Startup
 pgrep -x panel || ~/.config/bspwm/panel &
 ~/dotfiles/scratchpad &
