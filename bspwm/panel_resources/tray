@@ -94,7 +94,7 @@ while true ; do
 
 	VPN_UP=$(echo "$IP" | grep ${VPN_IF})
 
-	if [[ $VPN_UP ]] && [[ !$VPN_CONNECTED || $POLL_DELAY == 0 ]] ; then
+	if [[ $VPN_UP && $POLL_DELAY == 0 ]] ; then
 		VPN_CONNECTED=$(eval ${VPN_CHECK})
 	fi
 
@@ -103,9 +103,10 @@ while true ; do
 		POLL_DELAY=$(((POLL_DELAY + 1) % 30))
 	elif [[ $VPN_UP ]] ; then
 		VPN="%{F#FFCC6666}\uf023%{F-}  "
-		unset VPN_CONNECTED
+		POLL_DELAY=0
 	else
 		VPN="\uf09c  "
+		POLL_DELAY=0
 		unset VPN_CONNECTED
 	fi
 
