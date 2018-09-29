@@ -1,10 +1,17 @@
 #! /bin/sh
 
-#VPN variables
+#Set VPN variables
+
 VPN_IF=azirevpn
 VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --max-time 2 | grep '\"connected\": true'"
 POLL_INTERVAL=15
 POLL_DELAY=0
+
+#Check for battery
+
+if [[ $(battery) ]] &> /dev/null ; then
+	BATTEY_PRESENT=1
+fi
 
 while true ; do
 	#Process states
@@ -111,9 +118,9 @@ while true ; do
 		unset VPN_CONNECTED
 	fi
 
-	#Battery
+	#Battery state
 
-	if [[ $(battery) ]] &> /dev/null ; then
+	if [[ $BATTEY_PRESENT ]] ; then
 		BATTERY=$(~/.config/bspwm/panel_resources/battery)
 	fi
 
