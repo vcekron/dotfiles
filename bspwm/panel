@@ -15,12 +15,8 @@ source ~/.config/bspwm/panel_resources/colors
 
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
-source ~/.config/bspwm/panel_resources/tray
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
-
-if [[ $(battery) ]] &> /dev/null ; then
-	~/.config/bspwm/panel_resources/battery > "$PANEL_FIFO" &
-fi
+source ~/.config/bspwm/panel_resources/tray
 
 while true ; do
 	~/.config/bspwm/panel_resources/updates 2> /dev/null > "$PANEL_FIFO"
@@ -31,6 +27,5 @@ done &
 
 wid=$(xdo id -m -a "$PANEL_WM_NAME")
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
-
 
 wait

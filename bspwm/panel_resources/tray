@@ -111,11 +111,18 @@ while true ; do
 		unset VPN_CONNECTED
 	fi
 
+	#Battery
+
+	if [[ $(battery) ]] &> /dev/null ; then
+		BATTERY=$(~/.config/bspwm/panel_resources/battery)
+	fi
+
 	#Pulseaudio volume
 
 	VOLUME=$(~/.config/bspwm/panel_resources/volume)
 
 	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
+	echo -e "$BATTERY"
 	echo -e "$VOLUME"
 
 	sleep 1

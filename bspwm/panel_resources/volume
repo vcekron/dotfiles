@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-volume -d 'pulse' -f '%s %i' | read -r MUTE VOL
+volume -d 'pulse' | read -r MUTE VOL
 
 if [[ $MUTE == "off" ]] ; then
 	VOL="\uf026%{T4}\uf00d%{T-}"
