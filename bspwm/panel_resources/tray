@@ -3,6 +3,7 @@
 #VPN variables
 VPN_IF=azirevpn
 VPN_CHECK="curl -s https://api.azirevpn.com/v1/check --max-time 2 | grep '\"connected\": true'"
+POLL_INTERVAL=2
 POLL_DELAY=0
 
 while true ; do
@@ -100,7 +101,7 @@ while true ; do
 
 	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
 		VPN="\uf023  "
-		POLL_DELAY=$(((POLL_DELAY + 1) % 30))
+		POLL_DELAY=$(((POLL_DELAY + 1) % POLL_INTERVAL))
 	elif [[ $VPN_UP ]] ; then
 		VPN="%{F#FFCC6666}\uf023%{F-}  "
 		POLL_DELAY=0
