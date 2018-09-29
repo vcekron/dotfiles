@@ -3,19 +3,19 @@
 volume -d 'pulse' -f '%s %i' | read -r MUTE VOL
 
 if [[ $MUTE == "off" ]] ; then
-	STATE="\uf026%{T4}\uf00d%{T-}"
+	VOL="\uf026%{T4}\uf00d%{T-}"
 else
 	case $VOL in
 		[0-9])
-			STATE="\uf026 $VOL%"
+			VOL="\uf026 $VOL%"
 			;;
 		[1-4]?)
-			STATE="\uf027 $VOL%"
+			VOL="\uf027 $VOL%"
 			;;
 		*)
-			STATE="\uf028 $VOL%"
+			VOL="\uf028 $VOL%"
 			;;
 	esac
 fi
 
-echo "V$STATE"
+echo "V$VOL"
