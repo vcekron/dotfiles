@@ -5,7 +5,7 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-# merge in defaults and keymaps
+#Merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
 
@@ -31,7 +31,7 @@ if [ -f "$usermodmap" ]; then
 
 fi
 
-# start some nice programs
+#Startup
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 
@@ -41,12 +41,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 
 fi
-
-#twm &
-#xclock -geometry 50x50-1+1 &
-#xterm -geometry 80x50+494+51 &
-#xterm -geometry 80x20+494-0 &
-#exec xterm -geometry 80x66+0+0 -name login
 
 export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -59,13 +53,14 @@ export SSH_PORT=$(cat ~/.ssh_port)
 
 eval $(keychain --eval --quiet --noask --nogui --confhost)
 eval $(dircolors -b ~/.dir_colors)
+
 xset s off -dpms &
 xsetroot -cursor_name left_ptr &
-numlockx &
 udiskie &
-redshift &
 dropbox &
-urxvtd -q -f -o &
+numlockx &
+redshift &
 unclutter --timeout 1 &
+urxvtd -q -f -o &
 pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
 exec bspwm
