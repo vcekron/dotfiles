@@ -27,7 +27,10 @@ while true ; do
 	fi
 
 	echo "$VPN_STATE" > /tmp/vpn_state
+
+	#Debug
 	#echo "$VPN_STATE"
+	#echo "$VPN_CHECK_RESULT"
 
 	sleep $POLL_DELAY
 
