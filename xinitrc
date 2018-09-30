@@ -62,5 +62,6 @@ numlockx &
 redshift &
 unclutter --timeout 1 &
 urxvtd -q -f -o &
+~/dotfiles/VPN_check &
 pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
 exec bspwm
