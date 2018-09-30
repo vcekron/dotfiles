@@ -2,7 +2,7 @@
 
 VPN_IF=azirevpn
 VPN_CHECK="curl -sS https://api.azirevpn.com/v1/check --max-time 2"
-VPN_CHECK_FILTER="grep -c '\"connected\": true'"
+VPN_CHECK_FILTER="grep '\"connected\": true'"
 POLL_INTERVAL=15
 
 while true ; do
@@ -15,7 +15,7 @@ while true ; do
 		VPN_CONNECTED=$(echo "${VPN_CHECK_RESULT}" | eval ${VPN_CHECK_FILTER})
 	fi
 
-	if [[ $VPN_UP && $VPN_CONNECTED == 1 ]] ; then
+	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
 		VPN_STATE="Connected"
 		POLL_DELAY=$POLL_INTERVAL
 	elif [[ $VPN_UP ]] ; then
