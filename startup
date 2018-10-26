@@ -1,7 +1,13 @@
 #! /bin/sh
 
-waterfox &
-spotify &
-telegram-desktop &
-qbittorrent &
-SVPManager &
+APPS=("waterfox" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+PS=$(ps -ax)
+
+for app in ${APPS[@]}; do
+	if [[ ! $(echo "$PS" | grep "$app") ]]; then
+		echo "launching $app"
+		eval "$app &"
+	else
+		echo "$app already running"
+	fi
+done
