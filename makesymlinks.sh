@@ -24,7 +24,7 @@ cd $SOURCEDIR
 echo "done"
 
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/dotfiles directory specified in $HOME_FILES
-for file in $HOME_FILES; do
+for file in ${HOME_FILES[@]}; do
 	echo -n "Moving any existing dotfiles from ~ to $OLDDIR ..."
 	mv ~/.$file ~/$OLDDIR
 	echo "done"
@@ -33,13 +33,13 @@ for file in $HOME_FILES; do
 	echo "done"
 done
 
-for dir in $CONF_DIRS; do
+for dir in ${CONF_DIRS[@]}; do
 	echo -n "Creating folders where needed ..."
 	mkdir -p ~/.config/$conf_dir
 	echo "done"
 done
 
-for file in $CONF_FILES; do
+for file in ${CONF_FILES[@]}; do
 	echo -n "Moving any existing dotfiles from ~ to $OLDDIR ..."
 	mv ~/.config/$file ~/$OLDDIR
 	echo "done"
