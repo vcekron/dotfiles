@@ -1,9 +1,6 @@
 #! /bin/zsh
 
-battery | read -r STATE
-
-BATT=$(echo "$STATE" | awk '{ print $NF }')
-CHAR=$(echo "$STATE" | awk '{ $NF="" ; print $0 }')
+battery | read -r CHAR BATT
 
 case $BATT in
 	[8-9]?|100)
@@ -29,7 +26,7 @@ case $BATT in
 		;;
 esac
 
-if [[ $CHAR = "Charging " || $BATT = 100 && $CHAR = "Not charging " ]] ; then
+if [[ $CHAR = "Charging" || $BATT = 100 && $CHAR = "Not charging" ]] ; then
 	BOLT="%{T3} \uf0e7%{T-}"
 else
 	unset BOLT
