@@ -35,7 +35,7 @@ done
 
 for dir in ${CONF_DIRS[@]}; do
 	echo -n "Creating folders where needed ..."
-	mkdir -p ~/.config/$conf_dir
+	mkdir -p ~/.config/$dir
 	echo "done"
 done
 
