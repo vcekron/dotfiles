@@ -1,8 +1,8 @@
 #! /bin/zsh
 
-run=$(ps -cax | grep redshift)
+RUN=$(ps -cax | grep redshift)
 
-if [[ $run ]] ; then
+if [[ $RUN ]] ; then
 	pkill redshift
 else
 	nohup redshift >/dev/null 2>&1 &

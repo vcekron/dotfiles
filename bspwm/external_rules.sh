@@ -1,19 +1,19 @@
 #! /bin/sh
 
-wid=$1
-class=$2
-instance=$3
+WID=$1
+CLASS=$2
+INSTANCE=$3
 
 #Debug
-#title=$(xtitle "$wid")
-#echo "$wid $class $instance $title" > /tmp/bspc-external-rules
+#TITLE=$(xtitle "$WID")
+#echo "$WID $CLASS $INSTANCE $TITLE" > /tmp/bspc-external-rules
 
 #Telegram
 
-case $class in
+case $CLASS in
 	"TelegramDesktop")
-		title=$(xtitle "$wid")
-		case $title in
+		TITLE=$(xtitle "$WID")
+		case $TITLE in
 			"Media viewer")
 				echo "state = fullscreen"
 				;;

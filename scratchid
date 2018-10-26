@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#! /bin/sh
 
 xdo id -n "scratchpad" > /tmp/scratchid
 $SHELL
