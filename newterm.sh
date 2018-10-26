@@ -12,9 +12,6 @@ case $CLASS in
 		;;
 esac
 
-echo "$CLASS"
-echo "$DIR"
-
 case $(echo $DIR | head -c 1) in
 	"/")
 		urxvt -cd $DIR
