@@ -14,4 +14,4 @@ while [[ $(battery | grep "Discharging" | awk '$2<11') ]] ; do
 	sleep 300
 done
 
-rm /tmp/battwarn
+rm /tmp/battwarn 2>/dev/null
