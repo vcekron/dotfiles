@@ -1,6 +1,14 @@
 #! /bin/sh
 
-APPS=("waterfox" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+case $(hostname) in
+	"amunet")
+		APPS=("waterfox" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+		;;
+	"hathor")
+		APPS=("waterfox" "spotify" "telegram-desktop")
+		;;
+esac
+
 PS=$(ps -ax)
 
 for app in ${APPS[@]}; do
