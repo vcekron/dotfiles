@@ -1,16 +1,25 @@
 #! /bin/zsh
 
-echo $(xprop -id $(xdotool getactivewindow) WM_CLASS) | read foo bar baz class
+echo $(xprop -id $(xdo id) WM_CLASS) | read foo bar baz CLASS
 
-if [[ $class == '"URxvt"' ]] ; then
-	dir=${$(xprop -id $(xdotool getactivewindow) WM_ICON_NAME | sed 's/WM_ICON_NAME(STRING) = \".*: //; s,\~.\?,'"$HOME"'/,')%\"}
-elif [[ $class == '"tabbed"' || $class == '"Zathura"' ]] ; then
-	echo $(xprop -id $(xdotool getactivewindow) WM_NAME) | read foo bar name
-	dir=${$(dirname $name)#\"}
-fi
+case $CLASS in
+	'"URxvt"')
+		DIR=${$(xprop -id $(xdo id) WM_ICON_NAME | sed 's/WM_ICON_NAME(STRING) = \".*: //; s,\~.\?,'"$HOME"'/,')%\"}
+		;;
+	'"tabbed"'|'"Zathura"')
+		echo $(xprop -id $(xdo id) WM_NAME) | read foo bar NAME
+		DIR=${$(dirname $NAME)#\"}
+		;;
+esac
 
-if [[ $(echo $dir | head -c 1) == "/" ]] ; then
-	urxvt -cd $dir
-else
-	urxvt
-fi 
+echo "$CLASS"
+echo "$DIR"
+
+case $(echo $DIR | head -c 1) in
+	"/")
+		urxvt -cd $DIR
+		;;
+	*)
+		urxvt
+		;;
+esac
