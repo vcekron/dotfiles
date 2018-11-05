@@ -62,14 +62,14 @@ fi
 if [[ $OLD_FILES ]]; then
 	## Create dotfiles_old in homedir
 	echo -n "Creating $OLDDIR for backup of any existing dotfiles in ~ ..."
-	mkdir -p $OLDDIR >> $LOGFILE 2>&1
+	mkdir -vp $OLDDIR >> $LOGFILE 2>&1
 	echo "done"
 
 	## Move existing dotfiles to dotfiles_old
 	echo -n "Moving existing dotfiles to $OLDDIR ..."
 
 	for file in $OLD_FILES; do
-		mv ~/$file ~/$OLDDIR >> $LOGFILE 2>&1
+		mv -v ~/$file ~/$OLDDIR >> $LOGFILE 2>&1
 	done
 
 	echo done
@@ -81,7 +81,7 @@ fi
 echo -n "Creating required directories ..."
 
 for dir in $DIRS; do
-	mkdir -p ~/.$dir >> $LOGFILE 2>&1
+	mkdir -vp ~/.$dir >> $LOGFILE 2>&1
 done
 
 echo "done"
