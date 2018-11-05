@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-if [ -f /tmp/battwarn ] ; then
+if [ -f /tmp/battwarn ]; then
 	pkill $(cat /tmp/battwarn)
 	rm /tmp/battwarn
 fi

@@ -5,12 +5,11 @@ read -p "This will rename all the .srt-files in this folder to match the names o
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
-	list=$(ls | grep .mkv)
-	for f in *.srt;
-	do
+	LIST=$(ls | grep .mkv)
+	for file in *.srt; do
 		read line
 		mv -nv "${f}" "${line%.mkv}".srt | tee subren.log
-	done <<< "$list"
+	done <<< "$LIST"
 
 	echo "done"
 

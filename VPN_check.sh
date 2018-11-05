@@ -6,17 +6,17 @@ VPN_CHECK_FILTER="grep '\"connected\": true'"
 POLL_INTERVAL=15
 POLL_DELAY_TICK=0
 
-while true ; do
+while true; do
 
 	VPN_UP=$(ip r | grep ${VPN_IF})
 
-	if [[ $VPN_UP && $POLL_DELAY_TICK == 0 ]] ; then
+	if [[ $VPN_UP && $POLL_DELAY_TICK == 0 ]]; then
 		VPN_CHECK_RESULT=$(eval ${VPN_CHECK} 2> /tmp/vpn_err)
 		VPN_CONNECTED=$(echo "${VPN_CHECK_RESULT}" | eval ${VPN_CHECK_FILTER})
 		#echo "Check ran"
 	fi
 
-	if [[ $VPN_UP && $VPN_CONNECTED ]] ; then
+	if [[ $VPN_UP && $VPN_CONNECTED ]]; then
 		VPN_STATE="Connected"
 		POLL_DELAY_TICK=$(((POLL_DELAY_TICK + 1) % POLL_INTERVAL))
 	elif [[ $VPN_UP ]] ; then
