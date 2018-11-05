@@ -173,7 +173,7 @@ ctrl + mod3 + l
 	~/dotfiles/lock.sh
 
 ctrl + mod3 + r
-	~/dotfiles/redtoggle
+	~/dotfiles/redtoggle.sh
 
 ctrl + mod3 + p
 	playerctl play-pause

@@ -36,5 +36,5 @@ fi
 echo "B$LEVEL$BOLT"
 
 if [[ $BATT -le 9  && ! -f /tmp/battwarn ]] ; then
-	~/dotfiles/battwarn &
+	~/dotfiles/battwarn.sh &
 fi
