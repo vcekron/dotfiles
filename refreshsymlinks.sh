@@ -1,13 +1,13 @@
 #! /bin/sh
 
-# Variables
+# Set variables
 
-## Logile
-LOGFILE=~/refreshsymlinks.log
 ## Dotfiles directory
-SOURCEDIR=~/dotfiles
+SOURCEDIR=$(pwd)
 ## Old dotfiles directory
 OLDDIR=~/dotfiles_old
+## Logile
+LOGFILE=~/refreshsymlinks.log
 
 ##Files and directories
 cd $SOURCEDIR/homedir
