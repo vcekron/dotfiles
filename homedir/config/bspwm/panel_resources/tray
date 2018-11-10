@@ -14,12 +14,12 @@ while true ; do
 
 	##Telegram state
 
-	TELEGRAM_PID=$(echo "$PS" | grep telegram-desk | awk '{ print $1 }')
+	TELEGRAM_PID=$(echo "$PS" | grep -m 1 "telegram-desk" | awk '{ print $1 }')
 
-	if [[ $TELEGRAM_PID && !$TELEGRAM_WID ]] ; then
-		WIDS=$(xdo id -p ${TELEGRAM_PID})
-		TELEGRAM_WID=$(for WID in $WIDS ; do xwininfo -id $WID | grep '"Telegram' | awk '{ print $4 }' ; done)
-	elif [[ !$TELEGRAM_PID ]] ; then
+	if [[ $TELEGRAM_PID && ! $TELEGRAM_WID ]] ; then
+		WIDS=$(xdo id -p $TELEGRAM_PID)
+		TELEGRAM_WID=$(echo "$WIDS" | head -n $(xtitle $WIDS | grep -m 1 -n "Telegram" | cut -d: -f1) | tail -n 1)
+	elif [[ ! $TELEGRAM_PID ]] ; then
 		unset TELEGRAM_WID
 	fi
 
@@ -31,13 +31,13 @@ while true ; do
 
 	##Dropbox state
 
-	DROPBOX_RUN=$(echo "$PS" | grep dropbox)
+	DROPBOX_RUN=$(echo "$PS" | grep -m 1 dropbox)
 
 	if [[ $DROPBOX_RUN ]] ; then
 		DROPBOX_STATE=$(dropbox-cli status)
 	fi
 
-	if [[ $DROPBOX_STATE == "Up to date" ]] ; then
+	if [[ $DROPBOX_STATE = "Up to date" ]] ; then
 		DROPBOX="\uf16b  "
 	elif [[ $DROPBOX_RUN ]] ; then
 		DROPBOX="\uf16b !  "
@@ -47,7 +47,7 @@ while true ; do
 
 	##Redshift state
 
-	REDSHIFT_RUN=$(echo "$PS" | grep redshift)
+	REDSHIFT_RUN=$(echo "$PS" | grep -m 1 redshift)
 
 	if [[ $REDSHIFT_RUN ]] ; then
 		REDSHIFT="\uf0eb  "
