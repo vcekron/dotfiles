@@ -12,9 +12,33 @@ mkfifo "$PANEL_FIFO"
 
 bspc config top_padding $(( $PANEL_HEIGHT + $PANEL_TOP_GAP ))
 source ~/.config/bspwm/panel_resources/colors
-
 bspc subscribe report > "$PANEL_FIFO" &
-xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
+
+case $(bspc query -M | wc -l) in
+	2)
+		xtitle -s | while read; do
+			nid1=$(bspc query -N -n '@Primary:focused:.active')
+			nid2=$(bspc query -N -n '@East:focused:.active')
+
+			if [[ $nid1 ]]; then
+				xtitle -f 'T1%s\n' -t 110 $nid1
+			else
+				echo "T1"
+			fi > "$PANEL_FIFO"
+
+			if [[ $nid2 ]]; then
+				xtitle -f 'T2%s\n' -t 110 $nid2
+			else
+				echo "T2"
+			fi > "$PANEL_FIFO"
+
+		done &
+		;;
+	1)
+		xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
+		;;
+esac
+
 clock -sf 'S%A %d %B %H:%M' > "$PANEL_FIFO" &
 source ~/.config/bspwm/panel_resources/tray
 
