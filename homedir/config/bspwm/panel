@@ -35,7 +35,7 @@ case $(bspc query -M | wc -l) in
 		done &
 		;;
 	1)
-		xtitle -sf 'T%s\n' -t 110 > "$PANEL_FIFO" &
+		xtitle -sf 'T1%s\n' -t 110 > "$PANEL_FIFO" &
 		;;
 esac
 
