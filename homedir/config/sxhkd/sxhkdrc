@@ -138,7 +138,7 @@ super + mod3 + shift + {Left,Down,Up,Right}
 # personal hotkeys
 super + BackSpace
 	id=$(cat /tmp/scratchid);\
-	if [[ $id ]];then bspc node $id --flag hidden;bspc node -f $id;fi
+	if [[ $id ]];then bspc node $id -m focused; bspc node $id --flag hidden;bspc node -f $id;fi
 
 super + shift + Return
 	~/dotfiles/newterm.sh
@@ -150,21 +150,18 @@ super + {_,shift + }s
 	id=$(cat /tmp/scratchid);\
 	focused=$(bspc query -N -n);\
 	{bspc monitor -f next,bspc node -m next --follow};\
-	if [[ $id ]];then bspc node $id --flag sticky=off -m focused --flag sticky=on;fi;\
+	if [[ $id ]];then bspc node $id -m focused;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + mod3 + s
 	bspc node last.active -m focused
 
 super + {_,shift + ,mod3 + }d
-	id=$(cat /tmp/scratchid);\
 	read -r dir1 dir2 <<<$(echo {next.local prev.local,prev.local next.local,next:focused next:focused});\
-	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
 	name=$(bspc query -D -d $dir1 --names);\
 	bspc desktop -s $dir1;\
 	bspc desktop $dir2 -n $(bspc query -D -d --names);\
-	bspc desktop -n $name;\
-	if [[ $id ]];then bspc node $id --flag sticky=on;fi
+	bspc desktop -n $name
 
 super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
