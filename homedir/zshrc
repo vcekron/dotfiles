@@ -128,7 +128,7 @@ alias gc="git commit -m"
 
 syu ()
 {
-	pacaur -Syu "$@" --silent
+	trizen -Syu "$@" --quiet
 	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
 }
 
