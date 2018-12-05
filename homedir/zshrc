@@ -167,8 +167,7 @@ clpkg ()
 trash ()
 {
 	mkdir -p /tmp/trash
-	/usr/bin/mv -t /tmp/trash "$@"
-	echo "moved '$@' to /tmp/trash"
+	/usr/bin/mv -v -t /tmp/trash "$@"
 }
 
 function extract() {
