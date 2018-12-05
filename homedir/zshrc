@@ -164,6 +164,13 @@ clpkg ()
 	fi
 }
 
+trash ()
+{
+	mkdir -p /tmp/trash
+	/usr/bin/mv -t /tmp/trash "$@"
+	echo "moved '$@' to /tmp/trash"
+}
+
 function extract() {
     if [ -f $1 ] ; then
         case $1 in
