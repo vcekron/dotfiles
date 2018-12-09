@@ -11,8 +11,8 @@ LOGFILE=~/refreshsymlinks.log
 
 ##Files and directories
 cd $SOURCEDIR/homedir
-mkdir -p ~/.config
 FILES=$(find . -type f | cut -c 3-)
+mkdir -p ~/.config
 OLD_FILES=$(find ~ -maxdepth 1 -type f | grep "$FILES";find ~/.config -type f | grep "$FILES")
 
 for file in $FILES; do
