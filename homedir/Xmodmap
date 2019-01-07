@@ -11,3 +11,4 @@ keycode  35 = backslash asciicircum backslash asciicircum asciitilde diaeresis a
 keycode  49 = grave acute grave acute section paragraph section paragraph
 keycode  61 = slash question slash question minus underscore minus underscore
 keycode  94 = less greater less greater bar Multi_key bar Multi_key
+keycode  57 = n N n N ntilde Ntilde
