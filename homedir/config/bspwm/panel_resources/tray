@@ -103,10 +103,10 @@ while true ; do
 			VPN="\uf023  "
 			;;
 		"Disconnected")
-			VPN="\uf09c  "
+			VPN="%{F#FF707880}\uf023%{F-}  "
 			;;
 		*)
-			VPN="%{F#FFCC6666}\uf023%{F-}  "
+			VPN="%{F#FFA54242}\uf023%{F-}  "
 			;;
 	esac
 
