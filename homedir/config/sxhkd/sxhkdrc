@@ -186,7 +186,7 @@ XF86Sleep
 	~/dotfiles/lock.sh
 
 XF86AudioMute
-	pactl set-sink-mute 0 toggle; \
+	pactl set-sink-mute @DEFAULT_SINK@ toggle; \
 	~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
 XF86AudioRaiseVolume
