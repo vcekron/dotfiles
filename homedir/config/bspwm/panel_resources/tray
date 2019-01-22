@@ -39,8 +39,10 @@ while true ; do
 
 	if [[ $DROPBOX_STATE = "Up to date" ]] ; then
 		DROPBOX="\uf16b  "
+	elif [[ $(echo "$DROPBOX_STATE" | grep "Syncing") ]] ; then
+		DROPBOX="%{F#FF5F875F}\uf16b%{F-}  "
 	elif [[ $DROPBOX_RUN ]] ; then
-		DROPBOX="\uf16b !  "
+		DROPBOX="%{F#FFA54242}\uf16b%{F-}  "
 	else
 		unset DROPBOX
 	fi
