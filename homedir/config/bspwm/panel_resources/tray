@@ -24,11 +24,11 @@ while true ; do
 	fi
 
 	if [[ $TELEGRAM_WID && $(xtitle $TELEGRAM_WID | tr -dc '0-9') ]] ; then
-		TELEGRAM=" %{F$COLOR_FOCUSED_FREE_BG}%{T3}\uf1d8%{T-}%{F-} "
-	elif [[ $TELEGRAM_WID ]] ; then
 		TELEGRAM=" %{T3}\uf1d8%{T-} "
+	elif [[ $TELEGRAM_WID ]] ; then
+		TELEGRAM=" %{T3}\uf1d9%{T-} "
 	else
-		TELEGRAM=" %{F#FF707880}%{T3}\uf1d8%{T-}%{F-} "
+		TELEGRAM=" %{F#FF707880}%{T3}\uf1d9%{T-}%{F-} "
 	fi
 
 	##Dropbox state

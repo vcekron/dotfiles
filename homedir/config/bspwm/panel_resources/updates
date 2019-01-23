@@ -6,7 +6,7 @@ AUR_U=$(checkupdates-aur | wc -l)
 ((UPDATES = $OFFICIAL_U + $AUR_U))
 
 if [[ $UPDATES > 0 ]] ; then
-	UPDATES="%{F$COLOR_FOCUSED_FREE_BG}\uf0aa%{F-}"
+	UPDATES="\uf0aa"
 else
 	UPDATES="%{F#FF707880}\uf0aa%{F-}"
 fi
