@@ -23,8 +23,10 @@ while true ; do
 		unset TELEGRAM_WID
 	fi
 
-	if [[ $TELEGRAM_WID ]] ; then
-		TELEGRAM="%{T3}\uf1d8%{T-}$(xtitle $TELEGRAM_WID | tr -dc ' 0-9')  "
+	if [[ $TELEGRAM_WID && $(xtitle $TELEGRAM_WID | tr -dc '0-9') ]] ; then
+		TELEGRAM=" %{F$COLOR_FOCUSED_FREE_BG}%{T3}\uf1d8%{T-}%{F-} "
+	elif [[ $TELEGRAM_WID ]] ; then
+		TELEGRAM=" %{T3}\uf1d8%{T-} "
 	else
 		unset TELEGRAM
 	fi
@@ -38,11 +40,11 @@ while true ; do
 	fi
 
 	if [[ $DROPBOX_STATE = "Up to date" ]] ; then
-		DROPBOX="\uf16b  "
+		DROPBOX=" \uf16b "
 	elif [[ $(echo "$DROPBOX_STATE" | grep "Syncing") ]] ; then
-		DROPBOX="%{F#FF5F875F}\uf16b%{F-}  "
+		DROPBOX=" %{F#FF5F875F}\uf16b%{F-} "
 	elif [[ $DROPBOX_RUN ]] ; then
-		DROPBOX="%{F#FFA54242}\uf16b%{F-}  "
+		DROPBOX=" %{F#FFA54242}\uf16b%{F-} "
 	else
 		unset DROPBOX
 	fi
@@ -52,12 +54,28 @@ while true ; do
 	REDSHIFT_RUN=$(echo "$PS" | grep -m 1 redshift)
 
 	if [[ $REDSHIFT_RUN ]] ; then
-		REDSHIFT="\uf0eb  "
+		REDSHIFT=" \uf0eb "
 	else
-		REDSHIFT="%{F#FF707880}\uf0eb%{F-}  "
+		REDSHIFT=" %{F#FF707880}\uf0eb%{F-} "
 	fi
 
 	#Network interface state(s)
+
+	##VPN state
+
+	VPN_STATE=$(cat /tmp/vpn_state)
+
+	case $VPN_STATE in
+		"Connected")
+			VPN=" \uf023 "
+			;;
+		"Disconnected")
+			VPN=" %{F#FF707880}\uf023%{F-} "
+			;;
+		*)
+			VPN=" %{F#FFA54242}\uf023%{F-} "
+			;;
+	esac
 
 	##Set network icon variable(s)
 
@@ -79,7 +97,8 @@ while true ; do
 	##Print network interface state(s)
 
 	unset NET
-	IP=$(ip r)
+	IP=$(ip r) 
+	NET+=" "
 
 	for NIF in $NIFS ; do
 		NET_UP=$(echo "$IP" | grep $NIF)
@@ -94,22 +113,6 @@ while true ; do
 
 	done
 
-	##VPN state
-
-	VPN_STATE=$(cat /tmp/vpn_state)
-
-	case $VPN_STATE in
-		"Connected")
-			VPN="\uf023  "
-			;;
-		"Disconnected")
-			VPN="%{F#FF707880}\uf023%{F-}  "
-			;;
-		*)
-			VPN="%{F#FFA54242}\uf023%{F-}  "
-			;;
-	esac
-
 	#Battery state
 
 	if [[ $BATTEY_PRESENT ]] ; then
@@ -120,7 +123,7 @@ while true ; do
 
 	VOLUME=$(~/.config/bspwm/panel_resources/volume)
 
-	echo -e "R$TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
+	echo -e "R $TELEGRAM$DROPBOX$REDSHIFT$VPN$NET"
 	echo -e "$BATTERY"
 	echo -e "$VOLUME"
 

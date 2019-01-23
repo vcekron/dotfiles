@@ -5,7 +5,7 @@ AUR_U=$(checkupdates-aur | wc -l)
 ((UPDATES = $OFFICIAL_U + $AUR_U))
 
 if [[ $UPDATES > 0 ]] ; then
-	UPDATES="\uf0aa $UPDATES  "
+	UPDATES="\uf0aa $UPDATES"
 else
 	unset UPDATES
 fi
