@@ -3,19 +3,9 @@
 volume -d 'pulse' | read -r MUTE VOL
 
 if [[ $MUTE == "off" ]] ; then
-	VOL="\uf026%{T4}\uf00d%{T-}"
+	VOL="%{F#FF707880}\uf028 $VOL%%{F-}"
 else
-	case $VOL in
-		[0-9])
-			VOL="\uf026 $VOL%"
-			;;
-		[1-4]?)
-			VOL="\uf027 $VOL%"
-			;;
-		*)
-			VOL="\uf028 $VOL%"
-			;;
-	esac
+	VOL="\uf028 $VOL%"
 fi
 
 echo "V$VOL"
