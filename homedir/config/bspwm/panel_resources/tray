@@ -28,7 +28,7 @@ while true ; do
 	elif [[ $TELEGRAM_WID ]] ; then
 		TELEGRAM=" %{T3}\uf1d8%{T-} "
 	else
-		unset TELEGRAM
+		TELEGRAM=" %{F#FF707880}%{T3}\uf1d8%{T-}%{F-} "
 	fi
 
 	##Dropbox state
@@ -46,7 +46,7 @@ while true ; do
 	elif [[ $DROPBOX_RUN ]] ; then
 		DROPBOX=" %{F#FFA54242}\uf16b%{F-} "
 	else
-		unset DROPBOX
+		DROPBOX=" %{F#FF707880}\uf16b%{F-} "
 	fi
 
 	##Redshift state
@@ -97,7 +97,7 @@ while true ; do
 	##Print network interface state(s)
 
 	unset NET
-	IP=$(ip r) 
+	IP=$(ip r)
 	NET+=" "
 
 	for NIF in $NIFS ; do
