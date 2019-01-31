@@ -153,6 +153,9 @@ super + {_,shift + ,mod3 + }s
 	if [[ $id ]];then bspc node $id -m focused;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
+super + v
+	bspc node @/ -F vertical
+
 super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
