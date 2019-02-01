@@ -47,7 +47,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#parts#readonly(),0)}%#__restore__#'
 
 " deoplete settings
-"
+
 let g:deoplete#enable_at_startup = 1
 " deoplete vimtex integration
 if !exists('g:deoplete#omni#input_patterns')
@@ -59,9 +59,9 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 "autocmd FileType python setlocal completeopt-=preview
 
 " neosnippet settings
-let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
-let g:neosnippet#enable_completed_snippet = 1
-let g:neosnippet#expand_word_boundary = 1
+"let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+"let g:neosnippet#enable_completed_snippet = 1
+"let g:neosnippet#expand_word_boundary = 1
 
 " nerdtree settings
 
