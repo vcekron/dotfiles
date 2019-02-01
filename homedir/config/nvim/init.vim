@@ -17,8 +17,8 @@ Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-"Plug 'Shougo/neosnippet.vim'
-"Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -59,9 +59,9 @@ let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 "autocmd FileType python setlocal completeopt-=preview
 
 " neosnippet settings
-"let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
-"let g:neosnippet#enable_completed_snippet = 1
-"let g:neosnippet#expand_word_boundary = 1
+let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+let g:neosnippet#enable_completed_snippet = 1
+let g:neosnippet#expand_word_boundary = 1
 
 " nerdtree settings
 
