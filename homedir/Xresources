@@ -1,9 +1,45 @@
+! Color variables
+#define fg_color #C5C8C6
+#define bg_color #1D1F21
+#define hl_fg_color #FFFFFF
+#define hl_bg_color #584181
+#define dim_fg_color #707880
+#define u_color #A54242
+
+! panel Colors
+
+panel.color.default_fg: fg_color
+panel.color.default_bg: bg_color
+panel.color.monitor_fg: fg_color
+panel.color.monitor_bg: bg_color
+panel.color.focused_monitor_fg: hl_fg_color
+panel.color.focused_monitor_bg: hl_bg_color
+panel.color.free_fg: dim_fg_color
+panel.color.free_bg: bg_color
+panel.color.focused_free_fg: hl_fg_color
+panel.color.focused_free_bg: hl_bg_color
+panel.color.occupied_fg: fg_color
+panel.color.occupied_bg: bg_color
+panel.color.focused_occupied_fg: hl_fg_color
+panel.color.focused_occupied_bg: hl_bg_color
+panel.color.urgent_fg: fg_color
+panel.color.urgent_bg: u_color
+panel.color.focused_urgent_fg: fg-color
+panel.color.focused_urgent_bg: u_color
+panel.color.state_fg: fg_color
+panel.color.state_bg: bg_color
+panel.color.title_fg: fg_color
+panel.color.title_bg: bg_color
+panel.color.sys_fg: hl_fg_color
+panel.color.sys_bg: hl_bg_color
+panel.color.space: #00000000
+
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
 
-*background: #1D1F21
-*foreground: #C5C8C6
+*background: bg_color
+*foreground: fg_color
 ! black
 *color0: #282A2E
 *color8: #373B41
@@ -31,75 +67,8 @@
 
 ! URxvt config
 
-! URxvt*termName:                       string
-! URxvt*geometry:                       geometry
-! URxvt*chdir:                          string
-! URxvt*reverseVideo:                   boolean
-! URxvt*loginShell:                     boolean
-! URxvt*multiClickTime:                 number
-! URxvt*jumpScroll:                     boolean
-! URxvt*skipScroll:                     boolean
-! URxvt*pastableTabs:                   boolean
-! URxvt*scrollstyle:                    plain
   URxvt*scrollBar:                      false
-! URxvt*scrollBar_right:                true
-! URxvt*scrollBar_floating:             boolean
-! URxvt*scrollBar_align:                mode
-! URxvt*thickness:                      number
-! URxvt*scrollTtyOutput:                boolean
-! URxvt*scrollTtyKeypress:              boolean
-! URxvt*scrollWithBuffer:               boolean
-! URxvt*inheritPixmap:                  boolean
-! URxvt*transparent:                    boolean
-! URxvt*tintColor:                      color
-! URxvt*shading:                        number
-! URxvt*blurRadius:                     HxV
-! URxvt*fading:                         number
-! URxvt*fadeColor:                      color
-! URxvt*utmpInhibit:                    boolean
-! URxvt*urgentOnBell:                   boolean
-! URxvt*visualBell:                     boolean
-! URxvt*mapAlert:                       boolean
-! URxvt*meta8:                          boolean
-! URxvt*mouseWheelScrollPage:           boolean
-! URxvt*tripleclickwords:               boolean
-! URxvt*insecure:                       boolean
-! URxvt*cursorUnderline:                boolean
   URxvt*cursorBlink:                    true
-! URxvt*pointerBlank:                   boolean
-! URxvt*background:                     color
-! URxvt*foreground:                     color
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
-! URxvt*colorBD:                        color
-! URxvt*colorIT:                        color
-! URxvt*colorUL:                        color
-! URxvt*colorRV:                        color
-! URxvt*underlineColor:                 color
-! URxvt*scrollColor:                    color
-! URxvt*troughColor:                    color
-! URxvt*highlightColor:                 color
-! URxvt*highlightTextColor:             color
-! URxvt*cursorColor:                    color
-! URxvt*cursorColor2:                   color
-! URxvt*pointerColor:                   color
-! URxvt*pointerColor2:                  color
-! URxvt*borderColor:                    color
-! URxvt*iconFile:                       file
   URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=12, \
   										xft:DejaVu Sans:pixelsize=12
   URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=12, \
@@ -108,62 +77,19 @@
 										xft:DejaVu Sans:italic:pixelsize=12
   URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=12, \
   										xft:DejaVu Sans:bold:italic:pixelsize=12
-! URxvt*intensityStyles:                boolean
-! URxvt*inputMethod:                    name
-! URxvt*preeditType:                    style
-! URxvt*imLocale:                       string
-! URxvt*imFont:                         fontname
-! URxvt*title:                          string
-! URxvt*iconName:                       string
-! URxvt*saveLines:                      number
-! URxvt*buffered:                       boolean
-! URxvt*depth:                          number
-! URxvt*visual:                         number
-! URxvt*transient-for:                  windowid
-! URxvt*override-redirect:              boolean
-! URxvt*hold:                           boolean
-! URxvt*externalBorder:                 number
   URxvt*internalBorder:                 4
-! URxvt*borderLess:                     boolean
-! URxvt*lineSpace:                      number
-! URxvt*letterSpace:                    number
-! URxvt*skipBuiltinGlyphs:              boolean
-! URxvt*pointerBlankDelay:              number
-! URxvt*backspacekey:                   string
-! URxvt*deletekey:                      string
-! URxvt*print-pipe:                     string
   URxvt*modifier:                       mod3
-! URxvt*cutchars:                       string
-! URxvt*answerbackString:               string
-! URxvt*secondaryScreen:                boolean
-! URxvt*secondaryScroll:                boolean
-! URxvt*perl-lib:                       string
-! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                default,clipboard
-! URxvt*perl-ext:                       string
   URxvt*iso14755:                       false
   URxvt*iso14755_52:                    false
-! URxvt*xrm:                            string
-! URxvt*keysym.sym:                     keysym
-! URxvt*background.border:              boolean
-! URxvt*background.expr:                string
-! URxvt*background.interval:            seconds
-! URxvt*bell-command:                   string
-! URxvt*kuake.hotkey:                   string
-! URxvt*matcher.button:                 string
-! URxvt*matcher.launcher:               string
-! URxvt*matcher.launcher.*:             string
-! URxvt*matcher.pattern.*:              string
-! URxvt*matcher.rend.*:                 string
-! URxvt*remote-clipboard.fetch:         string
-! URxvt*remote-clipboard.store:         string
-! URxvt*searchable-scrollback:          string
-! URxvt*selection-autotransform.*:      string
-! URxvt*selection-pastebin.cmd:         string
-! URxvt*selection-pastebin.url:         string
-! URxvt*selection.pattern-0:            string
-! URxvt*tab-bg:                         colour
-! URxvt*tab-fg:                         colour
-! URxvt*tabbar-bg:                      colour
-! URxvt*tabbar-fg:                      colour
-! URxvt*url-launcher:                   string
+
+! Rofi config
+
+rofi.width:                          40
+rofi.lines:                          7
+rofi.font:                           Source Sans Pro Semibold 10
+rofi.bw:                             1
+rofi.padding:                        4
+rofi.separator-style:                none
+rofi.hide-scrollbar:                 true
+rofi.color-window:                   bg_color,fg_color
+rofi.color-normal:                   bg_color,fg_color,bg_color,hl_bg_color,hl_fg_color
