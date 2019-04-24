@@ -172,7 +172,7 @@ emptytrash ()
 	echo
 	case "${ans}" in
 		y|Y|$'\n')
-			/usr/bin/rm -v /home/${USER}/.local/share/Trash/files/*
+			/usr/bin/rm -rv /home/${USER}/.local/share/Trash/files/*
 			;;
 
 		*)
