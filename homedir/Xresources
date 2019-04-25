@@ -6,7 +6,7 @@
 #define dim_fg_color #707880
 #define u_color #A54242
 
-! panel Colors
+! Panel colors
 
 panel.color.default_fg: fg_color
 panel.color.default_bg: bg_color
