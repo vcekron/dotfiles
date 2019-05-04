@@ -12,6 +12,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'kopischke/vim-stay'
 Plug 'lervag/vimtex'
+Plug 'liuchengxu/vim-which-key'
 Plug 'luochen1990/rainbow'
 Plug 'mbbill/undotree'
 Plug 'michaeljsmith/vim-indent-object'
@@ -31,6 +32,7 @@ Plug 'wellle/targets.vim'
 "Plug 'zchee/deoplete-jedi'
 
 " On-demand loading
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Plugin outside ~/.vim/plugged with post-update hook
@@ -162,6 +164,8 @@ command Fw w !sudo tee %
 
 " General mappings
 
+nnoremap <silent> <leader> :WhichKey '<Bslash>'<CR>
+
 " Map homerow keys to resemble US layout
 "noremap ö [
 "noremap Ö {
@@ -203,7 +207,7 @@ imap <F2> <c-o><F2>
 " Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " List registers
-nnoremap <silent> <Leader>" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+nnoremap <silent> <Leader>r :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
 " + and 0 register mappings
 nnoremap <silent> <Leader>y "+y
 vnoremap <silent> <Leader>y "+y
@@ -225,7 +229,7 @@ nmap <silent> <Leader>F zE
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Buffer navigation
-nnoremap <M-o> :e 
+nnoremap <M-o> :e
 nnoremap <M-t> :enew<CR>
 nnoremap <M-S-tab> :bprevious<CR>
 nnoremap <M-tab> :bnext<CR>
