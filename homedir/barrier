@@ -1,0 +1,39 @@
+section: screens
+	freya:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+	DESKTOP-ACRL2AB:
+		halfDuplexCapsLock = false
+		halfDuplexNumLock = false
+		halfDuplexScrollLock = false
+		xtestIsXineramaUnaware = false
+		switchCorners = none 
+		switchCornerSize = 0
+end
+
+section: aliases
+end
+
+section: links
+	freya:
+		down = DESKTOP-ACRL2AB
+	DESKTOP-ACRL2AB:
+		up = freya
+end
+
+section: options
+	relativeMouseMoves = false
+	screenSaverSync = true
+	win32KeepForeground = false
+	clipboardSharing = true
+	switchCorners = none 
+	switchCornerSize = 0
+	keystroke(Control+\u00a7) = switchToScreen(freya)
+	keystroke(Control+Alt+\u00a7) = switchToScreen(DESKTOP-ACRL2AB)
+	keystroke(Control+Shift+=) = lockCursorToScreen(toggle)
+end
+

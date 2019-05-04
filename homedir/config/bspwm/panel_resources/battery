@@ -27,7 +27,7 @@ case $BATT in
 		;;
 esac
 
-if [[ $CHAR = "Charging" || $CHAR = "Not charging" && $BATT = 100 ]] ; then
+if [[ $CHAR = "Charging" || $BATT=100 && $(acpi | grep "Battery 0: Full") || $batt -ge 90 && $(acpi | grep "Battery 0: Unknown") ]] ; then
 	BOLT="%{T3} \uf0e7%{T-}"
 else
 	BOLT="%{F#FF707880}%{T3} \uf0e7%{T-}%{F-}"

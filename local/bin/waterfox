@@ -1,0 +1,9 @@
+#! /bin/sh
+
+if [[ $(hostname) == 'freya' ]]; then
+	bspc rule -a Waterfox -o desktop='Primary:^1'
+	bspc rule -a Waterfox -o desktop='East:^3'
+	/usr/bin/waterfox
+else
+	/usr/bin/waterfox
+fi

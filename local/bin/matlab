@@ -1,0 +1,10 @@
+#! /bin/sh
+
+export LD_PRELOAD=/usr/lib/libstdc++.so
+export LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/
+
+if [[ $(hostname) == 'freya' ]]; then
+	/usr/local/MATLAB/R2018a/bin/matlab -desktop
+else
+	/opt/matlab/bin/matlab -desktop
+fi

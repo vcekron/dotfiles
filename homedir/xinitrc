@@ -48,6 +48,7 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 export QT_QPA_PLATFORMTHEME='qt5ct'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCALE_FACTOR=1.3
 
 export SSH_PORT=$(cat ~/.ssh_port)
 
@@ -58,6 +59,8 @@ xset s off -dpms &
 xsetroot -cursor_name left_ptr &
 udiskie &
 dropbox &
+solaar &
+xbindkeys &
 numlockx &
 redshift &
 unclutter --timeout 1 &

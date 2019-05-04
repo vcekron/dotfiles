@@ -2,7 +2,7 @@
 #define fg_color #C5C8C6
 #define bg_color #1D1F21
 #define hl_fg_color #FFFFFF
-#define hl_bg_color #584181
+#define hl_bg_color #85678F
 #define dim_fg_color #707880
 #define u_color #A54242
 
@@ -69,14 +69,14 @@ panel.color.space: #00000000
 
   URxvt*scrollBar:                      false
   URxvt*cursorBlink:                    true
-  URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=12, \
-  										xft:DejaVu Sans:pixelsize=12
-  URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=12, \
-										xft:DejaVu Sans:bold:pixelsize=12
-  URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:pixelsize=12, \
-										xft:DejaVu Sans:italic:pixelsize=12
-  URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=12, \
-  										xft:DejaVu Sans:bold:italic:pixelsize=12
+  URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=16, \
+  										xft:DejaVu Sans:pixelsize=16
+  URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=16, \
+										xft:DejaVu Sans:bold:pixelsize=16
+  URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:pixelsize=16, \
+										xft:DejaVu Sans:italic:pixelsize=16
+  URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=16, \
+  										xft:DejaVu Sans:bold:italic:pixelsize=16
   URxvt*internalBorder:                 4
   URxvt*modifier:                       mod3
   URxvt*iso14755:                       false
@@ -86,7 +86,7 @@ panel.color.space: #00000000
 
 rofi.width:                          40
 rofi.lines:                          7
-rofi.font:                           Source Sans Pro Semibold 10
+rofi.font:                           Source Sans Pro Semibold 12
 rofi.bw:                             1
 rofi.padding:                        4
 rofi.separator-style:                none

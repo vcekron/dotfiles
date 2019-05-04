@@ -1,8 +1,8 @@
 #! /bin/sh
 
-VPN_IF=azirevpn
-VPN_CHECK="curl -sS https://api.azirevpn.com/v1/check --max-time 2"
-VPN_CHECK_FILTER="grep '\"connected\": true'"
+VPN_IF=tun0
+VPN_CHECK="nordvpn status"
+VPN_CHECK_FILTER="grep 'Connected'"
 POLL_INTERVAL=15
 POLL_DELAY_TICK=0
 

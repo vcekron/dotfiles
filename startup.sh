@@ -1,11 +1,11 @@
 #! /bin/sh
 
 case $(hostname) in
-	"amunet")
+	"freya")
 		APPS=("waterfox" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
 		;;
-	"hathor")
-		APPS=("waterfox" "spotify" "telegram-desktop")
+	"nerthus")
+		APPS=("waterfox" "telegram-desktop")
 		;;
 esac
 
