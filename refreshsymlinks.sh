@@ -72,7 +72,7 @@ if [[ $OLD_FILES ]]; then
 	echo -n "Moving existing dotfiles to $OLDDIR ..."
 
 	for file in $OLD_FILES; do
-		mv -v ~/$file ~/$OLDDIR >> $LOGFILE 2>&1
+		mv -v $file ~/$OLDDIR >> $LOGFILE 2>&1
 	done
 
 	echo "done"
