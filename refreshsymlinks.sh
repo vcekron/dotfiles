@@ -1,5 +1,7 @@
 #! /bin/sh
 
+cd "$(dirname "$0")"
+
 # Set variables
 
 ## Dotfiles directory
