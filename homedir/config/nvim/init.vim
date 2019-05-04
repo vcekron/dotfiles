@@ -19,7 +19,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
+" Plug 'Shougo/neosnippet-snippets'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -247,27 +247,9 @@ nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Toggle undotree
 nmap <silent> <Leader>u :UndotreeToggle<CR>
 " Navigate completion menu with tab/s-tab
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<tab>"
-inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
-" Expand snippet
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-" Jump snippet with Enter
-imap <expr> <CR> neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)" : "\<CR>"
+inoremap <expr><S-tab> pumvisible() ? "\<C-n>" : "\<S-tab>"
 " Cancel suggestion or snippet insertion and close popup menu with M-Space
-inoremap <expr><M-Space> pumvisible() ? "\<C-e>" : ""
-" Expand snippet or insert suggestion with C-Space
-function CheckForSnippet()
-	if getline(".")[col(".")-1] == ")" || getline(".")[col(".")-1] == "]" || getline(".")[col(".")-1] == "}"
-		return "\<C-y>\<C-o>a\<C-k>"
-	else
-		return "\<C-y>"
-	endif
-endfunc
-
-imap <expr> <C-Space> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-			\ pumvisible() ? CheckForSnippet() : ""
+inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
 
 " Disable menu navigation with arrow keys
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
