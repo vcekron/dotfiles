@@ -1,0 +1,14 @@
+#! /bin/sh
+
+if [[ $(hostname) == 'freya' ]]; then
+	dropbox-cli start &
+	waterfox &
+	spotify &
+	telegram-desktop &
+	qbittorrent &
+	SVPManager
+else
+	dropbox-cli start &
+	waterfox &
+	telegram-desktop
+fi

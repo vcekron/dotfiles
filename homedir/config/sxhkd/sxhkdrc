@@ -175,7 +175,7 @@ super + e
 	urxvt -e $SHELL -c "stty -ixon;ranger"
 
 XF86Sleep
-	systemctl suspend; \
+	echo mem > /sys/power/state; \
 	~/dotfiles/lock.sh
 
 XF86AudioMute
@@ -202,17 +202,24 @@ XF86AudioNext
 XF86AudioPrev
 	playerctl previous
 
+XF86WebCam
+	~/dotfiles/lock.sh; \
+	systemctl suspend
+
 XF86MonBrightnessUp
 	light -A 10
 
 XF86MonBrightnessDown
 	light -U 10
 
-XF86KbdBrightnessUp
-	asus-kbd-backlight up
+XF86AudioMicMute
+	playerctl play-pause
 
-XF86KbdBrightnessDown
-	asus-kbd-backlight down
+Print
+	playerctl next
+
+Insert
+	playerctl previous
 
 XF86Calculator
 	speedcrunch

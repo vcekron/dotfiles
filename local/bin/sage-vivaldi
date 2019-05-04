@@ -1,0 +1,10 @@
+#! /bin/sh
+
+running=$(pgrep jupyter)
+if [[ $running ]]
+then
+	vivaldi-snapshot --app=http://localhost:8888/notebooks/School/Grade%204/
+else
+	jupyter notebook --no-browser --NotebookApp.token= &
+	vivaldi-snapshot --app=http://localhost:8888/notebooks/School/Grade%204/
+fi

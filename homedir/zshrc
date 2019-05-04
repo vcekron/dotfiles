@@ -120,15 +120,47 @@ alias -g mv="mv -iv"
 alias rcp="rsync -a --stats --progress"
 alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
 
-alias glances="glances -1t1"
-
 alias gs="git status -sb"
 alias ga="git add"
 alias gc="git commit -m"
 
+alias hwmon="glances -1 -t 1"
+alias evpn='nordvpn connect'
+alias dvpn='nordvpn disconnect'
+alias scrShot='maim ~/scrShot.png'
+alias extractFrames='convert -coalesce'
+
+if [[ $(hostname) == 'freya' ]] ; then
+	function rbw {
+		WINDOWS_TITLE=`sudo grep -i 'windows' /boot/grub/grub.cfg|cut -d"'" -f2`
+		sudo grub-reboot "$WINDOWS_TITLE"
+		sudo reboot
+	}
+else
+	alias wifi-menu="sudo wifi-menu -o"
+
+	function rbw {
+		sudo efibootmgr -n 0002
+		reboot
+	}
+fi
+
+#YouTube playlist functions
+function playList() {
+	mpv --playlist=/home/simokron/playlist --playlist-start=$1
+}
+function getList() {
+	youtube-dl -j --flat-playlist --playlist-reverse "https://www.youtube.com/playlist?list=PLHw7hcztgbtsPtqaSvuSJezNDkT_f3wZh" | jq -r '.id' | sed 's_^_https://youtu.be/_' > /home/simokron/playlist
+}
+
+#Function optimise PDF files.
+function optPDF() {
+	~/dotfiles/optfile.sh $1
+}
+
 syu ()
 {
-	trizen -Syu "$@" --quiet
+	trizen -Syu --noedit "$@" --quiet
 	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
 }
 
