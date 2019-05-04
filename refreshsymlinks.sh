@@ -36,7 +36,7 @@ if [[ $DEP_SYM_DIRS ]]; then
 			;;
 		*)
 			rm -v --interactive=none $(echo "$DEP_SYM_DIRS") >> $LOGFILE 2>&1
-			echo "done"
+			echo " ...done"
 			;;
 	esac
 fi
@@ -53,7 +53,7 @@ if [[ $BROKEN_SYMS ]]; then
 			;;
 		*)
 			rm -v --interactive=none $(echo "$BROKEN_SYMS") >> $LOGFILE 2>&1
-			echo "done"
+			echo " ...done"
 			;;
 	esac
 fi
@@ -73,7 +73,7 @@ if [[ $OLD_FILES ]]; then
 		mv -v ~/$file ~/$OLDDIR >> $LOGFILE 2>&1
 	done
 
-	echo done
+	echo "done"
 fi
 
 # Create symlinks
