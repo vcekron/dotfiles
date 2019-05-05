@@ -246,8 +246,9 @@ nmap <silent> <Leader>d :call deoplete#toggle()<CR>
 nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Toggle undotree
 nmap <silent> <Leader>u :UndotreeToggle<CR>
-" Navigate completion menu with tab/s-tab
-inoremap <expr><S-tab> pumvisible() ? "\<C-n>" : "\<S-tab>"
+" Navigate completion menu with M-tab/S-tab
+inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
+inoremap <expr><M-tab> pumvisible() ? "\<C-n>" : "\<M-tab>"
 " Cancel suggestion or snippet insertion and close popup menu with M-Space
 inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
 
