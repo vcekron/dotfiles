@@ -1,6 +1,12 @@
 ! Color variables
-#define fg_color #C5C8C6
-#define bg_color #1D1F21
+
+!! Default theme
+!#define fg_color #C5C8C6
+!#define bg_color #1D1F21
+!! Light theme
+#define fg_color #1D1F21
+#define bg_color #E8E8E8
+!! Further variables
 #define hl_fg_color #FFFFFF
 #define hl_bg_color #85678F
 #define dim_fg_color #707880
