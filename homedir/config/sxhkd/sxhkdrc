@@ -165,8 +165,9 @@ super + {_,shift + ,mod3 + }d
 
 super + v
 	bspc node @/ -F vertical
+
 super + {_,shift + }v
-	bspc node @/ {-F vertical,-R 270}
+	bspc node @/ {-F vertical,-R 90}
 
 super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
