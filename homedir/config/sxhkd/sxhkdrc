@@ -153,6 +153,16 @@ super + {_,shift + ,mod3 + }s
 	if [[ $id ]];then bspc node $id -m focused;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
+super + {_,shift + ,mod3 + }d
+	id=$(cat /tmp/scratchid);\
+	read -r dir1 dir2 <<<$(echo {next.local prev.local,prev.local next.local,next:focused next:focused});\
+	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
+	name=$(bspc query -D -d $dir1 --names);\
+	bspc desktop -s $dir1;\
+	bspc desktop $dir2 -n $(bspc query -D -d --names);\
+	bspc desktop -n $name;\
+	if [[ $id ]];then bspc node $id --flag sticky=on;fi
+
 super + v
 	bspc node @/ -F vertical
 
