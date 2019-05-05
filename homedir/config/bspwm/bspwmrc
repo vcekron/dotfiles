@@ -51,7 +51,7 @@ esac
 bspc rule -a mpv							state=floating
 bspc rule -a SpeedCrunch					state=floating
 bspc rule -a SVPManager						desktop='Primary:^6 'state=pseudo_tiled
-bspc rule -a URxvt:scratchpad				state=floating sticky=off locked=on hidden=on
+bspc rule -a URxvt:scratchpad				state=floating sticky=on locked=on hidden=on
 bspc rule -a Zathura						state=tiled
 
 #Startup
