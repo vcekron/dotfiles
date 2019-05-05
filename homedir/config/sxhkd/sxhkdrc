@@ -154,12 +154,9 @@ super + {_,shift + ,mod3 + }s
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + {_,shift + ,mod3 + }d
-	id=$(cat /tmp/scratchid);\
-	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
-	bspc desktop -s {next.local,prev.local,next:focused};\
+	bspc desktop focused -s {next.local,prev.local,next:focused};\
 	desktops=$(bspc query -m focused -D | wc -l);\
-	eval bspc monitor focused -d $(seq -s ' ' $desktops);\
-	if [[ $id ]];then bspc node $id --flag sticky=on;fi
+	eval bspc monitor focused -d $(seq -s ' ' $desktops)
 
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 270}
