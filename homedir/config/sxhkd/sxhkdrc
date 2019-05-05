@@ -160,6 +160,7 @@ super + {_,shift + ,mod3 + }d
 	bspc desktop focused -s {next.local,prev.local,next:focused};\
 	desktops=$(bspc query -m focused -D | wc -l);\
 	eval bspc monitor focused -d $(seq -s ' ' $desktops);\
+	eval bspc monitor next -d $(seq -s ' ' $desktops);\
 	if [[ $id ]];then bspc node $id --flag sticky=on;fi
 
 super + {_,shift + }v
