@@ -147,21 +147,10 @@ super + shift + KP_Enter
 	~/dotfiles/newterm.sh
 
 super + {_,shift + ,mod3 + }s
-	id=$(cat /tmp/scratchid);\
-	focused=$(bspc query -N -n);\
-	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
-	{bspc monitor -f next,bspc node -m next --follow,bspc node @/ -m next --follow};\
-	if [[ $id ]];then bspc node $id -m focused --flag sticky=on;fi;\
-	if [[ $focused == $id ]];then bspc node -f $id;fi
+	~/dotfiles/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
 
 super + {_,shift + ,mod3 + }d
-	id=$(cat /tmp/scratchid);\
-	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
-	bspc desktop focused -s {next.local,prev.local,next:focused};\
-	desktops=$(bspc query -m focused -D | wc -l);\
-	eval bspc monitor focused -d $(seq -s ' ' $desktops);\
-	eval bspc monitor next -d $(seq -s ' ' $desktops);\
-	if [[ $id ]];then bspc node $id --flag sticky=on;fi
+	~/dotfiles/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
 
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 270}
