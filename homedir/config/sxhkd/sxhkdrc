@@ -163,10 +163,6 @@ super + {_,shift + ,mod3 + }d
 	eval bspc monitor next -d $(seq -s ' ' $desktops);\
 	if [[ $id ]];then bspc node $id --flag sticky=on;fi
 
-
-super + v
-	bspc node @/ -F vertical
-
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 90}
 
