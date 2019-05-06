@@ -149,19 +149,20 @@ super + shift + KP_Enter
 super + {_,shift + ,mod3 + }s
 	id=$(cat /tmp/scratchid);\
 	focused=$(bspc query -N -n);\
+	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
 	{bspc monitor -f next,bspc node -m next --follow,bspc node @/ -m next --follow};\
-	if [[ $id ]];then bspc node $id -m focused;fi;\
+	if [[ $id ]];then bspc node $id -m focused --flag sticky=on;fi;\
 	if [[ $focused == $id ]];then bspc node -f $id;fi
 
 super + {_,shift + ,mod3 + }d
 	id=$(cat /tmp/scratchid);\
-	read -r dir1 dir2 <<<$(echo {next.local prev.local,prev.local next.local,next:focused next:focused});\
 	if [[ $id ]];then bspc node $id --flag sticky=off;fi;\
-	name=$(bspc query -D -d $dir1 --names);\
-	bspc desktop -s $dir1;\
-	bspc desktop $dir2 -n $(bspc query -D -d --names);\
-	bspc desktop -n $name;\
+	bspc desktop focused -s {next.local,prev.local,next:focused};\
+	desktops=$(bspc query -m focused -D | wc -l);\
+	eval bspc monitor focused -d $(seq -s ' ' $desktops);\
+	eval bspc monitor next -d $(seq -s ' ' $desktops);\
 	if [[ $id ]];then bspc node $id --flag sticky=on;fi
+
 
 super + v
 	bspc node @/ -F vertical
