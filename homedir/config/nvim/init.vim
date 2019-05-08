@@ -166,6 +166,13 @@ command Fw w !sudo tee %
 
 nnoremap <silent> <leader> :WhichKey '<Bslash>'<CR>
 
+" Insert single character
+function! RepeatChar(char, count)
+  return repeat(a:char, a:count)
+endfunction
+nnoremap <M-i> :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+nnoremap <M-a> :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
+
 " Map homerow keys to resemble US layout
 "noremap ö [
 "noremap Ö {
