@@ -174,10 +174,10 @@ nnoremap <M-i> :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR
 nnoremap <M-a> :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " Map homerow keys to resemble US layout
-"noremap ö [
-"noremap Ö {
-"noremap ä ]
-"noremap Ä }
+noremap ö [
+noremap Ö {
+noremap ä ]
+noremap Ä }
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
@@ -188,7 +188,7 @@ inoremap <M-h> <C-o>h
 inoremap <M-l> <C-o>l
 inoremap <M-j> <C-o>j
 inoremap <M-k> <C-o>k
-" Map meta-q to exit insert mode
+" Map meta-n to exit insert mode
 inoremap <M-n> <ESC>
 " Map j/k to move by visual lines when not using count
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
