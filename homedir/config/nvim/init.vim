@@ -238,8 +238,8 @@ vnoremap <Space> zf
 " Buffer navigation
 nnoremap <M-o> :e
 nnoremap <M-t> :enew<CR>
-nnoremap <M-S-tab> :bprevious<CR>
-nnoremap <M-tab> :bnext<CR>
+nnoremap <M-j> :bprevious<CR>
+nnoremap <M-k> :bnext<CR>
 nnoremap <M-d> :bdelete<CR>
 nnoremap <M-u> :edit #<CR>
 " Highlight last inserted text
@@ -254,8 +254,8 @@ nmap <silent> <Leader>e :NERDTreeToggle<CR>
 " Toggle undotree
 nmap <silent> <Leader>u :UndotreeToggle<CR>
 " Navigate completion menu with M-tab/S-tab
-inoremap <expr><S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
 inoremap <expr><M-tab> pumvisible() ? "\<C-n>" : "\<M-tab>"
+inoremap <expr><M-S-tab> pumvisible() ? "\<C-p>" : "\<M-S-tab>"
 " Cancel suggestion or snippet insertion and close popup menu with M-Space
 inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
 
