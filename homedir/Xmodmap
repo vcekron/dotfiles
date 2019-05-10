@@ -6,7 +6,8 @@ keysym Alt_L = Hyper_R
 add mod1 = Alt_L
 add mod3 = Hyper_R
 
-keycode  21 = minus underscore minus underscore backslash bar backslash bar
+keycode  20 = minus underscore minus underscore backslash questiondown backslash questiondown
+keycode  21 = plus equal plus equal backslash bar backslash bar
 keycode  35 = backslash asciicircum backslash asciicircum asciitilde diaeresis asciitilde diaeresis
 keycode  49 = grave acute grave acute section paragraph section paragraph
 keycode  51 = apostrophe asterisk apostrophe asterisk dead_acute multiply dead_acute multiply
