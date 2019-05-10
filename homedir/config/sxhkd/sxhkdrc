@@ -20,11 +20,10 @@ super + Escape
 #
 # bspwm hotkeys
 #
-
-# quit bspwm normally
-super + mod3 + Escape
-	pkill panel;\
-	bspc quit
+#
+# quit/restart bspwm
+super + mo3 + {q,r}
+bspc {quit,wm -r}
 
 # close and kill
 super + {_,shift + }q
