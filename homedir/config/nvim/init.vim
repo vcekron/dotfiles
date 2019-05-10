@@ -124,8 +124,8 @@ set viewoptions=cursor,folds,slash,unix
 
 " Theme settings
 let g:hybrid_custom_term_colors = 1
-"set background=dark
 set background=dark
+"set background=light
 colorscheme hybrid
 
 " Misc settings
