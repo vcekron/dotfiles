@@ -34,14 +34,6 @@ shift $((OPTIND-1))
 # Input argument
 COMMAND=$1
 
-# Set sequencial desktop names
-rename () {
-	for monitor in $MONITORS; do
-		desktops=$(eval bspc query -m $monitor -D | wc -l)
-		eval bspc monitor $monitor -d $(seq -s ' ' $desktops)
-	done
-}
-
 # Remove scratchpad sitcky flag
 [[ -z $SCRATCHPAD ]] || bspc node $SCRATCHID --flag sticky=off
 
@@ -61,24 +53,18 @@ case $COMMAND in
 		bspc node @next:focused:.active -m focused
 		;;
 	"bubble_desktop_next")
-		#bspc desktop focused -s next.local
-		#rename
 		bspc node @focused:/ -s @next.local:/ --follow
 		if [[ $? = 1 ]]; then
 			bspc node @/ -d next.local --follow
 		fi
 		;;
 	"bubble_desktop_prev")
-		#bspc desktop focused -s prev.local
-		#rename
 		bspc node @focused:/ -s @prev.local:/ --follow
 		if [[ $? = 1 ]]; then
 			bspc node @/ -d prev.local --follow
 		fi
 		;;
 	"bubble_desktop_monitor")
-		#bspc desktop focused -s next:focused --follow
-		#rename
 		bspc node @focused:/ -s @next:focused:/ --follow
 		if [[ $? = 1 ]]; then
 			bspc node @/ -d next:focused --follow
