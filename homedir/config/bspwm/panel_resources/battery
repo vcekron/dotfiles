@@ -35,6 +35,11 @@ fi
 
 echo "B$LEVEL$BOLT"
 
-if [[ $BATT -le 9  && ! -f /tmp/battwarn ]] ; then
-	~/dotfiles/battwarn.sh &
+if [[ $BATT -le 9 && ! $CHAR = "Charging" ]] ; then
+	export BATT
+	~/dotfiles/sysscripts/battwarn.sh &
+elif [[ $BATT -le 9 && $CHAR = "Charging" ]] ; then
+	echo "150" > /tmp/battwarn
+else
+	echo "0" > /tmp/battwarn
 fi

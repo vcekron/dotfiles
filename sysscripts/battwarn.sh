@@ -1,17 +1,12 @@
 #! /bin/zsh
 
-if [ -f /tmp/battwarn ]; then
-	pkill $(cat /tmp/battwarn)
-	rm /tmp/battwarn
+[[ -f /tmp/battwarn ]] && COUNT=$(cat /tmp/battwarn)
+
+if [[ COUNT -ge 300 ]]; then
+	COUNT=0
+	[[ $(pacman -Qi zenity) ]] && zenity --warning --text "<span font_size='large' font_weight='bold'>Low battery</span>\n$BATT% of battery remaining" --title "Low battery warning" --width=150 &> /dev/null
 fi
 
-if [[ $(battery | grep "Discharging" | awk '$2<11') ]]; then
-	$$ > /tmp/battwarn
-fi
+((COUNT++))
 
-while [[ $(battery | read CHAR BATT; echo "$CHAR $BATT" | grep "Discharging" | awk '$2<11') ]]; do
-	zenity --warning --text "<span font_size='large' font_weight='bold'>Low battery</span>\n$BATT% of battery remaining" --title "Low battery warning" --width=150
-	sleep 300
-done
-
-rm /tmp/battwarn 2>/dev/null
+echo $COUNT > /tmp/battwarn
