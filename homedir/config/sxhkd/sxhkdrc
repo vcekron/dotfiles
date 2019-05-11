@@ -136,19 +136,19 @@ super + mod3 + shift + {Left,Down,Up,Right}
 
 # personal hotkeys
 super + BackSpace
-	~/dotfiles/scratchtoggle.sh
+	~/dotfiles/sysscripts/scratchtoggle.sh
 
 super + shift + Return
-	~/dotfiles/newterm.sh
+	~/dotfiles/sysscripts/newterm.sh
 
 super + shift + KP_Enter
-	~/dotfiles/newterm.sh
+	~/dotfiles/sysscripts/newterm.sh
 
 super + {_,shift + ,mod3 + }s
-	~/dotfiles/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
+	~/dotfiles/sysscripts/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
 
 super + {_,shift + ,mod3 + }d
-	~/dotfiles/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
+	~/dotfiles/sysscripts/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
 
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 270}
@@ -160,10 +160,10 @@ super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
 ctrl + mod3 + l
-	~/dotfiles/lock.sh
+	~/dotfiles/sysscripts/lock.sh
 
 ctrl + mod3 + r
-	~/dotfiles/redtoggle.sh
+	~/dotfiles/sysscripts/redtoggle.sh
 
 ctrl + mod3 + p
 	playerctl play-pause
@@ -176,7 +176,7 @@ super + e
 
 XF86Sleep
 	systemctl suspend; \
-	~/dotfiles/lock.sh
+	~/dotfiles/sysscripts/lock.sh
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle; \
