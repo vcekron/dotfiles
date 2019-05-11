@@ -22,7 +22,7 @@ super + Escape
 #
 #
 # quit/restart bspwm
-super + mo3 + {q,r}
+super + mod3 + {q,r}
 bspc {quit,wm -r}
 
 # close and kill
