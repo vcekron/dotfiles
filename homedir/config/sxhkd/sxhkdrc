@@ -137,7 +137,7 @@ super + mod3 + shift + {Left,Down,Up,Right}
 # personal hotkeys
 super + BackSpace
 	id=$(cat /tmp/scratchid);\
-	if [[ $id ]];then bspc node $id -m focused; bspc node $id --flag hidden;bspc node -f $id;fi
+	[[ $(xprop -id $id WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && bspc node $id --flag hidden;bspc node -f $id
 
 super + shift + Return
 	~/dotfiles/newterm.sh
