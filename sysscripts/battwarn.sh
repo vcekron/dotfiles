@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/sh
 
 [[ -f /tmp/battwarn ]] && COUNT=$(cat /tmp/battwarn)
 
