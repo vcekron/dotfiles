@@ -60,4 +60,4 @@ bspc rule -a Google-chrome 					desktop='^3'
 
 #Startup
 pgrep -x panel || ~/.config/bspwm/panel &
-~/dotfiles/scratchpad.sh &
+~/dotfiles/sysscripts/scratchpad.sh &

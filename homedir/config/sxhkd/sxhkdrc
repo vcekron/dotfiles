@@ -3,11 +3,11 @@
 #
 
 # terminal emulator
-super + Return
-	urxvt
+super + {_,shift + }Return
+	{urxvt,~/dotfiles/sysscripts/newterm.sh}
 
-super + KP_Enter
-	urxvt
+super + {_,shift + }KP_Enter
+	{urxvt,~/dotfiles/sysscripts/newterm.sh}
 
 # program launcher
 super + r
@@ -22,7 +22,7 @@ super + Escape
 #
 #
 # quit/restart bspwm
-super + mo3 + {q,r}
+super + mod3 + {q,r}
 bspc {quit,wm -r}
 
 # close and kill
@@ -35,7 +35,7 @@ super + m
 
 # send the newest marked node to the newest preselected node
 super + y
-	bspc node newest.marked.local -n newest.!automatic.local
+	bspc node focused -n newest.!automatic.local
 
 # swap the current node and the biggest node
 super + g
@@ -50,8 +50,8 @@ super + {t,shift + t,f,shift + f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+super + ctrl + {x,y,z}
+	bspc node -g {locked,sticky,private}
 
 #
 # focus/swap
@@ -136,20 +136,13 @@ super + mod3 + shift + {Left,Down,Up,Right}
 
 # personal hotkeys
 super + BackSpace
-	id=$(cat /tmp/scratchid);\
-	if [[ $id ]];then bspc node $id -m focused; bspc node $id --flag hidden;bspc node -f $id;fi
-
-super + shift + Return
-	~/dotfiles/newterm.sh
-
-super + shift + KP_Enter
-	~/dotfiles/newterm.sh
+	~/dotfiles/sysscripts/scratchtoggle.sh
 
 super + {_,shift + ,mod3 + }s
-	~/dotfiles/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
+	~/dotfiles/sysscripts/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
 
 super + {_,shift + ,mod3 + }d
-	~/dotfiles/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
+	~/dotfiles/sysscripts/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
 
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 90}
@@ -161,10 +154,10 @@ super + {_,shift + }u
 	bspc node -f next{.floating,.tiled}.local
 
 ctrl + mod3 + l
-	~/dotfiles/lock.sh
+	~/dotfiles/sysscripts/lock.sh
 
 ctrl + mod3 + r
-	~/dotfiles/redtoggle.sh
+	~/dotfiles/sysscripts/redtoggle.sh
 
 ctrl + mod3 + p
 	playerctl play-pause
@@ -177,7 +170,7 @@ super + e
 
 XF86Sleep
 	echo mem > /sys/power/state; \
-	~/dotfiles/lock.sh
+	~/dotfiles/sysscripts/lock.sh
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle; \
@@ -221,6 +214,3 @@ Print
 
 Insert
 	playerctl previous
-
-XF86Calculator
-	speedcrunch
