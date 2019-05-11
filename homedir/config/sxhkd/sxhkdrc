@@ -136,8 +136,7 @@ super + mod3 + shift + {Left,Down,Up,Right}
 
 # personal hotkeys
 super + BackSpace
-	id=$(cat /tmp/scratchid);\
-	[[ $(xprop -id $id WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && bspc node $id --flag hidden;bspc node -f $id
+	~/dotfiles/scratchtoggle.sh
 
 super + shift + Return
 	~/dotfiles/newterm.sh
