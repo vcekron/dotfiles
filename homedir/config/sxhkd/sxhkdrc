@@ -3,11 +3,11 @@
 #
 
 # terminal emulator
-super + Return
-	urxvt
+super + {_,shift + }Return
+	{urxvt,~/dotfiles/sysscripts/newterm.sh}
 
-super + KP_Enter
-	urxvt
+super + {_,shift + }KP_Enter
+	{urxvt,~/dotfiles/sysscripts/newterm.sh}
 
 # program launcher
 super + r
@@ -137,12 +137,6 @@ super + mod3 + shift + {Left,Down,Up,Right}
 # personal hotkeys
 super + BackSpace
 	~/dotfiles/sysscripts/scratchtoggle.sh
-
-super + shift + Return
-	~/dotfiles/sysscripts/newterm.sh
-
-super + shift + KP_Enter
-	~/dotfiles/sysscripts/newterm.sh
 
 super + {_,shift + ,mod3 + }s
 	~/dotfiles/sysscripts/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
