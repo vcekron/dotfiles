@@ -1,5 +1,6 @@
 #! /bin/bash
 
+IFS=$'\n'
 FILES=( "$@" )
 FLACS=$( printf '%s\n' "${FILES[@]}" | grep '.flac$')
 UNKONWNS=$( printf '%s\n' "${FILES[@]}" | grep -v '.flac$')
