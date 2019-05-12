@@ -20,7 +20,6 @@ done
 
 # Fetch IDs
 SCRATCHID=$(cat /tmp/scratchid)
-FOCUSED=$(bspc query -N -n)
 
 # Check for proper scratchpad
 [[ $(xprop -id $SCRATCHID WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && SCRATCHPAD=1
@@ -37,8 +36,7 @@ COMMAND=$1
 case $COMMAND in
 	"focus_next_monitor")
 		bspc monitor -f next
-		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused
-		[[ $SCRATCHPAD && $FOCUSED = $SCRATCHID ]] && bspc node -f $SCRATCHID
+		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused -f
 		;;
 	"node_to_next_monitor")
 		bspc node -m next --follow
