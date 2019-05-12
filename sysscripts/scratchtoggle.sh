@@ -9,5 +9,4 @@ ID=$(cat /tmp/scratchid)
 [[ $(bspc query -m focused -N | grep "$ID") ]] || bspc node $ID --flag sticky=off -m focused --flag sticky=on
 
 # Show and focus scratchpad
-bspc node $ID --flag hidden
-bspc node -f $ID
+bspc node $ID --flag hidden -f
