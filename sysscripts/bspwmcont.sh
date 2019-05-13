@@ -20,13 +20,9 @@ done
 
 # Fetch IDs
 SCRATCHID=$(cat /tmp/scratchid)
-MONITORS=$(bspc query -M)
-FOCUSED=$(bspc query -N -n)
 
 # Check for proper scratchpad
-if [[ $(xprop -id $SCRATCHID WM_CLASS | cut -d'"' -f2) = "scratchpad" ]]; then
-	SCRATCHPAD=1
-fi
+[[ $(xprop -id $SCRATCHID WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && SCRATCHPAD=1
 
 # Shift argument indices
 shift $((OPTIND-1))
@@ -35,45 +31,39 @@ shift $((OPTIND-1))
 COMMAND=$1
 
 # Remove scratchpad sitcky flag
-[[ -z $SCRATCHPAD ]] || bspc node $SCRATCHID --flag sticky=off
+[[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=off
 
 case $COMMAND in
 	"focus_next_monitor")
 		bspc monitor -f next
-		[[ -z $SCRATCHPAD ]] || bspc node $SCRATCHID -m focused
-		if [[ $SCRATCHPAD && $FOCUSED = $SCRATCHID ]];then
-			bspc node -f $SCRATCHID
-		fi
+		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused -f
 		;;
 	"node_to_next_monitor")
 		bspc node -m next --follow
-		[[ -z $SCRATCHPAD ]] || bspc node $SCRATCHID -m focused
+		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused
 		;;
 	"fetch_active_node")
 		bspc node @next:focused:.active -m focused
 		;;
 	"bubble_desktop_next")
 		bspc node @focused:/ -s @next.local:/ --follow
-		if [[ $? = 1 ]]; then
-			bspc node @/ -d next.local --follow
-		fi
+		[[ $? = 0 ]] || bspc node @/ -d next.local --follow
 		;;
 	"bubble_desktop_prev")
 		bspc node @focused:/ -s @prev.local:/ --follow
-		if [[ $? = 1 ]]; then
-			bspc node @/ -d prev.local --follow
-		fi
+		[[ $? = 0 ]] || bspc node @/ -d prev.local --follow
 		;;
 	"bubble_desktop_monitor")
 		bspc node @focused:/ -s @next:focused:/ --follow
-		if [[ $? = 1 ]]; then
-			bspc node @/ -d next:focused --follow
-		fi
+		[[ $? = 0 ]] || bspc node @/ -d next:focused --follow
 		;;
-	\?)
+	"")
+		>&2 echo -e "no command\n$USAGE"
+		;;
+	*)
 		>&2 echo -e "invalid command -- '$COMMAND'\n$USAGE"
 		;;
 esac
 
 # Set scratchpad sticky flag
-[[ -z $SCRATCHPAD ]] || bspc node $SCRATCHID --flag sticky=on
+[[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=on
