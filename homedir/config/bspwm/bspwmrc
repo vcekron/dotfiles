@@ -55,5 +55,5 @@ bspc rule -a URxvt:scratchpad				state=floating sticky=on locked=on hidden=on
 bspc rule -a Zathura						state=tiled
 
 #Startup
-pgrep -x panel || ~/.config/bspwm/panel &
+xdo -a "$PANEL_WM_NAME" || ~/.config/bspwm/panel &
 ~/dotfiles/sysscripts/scratchpad.sh &
