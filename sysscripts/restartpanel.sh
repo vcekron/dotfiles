@@ -1,5 +1,5 @@
 #! /bin/sh
 
-[[ $(xdo id -a "$PANEL_WM_NAME" | head -n 1) ]] && pkill -fo "bspwm/panel"
+[[ $(xdo id -a "$PANEL_WM_NAME") ]] && pkill -fo "bspwm/panel"
 
 ~/.config/bspwm/panel &!
