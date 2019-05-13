@@ -23,8 +23,7 @@ super + Escape
 #
 # quit/restart bspwm
 super + mod3 + {q,r}
-	panel=$(xdo id -a "$PANEL_WM_NAME" | head -n 1); \
-	[[ $panel ]] && xdo kill $panel; \
+	[[ $(xdo id -a "$PANEL_WM_NAME" | head -n 1) ]] && pkill -fo "bspwm/panel"; \
 	bspc {quit,wm -r}
 
 # close and kill
