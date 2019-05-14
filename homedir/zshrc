@@ -134,9 +134,8 @@ alias resetSink='paswitch alsa_output.pci-0000_00_1b.0.iec958-stereo'
 
 if [[ $(hostname) == 'freya' ]] ; then
 	function rbw {
-		WINDOWS_TITLE=`sudo grep -i 'windows' /boot/grub/grub.cfg|cut -d"'" -f2`
-		sudo grub-reboot "$WINDOWS_TITLE"
-		sudo reboot
+		sudo efibootmgr -n 0000
+		reboot
 	}
 else
 	alias wifi-menu="sudo wifi-menu -o"
