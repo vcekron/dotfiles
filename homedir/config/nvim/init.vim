@@ -174,10 +174,17 @@ nnoremap å :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 nnoremap Å :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " Map homerow keys to resemble US layout
-noremap ö [
-noremap Ö {
-noremap ä ]
-noremap Ä }
+nnoremap ö [
+nnoremap Ö {
+nnoremap ä ]
+nnoremap Ä }
+" Map åäö for convenient change in targeting
+onoremap å i(
+onoremap Å i<
+onoremap ä i'
+onoremap Ä i"
+onoremap ö i[
+onoremap Ö i{
 " Map B/E to beginning/end of line
 nnoremap B ^
 nnoremap E $
