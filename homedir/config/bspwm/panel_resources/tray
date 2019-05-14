@@ -8,13 +8,9 @@ fi
 
 while true ; do
 
-	#Process states
-
-	PS=$(ps -cax)
-
 	##Telegram state
 
-	TELEGRAM_PID=$(echo "$PS" | grep -m 1 "telegram-desk" | awk '{ print $1 }')
+	TELEGRAM_PID=$(pgrep -f telegram-desktop)
 
 	if [[ $TELEGRAM_PID && ! $TELEGRAM_WID ]] ; then
 		WIDS=$(xdo id -p $TELEGRAM_PID)
@@ -33,7 +29,7 @@ while true ; do
 
 	##Dropbox state
 
-	DROPBOX_RUN=$(echo "$PS" | grep -m 1 dropbox)
+	DROPBOX_RUN=$(pgrep dropbox)
 
 	if [[ $DROPBOX_RUN ]] ; then
 		DROPBOX_STATE=$(dropbox-cli status)
@@ -51,7 +47,7 @@ while true ; do
 
 	##Redshift state
 
-	REDSHIFT_RUN=$(echo "$PS" | grep -m 1 redshift)
+	REDSHIFT_RUN=$(pgrep redshift)
 
 	if [[ $REDSHIFT_RUN ]] ; then
 		REDSHIFT=" \uf0eb "

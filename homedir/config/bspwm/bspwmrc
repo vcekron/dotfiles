@@ -1,7 +1,5 @@
 #! /bin/sh
 
-sxhkd &
-
 #Basic config
 bspc config border_width					1
 bspc config split_ratio						0.5
@@ -58,6 +56,5 @@ bspc rule -a Zathura 						state=tiled
 bspc rule -a Vivaldi-stable					desktop='^2'
 bspc rule -a Google-chrome 					desktop='^3'
 
-#Startup
+#Panel
 xdo -a "$PANEL_WM_NAME" || ~/.config/bspwm/panel &
-~/dotfiles/sysscripts/scratchpad.sh &
