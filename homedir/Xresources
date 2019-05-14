@@ -39,6 +39,9 @@ panel.color.sys_fg: hl_fg_color
 panel.color.sys_bg: hl_bg_color
 panel.color.space: #00000000
 
+! Cursor theme
+Xcursor.theme: oxy-grey
+
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
