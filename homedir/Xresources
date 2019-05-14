@@ -34,6 +34,9 @@ panel.color.sys_fg: hl_fg_color
 panel.color.sys_bg: hl_bg_color
 panel.color.space: #00000000
 
+! Cursor theme
+Xcursor.theme: oxy-grey
+
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
@@ -67,20 +70,20 @@ panel.color.space: #00000000
 
 ! URxvt config
 
-  URxvt*scrollBar:                      false
-  URxvt*cursorBlink:                    true
-  URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=12, \
+URxvt*scrollBar:                      false
+URxvt*cursorBlink:                    true
+URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=12, \
   										xft:DejaVu Sans:pixelsize=12
-  URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=12, \
+URxvt*boldFont:                       xft:DejaVu Sans Mono for Powerline:bold:pixelsize=12, \
 										xft:DejaVu Sans:bold:pixelsize=12
-  URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:pixelsize=12, \
+URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:pixelsize=12, \
 										xft:DejaVu Sans:italic:pixelsize=12
-  URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=12, \
+URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=12, \
   										xft:DejaVu Sans:bold:italic:pixelsize=12
-  URxvt*internalBorder:                 4
-  URxvt*modifier:                       mod3
-  URxvt*iso14755:                       false
-  URxvt*iso14755_52:                    false
+URxvt*internalBorder:                 4
+URxvt*modifier:                       mod3
+URxvt*iso14755:                       false
+URxvt*iso14755_52:                    false
 
 ! Rofi config
 
