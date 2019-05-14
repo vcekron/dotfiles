@@ -22,7 +22,7 @@ gtk-theme-name = "oomox-Tomorrow-Dusk"
 gtk-font-name = "Source Sans Pro 12"
 gtk-icon-theme-name = "oomox-Tomorrow-Dusk"
 gtk-cursor-theme-name = "oxy-grey"
-gtk-cursor-theme-size = 20
+gtk-cursor-theme-size = 24
 gtk-button-images = 0
 
 style "vimfix" {

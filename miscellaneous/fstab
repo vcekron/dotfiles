@@ -1,0 +1,14 @@
+# /dev/sdf2
+UUID=48be7ad5-2fb7-4a45-a336-194db2662b22	/				ext4		rw,relatime																									0 1
+
+# /dev/sdf1
+UUID=5D99-3E8E      						/mnt/boot		vfat		rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sdd2 LABEL=Media
+UUID=D6CE4961CE493ACF						/mnt/Z			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
+
+# /dev/sdb1 LABEL=Media
+UUID=8292095E920957D5						/mnt/Q			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
+
+# /dev/sdc1 LABEL=Music
+UUID=F61EF5741EF52E6D						/mnt/X			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0

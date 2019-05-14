@@ -1,11 +1,11 @@
 ! Color variables
 
 !! Default theme
-!#define fg_color #C5C8C6
-!#define bg_color #1D1F21
+#define fg_color #C5C8C6
+#define bg_color #1D1F21
 !! Light theme
-#define fg_color #1D1F21
-#define bg_color #E8E8E8
+!#define fg_color #1D1F21
+!#define bg_color #E8E8E8
 !! Further variables
 #define hl_fg_color #FFFFFF
 #define hl_bg_color #85678F
@@ -13,7 +13,6 @@
 #define u_color #A54242
 
 ! Panel colors
-
 panel.color.default_fg: fg_color
 panel.color.default_bg: bg_color
 panel.color.monitor_fg: fg_color
@@ -43,7 +42,6 @@ panel.color.space: #00000000
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
 ! vim: ft=xdefaults
-
 *background: bg_color
 *foreground: fg_color
 ! black
@@ -72,7 +70,6 @@ panel.color.space: #00000000
 *color15: #C5C8C6
 
 ! URxvt config
-
   URxvt*scrollBar:                      false
   URxvt*cursorBlink:                    true
   URxvt*font:                           xft:DejaVu Sans Mono for Powerline:pixelsize=16, \
@@ -89,7 +86,6 @@ panel.color.space: #00000000
   URxvt*iso14755_52:                    false
 
 ! Rofi config
-
 rofi.width:                          40
 rofi.lines:                          7
 rofi.font:                           Source Sans Pro Semibold 12
@@ -99,3 +95,7 @@ rofi.separator-style:                none
 rofi.hide-scrollbar:                 true
 rofi.color-window:                   bg_color,fg_color
 rofi.color-normal:                   bg_color,fg_color,bg_color,hl_bg_color,hl_fg_color
+
+! X config
+Xcursor.theme: oxy-grey
+Xcursor.size: 24
