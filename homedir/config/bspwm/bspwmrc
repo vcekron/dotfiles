@@ -1,7 +1,5 @@
 #! /bin/sh
 
-sxhkd &
-
 #Basic config
 bspc config border_width					1
 bspc config split_ratio						0.5
@@ -54,6 +52,5 @@ bspc rule -a SVPManager						desktop='Primary:^6 'state=pseudo_tiled
 bspc rule -a URxvt:scratchpad				state=floating sticky=on locked=on hidden=on
 bspc rule -a Zathura						state=tiled
 
-#Startup
+#Panel
 xdo -a "$PANEL_WM_NAME" || ~/.config/bspwm/panel &
-~/dotfiles/sysscripts/scratchpad.sh &
