@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CustomKeySet derivedfrom="Emacs" modifieddefault="false">
+   <Context id="Global">
+      <Action id="clear-text-at-prompt">
+         <Stroke code="VK_ESCAPE"/>
+      </Action>
+      <Action id="redo">
+         <Stroke code="VK_Z" ctrl="on" shift="on"/>
+         <Stroke code="VK_R" ctrl="on"/>
+      </Action>
+      <Action id="merge-comments">
+         <Stroke code="VK_J" ctrl="on"/>
+      </Action>
+      <Action id="save">
+         <Stroke code="VK_S" ctrl="on"/>
+      </Action>
+      <Action id="open-new">
+         <Stroke code="VK_O" ctrl="on"/>
+      </Action>
+      <Action id="copy-to-clipboard">
+         <Stroke code="VK_C" ctrl="on"/>
+      </Action>
+      <Action id="caret-begin-line">
+         <Stroke code="VK_HOME"/>
+      </Action>
+      <Action id="undo">
+         <Stroke code="VK_MINUS" ctrl="on" shift="on"/>
+         <Stroke code="VK_UNDERSCORE" ctrl="on"/>
+         <Stroke code="VK_Z" ctrl="on"/>
+      </Action>
+      <Action id="inc-search-backward"/>
+      <Action id="inc-search-forward"/>
+      <Action id="page-down">
+         <Stroke code="VK_PAGE_DOWN"/>
+      </Action>
+      <Action id="format">
+         <Stroke code="VK_I" ctrl="on"/>
+      </Action>
+      <Action id="paste-from-clipboard">
+         <Stroke code="VK_V" ctrl="on"/>
+      </Action>
+      <Action id="save-workspace"/>
+      <Action id="select-all">
+         <Stroke code="VK_A" ctrl="on"/>
+      </Action>
+   </Context>
+</CustomKeySet>
