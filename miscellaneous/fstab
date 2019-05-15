@@ -11,4 +11,4 @@ UUID=D6CE4961CE493ACF						/mnt/Z			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=13
 UUID=8292095E920957D5						/mnt/Q			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
 
 # /dev/sdc1 LABEL=Music
-UUID=F61EF5741EF52E6D						/mnt/X			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
+UUID=b985fd16-6377-440b-8f39-9cad6ff61e16	/mnt/X			ext4		rw,relatime																									 0 0

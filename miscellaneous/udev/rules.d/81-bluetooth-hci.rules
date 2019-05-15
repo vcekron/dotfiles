@@ -1,0 +1,2 @@
+ # Lenovo Broadcom based HCI should be disabled
+ SUBSYSTEMS=="usb", ATTRS{idVendor}=="0a12", ATTRS{idProduct}=="0001", KERNELS=="2-13.1", ATTR{authorized}="0"
