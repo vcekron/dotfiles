@@ -10,7 +10,7 @@ while true ; do
 
 	##Telegram state
 
-	TELEGRAM_PID=$(pgrep -f telegram-desktop)
+	TELEGRAM_PID=$(pgrep -fn telegram-desktop)
 
 	if [[ $TELEGRAM_PID && ! $TELEGRAM_WID ]] ; then
 		WIDS=$(xdo id -p $TELEGRAM_PID)
