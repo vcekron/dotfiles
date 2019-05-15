@@ -198,7 +198,7 @@ XF86AudioPrev
 	playerctl previous
 
 XF86WebCam
-	~/dotfiles/lock.sh; \
+	~/dotfiles/sysscripts/lock.sh; \
 	systemctl suspend
 
 XF86MonBrightnessUp
