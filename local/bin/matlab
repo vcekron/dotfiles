@@ -1,6 +1,7 @@
 #! /bin/sh
 
+export MATLAB_LOG_DIR=/tmp
+export MATLAB_JAVA=/usr/lib/jvm/java-8-openjdk/jre
 export LD_PRELOAD=/usr/lib/libstdc++.so
-export LD_LIBRARY_PATH=/usr/lib/xorg/modules/dri/
 
 /usr/local/MATLAB/R2018a/bin/matlab -desktop
