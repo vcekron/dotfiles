@@ -41,6 +41,7 @@ panel.color.space: #00000000
 
 ! Cursor theme
 Xcursor.theme: oxy-grey
+Xcursor.size: 24
 
 ! Hybrid Terminal Colours. Uses the palette from Tomorrow-Night:
 ! https://github.com/chriskempson/tomorrow-theme/blob/master/vim/colors/Tomorrow-Night.vim
@@ -98,7 +99,3 @@ rofi.separator-style:                none
 rofi.hide-scrollbar:                 true
 rofi.color-window:                   bg_color,fg_color
 rofi.color-normal:                   bg_color,fg_color,bg_color,hl_bg_color,hl_fg_color
-
-! X config
-Xcursor.theme: oxy-grey
-Xcursor.size: 24
