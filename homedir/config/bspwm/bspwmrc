@@ -57,4 +57,4 @@ bspc rule -a Vivaldi-stable					desktop='^2'
 bspc rule -a Google-chrome 					desktop='^3'
 
 #Panel
-xdo -a "$PANEL_WM_NAME" || ~/.config/bspwm/panel &
+pgrep -f "bspwm/panel" || ~/.config/bspwm/panel &
