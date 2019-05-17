@@ -20,6 +20,9 @@
       <Action id="copy-to-clipboard">
          <Stroke code="VK_C" ctrl="on"/>
       </Action>
+      <Action id="find-and-replace">
+         <Stroke code="VK_F" ctrl="on"/>
+      </Action>
       <Action id="caret-begin-line">
          <Stroke code="VK_HOME"/>
       </Action>
@@ -35,6 +38,10 @@
       </Action>
       <Action id="format">
          <Stroke code="VK_I" ctrl="on"/>
+      </Action>
+      <Action id="caret-forward">
+         <Stroke code="VK_RIGHT"/>
+         <Stroke code="VK_KP_RIGHT"/>
       </Action>
       <Action id="paste-from-clipboard">
          <Stroke code="VK_V" ctrl="on"/>
