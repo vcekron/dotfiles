@@ -16,9 +16,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 
 	read -p "Keep log-file? [Y/n] " -n 1 -r
 
-	if [[$REPLY =~ ^[Nn]$ ]]; then
-		rm subren.log
-	fi
+	[[$REPLY =~ ^[Nn]$ ]] && rm subren.log
 
 else
 	echo -e "\nScrew it then!"
