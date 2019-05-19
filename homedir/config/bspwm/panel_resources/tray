@@ -2,9 +2,7 @@
 
 #Check for battery
 
-if [[ $(battery) ]] &> /dev/null ; then
-	BATTEY_PRESENT=1
-fi
+[[ $(battery) ]] &> /dev/null && BATTEY_PRESENT=1
 
 while true ; do
 
@@ -31,9 +29,7 @@ while true ; do
 
 	DROPBOX_RUN=$(pgrep dropbox)
 
-	if [[ $DROPBOX_RUN ]] ; then
-		DROPBOX_STATE=$(dropbox-cli status)
-	fi
+	[[ $DROPBOX_RUN ]] && DROPBOX_STATE=$(dropbox-cli status)
 
 	if [[ $DROPBOX_STATE = "Up to date" ]] ; then
 		DROPBOX=" \uf16b "
@@ -111,9 +107,7 @@ while true ; do
 
 	#Battery state
 
-	if [[ $BATTEY_PRESENT ]] ; then
-		BATTERY=$(~/.config/bspwm/panel_resources/battery)
-	fi
+	[[ $BATTEY_PRESENT ]] && BATTERY=$(~/.config/bspwm/panel_resources/battery)
 
 	#Pulseaudio volume
 
