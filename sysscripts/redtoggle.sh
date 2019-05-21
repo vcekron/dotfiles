@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-RUN=$(ps -cax | grep redshift)
+RUN=$(pgrep redshift)
 
 if [[ $RUN ]] ; then
 	pkill redshift
