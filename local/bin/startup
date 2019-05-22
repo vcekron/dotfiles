@@ -2,7 +2,7 @@
 
 if [[ $(hostname) == 'freya' ]]; then
 	dropbox-cli start &
-	waterfox &
+	waterfox-alpha &
 	spotify &
 	telegram-desktop &
 	qbittorrent &
