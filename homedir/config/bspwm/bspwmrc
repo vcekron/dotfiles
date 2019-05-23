@@ -30,7 +30,7 @@ case $(bspc query -M | wc -l) in
 	2)
 		bspc monitor east -n East
 		bspc monitor East -d 1 2 3 4 5 6 7 8
-		feh --bg-fill ~/wallpaper1.png --bg-fill ~/wallpaper2.png &
+		feh --bg-fill /mnt/X/Pictures/Wallpapers/wallpaper1.png --bg-fill /mnt/X/Pictures/Wallpapers/wallpaper2.png &
 		bspc rule -a Spotify 				desktop='East:^2'
 		bspc rule -a qBittorrent 			desktop='East:^8'
 		bspc rule -a TelegramDesktop 		desktop='East:^1'
