@@ -63,11 +63,11 @@ eval $(dircolors -b ~/.dir_colors)
 xset s off -dpms &
 xsetroot -cursor_name left_ptr & 
 ##Utilities
-numlockx &
-udiskie &
+#numlockx &
+#udiskie &
 urxvtd -q -f -o &
 unclutter --timeout 1 &
-dropbox &
+#dropbox &
 xbindkeys &
 redshift &
 ##Scripts
