@@ -11,7 +11,6 @@ endfunction
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'kopischke/vim-stay'
-Plug 'lambdalisue/suda.vim'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vim-which-key'
 Plug 'luochen1990/rainbow'
@@ -163,7 +162,7 @@ if has("persistent_undo")
 endif
 
 " User alias
-command Fw w suda://%
+command Fw w !sudo tee %
 
 " General mappings
 
