@@ -80,7 +80,7 @@ URxvt*italicFont:                     xft:DejaVu Sans Mono for Powerline:italic:
 										xft:DejaVu Sans:italic:pixelsize=12
 URxvt*boldItalicFont:                 xft:DejaVu Sans Mono for Powerline:bold:italic:pixelsize=12, \
   										xft:DejaVu Sans:bold:italic:pixelsize=12
-URxvt*internalBorder:                 4
+URxvt*internalBorder:                 10
 URxvt*modifier:                       mod3
 URxvt*iso14755:                       false
 URxvt*iso14755_52:                    false
