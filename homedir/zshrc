@@ -120,8 +120,6 @@ alias -g mv="mv -iv"
 alias rcp="rsync -a --stats --progress"
 alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
 
-alias glances="glances -1t2 --hide-kernel-threads --process-short-name"
-
 alias gs="git status -sb"
 alias ga="git add"
 alias gc="git commit -m"
