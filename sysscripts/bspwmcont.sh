@@ -59,7 +59,6 @@ case $COMMAND in
 		;;
 	*)
 		>&2 echo -e "bspwmcont: invalid command -- '$COMMAND'\n$USAGE"
-		exit 1
 		;;
 esac
 
