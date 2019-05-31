@@ -11,7 +11,7 @@ while getopts "h" opt; do
 			exit
 			;;
 		\?)
-			>&2 echo -e "invalid option -- '$OPTARG'\n$USAGE"
+			>&2 echo -e "bspwmcont: invalid option -- '$OPTARG'\n$USAGE"
 			exit 1
 			;;
 	esac
@@ -55,10 +55,11 @@ case $COMMAND in
 		bspc node @focused:/ -s @next:focused:/ --follow || bspc node @/ -d next:focused --follow
 		;;
 	"")
-		>&2 echo -e "no command\n$USAGE"
+		>&2 echo -e "bspwmcont: no command\n$USAGE"
 		;;
 	*)
-		>&2 echo -e "invalid command -- '$COMMAND'\n$USAGE"
+		>&2 echo -e "bspwmcont: invalid command -- '$COMMAND'\n$USAGE"
+		exit 1
 		;;
 esac
 
