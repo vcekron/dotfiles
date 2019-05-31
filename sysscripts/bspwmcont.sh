@@ -46,16 +46,13 @@ case $COMMAND in
 		bspc node @next:focused:.active -m focused
 		;;
 	"bubble_desktop_next")
-		bspc node @focused:/ -s @next.local:/ --follow
-		[[ $? = 0 ]] || bspc node @/ -d next.local --follow
+		bspc node @focused:/ -s @next.local:/ --follow || bspc node @/ -d next.local --follow
 		;;
 	"bubble_desktop_prev")
-		bspc node @focused:/ -s @prev.local:/ --follow
-		[[ $? = 0 ]] || bspc node @/ -d prev.local --follow
+		bspc node @focused:/ -s @prev.local:/ --follow || bspc node @/ -d prev.local --follow
 		;;
 	"bubble_desktop_monitor")
-		bspc node @focused:/ -s @next:focused:/ --follow
-		[[ $? = 0 ]] || bspc node @/ -d next:focused --follow
+		bspc node @focused:/ -s @next:focused:/ --follow || bspc node @/ -d next:focused --follow
 		;;
 	"")
 		>&2 echo -e "no command\n$USAGE"
