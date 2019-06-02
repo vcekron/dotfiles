@@ -9,6 +9,6 @@ if [[ $(hostname) == 'freya' ]]; then
 	SVPManager
 else
 	dropbox-cli start &
-	waterfox &
+	waterfox-alpha &
 	telegram-desktop
 fi
