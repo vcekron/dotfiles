@@ -61,7 +61,7 @@ eval $(keychain --eval --quiet --noask --nogui --confhost)
 eval $(dircolors -b ~/.dir_colors)
 
 xset s off -dpms &
-xsetroot -cursor_name left_ptr & 
+xsetroot -cursor_name left_ptr &
 ##Utilities
 #numlockx &
 #udiskie &
