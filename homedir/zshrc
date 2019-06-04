@@ -108,7 +108,8 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
 fi
 
 #This prevents SIGSTOP at Ctrl-S
-stty -ixon
+#stty -ixon
+setopt noflowcontrol
 
 #This enables the use of colors
 #autoload -U colors && colors
@@ -252,6 +253,15 @@ function extract() {
 	else
 		echo "'$1' is not a valid file!"
 	fi
+}
+
+escape() {
+    local escape_string_input=$@
+	if [[ ! $escape_string_input ]]; then
+    	echo -n "String to escape: "
+    	read escape_string_input
+	fi
+    printf '%q\n' "$escape_string_input"
 }
 
 #Prevent nested ranger instances
