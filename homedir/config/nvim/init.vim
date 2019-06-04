@@ -241,7 +241,7 @@ nmap <silent> <Leader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manu
 " Erase all folds
 nmap <silent> <Leader>F zE
 " Toggle folds with space
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"")<CR>
 vnoremap <Space> zf
 " Buffer navigation
 nnoremap <M-o> :e
@@ -270,3 +270,5 @@ inoremap <expr><C-Space> pumvisible() ? "\<C-e>" : ""
 " Disable menu navigation with arrow keys
 inoremap <expr><Up> pumvisible() ? "\<C-y>\<Up>" : "\<Up>"
 inoremap <expr><Down> pumvisible() ? "\<C-y>\<Down>" : "\<Down>"
+
+let g:ft_man_folding_enable = 1
