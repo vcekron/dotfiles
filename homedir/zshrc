@@ -3,7 +3,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
-bindkey -e
 #End of lines configured by zsh-newuser-install
 
 #The following lines were added by compinstall
@@ -24,11 +23,11 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 setopt HIST_IGNORE_DUPS
 
 #Persistant rehash for auto-completion
-setopt nohashdirs
-setopt nohashcmds
+	setopt nohashdirs
+	setopt nohashcmds
 
 # This sets the case insensitivity
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+	zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 #This disables autocomplete of unavailable commands
 zstyle ':completion:*:functions' ignored-patterns '_*'
@@ -36,13 +35,56 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 #This shows a list of completion options
 zstyle ':completion:*' menu select
 
+#This sets the dynamic window title
+termtitle () {
+	case $TERM in
+		xterm*|*rxvt*)
+			print -Pn "\e]0;%n@%m: %~\a"
+			;;
+	esac
+}
+
+#This sets up the git branch prompt
+setup_git_prompt () {
+	if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+		unset git_prompt
+		return 0
+	fi
+
+	local git_status_dirty git_branch
+
+	if [ "$(git --no-optional-locks status --untracked-files='no' --porcelain)" ]; then
+		git_status_dirty='%F{green}*'
+	else
+		unset git_status_dirty
+	fi
+
+	git_branch="$(git symbolic-ref HEAD 2>/dev/null)"
+	git_branch="${git_branch#refs/heads/}"
+
+	if [ "${#git_branch}" -ge 24 ]; then
+		git_branch="${git_branch:0:21}..."
+	fi
+
+	git_branch="${git_branch:-no branch}"
+
+	git_prompt=" %F{red}[%f${git_branch}${git_status_dirty}%F{red}]%f"
+
+}
+
+precmd () {
+	termtitle
+	setup_git_prompt
+}
+
 #This selects the prompt style and sets an exit status indicator
+setopt promptsubst
 #autoload -U promptinit
 #promptinit
 #prompt redhat
 if [ $SSH_CONNECTION ]; then SSH="%n@%m "; else SSH=""; fi
 PROMPT=%1(j.[%j].)'['$SSH%~']'%(!.#.$)' '
-RPROMPT=%(?..(%?%))
+RPROMPT='${git_prompt}%(?..(%?%))'
 
 #This enables the help command
 autoload -U run-help
@@ -55,22 +97,15 @@ alias help=run-help
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-    function zle-line-init () {
-        printf '%s' "${terminfo[smkx]}"
-    }
-    function zle-line-finish () {
-        printf '%s' "${terminfo[rmkx]}"
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish
+	function zle-line-init () {
+		printf '%s' "${terminfo[smkx]}"
+	}
+	function zle-line-finish () {
+		printf '%s' "${terminfo[rmkx]}"
+	}
+	zle -N zle-line-init
+	zle -N zle-line-finish
 fi
-
-#This sets the dynamic window title
-case $TERM in
-	xterm*|*rxvt*)
-	precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-	;;
-esac
 
 #This prevents SIGSTOP at Ctrl-S
 stty -ixon
@@ -102,6 +137,24 @@ setopt no_complete_aliases
 #This sets default editor to nvim
 export EDITOR=nvim
 
+#Vi bindings
+bindkey -v
+export KEYTIMEOUT=1
+
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+#Set mode indication in prompt
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="[% NORMAL]% "
+	RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${git_prompt}%(?..(%?%)) $EPS1"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 #Aliases
 alias -g L="|less -FX"
 alias x="chmod +x"
@@ -118,7 +171,7 @@ alias trash="/usr/bin/mv -v -t /home/${USER}/.local/share/Trash/files/ "$@""
 alias -g cp="cp -iv"
 alias -g mv="mv -iv"
 alias rcp="rsync -a --stats --progress"
-alias sshcp="rsync -avHPe \"ssh -p$(cat ~/.ssh_port_private)\""
+alias sshcp="rsync -avHPe \"ssh -p$(cat ~/.ssh_port_private 2> /dev/null)\""
 
 alias gs="git status -sb"
 alias ga="git add"
@@ -174,38 +227,38 @@ emptytrash ()
 
 		*)
 			echo "No files removed."
-		esac
+	esac
 }
 
 function extract() {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)   tar xvjf $1     ;;
-            *.tar.gz)    tar xvzf $1     ;;
+	if [ -f $1 ] ; then
+		case $1 in
+			*.tar.bz2)   tar xvjf $1     ;;
+			*.tar.gz)    tar xvzf $1     ;;
 			*.tar.xz)	 tar xvJf $1	 ;;
-            *.bz2)       bunzip2 $1      ;;
-            *.rar)       unrar x $1      ;;
-            *.gz)        gunzip $1       ;;
-            *.tar)       tar xvf $1      ;;
-            *.tbz2)      tar xvjf $1     ;;
-            *.tgz)       tar xvzf $1     ;;
-            *.zip)       unzip $1        ;;
-            *.Z)         uncompress $1   ;;
-            *.7z)        7z x $1         ;;
-            *)           echo "'$1' cannot be extracted via >extract<" ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
+			*.bz2)       bunzip2 $1      ;;
+			*.rar)       unrar x $1      ;;
+			*.gz)        gunzip $1       ;;
+			*.tar)       tar xvf $1      ;;
+			*.tbz2)      tar xvjf $1     ;;
+			*.tgz)       tar xvzf $1     ;;
+			*.zip)       unzip $1        ;;
+			*.Z)         uncompress $1   ;;
+			*.7z)        7z x $1         ;;
+			*)           echo "'$1' cannot be extracted via >extract<" ;;
+		esac
+	else
+		echo "'$1' is not a valid file!"
+	fi
 }
 
 #Prevent nested ranger instances
 ranger() {
-    if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
-    else
-        exit
-    fi
+	if [ -z "$RANGER_LEVEL" ]; then
+		/usr/bin/ranger "$@"
+	else
+		exit
+	fi
 }
 
 #Online services
