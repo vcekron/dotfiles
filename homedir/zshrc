@@ -23,11 +23,11 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 setopt HIST_IGNORE_DUPS
 
 #Persistant rehash for auto-completion
-	setopt nohashdirs
-	setopt nohashcmds
+setopt nohashdirs
+setopt nohashcmds
 
 # This sets the case insensitivity
-	zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
 #This disables autocomplete of unavailable commands
 zstyle ':completion:*:functions' ignored-patterns '_*'
