@@ -118,7 +118,7 @@ alias trash="/usr/bin/mv -v -t /home/${USER}/.local/share/Trash/files/ "$@""
 alias -g cp="cp -iv"
 alias -g mv="mv -iv"
 alias rcp="rsync -a --stats --progress"
-alias sshcp="rsync -avHPe \"ssh -p$SSH_PORT\""
+alias sshcp="rsync -avHPe \"ssh -p$(cat ~/.ssh_port_private)\""
 
 alias gs="git status -sb"
 alias ga="git add"
