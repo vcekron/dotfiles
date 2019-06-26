@@ -56,7 +56,7 @@ xset s off -dpms &
 xsetroot -cursor_name left_ptr &
 ##Utilities
 numlockx &
-udiskie &
+udiskie -N &
 urxvtd -q -f -o &
 unclutter --timeout 1 &
 dropbox &
