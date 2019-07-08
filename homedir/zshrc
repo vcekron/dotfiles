@@ -202,7 +202,7 @@ else
 	alias wifi-menu="sudo wifi-menu -o"
 
 	function rbw {
-		sudo efibootmgr -n 0002
+		sudo efibootmgr -n 0000
 		reboot
 	}
 fi

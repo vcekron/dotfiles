@@ -47,6 +47,7 @@ case $(bspc query -M | wc -l) in
 		bspc rule -a SVPManager 			desktop='^8' state=pseudo_tiled
 		bspc rule -a qBittorrent 			desktop='^7'
 		bspc rule -a TelegramDesktop 		desktop='^8'
+		bspc rule -a Thinlinc-client		desktop='^7'
 		;;
 esac
 
