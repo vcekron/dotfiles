@@ -140,10 +140,10 @@ super + BackSpace
 	~/dotfiles/sysscripts/scratchtoggle.sh
 
 super + {_,shift + ,mod3 + }s
-	~/dotfiles/sysscripts/bspwmcont.sh {focus_next_monitor,node_to_next_monitor,fetch_active_node}
+	~/dotfiles/sysscripts/bspwmcont.sh {focus-next-monitor,node-to-next-monitor,fetch-active-node}
 
 super + {_,shift + ,mod3 + }d
-	~/dotfiles/sysscripts/bspwmcont.sh {bubble_desktop_next,bubble_desktop_prev,bubble_desktop_monitor}
+	~/dotfiles/sysscripts/bspwmcont.sh {bubble-desktop-next,bubble-desktop-prev,bubble-desktop-monitor}
 
 super + {_,shift + }v
 	bspc node @/ {-F vertical,-R 270}
