@@ -55,7 +55,7 @@ while true ; do
 
 	##VPN state
 
-	VPN_STATE=$(cat /tmp/vpn_state)
+	VPN_STATE=$(cut -d' ' -f2 /tmp/vpn_state)
 
 	case $VPN_STATE in
 		"Connected")

@@ -11,6 +11,7 @@ endfunction
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'kopischke/vim-stay'
+Plug 'lambdalisue/suda.vim'
 Plug 'lervag/vimtex'
 Plug 'liuchengxu/vim-which-key'
 Plug 'luochen1990/rainbow'
@@ -162,7 +163,7 @@ if has("persistent_undo")
 endif
 
 " User alias
-command Fw w !sudo tee %
+command Fw w suda://%
 
 " General mappings
 
@@ -242,7 +243,7 @@ nmap <silent> <Leader>f :setlocal foldmethod=indent<CR>:setlocal foldmethod=manu
 " Erase all folds
 nmap <silent> <Leader>F zE
 " Toggle folds with space
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"")<CR>
 vnoremap <Space> zf
 " Buffer navigation
 nnoremap <M-o> :e
