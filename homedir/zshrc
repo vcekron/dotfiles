@@ -128,7 +128,6 @@ alias hwmon="glances -1 -t 1"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias scrShot='maim ~/scrShot.png'
-alias extractFrames='convert -coalesce'
 
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
@@ -159,6 +158,10 @@ function getList() {
 #Function optimise PDF files.
 function optPDF() {
 	~/dotfiles/optfile.sh $1
+}
+
+function extractFrames() {
+	~/dotfiles/extractFrames.sh $1
 }
 
 syu ()

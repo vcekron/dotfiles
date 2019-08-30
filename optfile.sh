@@ -6,7 +6,7 @@
 file="$1"
 filebase="$(basename "$file" .pdf)"
 optfile="/tmp/$$-${filebase}_opt.pdf"
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dNOPAUSE -dQUIET -dBATCH \
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/default -dNOPAUSE -dQUIET -dBATCH -dDetectDuplicateImages -r200000 \
         -sOutputFile="${optfile}" "${file}"
 
 if [ $? -eq 0 ]; then
