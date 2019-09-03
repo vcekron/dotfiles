@@ -188,7 +188,6 @@ alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
 alias scrShot='maim ~/scrShot.png'
-alias extractFrames='convert -coalesce'
 
 alias cNSC='ssh x_simkr@tetralith.nsc.liu.se'
 
@@ -221,6 +220,10 @@ function getList() {
 #Function optimise PDF files.
 function optPDF() {
 	~/dotfiles/optfile.sh $1
+}
+
+function extractFrames() {
+	~/dotfiles/extractFrames.sh $1
 }
 
 alias Man="MANPAGER='nvim +Man!' man"
