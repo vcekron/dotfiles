@@ -6,7 +6,7 @@
 # author: xero <x@xero.nu> http://xero.nu
 # requires: i3lock-color, imagemagick, maim
 
-maim /tmp/lock.png
+maim -u /tmp/lock.png
 convert /tmp/lock.png /tmp/lock.jpg
 file=/tmp/lock.jpg
 

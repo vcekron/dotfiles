@@ -187,7 +187,7 @@ alias hwmon="glances -1 -t 1"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
-alias scrShot='maim ~/scrShot.png'
+alias scrShot='maim -u ~/scrShot.png'
 
 alias cNSC='ssh x_simkr@tetralith.nsc.liu.se'
 
