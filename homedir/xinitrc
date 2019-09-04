@@ -5,7 +5,11 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-xrandr --output DP-0 --mode 1920x1080 --rate 144.00 --primary
+case $(hostname) in
+	"freya")
+		xrandr --output DP-0 --auto --primary
+		;;
+esac
 
 #Merge in defaults and keymaps
 
