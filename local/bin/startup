@@ -2,13 +2,13 @@
 
 if [[ $(hostname) == 'freya' ]]; then
 	dropbox-cli start &
-	waterfox-alpha &
+	waterfox-current &
 	spotify &
 	telegram-desktop &
 	qbittorrent &
 	SVPManager
 else
 	dropbox-cli start &
-	waterfox-alpha &
+	waterfox-current &
 	telegram-desktop
 fi
