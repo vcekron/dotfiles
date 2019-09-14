@@ -178,6 +178,7 @@ alias -g mv="mv -iv"
 alias rcp="rsync -v --progress"
 alias rmv="rsync -v --progress --remove-source-files"
 alias sshcp="rsync -avHPe \"ssh -p$(cat ~/.ssh_port_private 2> /dev/null)\""
+alias wifi-menu="sudo wifi-menu -o"
 
 alias gs="git status -sb"
 alias ga="git add"
@@ -195,14 +196,17 @@ alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
 alias resetSink='paswitch alsa_output.pci-0000_00_1b.0.iec958-stereo'
 
-if [[ $(hostname) == 'freya' ]] ; then
+if [[ $(hostname) == 'freja' ]] ; then
 	function rbw {
 		sudo efibootmgr -n 0000
 		reboot
 	}
+elif [[ $(hostname) == 'fjorgyn' ]] ; then
+	function rbw {
+		sudo efibootmgr -n 000B
+		reboot
+	}
 else
-	alias wifi-menu="sudo wifi-menu -o"
-
 	function rbw {
 		sudo efibootmgr -n 0000
 		reboot
