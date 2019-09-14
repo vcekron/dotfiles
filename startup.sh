@@ -1,10 +1,13 @@
 #! /bin/sh
 
 case $(hostname) in
-	"freya")
+	"freja")
 		APPS=("waterfox" "spotify" "telegram-desktop" "qbittorrent")
 		;;
-	"nerthus")
+	"gefjon")
+		APPS=("waterfox" "telegram-desktop")
+		;;
+	"fjorgyn")
 		APPS=("waterfox" "telegram-desktop")
 		;;
 esac
