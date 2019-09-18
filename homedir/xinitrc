@@ -94,6 +94,7 @@ redshift &
 ##Scripts
 ~/dotfiles/sysscripts/vpncheck.sh &
 ~/dotfiles/sysscripts/scratchpad.sh &
+~/dotfiles/sysscripts/touchpadtoggle.sh &
 ##Compositor
 pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
 
