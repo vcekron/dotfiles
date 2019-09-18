@@ -1,14 +1,24 @@
 #! /bin/sh
 
-if [[ $(hostname) == 'freya' ]]; then
-	dropbox-cli start &
-	waterfox-current &
-	spotify &
-	telegram-desktop &
-	qbittorrent &
-	SVPManager
-else
-	dropbox-cli start &
-	waterfox-current &
-	telegram-desktop
-fi
+case $(hostname) in
+	"freja")
+		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+		;;
+	"gefjon")
+		APPS=("dropbox" "waterfox-current" "telegram-desktop")
+		;;
+	"fjorgyn")
+		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop")
+		;;
+esac
+
+PS=$(ps -ax)
+
+for app in ${APPS[@]}; do
+	if [[ ! $(echo "$PS" | grep "$app") ]]; then
+		echo "launching $app"
+		eval "$app &"
+	else
+		echo "$app already running"
+	fi
+done
