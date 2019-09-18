@@ -1,6 +1,6 @@
 #! /bin/sh
 
-USAGE="usage: bspwmcont [-h] focus_next_monitor|node_to_next_monitor|fetch_active_node|bubble_desktop_next|bubble_desktop_prev|bubble_desktop_monitor"
+USAGE="usage: bspwmcont [-h] focus-next-monitor|node-to-next-monitor|fetch-active-node|bubble-desktop-next|bubble-desktop-prev|bubble-desktop-monitor"
 
 # Input flags
 while getopts "h" opt; do
@@ -34,24 +34,24 @@ COMMAND=$1
 [[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=off
 
 case $COMMAND in
-	"focus_next_monitor")
+	"focus-next-monitor")
 		bspc monitor -f next
 		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused -f
 		;;
-	"node_to_next_monitor")
+	"node-to-next-monitor")
 		bspc node -m next --follow
 		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused
 		;;
-	"fetch_active_node")
+	"fetch-active-node")
 		bspc node @next:focused:.active -m focused
 		;;
-	"bubble_desktop_next")
+	"bubble-desktop-next")
 		bspc node @focused:/ -s @next.local:/ --follow || bspc node @/ -d next.local --follow
 		;;
-	"bubble_desktop_prev")
+	"bubble-desktop-prev")
 		bspc node @focused:/ -s @prev.local:/ --follow || bspc node @/ -d prev.local --follow
 		;;
-	"bubble_desktop_monitor")
+	"bubble-desktop-monitor")
 		bspc node @focused:/ -s @next:focused:/ --follow || bspc node @/ -d next:focused --follow
 		;;
 	"")
