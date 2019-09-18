@@ -1,0 +1,6 @@
+sudo efibootmgr --disk [[[/dev/whatever]]] --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'root=UUID=[[[ACTUAL (P)UUID FOR THE ROOT PARTITION (see blkid)]]] rw initrd=\intel-ucode.img initrd=\initramfs-linux.img'
+
+for encryption:
+sudo efibootmgr --disk [[[/dev/whatever - actual disk]]] --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'cryptdevice=PUUID=[[[ACTUAL (P)UUID FOR THE encrypted PARTITION (see ls -l /dev/disk/by-uuid/ OR ls -l /dev/disk/by-partuuid/]]]:cryptroot cryptkey=[[[/dev/whatever2 - USB pendrive]]]:0:64 crypto=:aes-xts-plain64:512:0: root=/dev/mapper/cryptroot rw initrd=\intel-ucode.img initrd=\initramfs-linux.img rootdelay=60'
+
+sudo efibootmgr --disk /dev/nvme1n1 --part 1 --create --label "Arch Linux" --loader /vmlinuz-linux --unicode 'cryptdevice=PARTUUID=3ad923be-6d75-4a60-b40f-1ae04145bbaf:cryptroot cryptkey=/dev/sda:0:64 crypto=:aes-xts-plain64:512:0: root=/dev/mapper/cryptroot rw initrd=\intel-ucode.img initrd=\initramfs-linux.img rootdelay=60'
