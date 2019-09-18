@@ -5,3 +5,9 @@ keysym Caps_Lock = Alt_L
 keysym Alt_L = Hyper_R
 add mod1 = Alt_L
 add mod3 = Hyper_R
+
+keycode 108 = Mode_switch
+
+keycode  26 = e E adiaeresis Adiaeresis
+keycode  32 = o O odiaeresis Odiaeresis
+keycode  38 = a A aring Aring
