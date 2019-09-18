@@ -1,15 +1,7 @@
 #!/bin/sh
 
 userresources=$HOME/.Xresources
-
-case $(hostname) in
-	"fjorgyn")
-		usermodmap=$HOME/.XmodmapUS
-		;;
-	*)
-		usermodmap=$HOME/.Xmodmap
-		;;
-esac
+usermodmap=$HOME/.Xmodmap
 
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
