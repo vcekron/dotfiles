@@ -24,24 +24,20 @@ bspc config active_border_color				'#808080'
 
 #Monitor settings and rules
 bspc monitor primary -n Primary
-bspc monitor Primary -d 1 2 3 4 5 6
+bspc monitor Primary -d 1 2 3 4 5 6 7 8
 
 case $(bspc query -M | wc -l) in
 	2)
 		bspc monitor east -n East
 		bspc monitor East -d 1 2 3 4 5 6 7 8
-		feh --bg-fill /mnt/X/Pictures/Wallpapers/wallpaper1.png --bg-fill /mnt/X/Pictures/Wallpapers/wallpaper2.png &
-		bspc rule -a Spotify 				desktop='East:^2'
-		bspc rule -a qBittorrent 			desktop='East:^8'
-		bspc rule -a TelegramDesktop 		desktop='East:^1'
-		bspc rule -a discord 				desktop='East:^1' state=pseudo_tiled
-		bspc rule -a SVPManager 			desktop='East:^7' state=pseudo_tiled
-		bspc rule -a Steam 					desktop='^3' state=pseudo_tiled
+		bspc rule -a 'Waterfox Current'		desktop='East:^1'
+		bspc rule -a Spotify 				desktop='^2'
+		bspc rule -a TelegramDesktop 		desktop='^1'
+		bspc rule -a Skype					dekstop='^1' state=pseudo_tiled
+		bspc rule -a discord 				desktop='^1' state=pseudo_tiled
 		xbindkeys &
 		;;
 	*)
-		bspc monitor Primary -a 7 8
-		feh --bg-fill ~/wallpaper.png &
 		bspc rule -a 'Waterfox Current'		desktop='^1'
 		bspc rule -a Spotify 				desktop='^7'
 		bspc rule -a SVPManager 			desktop='^6' state=pseudo_tiled
@@ -55,8 +51,11 @@ esac
 bspc rule -a SpeedCrunch 					state=pseudo_tiled
 bspc rule -a URxvt:scratchpad 				sticky=on state=floating locked=on hidden=on
 bspc rule -a Zathura 						state=tiled
-bspc rule -a Vivaldi-stable					desktop='^2'
 bspc rule -a Google-chrome 					desktop='^3'
+bspc rule -a Vivaldi-stable					desktop='^2'
+
+feh --bg-fill ~/wallpaper.png &
+nvidia-settings -l &
 
 #Panel
 pgrep -f "bspwm/panel" || ~/.config/bspwm/panel &

@@ -1,2 +1,14 @@
 
 local/bin/play
+
+local/bin/math
+
+local/bin/Mathematica
+
+local/bin/MathKernel
+
+local/bin/mcc
+
+local/bin/wolfram
+
+local/bin/WolframKernel
