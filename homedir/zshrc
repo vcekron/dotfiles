@@ -190,6 +190,8 @@ alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
 alias scrShot='maim -u ~/scrShot.png'
 
+alias eEth='sudo dhcpcd enp0s20f0u4u3i5'
+
 alias cNSC='ssh x_simkr@tetralith.nsc.liu.se'
 
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
