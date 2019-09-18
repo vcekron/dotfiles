@@ -18,6 +18,12 @@ case $(hostname) in
 	"freja")
 		xrandr --output DP-0 --auto --primary
 		;;
+	"fjorgyn")
+		#xrandr --output eDP-1-1 --gamma 1.15:1.15:1.15 --primary
+		#xrandr --output DP-0 --gamma 0.85:0.85:0.85 --right-of eDP-1-1
+		xrandr --output DP-3 --gamma 1.15:1.15:1.15 --primary
+		xrandr --output DP-0 --gamma 0.85:0.85:0.85 --right-of DP-3
+		xrandr --dpi 96
 esac
 
 #Merge in defaults and keymaps
@@ -92,4 +98,12 @@ redshift &
 pgrep -x compton > /dev/null || allow_rgb10_configs=false compton -t -8 -l -9 -r 6 -o 0.7 &
 
 sxhkd &
-exec bspwm
+
+case $(hostname) in
+	"fjorgyn")
+		exec bspwm
+		;;
+	*)
+		exec bspwm
+		;;
+esac
