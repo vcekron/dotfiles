@@ -5,6 +5,8 @@ local/bin/math
 
 local/bin/Mathematica
 
+local/bin/mathematica
+
 local/bin/MathKernel
 
 local/bin/mcc
