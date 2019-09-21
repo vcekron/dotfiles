@@ -192,6 +192,7 @@ alias scrShot='maim -u ~/scrShot.png'
 
 alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eEth='sudo dhcpcd enp0s20f0u4u3i5'
+alias TUePrint='smbclient -W TUE -U s.kronberg@tue.nl //tueprint.campus.tue.nl/MFP-CAMPUS-PS'
 
 alias cNSC='ssh x_simkr@tetralith.nsc.liu.se'
 
