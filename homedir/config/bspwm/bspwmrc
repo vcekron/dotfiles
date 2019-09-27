@@ -11,8 +11,8 @@ bspc config pointer_follows_monitor			true
 bspc config swallow_first_click				false
 bspc config initial_polarity 				first_child
 bspc config ignore_ewmh_focus				true
-bspc config remove_disabled_monitors		true
-bspc config remove_unplugged_monitors		true
+bspc config remove_disabled_monitors		false
+bspc config remove_unplugged_monitors		false
 bspc config external_rules_command			~/.config/bspwm/external_rules.sh
 
 #Colors
