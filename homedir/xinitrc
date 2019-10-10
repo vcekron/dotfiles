@@ -70,7 +70,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.0
 
 case $(hostname) in
-	"nerthus")
+	"fjorgyn")
 		export MOZ_USE_XINPUT2=1
 		;;
 esac
