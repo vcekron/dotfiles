@@ -87,6 +87,7 @@ xset s off -dpms &
 xsetroot -cursor_name left_ptr &
 ##Utilities
 numlockx &
+solaar --restart-on-wake-up &
 #udiskie &
 urxvtd -q -f -o &
 unclutter --timeout 1 &
