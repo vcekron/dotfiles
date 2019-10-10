@@ -16,8 +16,11 @@ case $(hostname) in
 		#xrandr --output DP-0 --gamma 0.90:0.90:0.90 --right-of eDP-1-1
 
 		## INTEL
-		xrandr --output eDP-1 --gamma 1.15:1.15:1.15 --primary
+		#xrandr --output eDP-1 --gamma 1.15:1.15:1.15 --primary
 		xrandr --output HDMI-1 --gamma 0.90:0.90:0.90 --right-of eDP-1
+		# NO GAMMA
+		xrandr --output eDP-1 --auto --primary
+		#xrandr --output HDMI-1 --auto --right-of eDP-1
 		
 		## NVIDIA
 		#xrandr --output DP-3 --gamma 1.15:1.15:1.15 --primary
