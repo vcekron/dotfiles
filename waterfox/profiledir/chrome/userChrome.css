@@ -49,6 +49,10 @@ browser {
   background: var(--main-ac-color) !important;
 }
 
+tab.tabbrowser-tab[selected="true"] {
+  color: var(--hl-tx-color) !important;
+}
+
 /*Hide close buttons*/
 #TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-close-button {
   visibility: hidden !important;
