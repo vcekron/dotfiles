@@ -1,187 +1,170 @@
-/*Set color variables*/
-:root {
-	--main-bg-color: #1D1F21;
-	--main-hl-color: #282A2E;
-	--main-ac-color: #85678F;
-	--main-tx-color: #C5C8C6;
-	--hl-tx-color: #FFFFFF;
-	--action-tx-color: #5F819D;
-	--fill-color: #B5BD68;
-}
+@import "./colors.css";
+
+/*GENERAL UI*/
 
 /*Set selection color*/
-::-moz-selection {
-	color: var(--hl-tx-color) !important;  /*Colour of text*/
-	background: var(--main-ac-color) !important;  /*Highlighting colour*/
+#main-window ::-moz-selection {
+background-color: var(--main-ac-color) !important;
+color: var(--hl-tx-color) !important;
 }
 
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /*Set loading background*/
 browser {
 	background: var(--main-bg-color);
 }
 
-/*Set main UI properties*/
-
-#nav-bar {
-	height: 30px;
-}
-
-#nav-bar-customization-target, #main-area, #tabbrowser-tabs, findbar, .findbar-closebutton.close-icon {
+/*Main UI accent color*/
+#nav-bar-customization-target, #nav-bar-overflow-button, #PanelUI-button {
 	background: var(--main-ac-color) !important;
 	color: var(--hl-tx-color);
 }
 
-#TabsToolbar .tabbrowser-tabs {
+/*Button hover appearance*/
+#nav-bar .toolbarbutton-icon,
+#nav-bar .toolbarbutton-badge-stack {
+  border-radius: 0px !important;
+  --toolbarbutton-hover-background: var(--main-hl-color) !important;
+  --toolbarbutton-active-background: var(--main-bg-color) !important;
+}
+
+/*TABBAR*/
+
+/* Hide blue stripe on active tab */
+.tab-line {
+  opacity: 0 !important;
+}
+
+/*Tab colors*/
+#TabsToolbar, #tabbrowser-tabs {
 	background: var(--main-bg-color) !important;
 }
 
-#nav-bar-customization-target {
-	outline: 1px solid var(--main-ac-color) !important;
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
+  background: var(--main-hl-color) !important;
 }
 
-#urlbar {
-	background: var(--main-bg-color) !important;
-	border: none !important;
+.tab-background[selected="true"] {
+  background: var(--main-ac-color) !important;
 }
+
+tab.tabbrowser-tab[selected="true"] {
+  color: var(--hl-tx-color) !important;
+}
+
+/*Hide close buttons*/
+#TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]) .tab-close-button {
+  visibility: hidden !important;
+  display: block !important;
+  opacity: 0 !important;
+  -moz-margin-end: -16px !important;
+}
+
+/*Hide new tab button*/
+#new-tab-button,.tabs-newtab-button {
+  visibility: collapse !important;
+}
+
+#TabsToolbar #tabbrowser-tabs .tabbrowser-tab[pinned] .tab-close-button {
+  visibility: hidden !important;
+  display: block !important;
+  opacity: 0 !important;
+  -moz-margin-start: -18px !important;
+}
+
+/*Hide overflow shadows*/
+#TabsToolbar .arrowscrollbox-overflow-start-indicator, #TabsToolbar .arrowscrollbox-overflow-end-indicator {
+  display: none !important;
+}
+
+/*Hide alltabs button*/
+#alltabs-button {
+  display: none;
+}
+
+/*Button hover appearance*/
+#TabsToolbar-customization-target.customization-target toolbarbutton {
+  border-radius: 0px !important;
+  --toolbarbutton-hover-background: var(--main-hl-color) !important;
+  --toolbarbutton-active-background: var(--main-hl-color) !important;
+}
+
+/*URL BAR*/
+
+/*Url bar border settings*/
+.searchbar-textbox, #urlbar {
+  border-radius: 0px !important;
+  border-color: var(--main-bg-color) !important;
+}
+
+/*Url bar color*/
+:-moz-any(#urlbar, .searchbar-textbox) {
+  background-color: var(--main-bg-color) !important;
+  color: lightgrey !important;
+}
+
+:-moz-any(#urlbar, .searchbar-textbox) ::-moz-selection {
+  background: white !important;
+  color: var(--main-bg-color) !important;
+}
+
+#identity-box:hover, .urlbar-icon:hover {
+  background: var(--main-hl-color) !important;
+}
+
+#identity-icon{
+  opacity: 1 !important;
+}
+
+/*Url bar autocomplete and downloads background*/
+#appMenu-mainView, .PanelUI-subView {
+  background: var(--main-hl-color) !important;
+}
+
+#urlbar-results, #downloadsPanel-mainView, #widget-overflow-mainView {
+  background: var(--main-bg-color) !important;
+}
+
+/*Set download fill color*/
+#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-icon,
+#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-progress-outer {
+	fill: var(--fill-color) !important;
+}
+
+/*Autocomplete highlight box*/
+.urlbarView-row[selected] {
+  border-radius: 0px !important;
+  background: var(--main-ac-color) !important;
+}
+
+/*Autocomplete hover box*/
+.urlbarView-row:hover {
+  border-radius: 0px !important;
+}
+
+/*MENUBAR*/
 
 #toolbar-menubar {
 	background: var(--main-hl-color);
 	color: var(--hl-tx-color);
 }
 
-.toolbarbutton-text {
-	font-size: 13px;
+/*SIDEBAR*/
+
+/*Sidebar settings*/
+#sidebar-header, #sidebar-search-container {
+  display: none !important;
 }
 
-/*Set unselected url text color in search suggestions*/
-.ac-url-text, .ac-separator-text, .ac-action-text {
-	color: var(--action-tx-color);
-}
-
-/*Hide new tab and close tab buttons*/
-.tabs-newtab-button, .tab-close-button.close-icon {
-	display: none;
-}
-
-/*Set editor button-text color*/
-.devtools-toolbarbutton {
-	color: var(--hl-tx-color);
-}
-
-/*Set menu-button properties*/
-#PanelUI-button {
-	border: none !important;
-	display: none !important;
-}
-
-/*Set properties for extension-buttons in tabs toolbar*/
-#TabsToolbar toolbarbutton {
-	background: var(--main-bg-color) !important;
-	border: none !important;
-}
-
-#TabsToolbar toolbarbutton:active {
-	background: var(--main-bg-color) !important;
-	outline: 2px solid var(--main-bg-color) !important;
-}
-
-/*Set unselected tab properties*/
-#TabsToolbar .tabbrowser-tab {
-	-moz-border-top-colors: none !important;
-	-moz-border-left-colors: none !important;
-	-moz-border-right-colors: none !important;
-	-moz-border-bottom-colors: none !important;
-	color: var(--main-tx-color) !important;
-	background: var(--main-bg-color);
-	background-clip: padding-box !important;
-	transition: none !important;
-}
-
-/*Set unselected tab mouseover properties*/
-#TabsToolbar .tabbrowser-tab:hover, #TabsToolbar toolbarbutton:hover {
-	color: var(--main-tx-color) !important;
-	background: var(--main-hl-color) !important;
-}
-
-/*Set selected tab properties*/
-#TabsToolbar .tabbrowser-tab[selected] {
-	color: var(--hl-tx-color) !important;
-	background: var(--main-ac-color) !important;
-}
-
-/*Set footer colors for main menu, downloads menu, and bookmarks menu that pick up wrong colors from gtk theme*/
-#downloadsFooterButtons, #PanelUI-customize, #PanelUI-help, #PanelUI-quit, #PanelUI-fxa-container {
-	background: var(--main-hl-color);
-}
-
-.search-panel-header.search-panel-current-input, .search-panel-one-offs {
-	background: var(--main-hl-color) !important;
-}
-
-/*Set selected url text color in search suggestions*/
-.ac-url-text[selected], .ac-separator-text[selected], .ac-action-text[selected] {
-	color: var(--hl-tx-color);
-}
-
-/*Apply color transform matrix to menu dropdown icons in bookmarks menu to turn them white*/
-.menu-iconic.bookmark-item.subviewbutton .menu-right,
-#TabsToolbar .toolbarbutton-icon,
-#cut-button .toolbarbutton-icon,
-#copy-button .toolbarbutton-icon,
-#paste-button .toolbarbutton-icon,
-#zoom-out-button .toolbarbutton-icon,
-#zoom-in-button .toolbarbutton-icon,
-#new-window-button .toolbarbutton-icon,
-#privatebrowsing-button .toolbarbutton-icon,
-#open-file-button .toolbarbutton-icon,
-#panic-button .toolbarbutton-icon,
-#save-page-button .toolbarbutton-icon,
-#history-panelmenu .toolbarbutton-icon,
-#preferences-button .toolbarbutton-icon,
-#add-ons-button .toolbarbutton-icon,
-#sync-button .toolbarbutton-icon
-{
-	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'>\
-	<feColorMatrix in='SourceGraphic' type='matrix' values=\
-	'255.0 255.0 255.0 255.0 255.0 \
-	255.0 255.0 255.0 255.0 255.0 \
-	255.0 255.0 255.0 255.0 255.0 \
-	0.0 0.0 0.0 1.0 0.0'/></filter></svg>#invert") !important;
-}
-
-/*Disble tab moving animation*/
-.tabbrowser-tab {
-	transform: initial !important;
-}
-
-/*Disable findbar slide-in animation*/
-findbar {
-	transition: none !important;
-}
-
-/*Hide top sidebar elements*/
-#sidebar-header {
-	display: none;
-}
-
-/*Hide search in sidebar*/
-#sidebar-search-container {
-	display: none;
-}
-
-/*Hide sidebar splitter*/
 #sidebar-splitter {
-	border: none !important;
-	width: 1px !important;
-	background: var(--main-bg-color) !important;
+  width: 0px !important;
+  border-color: var(--main-bg-color) !important;
 }
 
-/*Hide sidebar border*/
-#bookmarks-view treechildren {
-	color: var(--main-tx-color);
-	outline: 1px solid var(--main-bg-color) !important;
+#bookmarks-view {
+  color: var(--main-tx-color) !important;
+  background: var(--main-bg-color) !important;
 }
 
 /*Highlight row on hover in bookmarks sidebar*/
@@ -189,17 +172,8 @@ findbar {
 	background: var(--main-hl-color);
 }
 
-:-moz-any(#back-button, #forward-button) > .toolbarbutton-icon {
-	border-color: var(--main-hl-color) !important;
-	background: var(--main-hl-color) !important;
-}
-
-#forward-button:not([disabled]):hover .toolbarbutton-icon, #back-button:not([disabled]):hover .toolbarbutton-icon {
-	border-color: var(--main-bg-color) !important;
-	background: var(--main-bg-color) !important;
-}
-
-#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-icon,
-#downloads-button[attention="success"] > #downloads-indicator-anchor > #downloads-indicator-progress-outer {
-	fill: var(--fill-color) !important;
+/*Set sidebar row height*/
+.sidebar-placesTree treechildren::-moz-tree-row {
+    height: 18px !important;
+    min-height: 18px !important;
 }
