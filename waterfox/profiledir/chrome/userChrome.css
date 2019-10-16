@@ -167,7 +167,7 @@ tab.tabbrowser-tab[selected="true"] {
   background: var(--main-bg-color) !important;
 }
 
-/*Highlight row on hover in bookmarks sidebar*/
+/*Don't highlight current row in bookmarks sidebar*/
 #bookmarks-view treechildren::-moz-tree-row(current) {
 	background: transparent !important;
 }
