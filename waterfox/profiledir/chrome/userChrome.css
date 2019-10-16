@@ -168,8 +168,13 @@ tab.tabbrowser-tab[selected="true"] {
 }
 
 /*Highlight row on hover in bookmarks sidebar*/
+#bookmarks-view treechildren::-moz-tree-row(current) {
+	background: transparent !important;
+}
+
+/*Highlight row on hover in bookmarks sidebar*/
 #bookmarks-view treechildren::-moz-tree-row(hover) {
-	background: var(--main-hl-color);
+	background: var(--main-hl-color) !important;
 }
 
 /*Set sidebar row height*/
