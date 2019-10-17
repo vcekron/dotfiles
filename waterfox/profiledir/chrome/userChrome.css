@@ -39,6 +39,7 @@ browser {
 /*Tab colors*/
 #TabsToolbar, #tabbrowser-tabs {
 	background: var(--main-bg-color) !important;
+  color: var(--main-tx-color) !important;
 }
 
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
