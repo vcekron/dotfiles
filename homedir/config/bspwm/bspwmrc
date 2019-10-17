@@ -30,7 +30,7 @@ case $(bspc query -M | wc -l) in
 	2)
 		bspc monitor east -n East
 		bspc monitor East -d 1 2 3 4 5 6 7 8
-		bspc rule -a 'Waterfox Current'		desktop='East:^1'
+		bspc rule -a Waterfox				desktop='East:^1'
 		bspc rule -a Spotify 				desktop='^2'
 		bspc rule -a TelegramDesktop 		desktop='^1'
 		bspc rule -a Skype					dekstop='^1' state=pseudo_tiled
@@ -38,7 +38,7 @@ case $(bspc query -M | wc -l) in
 		xbindkeys &
 		;;
 	*)
-		bspc rule -a 'Waterfox Current'		desktop='^1'
+		bspc rule -a Waterfox				desktop='^1'
 		bspc rule -a Spotify 				desktop='^7'
 		bspc rule -a SVPManager 			desktop='^6' state=pseudo_tiled
 		bspc rule -a qBittorrent 			desktop='^6'
