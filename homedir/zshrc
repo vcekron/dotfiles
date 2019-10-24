@@ -188,7 +188,6 @@ alias hwmon="glances -1 -t 1"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
-alias scrShot='maim -u ~/scrShot.png'
 
 alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eEth='sudo dhcpcd enp0s20f0u4u3i5'
@@ -216,6 +215,17 @@ else
 		reboot
 	}
 fi
+
+#scrShot function with optional second arcument for scrShotX.png (where X is an integer).
+#usage: scrShot X [flags: e.g. -s -d 2]
+scrShot() {
+    if [[ "$1" = <-> ]]
+    then
+		maim -u ~/scrShot"$1".png "$@"
+    else
+        maim -u ~/scrShot.png "$@"
+    fi
+}
 
 #YouTube playlist functions
 function playList() {
