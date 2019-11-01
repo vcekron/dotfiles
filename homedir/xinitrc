@@ -104,6 +104,7 @@ sxhkd &
 case $(hostname) in
 	"fjorgyn")
 		~/dotfiles/sysscripts/touchpadtoggle.sh &
+		conky &
 		exec bspwm
 		;;
 	*)
