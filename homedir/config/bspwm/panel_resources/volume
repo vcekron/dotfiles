@@ -3,7 +3,7 @@
 volume -d 'pulse' | read -r MUTE VOL
 
 if [[ $MUTE == "off" ]] ; then
-	VOL="%{F#FF707880}\uf028 $VOL%%{F-}"
+	VOL="%{F#FF707880}\uf028 $VOL%"
 else
 	VOL="\uf028 $VOL%"
 fi
