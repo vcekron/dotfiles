@@ -203,7 +203,7 @@ alias updateTasks="cat ~/conkyList | fold -s -w 54 | sed '/^\xe2\x80\xa2/! s_^_ 
 
 if [[ $(hostname) == 'freja' ]] ; then
 	function rbw {
-		sudo efibootmgr -n 0000
+		sudo efibootmgr -n 0002
 		reboot
 	}
 elif [[ $(hostname) == 'fjorgyn' ]] ; then
