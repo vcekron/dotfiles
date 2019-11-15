@@ -242,6 +242,11 @@ function optPDF() {
 	~/dotfiles/optfile.sh $1
 }
 
+#Function to resize PDF files.
+function resizePDF() {
+	pdfjam --outfile "$2"_"$1" --paper "$1"paper "$2"
+}
+
 function extractFrames() {
 	~/dotfiles/extractFrames.sh $1
 }
