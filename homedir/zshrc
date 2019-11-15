@@ -112,7 +112,7 @@ fi
 setopt noflowcontrol
 
 #This enables the use of colors
-#autoload -U colors && colors
+autoload -U colors && colors
 
 #This sets autocd
 #setopt autocd
@@ -248,10 +248,23 @@ function extractFrames() {
 
 alias Man="MANPAGER='nvim +Man!' man"
 
+clpkg ()
+{
+	if [[ $(pacman -Qtd) ]]
+	then
+		echo "Clearing unaffiliated packages..."
+		sudo pacman -Rns $(pacman -Qtdq)
+	else
+		echo "No unaffiliated packages found."
+	fi
+}
+
 syu ()
 {
 	trizen -Syu --noedit "$@" --quiet
 	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
+	echo "$bold_color$fg[blue]::$fg[white] Checking for unaffiliated packages...${reset_color}"
+	clpkg
 }
 
 mkcd ()
@@ -273,17 +286,6 @@ nse ()
 new ()
 {
 	(urxvt -e "$@" &)
-}
-
-clpkg ()
-{
-	if [[ $(pacman -Qtd) ]]
-	then
-		echo "Clearing unaffiliated packages..."
-		sudo pacman -Rns $(pacman -Qtdq)
-	else
-		echo "No unaffiliated packages found."
-	fi
 }
 
 emptytrash ()
