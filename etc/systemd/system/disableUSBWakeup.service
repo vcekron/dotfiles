@@ -1,0 +1,8 @@
+[Unit]
+Description=Disable USB wakeup.
+
+[Service]
+ExecStart=/bin/bash -c "echo EHC1 >> /proc/acpi/wakeup; echo XHC >> /proc/acpi/wakeup"
+
+[Install]
+WantedBy=multi-user.target
