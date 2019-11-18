@@ -170,8 +170,7 @@ super + e
 	urxvt -e $SHELL -c "stty -ixon;ranger"
 
 XF86Sleep
-	echo mem > /sys/power/state; \
-	~/dotfiles/sysscripts/lock.sh
+	~/dotfiles/sysscripts/lock.sh s
 
 XF86AudioMute
 	pactl set-sink-mute @DEFAULT_SINK@ toggle; \
@@ -198,8 +197,10 @@ XF86AudioPrev
 	playerctl previous -a -i chromium
 
 XF86WebCam
-	~/dotfiles/sysscripts/lock.sh; \
-	systemctl suspend
+	~/dotfiles/sysscripts/lock.sh s
+
+super + Menu
+	~/dotfiles/sysscripts/lock.sh s
 
 XF86MonBrightnessUp
 	light -A 10

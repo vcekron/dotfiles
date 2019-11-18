@@ -52,4 +52,9 @@ file=/tmp/lock.png
 
 convert "$file" "${LOCK[@]}" "$file"
 
-i3lock -n "${PARAM[@]}" -i "$file" > /dev/null 2>&1
+i3lock -n "${PARAM[@]}" -i "$file" > /dev/null 2>&1 &
+
+if [[ $1 == s ]]; then
+	sleep 1
+	systemctl suspend
+fi
