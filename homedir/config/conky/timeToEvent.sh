@@ -12,7 +12,11 @@ convertsecs() {
 	if [[ $d -gt 0 ]] ; then
 		printf "%02d days\n" $d
 	elif [[ $m -ge 0 ]]; then
-		printf "%02d:%02d\n" $h $((m + 1))
+		if [[ $m == 59 ]]; then
+			printf "%02d:00\n" $((h + 1))
+		else
+			printf "%02d:%02d\n" $h $((m + 1))
+		fi
 	else
 		printf "Past Time"
 	fi
