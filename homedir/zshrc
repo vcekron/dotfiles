@@ -246,7 +246,7 @@ function optPDF() {
 
 #Function to resize PDF files.
 function resizePDF() {
-	pdfjam --outfile "$2"_"$1" --paper "$1"paper "$2"
+	~/dotfiles/resizePDF.sh $1 $2
 }
 
 function extractFrames() {
