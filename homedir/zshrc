@@ -201,7 +201,7 @@ alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 alias rKB='xmodmap ~/.Xmodmap'
 
 #alias updateTasks="cat ~/conkyList | fold -s -w 50 | sed '/^\xe2\x80\xa2/! s_^_  _' > ~/.conkyList" #Bullets
-alias updateTasks="cat ~/Dropbox/conkyList | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet" #Asterisks
+alias updateTasks="cat ~/Dropbox/conkyList | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && killall -SIGUSR1 conky" #Asterisks
 
 if [[ $(hostname) == 'freja' ]] ; then
 	function rbw {
