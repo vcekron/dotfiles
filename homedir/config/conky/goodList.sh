@@ -1,5 +1,5 @@
 #!/bin/bash
-if [[ $HOSTNAME="freja" ]]; then
+if [[ "$HOSTNAME" = freja ]]; then
 	offsetLeft=150; offsetRight=0
 else
 	offsetLeft=75; offsetRight=75
@@ -15,10 +15,10 @@ arrayEvents+=('* Silvia Belgrade ${alignr}${offset -'${offsetRight}'}${texeci 60
 #arrayEvents+=('* Silvia Genzano ${alignr}${offset -'${offsetRight}'}${texeci 60 ~/.config/conky/timeToEvent.sh "2020-06-26 00:00:00"}')
 arrayEvents+=('* Dynamo Metalfest ${alignr}${offset -'${offsetRight}'}${texeci 60 ~/.config/conky/timeToEvent.sh "2020-06-17 00:00:00"}')
 
-for i in $(seq ${#arrayDates[@]}); do
-	~/.config/conky/timeToEvent.sh ${arrayDates[$i-1]}
-	${arrayDates[$i-1]}="~/.config/conky/timeToEvent.sh ${arrayDates[$i-1]}"
-done
+#for i in $(seq ${#arrayDates[@]}); do
+#	~/.config/conky/timeToEvent.sh ${arrayDates[$i-1]}
+#	${arrayDates[$i-1]}="~/.config/conky/timeToEvent.sh ${arrayDates[$i-1]}"
+#done
 
 for i in $(seq ${#arrayEvents[@]}); do
 	if (( $i % 2 )); then
