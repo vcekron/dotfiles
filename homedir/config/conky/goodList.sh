@@ -16,7 +16,7 @@ arrayEvents+=('* Dynamo Metalfest'); 		arrayDates+=('2020-06-17 00:00:00')
 
 for i in $(seq ${#arrayEvents[@]}); do
 	# Convert the dates into time-until-event.
-	arrayDates[$i-1]=$(~/.config/conky/timeToEvent.sh ${arrayDates[$i-1]})
+	arrayDates[$i-1]=$(~/.config/conky/timeToEvent.sh "${arrayDates[$i-1]}")
 
 	# Decide the correct color (${color}$ and ${color2}$ for odd and even rows, respectively).
 	if (( $i % 2 )); then
