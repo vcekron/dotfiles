@@ -10,7 +10,7 @@ convertsecs() {
 	((m=(${1}%3600)/60))
 	((s=${1}%60))
 	if [[ $d -gt 0 ]] ; then
-		printf "%02d days\n" $d
+		printf "%02d days\n" $((d + 1))
 	elif [[ $m -ge 0 ]]; then
 		if [[ $m == 59 ]]; then
 			printf "%02d:00\n" $((h + 1))
