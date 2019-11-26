@@ -230,13 +230,7 @@ scrShot() {
 }
 
 compressEncrypt() {
-#	zip --encrypt "$1".zip -r $1
-#
-#	zip "$1".zip -r $1
-#	gpg -c "$1".zip
-#
-	7z a "$1".7z $1
-	gpg -c "$1".7z
+	zip --encrypt "$1".zip -r $1
 }
 
 #YouTube playlist functions
