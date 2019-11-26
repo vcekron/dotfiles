@@ -194,8 +194,6 @@ alias eTether='sudo dhcpcd enp0s20f0u5c4i2'
 alias eEth='sudo dhcpcd enp0s20f0u4u3i5'
 alias TUePrint='smbclient -W TUE -U s.kronberg@tue.nl //tueprint.campus.tue.nl/MFP-CAMPUS-PS'
 
-alias cNSC='ssh x_simkr@tetralith.nsc.liu.se'
-
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
 alias rKB='xmodmap ~/.Xmodmap'
@@ -229,6 +227,16 @@ scrShot() {
     else
         maim -u ~/scrShot.png "$@"
     fi
+}
+
+compressEncrypt() {
+#	zip --encrypt "$1".zip -r $1
+#
+#	zip "$1".zip -r $1
+#	gpg -c "$1".zip
+#
+	7z a "$1".7z $1
+	gpg -c "$1".7z
 }
 
 #YouTube playlist functions
