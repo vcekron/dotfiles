@@ -1,7 +1,7 @@
 #! /bin/zsh
 #
-# optpdf file.pdf
-#   This script will attempt to optimize the given pdf
+# usage: `foo.pdf`.
+# description: this script attempts to optimise `foo.pdf` in terms of footprint.
 
 file="$1"
 filebase="$(basename "$file" .pdf)"

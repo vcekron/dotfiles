@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Usage: Run it and it will output an appropriately formatted string for Conky to interpret and render.
+# usage: standalone.
+# descritpion: outputs an appropriately formatted string for Conky to interpret and render.
 
 # Set the appropriate offsets per machine.
 if [[ "$HOSTNAME" = freja ]]; then

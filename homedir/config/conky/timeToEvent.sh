@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Usage: `timeToEvent "2019-11-27 00:00:00` will return the number of days or hours and minutes starting fro 24 hours.
+# usage: `timeToEvent "2019-11-27 00:00:00`.
+# description: returns the number of days or hours and minutes to the date.
 
 # The time of the event.
 TIME="${1}"

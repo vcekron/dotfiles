@@ -1,7 +1,7 @@
 #! /bin/zsh
 #
-# Usage: extractFrames foo.gif
-# Description: This script will extract the frames of foo.gif to foo/frames-x.png, where x = 1,2,3...
+# usage: `extractFrames foo.gif`.
+# description: this script will extract the frames of `foo.gif` to `foo/frames-x.png`, where x = 1,2,3....
 
 file="$1"
 filebase="$(basename "$file" .gif)"
