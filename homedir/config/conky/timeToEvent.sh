@@ -1,7 +1,9 @@
 #!/bin/bash
+#
+# Usage: `timeToEvent "2019-11-27 00:00:00` will return the number of days or hours and minutes starting fro 24 hours.
 
-#TIME="2020-01-10 00:00:00" # The time of the next event.
-TIME="${1}" # The time of the next event.
+# The time of the event.
+TIME="${1}"
 
 # Define a function which takes the number of seconds and converts it to days, hours, etc.
 convertsecs() {
@@ -29,4 +31,5 @@ SEC2=`date +%s -d "$TIME"`
 # Use expr to do the math.
 DIFFSEC=`expr ${SEC2} - ${SEC1}`
 
-echo $(convertsecs $DIFFSEC) # Echo the current difference in time.
+# Echo the current difference in time.
+echo $(convertsecs $DIFFSEC)
