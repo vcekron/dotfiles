@@ -44,7 +44,7 @@ case $RES in
 	'1920x1200+0+0')
 		urxvt -name scratchpad -g 124x29+326-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
-	'1920x1080+0+0')
+	'1920x1080+0+0'|'1920x1080+1920+0')
 		urxvt -name scratchpad -g 124x26+326-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
 esac
