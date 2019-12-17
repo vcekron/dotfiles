@@ -108,6 +108,7 @@ case $(hostname) in
 		exec bspwm
 		;;
 	*)
+		syncthing &
 		exec bspwm
 		;;
 esac
