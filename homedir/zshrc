@@ -262,10 +262,10 @@ clpkg ()
 {
 	if [[ $(pacman -Qtd) ]]
 	then
-		echo "Clearing unaffiliated packages..."
+		echo "clearing unaffiliated packages..."
 		sudo pacman -Rns $(pacman -Qtdq)
 	else
-		echo "No unaffiliated packages found."
+		echo " no unaffiliated packages found"
 	fi
 }
 
