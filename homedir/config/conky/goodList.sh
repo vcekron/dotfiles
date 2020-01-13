@@ -20,7 +20,7 @@ fi
 arrayEvents=(); 							arrayDates=()
 #arrayEvents+=('Christmas Eve'); 			arrayDates+=('2019-12-24 00:00:00')
 #arrayEvents+=('New Year'"'"'s Eve');		arrayDates+=('2019-12-31 00:00:00')
-arrayEvents+=('Silvia Neuchâtel'); 			arrayDates+=('2020-01-09 17:00:00')
+#arrayEvents+=('Silvia Neuchâtel'); 			arrayDates+=('2020-01-09 17:00:00')
 arrayEvents+=('Joanna, Sanna & Felicia');	arrayDates+=('2020-03-06 17:00:00')
 arrayEvents+=('Prognosis Festival'); 		arrayDates+=('2020-03-20 00:00:00')
 arrayEvents+=('Silvia Belgrade'); 			arrayDates+=('2020-04-10 00:00:00')
