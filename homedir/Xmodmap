@@ -6,11 +6,9 @@ keysym Alt_L = Hyper_R
 add mod1 = Alt_L
 add mod3 = Hyper_R
 
-keycode  20 = minus underscore minus underscore backslash questiondown backslash questiondown
-keycode  21 = plus equal plus equal backslash bar backslash bar
-keycode  35 = backslash asciicircum backslash asciicircum asciitilde diaeresis asciitilde diaeresis
-keycode  49 = grave acute grave acute section paragraph section paragraph
-keycode  51 = apostrophe asterisk apostrophe asterisk dead_acute multiply dead_acute multiply
-keycode  57 = n N n N ntilde Ntilde
-keycode  61 = slash question slash question questiondown questiondown questiondown questiondown
-keycode  94 = less greater less greater bar Multi_key bar Multi_key
+keycode 108 = Mode_switch
+
+keycode  14 = 5 percent EuroSign sterling
+keycode  26 = e E adiaeresis Adiaeresis
+keycode  32 = o O odiaeresis Odiaeresis
+keycode  38 = a A aring Aring
