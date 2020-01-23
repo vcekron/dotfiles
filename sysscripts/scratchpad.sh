@@ -24,7 +24,7 @@ fi
 if [[ "$HOSTNAME" == fjorgyn ]] ; then
 	case $(xrandr | grep " connected " | wc -l) in
 		2)
-			RES=$(xrandr | grep HDMI-1 | cut -d " " -f 3)
+			RES=$(xrandr | grep HDMI-0 | cut -d " " -f 3)
 			;;
 		*)
 			RES=$(xrandr | grep primary | cut -d " " -f 4)
