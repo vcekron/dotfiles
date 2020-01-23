@@ -36,7 +36,7 @@ fi
 
 case $RES in
 	'2560x1440+0+0')
-		urxvt -name scratchpad -g 132x26+650-0 -e $SCRIPTPATH/scratchid.sh &
+		urxvt -name scratchpad -g 132x29+650-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
 	'1920x1200+1920+0')
 		urxvt -name scratchpad -g 124x29+326-120 -e $SCRIPTPATH/scratchid.sh &
