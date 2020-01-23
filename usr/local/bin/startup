@@ -2,13 +2,13 @@
 
 case $(hostname) in
 	"freja")
-		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+		APPS=("dropbox" "megasync" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
 		;;
 	"gefjon")
 		APPS=("dropbox" "waterfox-current" "telegram-desktop")
 		;;
 	"fjorgyn")
-		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop")
+		APPS=("megasync" "waterfox-current" "spotify" "telegram-desktop")
 		;;
 esac
 
