@@ -191,7 +191,7 @@ alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
 
 alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eTether='sudo dhcpcd enp0s20f0u5c4i2'
-alias eEth='sudo dhcpcd enp0s20f0u4u3i5'
+alias eEth='sudo dhcpcd enp0s20f0u1u3i5'
 alias TUePrint='smbclient -W TUE -U s.kronberg@tue.nl //tueprint.campus.tue.nl/MFP-CAMPUS-PS'
 
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
@@ -205,11 +205,6 @@ alias rConky="pkill conky && conky --quiet" #Reload Conky
 if [[ $(hostname) == 'freja' ]] ; then
 	function rbw {
 		sudo efibootmgr -n 0002
-		reboot
-	}
-elif [[ $(hostname) == 'fjorgyn' ]] ; then
-	function rbw {
-		sudo efibootmgr -n 000B
 		reboot
 	}
 else
