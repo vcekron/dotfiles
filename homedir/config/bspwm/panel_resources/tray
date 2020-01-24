@@ -73,7 +73,8 @@ while true ; do
 
 	case $(hostname) in
 		"TUE018341")
-			NIFS=$(ls -r /sys/class/net | grep 'enp0s20f0u5c4i2\|^w')
+			#NIFS=$(ls -r /sys/class/net | grep 'enp0s20f0u1u3i5\|^w')
+			NIFS=$(ls -r /sys/class/net | grep '^w')
 			;;
 		*)
 			NIFS=$(ls -r /sys/class/net | grep '^e\|^w')
