@@ -10,8 +10,8 @@ else
 	offsetLeft=75; offsetRight=75
 fi
 
-# Consider the end of the working day when appropriate (i.e. a working day and on fjorgyn).
-if [[ $(date +%u) -lt 6 && "$HOSTNAME" = fjorgyn ]] ; then
+# Consider the end of the working day when appropriate (i.e. a working day and on TUE018341).
+if [[ $(date +%u) -lt 6 && "$HOSTNAME" = TUE018341 ]] ; then
 	echo ${color}'${offset '${offsetLeft}'}* End of The Working Day${alignr}${offset -'${offsetRight}'}'$(~/.config/conky/timeToEvent.sh "17:00:00")
 	echo # Echo an empty line.
 fi

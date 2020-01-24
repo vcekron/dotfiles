@@ -7,7 +7,7 @@ case $(hostname) in
 	"gefjon")
 		APPS=("dropbox" "waterfox-current" "telegram-desktop")
 		;;
-	"fjorgyn")
+	"TUE018341")
 		APPS=("megasync" "waterfox-current" "spotify" "telegram-desktop")
 		;;
 esac

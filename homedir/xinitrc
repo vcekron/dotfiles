@@ -10,7 +10,7 @@ case $(hostname) in
 	"freja")
 		xrandr --output DP-0 --auto --primary
 		;;
-	"fjorgyn")
+	"TUE018341")
 		## HYBRID
 		#xrandr --output eDP-1 --auto --primary
 
@@ -65,7 +65,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.0
 
 case $(hostname) in
-	"fjorgyn")
+	"TUE018341")
 		export MOZ_USE_XINPUT2=1
 		;;
 esac
@@ -95,7 +95,7 @@ conky &
 sxhkd &
 
 case $(hostname) in
-	"fjorgyn")
+	"TUE018341")
 		~/dotfiles/sysscripts/touchpadtoggle.sh &
 		exec bspwm
 		;;

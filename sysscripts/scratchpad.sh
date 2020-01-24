@@ -21,7 +21,7 @@ if [[ $OLD ]] ; then
 	rm /tmp/scratchid
 fi
 
-if [[ "$HOSTNAME" == fjorgyn ]] ; then
+if [[ "$HOSTNAME" == TUE018341 ]] ; then
 	case $(xrandr | grep " connected " | wc -l) in
 		2)
 			RES=$(xrandr | grep HDMI-0 | cut -d " " -f 3)
