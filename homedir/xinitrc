@@ -85,6 +85,7 @@ unclutter --timeout 1 &
 #dropbox &
 xbindkeys &
 redshift &
+hunspell &
 ##Scripts
 ~/dotfiles/sysscripts/vpncheck.sh &
 ~/dotfiles/sysscripts/scratchpad.sh &
