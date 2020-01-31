@@ -202,17 +202,12 @@ alias rKB='xmodmap ~/.Xmodmap'
 alias updateTasks="cat ~/MEGAsync/systemFiles/conkyList | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet" #Asterisks
 alias rConky="pkill conky && conky --quiet" #Reload Conky
 
-if [[ $(hostname) == 'freja' ]] ; then
-	function rbw {
-		sudo efibootmgr -n 0002
-		reboot
-	}
-else
-	function rbw {
-		sudo efibootmgr -n 0000
-		reboot
-	}
-fi
+#rbw reboots into Windows.
+function rbw {
+	local bootNum=$(efibootmgr | grep 'Windows' | grep -Eo '[0-9]{4}')
+	sudo efibootmgr -n $bootNum
+	reboot
+}
 
 #scrShot function with optional second arcument for scrShotX.png (where X is an integer).
 #usage: scrShot X [flags: e.g. -s -d 2]
