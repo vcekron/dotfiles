@@ -214,10 +214,16 @@ function rbw {
 scrShot() {
     if [[ "$1" = <-> ]]
     then
-		maim -u ~/scrShot"$1".png "$@"
+		maim -u -m 1 "$@" ~/scrShot"$1".png
     else
-        maim -u ~/scrShot.png "$@"
+        maim -u -m 1 "$@" ~/scrShot.png
     fi
+}
+
+#scrShotShadow function takes a screenshot and adds a nice shadow.
+#usage: scrShotShadow X [flags: e.g. -s -d 2]
+scrShotShadow() {
+	maim -u -m 1 "$@" | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/scrShot.png
 }
 
 compressEncrypt() {

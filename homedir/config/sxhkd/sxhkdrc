@@ -202,6 +202,9 @@ XF86WebCam
 super + Menu
 	~/dotfiles/sysscripts/lock.sh s
 
+super + Print
+	~/dotfiles/sysscripts/lock.sh s
+
 XF86MonBrightnessUp
 	light -A 10
 
