@@ -1,14 +1,15 @@
+# <device>										<dir>			<type>		<options>											<dump>	<fsck>
 # /dev/sdf2
-UUID=48be7ad5-2fb7-4a45-a336-194db2662b22	/				ext4		rw,relatime																									0 1
+UUID=48be7ad5-2fb7-4a45-a336-194db2662b22		/				ext4		defaults											0		1
 
 # /dev/sdf1
-UUID=5D99-3E8E      						/mnt/boot		vfat		rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=5D99-3E8E      							/boot			vfat		defaults											0		2
 
-# /dev/sdd2 LABEL=Media
-UUID=D6CE4961CE493ACF						/mnt/Z			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
+# /dev/sdd2 LABEL=Media-Z
+UUID=D6CE4961CE493ACF							/mnt/Z			ntfs-3g		uid=scekron,gid=users,dmask=022,fmask=133			0		2
 
-# /dev/sdb1 LABEL=Media
-UUID=8292095E920957D5						/mnt/Q			ntfs-3g		uid=1000,gid=985,dmask=022,fmask=133																		 0 0
+# /dev/sdb1 LABEL=Media-Q
+UUID=4dd92ba6-d0d8-4058-a745-ad0ced3c2556		/mnt/Q			ext4		defaults											0		2
 
 # /dev/sdc1 LABEL=Music
-UUID=b985fd16-6377-440b-8f39-9cad6ff61e16	/mnt/X			ext4		rw,relatime																									 0 0
+UUID=b985fd16-6377-440b-8f39-9cad6ff61e16		/mnt/X			ext4		defaults											0		2
