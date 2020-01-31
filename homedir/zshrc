@@ -219,9 +219,9 @@ fi
 scrShot() {
     if [[ "$1" = <-> ]]
     then
-		maim -u ~/scrShot"$1".png "$@"
+		maim -u -m 1 "$@" ~/scrShot"$1".png
     else
-        maim -u ~/scrShot.png "$@"
+        maim -u -m 1 "$@" ~/scrShot.png
     fi
 }
 
