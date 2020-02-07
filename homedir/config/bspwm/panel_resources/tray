@@ -27,7 +27,7 @@ while true ; do
 
 	##Dropbox state
 
-	DROPBOX_RUN=$(pgrep dropbox)
+	DROPBOX_RUN=$(pgrep -fn dropbox)
 
 	[[ $DROPBOX_RUN ]] && DROPBOX_STATE=$(dropbox-cli status)
 
