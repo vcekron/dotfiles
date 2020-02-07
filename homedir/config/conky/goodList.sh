@@ -1,1 +1,1 @@
-/home/scekron/MEGA/systemFiles/goodList.sh
+/home/scekron/Dropbox/systemFiles/goodList.sh
