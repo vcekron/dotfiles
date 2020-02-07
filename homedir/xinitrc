@@ -86,7 +86,7 @@ unclutter --timeout 1 &
 #dropbox &
 xbindkeys &
 redshift &
-/usr/bin/stalonetray &
+#/usr/bin/stalonetray &
 ##Scripts
 ~/dotfiles/sysscripts/vpncheck.sh &
 ~/dotfiles/sysscripts/scratchpad.sh &
