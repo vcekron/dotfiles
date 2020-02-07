@@ -2,7 +2,7 @@
 
 #declare -i ID
 #ID=`xinput list | grep -Ei '(touchpad|GlidePoint|ALP00)\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'` # Only works if GlidePoint is at the end of the name string.
-ID=`xinput list | grep 'TouchPad' | grep -Eio '\s*id=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'` # More general, ut currently hardcoded to ALP00 from fjorgyn.
+ID=`xinput list | grep 'ALPS' | grep -Eio '\s*id=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}'` # More general, ut currently hardcoded to ALP00 from fjorgyn.
 declare -i STATE
 STATE=`xinput list-props $ID|grep 'Device Enabled'|awk '{print $4}'`
 if [ $STATE -eq 1 ]

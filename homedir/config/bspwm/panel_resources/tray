@@ -72,9 +72,8 @@ while true ; do
 	##Set network icon variable(s)
 
 	case $(hostname) in
-		"TUE018341")
-			#NIFS=$(ls -r /sys/class/net | grep 'enp0s20f0u1u3i5\|^w')
-			NIFS=$(ls -r /sys/class/net | grep '^w')
+		"TUE009888")
+			NIFS=$(ls -r /sys/class/net | grep 'enp0s20f0u5u3i5\|^w')
 			;;
 		*)
 			NIFS=$(ls -r /sys/class/net | grep '^e\|^w')

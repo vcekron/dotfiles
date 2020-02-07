@@ -21,10 +21,10 @@ if [[ $OLD ]] ; then
 	rm /tmp/scratchid
 fi
 
-if [[ "$HOSTNAME" == TUE018341 ]] ; then
+if [[ "$HOSTNAME" == TUE009888 ]] ; then
 	case $(xrandr | grep " connected " | wc -l) in
 		2)
-			RES=$(xrandr | grep HDMI-0 | cut -d " " -f 3)
+			RES=$(xrandr | grep HDMI-1 | cut -d " " -f 3)
 			;;
 		*)
 			RES=$(xrandr | grep primary | cut -d " " -f 4)

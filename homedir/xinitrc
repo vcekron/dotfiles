@@ -11,13 +11,18 @@ case $(hostname) in
 		#xrandr --output DP-0 --auto --primary
 		xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
 		;;
-	"TUE018341")
+	"TUE009888")
 		## HYBRID
 		#xrandr --output eDP-1 --auto --primary
+ 		#xrandr --output DP-0 -right-of eDP-1-1
+
+		## INTEL
+		xrandr --output eDP-1 --auto --primary
+		xrandr --output HDMI-1 --auto --right-of eDP-1
 
 		## NVIDIA
-		xrandr --output DP-2 --auto --primary
-		xrandr --output HDMI-0 --auto --right-of DP-2
+		#xrandr --output DP-3 --auto --primary
+		#xrandr --output DP-0 --auto --right-of DP-3
 		xrandr --dpi 96
 esac
 
@@ -66,7 +71,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.0
 
 case $(hostname) in
-	"TUE018341")
+	"TUE009888")
 		export MOZ_USE_XINPUT2=1
 		;;
 esac
@@ -97,7 +102,7 @@ conky &
 sxhkd &
 
 case $(hostname) in
-	"TUE018341")
+	"TUE009888")
 		~/dotfiles/sysscripts/touchpadtoggle.sh &
 		exec bspwm
 		;;
