@@ -8,8 +8,8 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 
 case $(hostname) in
 	"freja")
-		#xrandr --output DP-0 --auto --primary
-		xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
+		xrandr --output DP-0 --auto --primary
+		#xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
 		;;
 	"TUE009888")
 		## HYBRID
