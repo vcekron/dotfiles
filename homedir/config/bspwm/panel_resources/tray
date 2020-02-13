@@ -27,18 +27,16 @@ while true ; do
 
 	##Dropbox state
 
-	DROPBOX_RUN=$(pgrep -fn dropbox)
-
-	[[ $DROPBOX_RUN ]] && DROPBOX_STATE=$(dropbox-cli status)
+	DROPBOX_STATE=$(dropbox-cli status)
 
 	if [[ $DROPBOX_STATE = "Up to date" ]] ; then
 		DROPBOX=" \uf16b "
 	elif [[ $(echo "$DROPBOX_STATE" | grep "Syncing") ]] ; then
 		DROPBOX=" %{F#FF5F875F}\uf16b%{F-} "
-	elif [[ $DROPBOX_RUN ]] ; then
-		DROPBOX=" %{F#FFA54242}\uf16b%{F-} "
-	else
+	elif [[ $DROPBOX_STATE = "Dropbox isn't running!" ]] ; then
 		DROPBOX=" %{F#FF707880}\uf16b%{F-} "
+	else
+		DROPBOX=" %{F#FFA54242}\uf16b%{F-} "
 	fi
 
 	##Redshift state
