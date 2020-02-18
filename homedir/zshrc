@@ -214,7 +214,7 @@ function rbw {
 scrShot() {
     if [[ "$1" = <-> ]]
     then
-		maim -u -m 1 "$@" ~/scrShot"$1".png
+		maim -u -m 1 "${@:2}" ~/scrShot"$1".png
     else
         maim -u -m 1 "$@" ~/scrShot.png
     fi
