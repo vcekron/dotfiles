@@ -24,3 +24,14 @@ case $CLASS in
 		esac
 		;;
 esac
+
+case $CLASS in
+	"Steam")
+		TITLE=$(xtitle "$WID")
+		case $TITLE in
+			"Friends List")
+				echo "state = floating"
+				;;
+		esac
+		;;
+esac
