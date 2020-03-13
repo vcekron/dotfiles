@@ -189,6 +189,8 @@ alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
 
+alias eTUeVPN='sudo openconnect vpn2.tue.nl'
+
 alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eTether='sudo dhcpcd enp0s20f0u5c4i2'
 alias eEth='sudo dhcpcd enp0s20f0u1u3i5'
