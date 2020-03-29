@@ -210,3 +210,6 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
 	light -U 10
+
+super + shift + r
+	~/play/play.sh
