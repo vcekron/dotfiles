@@ -4,9 +4,6 @@ case $(hostname) in
 	"freja")
 		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
 		;;
-	"gefjon")
-		APPS=("dropbox" "waterfox-current" "telegram-desktop")
-		;;
 	"TUE009888")
 		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "evolution")
 		;;
