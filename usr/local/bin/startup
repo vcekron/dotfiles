@@ -5,7 +5,7 @@ case $(hostname) in
 		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
 		;;
 	"TUE009888")
-		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "evolution")
+		APPS=("stalonetray" "dropbox" "waterfox-current" "spotify" "telegram-desktop" "owncloud")
 		;;
 esac
 
