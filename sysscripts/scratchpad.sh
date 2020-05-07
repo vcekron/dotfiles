@@ -24,7 +24,8 @@ fi
 if [[ "$HOSTNAME" == TUE009888 ]] ; then
 	case $(xrandr | grep " connected " | wc -l) in
 		2)
-			RES=$(xrandr | grep HDMI-1 | cut -d " " -f 3)
+			#RES=$(xrandr | grep HDMI-1 | cut -d " " -f 3) # INTEL
+			RES=$(xrandr | grep DP-0 | cut -d " " -f 3) # NVIDIA
 			;;
 		*)
 			RES=$(xrandr | grep primary | cut -d " " -f 4)
