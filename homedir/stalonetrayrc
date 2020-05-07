@@ -35,9 +35,7 @@ fuzzy_edges 0
 
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
-#geometry 1x1+2261+10
-#geometry 1x1+1568+10 # 1080p
-geometry 1x1+1495+10 # 1080p
+geometry 1x1+1497+9 #TUE009888
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
@@ -50,7 +48,7 @@ grow_gravity E
 icon_gravity E
 
 # icon_size <int>            # specifies dimensions of typical icon slot
-icon_size 22
+icon_size 24
 kludges force_icons_size
 
 # log_level <level>          # controls the amount of logging output, level can
