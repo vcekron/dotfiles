@@ -5,7 +5,7 @@ case $(hostname) in
 		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
 		;;
 	"TUE009888")
-		APPS=("stalonetray" "dropbox" "waterfox-current" "spotify" "telegram-desktop" "owncloud")
+		APPS=("waterfox-current" "spotify" "telegram-desktop" "owncloud" "dropbox" "stalonetray")
 		;;
 esac
 
@@ -15,6 +15,9 @@ for app in ${APPS[@]}; do
 	if [[ ! $(echo "$PS" | grep "$app") ]]; then
 		echo "launching $app"
 		eval "$app &"
+		if [[ $(hostname) == "TUE009888" ]] && [[ $app == "dropbox" ]]; then
+			sleep 10
+		fi
 	else
 		echo "$app already running"
 	fi
