@@ -6,7 +6,7 @@ OFFICIAL_U=$(checkupdates | wc -l)
 AUR_U=$(checkupdates-aur | wc -l)
 ((UPDATES = $OFFICIAL_U + $AUR_U - $IGNORED_U))
 
-if [[ $UPDATES > 0 ]] ; then
+if [[ $UPDATES -gt 0 ]] ; then
 	UPDATES="\uf0aa"
 else
 	UPDATES="%{F#FF707880}\uf0aa%{F-}"
