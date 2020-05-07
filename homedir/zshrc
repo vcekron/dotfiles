@@ -195,7 +195,7 @@ alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eTether='sudo dhcpcd enp0s20f0u5c4i2'
 alias eEth='sudo dhcpcd enp0s20f0u1u3i5'
 alias TUePrint='smbclient -W TUE -U s.kronberg@tue.nl //tueprint.campus.tue.nl/MFP-CAMPUS-PS'
-alias updateMatlab='sudo /usr/local/MATLAB/R2019b/bin/glnxa64/update_installer'
+alias updateMatlab='sudo /usr/local/MATLAB/R2020a/bin/glnxa64/update_installer'
 
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
