@@ -13,7 +13,8 @@
 
 # background <color>         # color can be specified as an HTML hex triplet or
                              # as a name from rgb.txt, note that '#' must be quoted
-background "#1D1F21"
+#background "#1D1F21" #DARK
+background "#E8E8E8" #LIGHT
 
 # decorations <decspec>      # set trays window decorations; possible values for
                              # decspec are: all, title, border, none
@@ -35,20 +36,22 @@ fuzzy_edges 0
 # geometry <geometry>        # tray's geometry in standard X notation; width and
                              # height are specified in slot_size multiples
 #geometry 1x1+2261+10
-geometry 1x1+1568+10 # 1080p
+#geometry 1x1+1568+10 # 1080p
+geometry 1x1+1495+10 # 1080p
 
 # grow_gravity <gravity>     # one of N, S, E, W, NW, NE, SW, SE; tray will grow
                              # in the direction opposite to one specified by
 							 # grow_gravity; if horizontal or vertical
 							 # direction is not specified, tray will not grow in
 							 # that direction
-grow_gravity NW
+grow_gravity E
 
 # icon_gravity <gravity>     # icon placement gravity, one of NW, NE, SW, SE
-icon_gravity NW
+icon_gravity E
 
 # icon_size <int>            # specifies dimensions of typical icon slot
 icon_size 22
+kludges force_icons_size
 
 # log_level <level>          # controls the amount of logging output, level can
                              # be err (default), info, or trace (enabled only
@@ -70,7 +73,7 @@ log_level err
 
 # max_geometry <geometry>    # maximal tray dimensions; 0 in width/height means
                              # no limit
-max_geometry 24x24
+max_geometry 0x22
 
 # no_shrink [<bool>]         # disables shrink-back mode
 no_shrink false
@@ -104,7 +107,8 @@ skip_taskbar true
 sticky true
 
 # tint_color <color>         # set tinting color
-tint_color "#C5C8C6"
+#tint_color "#1D1F21" #LIGHT
+#tint_color "#C5C8C6"
 
 # tint_level <level>         # set tinting level; level ranges from 0 (disabled)
                              # to 255
