@@ -1,2 +1,2 @@
 #! /bin/sh
-maim -u ~/screenshot.jpg "$@"
+maim -u ~/screenshot.jpg -d 1
