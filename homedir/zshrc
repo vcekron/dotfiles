@@ -215,7 +215,7 @@ function rbw {
 }
 
 #scrShot function with optional second arcument for scrShotX.png (where X is an integer).
-#usage: scrShot X [flags: e.g. -s -d 2]
+#usage: scrShot <X> [flags: e.g. -s -d 2], where X is optional.
 scrShot() {
     if [[ "$1" = <-> ]]
     then
