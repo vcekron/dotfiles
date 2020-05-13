@@ -23,4 +23,4 @@
 #
 # Note that "m:0x1c + c:23" is the default value. To find the current one, use xbindkeys -mk.
 "sleep 0.1 && xte 'key XF86AudioPlay'"
-	m:0x34 + c:23
+	m:0x24 + c:23
