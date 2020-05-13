@@ -1,11 +1,9 @@
 #! /bin/bash
 
 source ~/.config/bspwm/panel_resources/colors
-IGNORED_LIST=$(egrep '^IgnorePkg' /etc/pacman.conf | cut -d= -f2 | xargs | tr '[:blank:]' '\n')
-IGNORED_U=$(comm -12 <(echo "$IGNORED_LIST" | sort) <(pacman -Qmq) | wc -l)
 OFFICIAL_U=$(checkupdates | wc -l)
-AUR_U=$(checkupdates-aur | wc -l)
-((UPDATES = $OFFICIAL_U + $AUR_U - $IGNORED_U))
+AUR_U=$(trizen -Quaq | wc -l)
+((UPDATES = $OFFICIAL_U + $AUR_U))
 
 if [[ $UPDATES -gt 0 ]] ; then
 	UPDATES="\uf0aa"
