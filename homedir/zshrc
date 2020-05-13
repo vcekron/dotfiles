@@ -231,6 +231,12 @@ scrShotShadow() {
 	maim -u -m 1 "$@" | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/scrShot.png
 }
 
+#relinkBin relinks ~/dotiles/usr/local/bin to /usr/local/bin
+relinkBin() {
+	sudo rm -r /usr/local/bin
+	sudo ln -s /home/$(whoami)/dotfiles/usr/local/bin /usr/local/
+}
+
 compressEncrypt() {
 	zip --encrypt "$1".zip -r $1
 }
