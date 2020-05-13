@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 source ~/.config/bspwm/panel_resources/colors
 OFFICIAL_U=$(checkupdates | wc -l)
