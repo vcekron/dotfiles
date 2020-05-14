@@ -16,7 +16,7 @@ for app in ${APPS[@]}; do
 		echo "launching $app"
 		eval "$app &"
 		if [[ $(hostname) == "TUE009888" ]] && [[ $app == "dropbox" ]]; then
-			sleep 10
+			sleep 20
 		fi
 	else
 		echo "$app already running"
