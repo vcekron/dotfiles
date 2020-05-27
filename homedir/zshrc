@@ -203,8 +203,7 @@ alias rKB='xmodmap ~/.Xmodmap'
 
 alias stampPDF='~/Dropbox/LaTeX_files/stampPDF'
 
-#alias updateTasks="cat ~/conkyList | fold -s -w 50 | sed '/^\xe2\x80\xa2/! s_^_  _' > ~/.conkyList" #Bullets
-alias updateTasks="cat ~/Dropbox/systemFiles/conkyList | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet" #Asterisks
+alias updateTasks="cat ~/Dropbox/systemFiles/conkyList | sed '/^#/,+1 d' | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet" #Asterisks
 alias rConky="pkill conky && conky --quiet" #Reload Conky
 
 #rbw reboots into Windows.
