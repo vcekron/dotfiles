@@ -96,7 +96,7 @@ redshift &
 ~/dotfiles/sysscripts/vpncheck.sh &
 ~/dotfiles/sysscripts/scratchpad.sh &
 ##Compositor
-pgrep -x picom > /dev/null || allow_rgb10_configs=false picom -t -8 -l -9 -r 6 -o 0.7 &
+pgrep -x picom > /dev/null || picom &
 
 conky &
 sxhkd &
