@@ -92,7 +92,7 @@ super + {_,shift + }{1-9,0}
 	{~/dotfiles/sysscripts/bspwmcont.sh focus-desktop,bspc node -d} 'primary:^{1-9,10}'
 
 super + {_,shift + }{F1,F2,F3,F4,F5,F6,F7,F8,F9,F10}
-	{~/dotfiles/sysscripts/bspwmcont.sh focus-desktop,bspc node -d} 'east:^{1-9,10}'
+	{~/dotfiles/sysscripts/bspwmcont.sh focus-desktop,bspc node -d} 'East:^{1-9,10}'
 
 #
 # preselect
