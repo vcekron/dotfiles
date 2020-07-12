@@ -30,14 +30,20 @@ shift $((OPTIND-1))
 # Input arguments
 COMMAND=$1
 
+case $COMMAND in
+	"focus-desktop")
+		TARGET=$2
+		bspc desktop -a "$TARGET" && exit
+		[[ $(bspc query -D -d "$TARGET".active) ]] && exit
+		bspc desktop -f "$TARGET"
+		exit
+		;;
+esac
+
 # Remove scratchpad sitcky flag
 [[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=off
 
 case $COMMAND in
-	"focus-desktop")
-		TARGET=$2
-		bspc desktop -a "$TARGET" || bspc desktop -f "$TARGET"
-		;;
 	"focus-next-monitor")
 		bspc monitor -f next
 		[[ $SCRATCHPAD ]] && bspc node $SCRATCHID -m focused -f
