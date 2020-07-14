@@ -18,12 +18,6 @@ while getopts "h" opt; do
 
 done
 
-# Fetch IDs
-SCRATCHID=$(cat /tmp/scratchid)
-
-# Check for proper scratchpad
-[[ $(xprop -id $SCRATCHID WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && SCRATCHPAD=1
-
 # Shift argument indices
 shift $((OPTIND-1))
 
@@ -39,6 +33,12 @@ case $COMMAND in
 		exit
 		;;
 esac
+
+# Fetch IDs
+SCRATCHID=$(cat /tmp/scratchid)
+
+# Check for proper scratchpad
+[[ $(xprop -id $SCRATCHID WM_CLASS | cut -d'"' -f2) = "scratchpad" ]] && SCRATCHPAD=1
 
 # Remove scratchpad sitcky flag
 [[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=off
