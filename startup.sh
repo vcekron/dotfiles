@@ -2,7 +2,7 @@
 
 case $(hostname) in
 	"amunet")
-		APPS=("waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+		APPS=("waterfox-current" "spotify" "telegram-desktop" "qbittorrent")
 		;;
 	"hathor")
 		APPS=("waterfox" "spotify" "telegram-desktop")
