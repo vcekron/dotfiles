@@ -53,10 +53,9 @@ let g:airline_section_c = '%<%F%m %#__accent_red#%{airline#util#wrap(airline#par
 
 let g:deoplete#enable_at_startup = 1
 " deoplete vimtex integration
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
+  call deoplete#custom#var('omni', 'input_patterns', {
+          \ 'tex': g:vimtex#re#deoplete
+          \})
 " deoplete-jedi settings
 "autocmd CompleteDone * pclose!
 "autocmd FileType python setlocal completeopt-=preview
