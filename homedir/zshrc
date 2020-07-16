@@ -111,6 +111,9 @@ fi
 #stty -ixon
 setopt noflowcontrol
 
+#This enables zmv
+autoload -Uz zmv
+
 #This enables the use of colors
 autoload -U colors && colors
 

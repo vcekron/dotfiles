@@ -1,6 +1,6 @@
 #! /bin/sh
 
-USAGE="usage: bspwmcont [-h] focus-next-monitor|node-to-next-monitor|fetch-active-node|bubble-desktop-next|bubble-desktop-prev|bubble-desktop-monitor"
+USAGE="usage: bspwmcont [-h] focus-desktop <monitor> <desktop>|focus-next-monitor|node-to-next-monitor|fetch-active-node|bubble-desktop-next|bubble-desktop-prev|bubble-desktop-monitor"
 
 # Input flags
 while getopts "h" opt; do
@@ -27,8 +27,18 @@ SCRATCHID=$(cat /tmp/scratchid)
 # Shift argument indices
 shift $((OPTIND-1))
 
-# Input argument
+# Input arguments
 COMMAND=$1
+
+case $COMMAND in
+	"focus-desktop")
+		TARGET=$2
+		bspc desktop -a "$TARGET" && exit
+		[[ $(bspc query -D -d "$TARGET".active) ]] && exit
+		bspc desktop -f "$TARGET"
+		exit
+		;;
+esac
 
 # Remove scratchpad sitcky flag
 [[ $SCRATCHPAD ]] && bspc node $SCRATCHID --flag sticky=off
