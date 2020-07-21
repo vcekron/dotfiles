@@ -173,10 +173,10 @@ alias ..="cd .."
 alias ..2="cd ../.."
 alias ln="ln -v"
 alias mkdir="mkdir -v"
+alias trash="trash -v"
 alias rm="noglob timeout 10 rm -iv --one-file-system"
 alias rmdir="rmdir -v"
 alias srm="noglob timeout 10 sudo rm -iv --one-file-system"
-alias trash="/usr/bin/mv --backup=t -v -t /home/${USER}/.local/share/Trash/files/ "$@""
 alias -g cp="cp -iv"
 alias -g mv="mv -iv"
 alias rcp="rsync -v --progress"
@@ -227,21 +227,6 @@ nse ()
 new ()
 {
 	(urxvt -e "$@" &)
-}
-
-emptytrash ()
-{
-	printf '%s ' 'Delete all files in ~/.local/share/Trash/files/? [y/N]'
-	read -rs -k 1 ans
-	echo
-	case "${ans}" in
-		y|Y|$'\n')
-			/usr/bin/rm -rv /home/${USER}/.local/share/Trash/files/*
-			;;
-
-		*)
-			echo "No files removed."
-	esac
 }
 
 function extract() {
