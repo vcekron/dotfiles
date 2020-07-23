@@ -2,7 +2,7 @@
 
 case $(hostname) in
 	"freja")
-		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent" "SVPManager")
+		APPS=("dropbox" "waterfox-current" "spotify" "telegram-desktop" "qbittorrent")
 		;;
 	"TUE009888")
 		APPS=("waterfox-current" "spotify" "telegram-desktop" "owncloud" "dropbox" "stalonetray")
