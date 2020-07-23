@@ -6,6 +6,8 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+num_mon=$(xrandr | grep connected | grep -v disconnected | wc -l)
+
 case $(hostname) in
 	"freja")
 		xrandr --output DP-0 --auto --primary
@@ -70,9 +72,16 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=1.0
 
+export MONITOR1=primary
 case $(hostname) in
 	"TUE009888")
 		export MOZ_USE_XINPUT2=1
+		case $num_mon in
+			2)
+				export MONITOR1=East
+				export MONITOR2=primary
+				;;
+		esac
 		;;
 esac
 
