@@ -110,16 +110,16 @@ while read -r line ; do
 			eval tc${i}="$tc"
 		done
 	else
-		tc="%{B$COLOR_SYS_BG}"
+		tc1="%{B$COLOR_SYS_BG}"
 	fi
 
-	case $num_mon in
-		2)
-			printf "%s\n" "%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc1}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc2}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
-			;;
-		1)
-			printf "%s\n" "%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc}${time}%{B-}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
-			;;
-	esac
+	output="%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc1}${time}%{B-}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
+
+	for j in $(seq 2 ${num_mon}); do
+		tcn=$(eval echo \$tc${j})
+		output="${output}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tcn}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
+	done
+
+	printf "%s\n" "$output"
 
 done
