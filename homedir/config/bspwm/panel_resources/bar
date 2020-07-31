@@ -11,9 +11,9 @@ session="$PADDING%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} $(whoami)@$(hostname) %{B-}%
 
 while read -r line ; do
 	case $line in
-		S*)
+		T*)
 			# clock output
-			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+			time="%{F$COLOR_SYS_FG} ${line#?} %{F-}"
 			;;
 		B*)
 			# battery status
@@ -34,6 +34,7 @@ while read -r line ; do
 		W*)
 			# bspwm's state
 			wm=""
+			tcs=""
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
@@ -55,6 +56,7 @@ while read -r line ; do
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}} ${name} %{B-}%{F-}"
+						tcs="${tcs}%{B${BG}}:"
 						;;
 					[fFoOuU]*)
 						case $item in
@@ -101,12 +103,22 @@ while read -r line ; do
 			;;
 	esac
 
+	if [[ $tcs ]]; then
+		i=0
+		for tc in $tcs; do
+			i=$((i+1))
+			eval tc${i}="$tc"
+		done
+	else
+		tc="%{B$COLOR_SYS_BG}"
+	fi
+
 	case $num_mon in
 		2)
-			printf "%s\n" "%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${sys}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${sys}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
+			printf "%s\n" "%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc1}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc2}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
 			;;
 		1)
-			printf "%s\n" "%{l}${space}${border}%{+u}%{+o}${wm}%{c}${sys}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
+			printf "%s\n" "%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc}${time}%{B-}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
 			;;
 	esac
 
