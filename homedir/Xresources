@@ -24,7 +24,7 @@ panel.color.focused_occupied_fg: hl_fg_color
 panel.color.focused_occupied_bg: hl_bg_color
 panel.color.urgent_fg: fg_color
 panel.color.urgent_bg: u_color
-panel.color.focused_urgent_fg: fg-color
+panel.color.focused_urgent_fg: fg_color
 panel.color.focused_urgent_bg: u_color
 panel.color.state_fg: fg_color
 panel.color.state_bg: bg_color
