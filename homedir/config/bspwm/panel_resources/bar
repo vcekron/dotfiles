@@ -13,7 +13,7 @@ while read -r line ; do
 	case $line in
 		T*)
 			# clock output
-			time="%{F$COLOR_SYS_FG} ${line#?} %{F-}"
+			time=" ${line#?} "
 			;;
 		B*)
 			# battery status
@@ -34,7 +34,8 @@ while read -r line ; do
 		W*)
 			# bspwm's state
 			wm=""
-			tcs=""
+			tfgs=""
+			tbgs=""
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
@@ -56,7 +57,8 @@ while read -r line ; do
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}} ${name} %{B-}%{F-}"
-						tcs="${tcs}%{B${BG}}:"
+						tfgs="${tfgs}%{F${FG}}:"
+						tbgs="${tbgs}%{B${BG}}:"
 						;;
 					[fFoOuU]*)
 						case $item in
@@ -103,21 +105,28 @@ while read -r line ; do
 			;;
 	esac
 
-	if [[ $tcs ]]; then
+	if [[ $tfgs && $tbgs ]]; then
 		i=0
-		for tc in $tcs; do
+		for tfg in $tfgs; do
 			i=$((i+1))
-			eval tc${i}="$tc"
+			eval tfg${i}="$tfg"
+		done
+		i=0
+		for tbg in $tbgs; do
+			i=$((i+1))
+			eval tbg${i}="$tbg"
 		done
 	else
-		tc1="%{B$COLOR_FOCUSED_MONITOR_BG}"
+		tfg1="%{F$COLOR_FOCUSED_MONITOR_FG}"
+		tbg1="%{B$COLOR_FOCUSED_MONITOR_BG}"
 	fi
 
-	output="%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tc1}${time}%{B-}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
+	output="%{Sf}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tfg1}${tbg1}${time}%{B-}%{F-}%{r}${update}${tray}${battery}${volume}${session}%{-o}%{-u}${border}${space}"
 
 	for j in $(seq 2 ${num_mon}); do
-		tcn=$(eval echo \$tc${j})
-		output="${output}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tcn}${time}%{B-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
+		tfgn=$(eval echo \$tfg${j})
+		tbgn=$(eval echo \$tbg${j})
+		output="${output}%{S+}%{l}${space}${border}%{+u}%{+o}${wm}%{c}${tfgn}${tbgn}${time}%{B-}%{F-}%{r}${update}${tray}${volume}${session}%{-o}%{-u}${border}${space}"
 	done
 
 	printf "%s\n" "$output"

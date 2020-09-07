@@ -3,7 +3,7 @@ PANEL_HEIGHT=30
 PANEL_TOP_GAP=6
 PANEL_LINE_WIDTH=4
 PANEL_WM_NAME=bspwm_panel
-PANEL_FONT="Source Sans Pro Semibold:size=12"
+PANEL_FONT="Source Sans Variable:style=Semibold:size=12"
 ICON_FONT="FontAwesome:size=15"
 ICON_FONT2="FontAwesome:size=12"
 ICON_FONT3="FontAwesome:size=10"
