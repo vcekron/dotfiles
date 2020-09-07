@@ -1,9 +1,9 @@
 # thumb wheel up => increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
+"pactl set-sink-volume @DEFAULT_SINK@ -2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
 	b:7
 
 # thumb wheel down => lower volume
-"pactl set-sink-volume @DEFAULT_SINK@ -2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
+"pactl set-sink-volume @DEFAULT_SINK@ +2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
 	b:6
 
 # SHIFT + forward/backward => next/previous song. Broken because reasons, see e.g.\ https://askubuntu.com/questions/627555/how-to-map-modifiers-e-g-ctrl-to-mouse-thumb-buttons-using-xbindkeys and cry.
