@@ -105,23 +105,19 @@ while read -r line ; do
 			;;
 	esac
 
-	if [[ $tfgs ]]; then
+	if [[ $tfgs && $tbgs ]]; then
 		i=0
 		for tfg in $tfgs; do
 			i=$((i+1))
 			eval tfg${i}="$tfg"
 		done
-	else
-		tfg1="%{F$COLOR_FOCUSED_MONITOR_FG}"
-	fi
-
-	if [[ $tbgs ]]; then
 		i=0
 		for tbg in $tbgs; do
 			i=$((i+1))
 			eval tbg${i}="$tbg"
 		done
 	else
+		tfg1="%{F$COLOR_FOCUSED_MONITOR_FG}"
 		tbg1="%{B$COLOR_FOCUSED_MONITOR_BG}"
 	fi
 
