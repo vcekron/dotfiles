@@ -5,22 +5,3 @@
 # thumb wheel down => lower volume
 "pactl set-sink-volume @DEFAULT_SINK@ +2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
 	b:6
-
-# SHIFT + forward/backward => next/previous song. Broken because reasons, see e.g.\ https://askubuntu.com/questions/627555/how-to-map-modifiers-e-g-ctrl-to-mouse-thumb-buttons-using-xbindkeys and cry.
-#"xte 'key XF86AudioNext'"
-#	shift + b:9
-#
-#"xte 'key XF86AudioPrev'"
-#	shift + b:8
-
-# thumb button => play/pause music
-# Credit to gregmuellegger https://bbs.archlinux.org/viewtopic.php?pid=1551271#p1551271
-# We need a sleep here since the button triggers a few more key codes.
-# It also triggers Control+Mod2+Control_L and Alt+Mod2+Alt_L. The sleep
-# prevents that X receives those keypresses simultaniously. Therefore they
-# might interfere and trigger unwanted actions. By the sleep we make sure that
-# the Alt+Left is receive as distinct event.
-#
-# Note that "m:0x1c + c:23" is the default value. To find the current one, use xbindkeys -mk.
-"sleep 0.1 && xte 'key XF86AudioPlay'"
-	m:0x24 + c:23
