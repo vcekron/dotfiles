@@ -303,3 +303,4 @@ key[PageDown]=${terminfo[knp]}
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)"
