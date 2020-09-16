@@ -99,7 +99,6 @@ urxvtd -q -f -o &
 unclutter --timeout 1 &
 #dropbox &
 xbindkeys &
-logid &
 redshift &
 #/usr/bin/stalonetray &
 ##Scripts
