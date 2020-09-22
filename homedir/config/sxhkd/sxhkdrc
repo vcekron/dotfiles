@@ -161,10 +161,10 @@ ctrl + mod3 + r
 	~/dotfiles/sysscripts/redtoggle.sh
 
 ctrl + mod3 + p
-	playerctl play-pause -a -i chromium
+	playerctl play-pause
 
 ctrl + mod3 + {_,shift +}n
-	playerctl {next,previous} -a -i chromium
+	playerctl {next,previous}
 
 super + e
 	urxvt -e $SHELL -c "stty -ixon;ranger"
@@ -185,16 +185,16 @@ XF86AudioLowerVolume
 	~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
 XF86AudioPlay
-	playerctl play-pause -a -i chromium
+	playerctl play-pause
 
 XF86AudioStop
-	playerctl stop -a -i chromium
+	playerctl stop
 
 XF86AudioNext
-	playerctl next -a -i chromium
+	playerctl next
 
 XF86AudioPrev
-	playerctl previous -a -i chromium
+	playerctl previous
 
 XF86WebCam
 	~/dotfiles/sysscripts/lock.sh s

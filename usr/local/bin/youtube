@@ -1,3 +1,4 @@
 #! /bin/sh
+# REMEMBER TO DISABLE HW KEYS: chrome://flags/#hardware-media-key-handling
 
 vivaldi-stable --app=https://www.youtube.com/feed/subscriptions
