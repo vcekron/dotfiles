@@ -1,0 +1,11 @@
+#! /bin/sh
+
+running=$(pgrep jupyter-noteboo)
+if [[ $running ]]
+then
+	vivaldi-stable --app=http://localhost:8888/lab
+else
+	#jupyter notebook --no-browser &
+	/opt/anaconda/bin/jupyter-notebook --no-browser &
+	vivaldi-stable --app=http://localhost:8888/lab
+fi
