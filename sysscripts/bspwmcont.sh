@@ -56,13 +56,19 @@ case $COMMAND in
 		bspc node @next:focused:.active -m focused
 		;;
 	"bubble-desktop-next")
-		bspc node @focused:/ -s @next.local:/ --follow || bspc node @/ -d next.local --follow
+		focused=$(bspc query -D -d --names)
+		next=$(bspc query -D -d next --names)
+		bspc desktop -b next && bspc desktop -n ${next} && bspc desktop prev -n ${focused}
 		;;
 	"bubble-desktop-prev")
-		bspc node @focused:/ -s @prev.local:/ --follow || bspc node @/ -d prev.local --follow
+		focused=$(bspc query -D -d --names)
+		prev=$(bspc query -D -d prev --names)
+		bspc desktop -b prev && bspc desktop -n ${prev} && bspc desktop next -n ${focused}
 		;;
 	"bubble-desktop-monitor")
-		bspc node @focused:/ -s @next:focused:/ --follow || bspc node @/ -d next:focused --follow
+		focused=$(bspc query -D -d --names)
+		next=$(bspc query -D -d next:focused --names)
+		bspc desktop -s next:focused --follow && bspc desktop -n ${next} && bspc desktop next:focused -n ${focused}
 		;;
 	"")
 		>&2 echo -e "bspwmcont: no command\n$USAGE"
