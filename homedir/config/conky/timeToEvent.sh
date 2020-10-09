@@ -14,11 +14,15 @@ convertsecs() {
 	((s=${1}%60))
 	if [[ $d -gt 0 ]] ; then
 		printf "%02d days\n" $((d + 1))
-	elif [[ $m -ge 0 ]]; then
-		if [[ $m == 59 ]]; then
-			printf "%02d:00\n" $((h + 1))
+	elif [[ $h -ge 0 ]]; then
+		if [[ $m -ge 0 ]]; then
+			if [[ $m -eq 59 ]]; then
+				printf "%02d:00\n" $((h + 1))
+			else
+				printf "%02d:%02d\n" $h $((m + 1))
+			fi
 		else
-			printf "%02d:%02d\n" $h $((m + 1))
+			printf "Past Time"
 		fi
 	else
 		printf "Past Time"
