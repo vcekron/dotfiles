@@ -286,7 +286,7 @@ clpkg ()
 
 syu ()
 {
-	trizen -Syu --devel --needed --noedit "$@" --quiet
+	trizen -Syu --devel --needed --noedit "$@"
 	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
 	echo "$bold_color$fg[blue]::$fg[white] Checking for unaffiliated packages...${reset_color}"
 	clpkg
