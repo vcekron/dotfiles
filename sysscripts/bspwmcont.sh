@@ -57,13 +57,13 @@ case $COMMAND in
 		;;
 	"bubble-desktop-next")
 		focused=$(bspc query -D -d --names)
-		next=$(bspc query -D -d next --names)
-		bspc desktop -b next && bspc desktop -n ${next} && bspc desktop prev -n ${focused}
+		next=$(bspc query -D -d next.local --names)
+		bspc desktop -s next.local --follow && bspc desktop -n ${next} && bspc desktop prev.local -n ${focused}
 		;;
 	"bubble-desktop-prev")
 		focused=$(bspc query -D -d --names)
-		prev=$(bspc query -D -d prev --names)
-		bspc desktop -b prev && bspc desktop -n ${prev} && bspc desktop next -n ${focused}
+		prev=$(bspc query -D -d prev.local --names)
+		bspc desktop -s prev.local --follow && bspc desktop -n ${prev} && bspc desktop next.local -n ${focused}
 		;;
 	"bubble-desktop-monitor")
 		focused=$(bspc query -D -d --names)
