@@ -168,7 +168,6 @@ alias ls="exa -s type"
 alias ll="exa -l -s type"
 alias fsz="dust -ir"
 alias grep="grep --color=auto"
-alias btm="btm -g"
 alias e="$EDITOR"
 alias se="sudoedit"
 alias ..="cd .."
@@ -190,7 +189,7 @@ alias gs="git status -sb"
 alias ga="git add"
 alias gc="git commit -m"
 
-alias hwmon="glances -1 -t 1"
+alias hwmon="btm -g"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
