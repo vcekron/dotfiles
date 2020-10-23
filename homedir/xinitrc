@@ -116,7 +116,7 @@ case $(hostname) in
 		exec bspwm
 		;;
 	*)
-		syncthing &
+		syncthing -no-browser &
 		exec bspwm
 		;;
 esac
