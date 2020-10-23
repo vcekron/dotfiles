@@ -235,9 +235,9 @@ scrShot() {
 }
 
 #yt function opens whatever URL you want as a Vivaldi app.
-#usage: yt <X>, where X is an (escaped) URL.
+#usage: yt "<X>", where X is a URL. Note the ""!
 yt() {
-	vivaldi-stable --app=$1 > /dev/null 2>&1
+	vivaldi-stable --app="$1" > /dev/null 2>&1
 }
 
 #scrShotShadow function takes a screenshot and adds a nice shadow.
