@@ -207,7 +207,7 @@ alias nbconvert='/opt/anaconda/bin/jupyter-nbconvert'
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
 alias rKB='xmodmap ~/.Xmodmap'
-alias rMouse='systemctl restart logid.service'
+alias rLogid='systemctl restart logid.service'
 
 alias stampPDF='~/Dropbox/LaTeX_files/stampPDF'
 
