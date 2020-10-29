@@ -169,6 +169,9 @@ ctrl + mod3 + {_,shift +}n
 super + e
 	urxvt -e $SHELL -c "stty -ixon;ranger"
 
+Print
+	maim -u -m 1 -s ~/scrShot.png
+
 XF86Sleep
 	~/dotfiles/sysscripts/lock.sh s
 
