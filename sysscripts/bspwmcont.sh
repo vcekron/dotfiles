@@ -58,17 +58,17 @@ case $COMMAND in
 	"bubble-desktop-next")
 		focused=$(bspc query -D -d --names)
 		next=$(bspc query -D -d next.local --names)
-		bspc desktop -s next.local --follow && bspc desktop -n ${next} && bspc desktop prev.local -n ${focused}
+		bspc desktop -s next.local --follow -n ${next} && bspc desktop prev.local -n ${focused}
 		;;
 	"bubble-desktop-prev")
 		focused=$(bspc query -D -d --names)
 		prev=$(bspc query -D -d prev.local --names)
-		bspc desktop -s prev.local --follow && bspc desktop -n ${prev} && bspc desktop next.local -n ${focused}
+		bspc desktop -s prev.local --follow -n ${prev} && bspc desktop next.local -n ${focused}
 		;;
 	"bubble-desktop-monitor")
 		focused=$(bspc query -D -d --names)
 		next=$(bspc query -D -d next:focused --names)
-		bspc desktop -s next:focused --follow && bspc desktop -n ${next} && bspc desktop next:focused -n ${focused}
+		bspc desktop -s next:focused --follow -n ${next} && bspc desktop next:focused -n ${focused}
 		;;
 	"")
 		>&2 echo -e "bspwmcont: no command\n$USAGE"
