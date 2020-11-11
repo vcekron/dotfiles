@@ -30,24 +30,25 @@ case $(bspc query -M | wc -l) in
 	2)
 		bspc monitor east -n East
 		bspc monitor East -d 1 2 3 4 5 6 7 8
-		bspc rule -a Spotify 				desktop='^2'
-		bspc rule -a TelegramDesktop 		desktop='^1'
-		bspc rule -a Skype					dekstop='^1' state=pseudo_tiled
-		bspc rule -a discord 				desktop='^1' state=pseudo_tiled
+		bspc rule -a Spotify 							desktop='^2'
+		bspc rule -a TelegramDesktop 					desktop='^1'
+		bspc rule -a Skype 								dekstop='^1' state=pseudo_tiled
+		bspc rule -a discord 							desktop='^1' state=pseudo_tiled
+		bspc rule -a "Microsoft Teams - Insiders" 		desktop='^3'
 		;;
 	*)
-		bspc rule -a Spotify 				desktop='^7'
-		bspc rule -a SVPManager 			desktop='^6' state=pseudo_tiled
-		bspc rule -a qBittorrent 			desktop='^6'
-		bspc rule -a TelegramDesktop 		desktop='^8'
-		bspc rule -a Skype					dekstop='^8' state=pseudo_tiled
+		bspc rule -a Spotify 							desktop='^7'
+		bspc rule -a SVPManager 						desktop='^6' state=pseudo_tiled
+		bspc rule -a qBittorrent 						desktop='^6'
+		bspc rule -a TelegramDesktop 					desktop='^8'
+		bspc rule -a Skype 								dekstop='^8' state=pseudo_tiled
 		;;
 esac
 
-bspc rule -a SpeedCrunch 					state=pseudo_tiled
-bspc rule -a URxvt:scratchpad 				sticky=on state=floating locked=on hidden=on
-bspc rule -a Zathura 						state=tiled
-bspc rule -a Google-chrome 					desktop='^3'
+bspc rule -a SpeedCrunch 								state=pseudo_tiled
+bspc rule -a URxvt:scratchpad 							sticky=on state=floating locked=on hidden=on
+bspc rule -a Zathura 									state=tiled
+bspc rule -a Google-chrome 								desktop='^3'
 
 feh --bg-fill ~/wallpaper.png &
 nvidia-settings -l &
