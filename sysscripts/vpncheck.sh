@@ -1,6 +1,6 @@
 #! /bin/sh
 
-VPN_IF=tun0
+VPN_IF=nordlynx
 VPN_CHECK="nordvpn status"
 VPN_CHECK_FILTER="grep 'Connected'"
 POLL_INTERVAL=15
