@@ -160,6 +160,9 @@ ctrl + mod3 + l
 ctrl + mod3 + r
 	~/dotfiles/sysscripts/redtoggle.sh
 
+ctrl + mod3 + a
+	~/dotfiles/sysscripts/togglesink.sh
+
 ctrl + mod3 + p
 	playerctl play-pause
 
