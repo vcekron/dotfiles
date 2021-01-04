@@ -3,7 +3,7 @@
 HEADPHONES="alsa_output.usb-Corsair_CORSAIR_VOID_ELITE_Wireless_Gaming_Dongle-00.analog-stereo"
 case $(hostname) in
 	"freja")
-		SPEAKERS="alsa_output.pci-0000_00_1f.3.analog-stereo"
+		SPEAKERS="alsa_output.pci-0000_08_00.4.iec958-stereo"
 		;;
 	"TUE009888")
 		SPEAKERS="alsa_output.pci-0000_00_1f.3.analog-stereo"
