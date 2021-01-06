@@ -163,6 +163,9 @@ ctrl + mod3 + r
 ctrl + mod3 + a
 	~/dotfiles/sysscripts/togglesink.sh
 
+super + shift + r
+	xmodmap ~/.Xmodmap
+
 ctrl + mod3 + p
 	playerctl play-pause
 
