@@ -166,6 +166,9 @@ ctrl + mod3 + a
 super + shift + r
 	xmodmap ~/.Xmodmap
 
+super + shift + b
+	~/dotfiles/sysscripts/fetchheadsetbattery.sh
+
 ctrl + mod3 + p
 	playerctl play-pause
 
