@@ -167,7 +167,8 @@ super + shift + r
 	xmodmap ~/.Xmodmap
 
 super + shift + b
-	~/dotfiles/sysscripts/fetchheadsetbattery.sh
+	~/dotfiles/sysscripts/fetchheadsetbattery.sh; \
+	~/dotfiles/sysscripts/fetchmousebattery.sh
 
 ctrl + mod3 + p
 	playerctl play-pause
