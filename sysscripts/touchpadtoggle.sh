@@ -9,9 +9,9 @@ if [ $STATE -eq 1 ]
 then
     xinput disable $ID
     #echo "Touchpad disabled."
-    notify-send -a 'Touchpad' 'Disabled' -i /usr/share/icons/HighContrast/48x48/devices/input-touchpad.png
+    notify-send -a 'Touchpad' 'Disabled' -t 5000 -i /usr/share/icons/HighContrast/256x256/devices/input-touchpad.png
 else
     xinput enable $ID
     #echo "Touchpad enabled."
-    notify-send -a 'Touchpad' 'Enabled' -i /usr/share/icons/HighContrast/48x48/devices/input-touchpad.png
+    notify-send -a 'Touchpad' 'Enabled' -t 5000 -i /usr/share/icons/HighContrast/256x256/devices/input-touchpad.png
 fi
