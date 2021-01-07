@@ -4,10 +4,24 @@ pacmd info | grep -e "Default sink.*alsa_output.usb-Corsair_CORSAIR_VOID_ELITE_W
 
 volume -d 'pulse' | read -r MUTE VOL
 
-if [[ $MUTE == "off" ]] ; then
-	VOL="%{F#FF707880}\\${ICON} $VOL%"
+if [[ $ICON == "uf025" ]] ; then
+	headsetcontrol -cb | read -r BATTH		# Check battery if using headset
 else
-	VOL="\\${ICON} $VOL%"
+	BATTH="100"								# Set battery to maximum otherwise
+fi
+
+if [[ $MUTE == "off" && $BATTH -lt 25 ]] ; then
+	VOL="%{F#FFA54242}\\${ICON} 00%" 		# MUTED & LOW BATTERY
+elif [[ $MUTE == "off" ]] ; then
+	VOL="%{F#FF707880}\\${ICON} 00%" 		# MUTED
+elif [[ $BATTH == "-2" ]] ; then
+	VOL="%{F#FF707880}\\${ICON} $VOL%" 		# TURNED OFF
+elif [[ $BATTH == "-1" ]] ; then
+	VOL="\\${ICON} $VOL%" 					# CHARGING
+elif [[ $BATTH -lt 25 ]] ; then
+	VOL="%{F#FFA54242}\\${ICON} $VOL%" 		# LOW BATTERY
+else
+	VOL="\\${ICON} $VOL%"					# NORMAL
 fi
 
 echo "V$VOL"
