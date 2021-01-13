@@ -10,7 +10,7 @@ case $(hostname) in
 		;;
 esac
 
-pacmd info | grep -e "Default sink.*${SPEAKERS}" && pacmd set-default-sink ${HEADPHONES} || pacmd set-default-sink ${SPEAKERS}
+pacmd info | grep -e "Default sink.*${SPEAKERS}" && pacmd set-default-sink ${HEADPHONES} && headsetcontrol -l 0 || pacmd set-default-sink ${SPEAKERS}
 
 ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO"
 
