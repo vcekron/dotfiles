@@ -1,0 +1,15 @@
+#header { display: none; } /* Hide menu bar */
+
+/* Increase width of tab bar */
+#tabs-tabbar-container.left,
+#tabs-tabbar-container.right {
+  width: 450px !important;
+}
+#tabs-subcontainer.left,
+#tabs-subcontainer.right {
+  flex-basis: 225px !important;
+}
+#tabs-tabbar-container.left .tab-position,
+#tabs-tabbar-container.right .tab-position {
+  width: 100%;
+}
