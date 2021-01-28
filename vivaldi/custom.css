@@ -3,11 +3,11 @@
 /* Increase width of tab bar */
 #tabs-tabbar-container.left,
 #tabs-tabbar-container.right {
-  width: 380px !important;
+  width: 386px !important;
 }
 #tabs-subcontainer.left,
 #tabs-subcontainer.right {
-  flex-basis: 190px !important;
+  flex-basis: 193px !important;
 }
 #tabs-tabbar-container.left .tab-position,
 #tabs-tabbar-container.right .tab-position {
