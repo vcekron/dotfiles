@@ -1,0 +1,34 @@
+// Custom layout based on US ANSI with <LALT> as mod3 & <CAPS> as Alt_L by default.
+// In addition, the Swedish letters å, ä, ö are accessible via ISO_Level3_Shift + a, e, o.
+// Finally, dead characters have been introduced (good thing they're never used in English...).
+// Whilst I was at it, I also added the ability to write °.
+
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "us_se" {
+
+	include "us(basic)"
+	include "eurosign"
+	include "level3(ralt_switch)"
+	name[Group1] = "US ANSI with mod3 and Swedish letters";
+
+	//	<KEY>	{[	normal, 		+ SHIFT, 		+ ISO_Level3_Shift, 	+ ISO_Level3_Shift + SHIFT 	]};
+
+	// Regular key remap.
+	key	<TLDE>	{[	grave,			asciitilde,		dead_grave,				dead_tilde					]}; // `, ~, à, ñ
+	key	<AE04>	{[	4,				dollar,			EuroSign,				sterling					]}; // 4, $, €, £
+    key	<AE06>	{[	6,				asciicircum,	dead_circumflex,		degree						]}; // 6, ^, â, °
+
+	key	<AD03>	{[	e,				E,				adiaeresis,				Adiaeresis					]}; // e, E, ä, Ä
+	key	<AD09>	{[	o,				O,				odiaeresis,				Odiaeresis					]}; // o, O, ö, Ö
+
+	key	<AC01>	{[	a,				A,				aring,					Aring						]}; // a, A, å, Å
+    key	<AC10>	{[	semicolon,		colon,			dead_diaeresis,			dead_diaeresis				]}; // ;, :, ü, ü
+    key	<AC11>	{[	apostrophe,		quotedbl,		dead_acute,				dead_grave					]}; // ', ", á, à
+
+	// Remap Caps-Lock to Alt (still acesible via modifiers).
+	key	<CAPS>	{[	Alt_L,			Caps_Lock,		Caps_Lock,				Caps_Lock					]};
+
+	// Remap modifier key <LALT> to nonphysical key Mod3.
+	key	<LALT>	{[	Hyper_R,		Hyper_R,		Hyper_R,				Hyper_R						]};
+	modifier_map Mod3 { <LALT> };
+};
