@@ -163,9 +163,6 @@ ctrl + mod3 + r
 ctrl + mod3 + a
 	~/dotfiles/sysscripts/togglesink.sh
 
-super + shift + r
-	~/dotfiles/sysscripts/resetkeyboard.sh
-
 super + shift + b
 	~/dotfiles/sysscripts/fetchheadsetbattery.sh; \
 	~/dotfiles/sysscripts/fetchmousebattery.sh
