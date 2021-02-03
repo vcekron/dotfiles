@@ -5,5 +5,4 @@
 *::selection {background-color:var(--main-ac-color) !important; color:var(--hl-tx-color);}
 
 * { scrollbar-width: thin; }
-:root:not(:hover) { scrollbar-color: transparent transparent !important; }
 :root { scrollbar-color: #666 #383838 !important; }
