@@ -1,10 +1,11 @@
 @import "./colors.css";
 
-/*** Variables ***/
 :root {
 	/* Number of pixels of enlargement when URL bar is focused */
 	--mbarstyler-popout-pixels: 2px; /* [0px - 7px] */
 }
+
+
 
 /*** URL bar enlargement or lack thereof ***/
 /* Compute new position, width, and padding */
@@ -33,14 +34,14 @@
 	padding-bottom: 0 !important;
 }
 
+
+
 /*** GENERAL UI ***/
 /* Set selection colour */
 #main-window ::-moz-selection {
 	background-color: var(--main-ac-color) !important;
 	color: var(--hl-tx-color) !important;
 }
-
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Set loading background */
 browser {
@@ -52,16 +53,35 @@ browser {
 	background: var(--main-ac-color) !important;
 }
 
+
+
+/*** URL BAR ***/
 /* Set URL text colour */
 #urlbar-input-container {
 	background-color: var(--main-bg-color) !important;
 }
 
-/*** TABBAR ***/
+
+
+/*** TAB BAR ***/
 /* Hide tabs */
 #TabsToolbar {
 	visibility: collapse !important;
 }
+
+
+
+/*** BOOKMARKS BAR ***/
+/* Centre bookmarks */
+#PlacesToolbarItems{ -moz-box-pack: center }
+
+/* Set background colour */
+#PersonalToolbar {
+	background: var(--alt-ac-color) !important;
+	color: var(--main-tx-color) !important;
+}
+
+
 
 /*** SIDEBAR ***/
 /* Remove header */
@@ -73,23 +93,6 @@ browser {
 #sidebar-splitter {
 	width: 0px !important;
 	border-color: var(--main-bg-color) !important;
-}
-
-/* Set sidebar bookmark colours */
-#bookmarks-view {
-	color: var(--main-tx-color) !important;
-	background: var(--main-bg-color) !important;
-}
-
-/* Highlight row on hover in bookmarks sidebar */
-#bookmarks-view treechildren::-moz-tree-row(hover) {
-	background: var(--main-hl-color);
-}
-
-/* Set sidebar row height */
-.sidebar-placesTree treechildren::-moz-tree-row {
-	height: 18px !important;
-	min-height: 18px !important;
 }
 
 /* Hide sidebar on fullscren */
