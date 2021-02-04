@@ -1,86 +1,88 @@
 :root {
-  --main-bg-color: #1D1F21;
-  --main-hl-color: #282A2E;
-  --main-ac-color: #85678F;
-  --main-tx-color: #C5C8C6;
-  --hl-tx-color: #FFFFFF;
-  --alt-bg-color: #26292b;
-  --fill-color: #B5BD68;
-  --tab-size: 32px !important;
-  --top-margin: calc(var(--tab-height) * 8); /* Hardcoded caluclation based on the number of pinned tabs */
+	--main-bg-color: #1D1F21;
+	--main-hl-color: #282A2E;
+	--main-ac-color: #85678F;
+	--main-tx-color: #C5C8C6;
+	--hl-tx-color: #FFFFFF;
+	--alt-bg-color: #26292b;
+	--fill-color: #B5BD68;
+	--tab-size: 32px !important;
 }
 
 /*** SIDEBAR ***/
 /* Set background of sidebar */
 :root.sidebar #background {
-  background: var(--main-bg-color);
+	background: var(--main-bg-color);
 }
 
 /* Hide new tab button */
 .newtab-button-box {
-  display: none;
+	display: none;
 }
 #tabbar {
-  bottom: 0 !important; /* Eliminate dead space on bottom */
+	bottom: 0 !important; /* Eliminate dead space on bottom */
 }
 
 /*** TABS ***/
-/* Separate pinned an non-pinned tabs & remove border */
-#tabbar {
-  /* How can we calculate this value? */
-  margin-top: var(--top-margin) !important;
-  border-top: none !important;
-}
-
 /* Change the tab height */
 tab-item {
-  height: var(--tab-size);
+	height: var(--tab-size);
 }
 
 /* Change tab borders */
 tab-item, tab-item.pinned {
-  border: solid 1px var(--main-bg-color);
+	border: solid 1px var(--main-bg-color);
+}
+
+/* Separate pinned and non-pinned tabs */
+:last-child {
+	margin-top: 13px !important;
+}
+
+/* Remove border between pinned and non-pinned tabs */
+#tabbar {
+	border-top: none !important;
 }
 
 /* Hide highlighter thingie */
 :root .tab .highlighter::before {
-  display: none;
+	display: none;
 }
 tab-item {
-  padding-left: 0px !important; /* Reduce space due to hidden highlighter */
+	padding-left: 0px !important; /* Reduce space due to hidden highlighter */
 }
 
 /* Hide tab close button */
 tab-item tab-closebox {
-  display: none;
+	display: none;
 }
 
 /* Set tab counter opacity */
 .tab .counter {
-  opacity: 0.7 !important;
+	opacity: 0.7 !important;
 }
 
 /* Set main label colour */
 .tab .label {
-  color: var(--main-tx-color);
+	color: var(--main-tx-color);
 }
 
 /* Set active tab background colour */
 .tab.active {
-  background-color: var(--main-ac-color);
+	background-color: var(--main-ac-color);
 }
 
 /* Set active tab label colour */
 .tab.active .label {
-  color: var(--hl-tx-color);
+	color: var(--hl-tx-color);
 }
 
 /* Set unread tab label font */
 .tab.unread .label {
-  font-style: italic;
+	font-style: italic;
 }
 
 /* Change styling of the favicon of pending (unloaded) tabs */
 tab-item.discarded tab-favicon {
-  opacity: 0.5 !important;
+	opacity: 0.5 !important;
 }
