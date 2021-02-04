@@ -3,9 +3,8 @@
 	--main-hl-color: #282A2E;
 	--main-ac-color: #85678F;
 	--main-tx-color: #C5C8C6;
+	--alt-ac-color: #57455D;
 	--hl-tx-color: #FFFFFF;
-	--alt-bg-color: #26292b;
-	--fill-color: #B5BD68;
 	--tab-size: 32px !important;
 }
 
@@ -34,14 +33,9 @@ tab-item, tab-item.pinned {
 	border: solid 1px var(--main-bg-color);
 }
 
-/* Separate pinned and non-pinned tabs */
-:last-child {
-	margin-top: 13px !important;
-}
-
-/* Remove border between pinned and non-pinned tabs */
+/* Separate pinned and non-pinned tabs using a border */
 #tabbar {
-	border-top: none !important;
+	border-top: solid 13px var(--main-bg-color) !important;
 }
 
 /* Hide highlighter thingie */
@@ -74,6 +68,13 @@ tab-item tab-closebox {
 
 /* Set active tab label colour */
 .tab.active .label {
+/* Set selected background colour */
+tab-item:not(.active).highlighted {
+	background-color: var(--alt-ac-color);
+}
+
+/* Set active tab label colour */
+tab-item:not(.active).highlighted .label {
 	color: var(--hl-tx-color);
 }
 
