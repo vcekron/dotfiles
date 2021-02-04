@@ -39,7 +39,7 @@ tab-item, tab-item.pinned {
 }
 
 /* Hide highlighter thingie */
-:root .tab .highlighter::before {
+tab-item .highlighter {
 	display: none;
 }
 tab-item {
@@ -52,22 +52,25 @@ tab-item tab-closebox {
 }
 
 /* Set tab counter opacity */
-.tab .counter {
+tab-item .counter {
 	opacity: 0.7 !important;
 }
 
 /* Set main label colour */
-.tab .label {
+tab-item .label {
 	color: var(--main-tx-color);
 }
 
 /* Set active tab background colour */
-.tab.active {
+tab-item.active {
 	background-color: var(--main-ac-color);
 }
 
 /* Set active tab label colour */
-.tab.active .label {
+tab-item.active .label {
+	color: var(--hl-tx-color);
+}
+
 /* Set selected background colour */
 tab-item:not(.active).highlighted {
 	background-color: var(--alt-ac-color);
@@ -79,7 +82,7 @@ tab-item:not(.active).highlighted .label {
 }
 
 /* Set unread tab label font */
-.tab.unread .label {
+tab-item.unread .label {
 	font-style: italic;
 }
 
