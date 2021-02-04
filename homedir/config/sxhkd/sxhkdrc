@@ -163,7 +163,7 @@ ctrl + mod3 + r
 ctrl + mod3 + a
 	~/dotfiles/sysscripts/togglesink.sh
 
-super + shift + b
+ctrl + mod3 + b
 	~/dotfiles/sysscripts/fetchheadsetbattery.sh; \
 	~/dotfiles/sysscripts/fetchmousebattery.sh
 
