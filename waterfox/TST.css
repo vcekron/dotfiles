@@ -6,6 +6,7 @@
 	--alt-ac-color: #57455D;
 	--hl-tx-color: #FFFFFF;
 	--tab-size: 32px !important;
+	--multiselected-color: var(--main-ac-color); /* Set highlighter colour */
 }
 
 /*** SIDEBAR ***/
@@ -68,16 +69,6 @@ tab-item.active {
 
 /* Set active tab label colour */
 tab-item.active .label {
-	color: var(--hl-tx-color);
-}
-
-/* Set selected background colour */
-tab-item:not(.active).highlighted {
-	background-color: var(--alt-ac-color);
-}
-
-/* Set active tab label colour */
-tab-item:not(.active).highlighted .label {
 	color: var(--hl-tx-color);
 }
 
