@@ -81,3 +81,8 @@ tab-item.unread .label {
 tab-item.discarded tab-favicon {
 	opacity: 0.5 !important;
 }
+
+/* Set burster (finished loading animation) colour */
+tab-item .burster {
+	--throbber-color: var(--main-ac-color);
+}
