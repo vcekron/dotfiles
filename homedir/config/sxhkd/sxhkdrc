@@ -209,10 +209,7 @@ XF86AudioPrev
 XF86WebCam
 	~/dotfiles/sysscripts/lock.sh s
 
-super + Menu
-	~/dotfiles/sysscripts/lock.sh s
-
-super + Print
+ctrl + mod3 + Menu
 	~/dotfiles/sysscripts/lock.sh s
 
 XF86MonBrightnessUp
