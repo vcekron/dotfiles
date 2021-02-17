@@ -1,6 +1,6 @@
 #header { display: none; } /* Hide menu bar */
 
-/* Increase width of tab bar */
+/* Increase width of tab bar
 #tabs-tabbar-container.left,
 #tabs-tabbar-container.right {
   width: 386px !important;
@@ -13,3 +13,4 @@
 #tabs-tabbar-container.right .tab-position {
   width: 100%;
 }
+*/
