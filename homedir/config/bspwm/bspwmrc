@@ -53,6 +53,7 @@ bspc rule -a Google-chrome 								desktop='^3'
 
 feh --bg-fill ~/wallpaper.png &
 nvidia-settings -l &
+pulseeffects --gapplication-service &
 
 #Panel
 pgrep -f "bspwm/panel" || ~/.config/bspwm/panel &
