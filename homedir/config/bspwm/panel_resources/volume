@@ -1,15 +1,14 @@
 #! /bin/zsh
 
-#pacmd info | grep -e "Default sink.*alsa_output.usb-Corsair_CORSAIR_VOID_ELITE_Wireless_Gaming_Dongle-00.analog-stereo" && ICON="uf025" || ICON="uf028"
-pacmd info | grep -e "Default sink.*alsa_output.usb-Corsair_CORSAIR_VIRTUOSO_SE_Wireless_Gaming_Headset_15ad45cd000700dc-00.iec958-stereo" && ICON="uf025" || ICON="uf028"
+pacmd info | grep -e "Default sink.*alsa_output.usb-Corsair_CORSAIR_VOID_ELITE_Wireless_Gaming_Dongle-00.analog-stereo" && ICON="uf025" || ICON="uf028"
 
 volume -d 'pulse' | read -r MUTE VOL
 
-#if [[ $ICON == "uf025" ]] ; then
-#	headsetcontrol -cb | read -r BATTH		# Check battery if using headset
-#else
+if [[ $ICON == "uf025" ]] ; then
+	headsetcontrol -cb | read -r BATTH		# Check battery if using headset
+else
 	BATTH="100"								# Set battery to maximum otherwise
-#fi
+fi
 
 if [[ $MUTE == "off" && $BATTH -lt 25 ]] ; then
 	VOL="%{F#FFA54242}\\${ICON} 00%" 		# MUTED & LOW BATTERY
