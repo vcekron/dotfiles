@@ -1,1 +1,0 @@
-/home/scekron/Dropbox/systemFiles/goodList.sh
