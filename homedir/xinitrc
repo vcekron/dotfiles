@@ -87,7 +87,7 @@ sxhkd &
 
 case $(hostname) in
 	"TUE009888")
-		~/dotfiles/sysscripts/touchpadtoggle.sh &
+#		~/dotfiles/sysscripts/touchpadtoggle.sh &
 		exec bspwm
 		;;
 	*)
