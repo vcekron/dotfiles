@@ -40,7 +40,7 @@ case $RES in
 		urxvt -name scratchpad -g 132x29+650-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
 	'2560x1440+1920+0')
-		urxvt -name scratchpad -g 124x29+326-360 -e $SCRIPTPATH/scratchid.sh &
+		urxvt -name scratchpad -g 124x29+326-240 -e $SCRIPTPATH/scratchid.sh & # Previously -360.. why? Nobody knows.
 		;;
 	'1920x1200+1920+0')
 		urxvt -name scratchpad -g 124x29+326-120 -e $SCRIPTPATH/scratchid.sh &
