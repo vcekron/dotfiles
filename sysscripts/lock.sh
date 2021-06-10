@@ -43,30 +43,30 @@ convert -rotate -$remainingDegrees -quality 100 /tmp/lock.jpg /tmp/lock.jpg >/de
 
 # The paramaters for i3lock-color.
 PARAM=(
-	--insidecolor=1d1f21ff \
-	--ringcolor=c5c8c6ff \
+	--inside-color=1d1f21ff \
+	--ring-color=c5c8c6ff \
 	--line-uses-inside \
-	--keyhlcolor=8c9440ff \
-	--bshlcolor=a54242ff \
-	--separatorcolor=c5c8c6ff \
-	--insidevercolor=1d1f21ff \
-	--ringvercolor=b264bbff \
-	--insidewrongcolor=a54242ff \
-	--ringwrongcolor=a54242ff \
-	--timecolor=c5c8c6ff \
-	--datecolor=c5c8c6ff \
-	--timestr="%H:%M" \
+	--keyhl-color=8c9440ff \
+	--bshl-color=a54242ff \
+	--separator-color=c5c8c6ff \
+	--insidever-color=1d1f21ff \
+	--ringver-color=b264bbff \
+	--insidewrong-color=a54242ff \
+	--ringwrong-color=a54242ff \
+	--time-color=c5c8c6ff \
+	--date-color=c5c8c6ff \
+	--time-str="%H:%M" \
 	--time-font="Source Sans Pro" \
-	--timesize=38 \
-	--datestr="%A %d %b" \
+	--time-size=38 \
+	--date-str="%A %d %b" \
 	--date-font="Source Sans Pro" \
-	--datesize=16 \
-	--veriftext="" \
+	--date-size=16 \
+	--verif-text="" \
 	--wrong-font="Source Sans Pro" \
 	--ring-width=4 \
 	--clock \
 	--indicator \
-	--veriftext="" --wrongtext="" --noinputtext=""
+	--verif-text="" --wrong-text="" --noinput-text=""
 )
 
 # Convert our fucked up jpg back to png and remove temp files.
