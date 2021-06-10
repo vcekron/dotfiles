@@ -50,6 +50,7 @@ bspc rule -a SpeedCrunch 								state=pseudo_tiled
 bspc rule -a URxvt:scratchpad 							sticky=on state=floating locked=on hidden=on
 bspc rule -a Zathura 									state=tiled
 bspc rule -a Google-chrome 								desktop='^3'
+bspc rule -a "MATLAB R2020a - academic use"				state=floating
 
 feh --bg-fill ~/wallpaper.png &
 nvidia-settings -l &
