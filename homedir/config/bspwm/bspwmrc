@@ -28,8 +28,16 @@ bspc monitor Primary -d 1 2 3 4 5 6 7 8
 
 case $(bspc query -M | wc -l) in
 	2)
-		bspc monitor east -n East
-		bspc monitor East -d 1 2 3 4 5 6 7 8
+		case $(hostname) in
+			"freja")
+				bspc monitor west -n West
+				bspc monitor West -d 1 2 3 4 5 6 7 8
+				;;
+			"TUE009888")
+				bspc monitor east -n East
+				bspc monitor East -d 1 2 3 4 5 6 7 8
+				;;
+		esac
 		bspc rule -a Spotify 							desktop='^2'
 		bspc rule -a TelegramDesktop 					desktop='^1'
 		bspc rule -a Skype 								dekstop='^1' state=pseudo_tiled

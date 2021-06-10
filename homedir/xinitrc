@@ -9,6 +9,7 @@ case $(hostname) in
 	"freja")
 		#xrandr --output DP-0 --auto --primary
 		xrandr --output DP-0 --mode 2560x1440 --rate 144.00 --primary
+		xrandr --output DP-2 --auto --left-of DP-0
 		;;
 	"TUE009888")
 		## HYBRID
@@ -52,6 +53,14 @@ export QT_SCALE_FACTOR=1.0
 
 export MONITOR1=primary
 case $(hostname) in
+	"freja")
+		case $num_mon in
+			2)
+				export MONITOR1=primary
+				export MONITOR2=West
+				;;
+		esac
+		;;
 	"TUE009888")
 		export MOZ_USE_XINPUT2=1
 		case $num_mon in
@@ -87,7 +96,7 @@ sxhkd &
 
 case $(hostname) in
 	"TUE009888")
-		~/dotfiles/sysscripts/touchpadtoggle.sh &
+#		~/dotfiles/sysscripts/touchpadtoggle.sh &
 		exec bspwm
 		;;
 	*)
