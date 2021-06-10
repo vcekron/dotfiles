@@ -211,7 +211,7 @@ alias stampPDF='~/Dropbox/LaTeX_files/stampPDF'
 
 alias rTasks="cat ~/Dropbox/systemFiles/conkyList | sed '/^#/,+1 d' | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet"
 alias uTasks="nvim ~/Dropbox/systemFiles/conkyList"
-alias uGoodShit="nvim ~/Dropbox/systemFiles/goodList.sh"
+alias uGoodShit="nvim ~/Dropbox/systemFiles/goodList"
 alias rConky="pkill conky && conky --quiet" #Reload Conky
 
 #rbw reboots into Windows.
