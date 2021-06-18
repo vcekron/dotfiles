@@ -57,14 +57,19 @@ tab-item .counter {
 	opacity: 0.7 !important;
 }
 
-/* Set main label colour */
-tab-item .label {
-	color: var(--main-tx-color);
-}
-
 /* Set active tab background colour */
 tab-item.active {
 	background-color: var(--main-ac-color);
+}
+
+/* Set bundled tab background colour */
+tab-item.bundled-active {
+	background-color: var(--alt-ac-color);
+}
+
+/* Set main tab label colour */
+tab-item .label {
+	color: var(--main-tx-color);
 }
 
 /* Set active tab label colour */
@@ -75,6 +80,11 @@ tab-item.active .label {
 /* Set unread tab label font */
 tab-item.unread .label {
 	font-style: italic;
+}
+
+/* Set active bundled tab label colour */
+tab-item.bundled-active .label {
+  	color: var(--main-tx-color);
 }
 
 /* Change styling of the favicon of pending (unloaded) tabs */
