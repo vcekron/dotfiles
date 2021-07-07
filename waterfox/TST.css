@@ -30,7 +30,7 @@ tab-item tab-item-substance {
 }
 
 /* Change tab borders */
-tab-item tab-item-substance, tab-item.pinned tab-item-substance {
+tab-item tab-item-substance, tab-item.pinned {
 	border: solid 1px var(--main-bg-color);
 }
 
