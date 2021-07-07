@@ -25,12 +25,12 @@
 
 /*** TABS ***/
 /* Change the tab height */
-tab-item {
+tab-item tab-item-substance {
 	height: var(--tab-size);
 }
 
 /* Change tab borders */
-tab-item, tab-item.pinned {
+tab-item tab-item-substance, tab-item.pinned tab-item-substance {
 	border: solid 1px var(--main-bg-color);
 }
 
@@ -43,7 +43,7 @@ tab-item, tab-item.pinned {
 tab-item .highlighter {
 	display: none;
 }
-tab-item {
+tab-item tab-item-substance {
 	padding-left: 0px !important; /* Reduce space due to hidden highlighter */
 }
 
@@ -58,12 +58,12 @@ tab-item .counter {
 }
 
 /* Set active tab background colour */
-tab-item.active {
+tab-item.active tab-item-substance {
 	background-color: var(--main-ac-color);
 }
 
 /* Set bundled tab background colour */
-tab-item.bundled-active {
+tab-item.bundled-active tab-item-substance {
 	background-color: var(--alt-ac-color);
 }
 
