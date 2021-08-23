@@ -209,6 +209,8 @@ alias rLogid='systemctl restart logid.service'
 
 alias stampPDF='~/Dropbox/LaTeX_files/stampPDF'
 
+alias rTelegram='sudo rm -r ~/.local/share/TelegramDesktop/tdata/user_data/media_cache'
+
 alias rTasks="cat ~/Dropbox/systemFiles/conkyList | sed '/^#/,+1 d' | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet"
 alias uTasks="nvim ~/Dropbox/systemFiles/conkyList"
 alias uGoodShit="nvim ~/Dropbox/systemFiles/goodList"
