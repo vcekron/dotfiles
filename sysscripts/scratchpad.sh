@@ -24,8 +24,11 @@ fi
 if [[ "$HOSTNAME" == TUE009888 ]] ; then
 	case $(xrandr | grep " connected " | wc -l) in
 		2)
-			#RES=$(xrandr | grep HDMI-1 | cut -d " " -f 3) # INTEL
-			RES=$(xrandr | grep DP-0 | cut -d " " -f 3) # NVIDIA
+			if [[ $(xrandr | grep DP-4 | grep "disconnected") ]]; then
+				RES=$(xrandr | grep DP-0 | cut -d " " -f 3) # NVIDIA HDMI
+			else
+				RES=$(xrandr | grep DP-4 | cut -d " " -f 3) # NVIDIA USB-C
+			fi
 			;;
 		*)
 			RES=$(xrandr | grep primary | cut -d " " -f 4)
@@ -40,7 +43,7 @@ case $RES in
 		urxvt -name scratchpad -g 132x29+650-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
 	'2560x1440+1920+0')
-		urxvt -name scratchpad -g 124x29+326-240 -e $SCRIPTPATH/scratchid.sh & # Previously -360.. why? Nobody knows.
+		urxvt -name scratchpad -g 124x29+326-360 -e $SCRIPTPATH/scratchid.sh &
 		;;
 	'1920x1200+1920+0')
 		urxvt -name scratchpad -g 124x29+326-120 -e $SCRIPTPATH/scratchid.sh &

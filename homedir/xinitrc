@@ -22,8 +22,8 @@ case $(hostname) in
 
 		## NVIDIA
 		xrandr --output DP-3 --auto --primary
-		xrandr --output DP-0 --auto --right-of DP-3
-		#xrandr --output DP-0 --mode 1920x1080 --right-of DP-3
+		xrandr --output DP-0 --auto --right-of DP-3				# Laptop to the left; HDMI
+		xrandr --output DP-4 --auto --right-of DP-3				# Laptop to the left; USB-C
 		xrandr --dpi 96
 esac
 
