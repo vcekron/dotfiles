@@ -160,12 +160,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 #Aliases
-alias -g L="|less -FX"
-alias x="chmod +x"
-alias sx="sudo chmod +x"
-alias cat="bat"
-alias ls="exa -s type"
-alias ll="exa -l -s type"
 alias fsz="dust -ir"
 alias grep="grep --color=auto"
 alias e="$EDITOR"
@@ -178,40 +172,30 @@ alias trash="trash -v"
 alias rm="noglob timeout 10 rm -iv --one-file-system"
 alias rmdir="rmdir -v"
 alias srm="noglob timeout 10 sudo rm -iv --one-file-system"
-alias -g cp="cp -iv"
-alias -g mv="mv -iv"
 alias rcp="rsync -v --progress"
 alias rmv="rsync -v --progress --remove-source-files"
-alias sshcp="rsync -avHPe \"ssh -p$(cat ~/.ssh_port_private 2> /dev/null)\""
 alias wifi-menu="sudo wifi-menu -o"
+
 alias yeet="yay -Rcs"
-
-alias gs="git status -sb"
-alias ga="git add"
-alias gc="git commit -m"
-
 alias hwmon="btm"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
 alias cVPN='sudo chattr -i /var/lib/nordvpn/data/.config.ovpn'
+alias eEth='sudo dhcpcd enp0s20f0u1u3i5'
 
 alias eTUeVPN='sudo openconnect vpn2.tue.nl'
-
 alias tTP='~/dotfiles/sysscripts/touchpadtoggle.sh'
 alias eTether='sudo dhcpcd enp0s20f0u5c4i2'
-alias eEth='sudo dhcpcd enp0s20f0u1u3i5'
 alias TUePrint='smbclient -W TUE -U s.kronberg@tue.nl //tueprint.campus.tue.nl/MFP-CAMPUS-PS'
 alias updateMatlab='sudo /usr/local/MATLAB/R2020a/bin/glnxa64/update_installer'
 alias nbconvert='/opt/anaconda/bin/jupyter-nbconvert'
 
 alias generateSRCINFO="makepkg --printsrcinfo > .SRCINFO"
 
-alias rLogid='systemctl restart logid.service'
-
 alias stampPDF='~/Dropbox/LaTeX_files/stampPDF'
 
+alias rLogid='systemctl restart logid.service'
 alias rTelegram='sudo rm -r ~/.local/share/TelegramDesktop/tdata/user_data/media_cache'
-
 alias rTasks="cat ~/Dropbox/systemFiles/conkyList | sed '/^#/,+1 d' | fold -s -w 50 | sed '/^*/! s_^_  _' > ~/.config/conky/.conkyList && pkill conky && conky --quiet"
 alias uTasks="nvim ~/Dropbox/systemFiles/conkyList"
 alias uGoodShit="nvim ~/Dropbox/systemFiles/goodList"
@@ -241,28 +225,10 @@ yt() {
 	vivaldi-stable --app="$1" > /dev/null 2>&1
 }
 
-#scrShotShadow function takes a screenshot and adds a nice shadow.
-#usage: scrShotShadow X [flags: e.g. -s -d 2]
-scrShotShadow() {
-	maim -u -m 1 "$@" | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage ~/scrShot.png
-}
-
 #relinkBin relinks ~/dotiles/usr/local/bin to /usr/local/bin
 relinkBin() {
 	sudo rm -r /usr/local/bin
 	sudo ln -s /home/$(whoami)/dotfiles/usr/local/bin /usr/local/
-}
-
-compressEncrypt() {
-	zip --encrypt "$1".zip -r $1
-}
-
-#YouTube playlist functions
-function playList() {
-	mpv --playlist=/home/simokron/playlist --playlist-start=$1
-}
-function getList() {
-	youtube-dl -j --flat-playlist --playlist-reverse "https://www.youtube.com/playlist?list=PLHw7hcztgbtsPtqaSvuSJezNDkT_f3wZh" | jq -r '.id' | sed 's_^_https://youtu.be/_' > /home/simokron/playlist
 }
 
 #Function optimise PDF files.
@@ -275,6 +241,7 @@ function resizePDF() {
 	~/dotfiles/resizePDF.sh $1 $2
 }
 
+#Function to extract frames from GIF.
 function extractFrames() {
 	~/dotfiles/extractFrames.sh $1
 }
@@ -283,10 +250,10 @@ alias Man="MANPAGER='nvim +Man!' man"
 
 clpkg ()
 {
-	if [[ $(pacman -Qtd) ]]
+	if [[ $(yay -c) ]]
 	then
 		echo "clearing unaffiliated packages..."
-		sudo pacman -Rns $(pacman -Qtdq)
+		yay -c
 	else
 		echo " no unaffiliated packages found"
 	fi
@@ -379,7 +346,7 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-#setup key accordingly
+#setup keys accordingly
 [[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"     beginning-of-line
 [[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"      end-of-line
 [[ -n "${key[Insert]}"   ]]  && bindkey  "${key[Insert]}"   overwrite-mode
@@ -392,6 +359,3 @@ key[PageDown]=${terminfo[knp]}
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}" history-beginning-search-forward
 
 bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(zoxide init zsh)"
