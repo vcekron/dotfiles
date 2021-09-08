@@ -43,7 +43,11 @@ case $RES in
 		urxvt -name scratchpad -g 132x29+650-0 -e $SCRIPTPATH/scratchid.sh &
 		;;
 	'2560x1440+1920+0')
-		urxvt -name scratchpad -g 124x29+326-360 -e $SCRIPTPATH/scratchid.sh &
+		if [[ "$HOSTNAME" == TUE009888 ]] ; then
+			urxvt -name scratchpad -g 124x29+326-360 -e $SCRIPTPATH/scratchid.sh &
+		else
+			urxvt -name scratchpad -g 124x29+326+629 -e $SCRIPTPATH/scratchid.sh &
+		fi
 		;;
 	'1920x1200+1920+0')
 		urxvt -name scratchpad -g 124x29+326-120 -e $SCRIPTPATH/scratchid.sh &
