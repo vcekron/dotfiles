@@ -177,6 +177,7 @@ alias rmv="rsync -v --progress --remove-source-files"
 alias wifi-menu="sudo wifi-menu -o"
 
 alias yeet="yay -Rcs"
+alias yank="yay -S"
 alias hwmon="btm"
 alias evpn='nordvpn connect'
 alias dvpn='nordvpn disconnect'
@@ -261,7 +262,7 @@ clpkg ()
 
 syu ()
 {
-	yay -Syu
+	yay -Syu "$@"
 	(~/.config/bspwm/panel_resources/updates > "$PANEL_FIFO" &)
 	echo "$bold_color$fg[blue]::$fg[white] Checking for unaffiliated packages...${reset_color}"
 	yay -c
