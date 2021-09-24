@@ -1,7 +1,7 @@
 # thumb wheel up => increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ -2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
-	b:7
+	b:6
 
 # thumb wheel down => lower volume
 "pactl set-sink-volume @DEFAULT_SINK@ +2% && ~/.config/bspwm/panel_resources/volume > "$PANEL_FIFO""
-	b:6
+	b:7
